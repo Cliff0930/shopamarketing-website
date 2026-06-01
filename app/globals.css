@@ -151,6 +151,15 @@ body {
   }
 }
 
+/* Remove clip-path from blog card images — it cuts corners off WordPress featured images */
+.chy-blog-1-item .main-img img {
+  clip-path: none !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
 /* Fix SplitText capitalize-per-char bug — each char div gets capitalize applied,
    making every letter uppercase. Force none on all split character wrappers. */
 .chy-split-in-right .split-line div div,
