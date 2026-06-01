@@ -78,7 +78,7 @@ export default function ContactForm() {
     <div className="contact-form-2-wrap">
       <h6 className="title chy-heading-1">More about you</h6>
 
-      <form className="contact-form-2 contact-form-shopa" onSubmit={handleSubmit} noValidate>
+      <form className="contact-form-shopa" onSubmit={handleSubmit} noValidate>
 
         {/* Full Name */}
         <div className="f-name">
@@ -143,7 +143,7 @@ export default function ContactForm() {
         {/* Message textarea */}
         <div className="f-msg">
           <label htmlFor="message">Anything else you&apos;d like us to know?</label>
-          <textarea id="message" cols={30} rows={5}
+          <textarea id="message" cols={30} rows={3}
             placeholder="Share more details (if any)"
             value={message} onChange={e => setMessage(e.target.value)} />
         </div>

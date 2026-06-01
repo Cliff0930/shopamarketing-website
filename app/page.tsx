@@ -407,7 +407,6 @@ export default async function HomePage() {
       {/* ── PRICE (SWIPER SLIDER) ── */}
       <div
         className="chy-price-1-area bg-default pt-135 pb-105 chy-class-add fix"
-        data-navbar-dark="true"
         style={{ backgroundImage: "url('/assets/img/price/p1-bg-img-1.png')" }}
       >
         <div className="container chy-contaienr-1">

@@ -101,9 +101,9 @@ body {
   text-transform: none !important;
 }
 
-/* ── Contact form grid layout ────────────────────────── */
+/* ── Contact form ────────────────────────────────────── */
 .contact-form-shopa {
-  display: grid !important;
+  display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px 18px;
   grid-template-areas:
@@ -134,8 +134,10 @@ body {
 .contact-form-shopa .f-check   { grid-area: f-check; }
 .contact-form-shopa .f-btn     { grid-area: f-btn; }
 
-/* Style native <select> to match template inputs */
-.contact-form-2 select {
+/* Text inputs, select, textarea */
+.contact-form-shopa input:not([type="checkbox"]),
+.contact-form-shopa select,
+.contact-form-shopa textarea {
   width: 100%;
   height: 62px;
   background: #F3F3F5;
@@ -146,8 +148,82 @@ body {
   font-size: 16px;
   font-weight: 400;
   color: #504E4E;
-  appearance: auto;
+}
+
+.contact-form-shopa input:not([type="checkbox"])::placeholder,
+.contact-form-shopa textarea::placeholder {
+  font-size: 16px;
+  font-weight: 400;
+  color: #504E4E;
+}
+
+.contact-form-shopa textarea {
+  padding: 16px 25px;
+  height: 140px;
+  border-radius: 15px;
+}
+
+.contact-form-shopa select {
+  appearance: none;
   cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23504E4E' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  padding-right: 46px;
+}
+
+/* Field labels */
+.contact-form-shopa label {
+  display: block;
+  font-size: 16px;
+  color: #030617;
+  font-weight: 600;
+  line-height: 26px;
+  margin-bottom: 5px;
+}
+
+.contact-form-shopa label span {
+  color: #F08441;
+}
+
+/* Consent checkboxes — plain text, not uppercase/orange */
+.contact-form-shopa .f-check {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-form-shopa .f-check label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-weight: 400;
+  font-size: 14px;
+  text-transform: none;
+  margin-bottom: 0;
+  cursor: pointer;
+}
+
+.contact-form-shopa .f-check label span {
+  color: inherit;
+}
+
+.contact-form-shopa input[type="checkbox"] {
+  width: auto;
+  height: auto;
+  background: none;
+  border-radius: 0;
+  padding: 0;
+  accent-color: #663dff;
+  flex-shrink: 0;
+  margin-top: 3px;
+}
+
+/* Submit button */
+.contact-form-shopa .chy-pr-btn-1 {
+  border: none;
+  outline: none;
+  box-shadow: none;
 }
 
 /* ── Footer layout ───────────────────────────────────── */
