@@ -151,8 +151,9 @@ body {
   }
 }
 
-/* Blog card images — contained so full image is visible, no cropping */
+/* Blog card images — reduced height + contained so full image shows without extra space */
 .chy-blog-1-item .main-img {
+  height: 240px !important;
   background: #f5f5f5;
 }
 .chy-blog-1-item .main-img img {
