@@ -50,6 +50,7 @@ export default function TemplateScripts() {
       const preloader = document.querySelector('#preloader') as HTMLElement | null;
       if (preloader) preloader.remove = () => {};
 
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const w = window as any;
       if (typeof w.$ !== 'undefined') {
         w.$(window).trigger('load');
@@ -70,6 +71,7 @@ export default function TemplateScripts() {
     if (!ready.current) return;
 
     const timer = setTimeout(() => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const w = window as any;
       const preloader = document.querySelector('#preloader') as HTMLElement | null;
       if (preloader) preloader.remove = () => {};
