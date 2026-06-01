@@ -100,3 +100,12 @@ body {
 .chy-title-1 {
   text-transform: none !important;
 }
+
+/* Fix SplitText capitalize-per-char bug — each char div gets capitalize applied,
+   making every letter uppercase. Force none on all split character wrappers. */
+.chy-split-in-right .split-line div div,
+.chy-split-in-right-2 .split-line div div,
+.chy-split-in-hero-1 .split-line div div,
+.chy-split-in-hero-4 .split-line div div {
+  text-transform: none !important;
+}
