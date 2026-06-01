@@ -101,6 +101,56 @@ body {
   text-transform: none !important;
 }
 
+/* ── Footer layout ───────────────────────────────────── */
+.footer-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 40px;
+}
+
+@media (max-width: 1023px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Services list — 2 columns since there are 7 items */
+.footer-services-list {
+  columns: 2;
+  column-gap: 16px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 639px) {
+  .footer-services-list {
+    columns: 1;
+  }
+}
+
+/* Locations — 2x2 grid */
+.footer-locations-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+@media (max-width: 639px) {
+  .footer-locations-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Fix SplitText capitalize-per-char bug — each char div gets capitalize applied,
    making every letter uppercase. Force none on all split character wrappers. */
 .chy-split-in-right .split-line div div,
