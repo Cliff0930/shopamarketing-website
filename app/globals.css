@@ -2,26 +2,342 @@
 @tailwind components;
 @tailwind utilities;
 
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap');
+
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #0d0d0d;
+  --primary: #663dff;
+  --primary-dark: #4f2ecc;
+  --secondary: #aa00ff;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f0f0f0;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
+}
+
+/* Selection */
+::selection {
+  background: var(--primary);
+  color: #fff;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #663dff 0%, #aa00ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .gradient-bg {
+    background: linear-gradient(135deg, #663dff 0%, #aa00ff 100%);
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 2px;
+    background: linear-gradient(135deg, #663dff, #aa00ff);
+    border-radius: inherit;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Fix Tailwind .collapse conflicting with Bootstrap accordion */
+.accordion-collapse {
+  visibility: visible !important;
+}
+
+/* Recent post sidebar thumbnails — square crop, no squish */
+/* d-inline-block uses !important so we must match it */
+.latest-post-item .img a {
+  display: block !important;
+  width: 100%;
+  height: 100%;
+}
+.latest-post-item .img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Blog detail page — responsive typography */
+.blog-details-body h1 { font-size: 30px; }
+.blog-details-body h2 { font-size: 26px; }
+.blog-details-body h3 { font-size: 23px; }
+.blog-details-body h4 { font-size: 20px; }
+.blog-details-body h5 { font-size: 18px; }
+.blog-details-body p  { font-size: 18px; line-height: 1.8; }
+
+@media (max-width: 1023px) {
+  .blog-details-body h1 { font-size: 26px; }
+  .blog-details-body h2 { font-size: 23px; }
+  .blog-details-body h3 { font-size: 20px; }
+  .blog-details-body h4 { font-size: 18px; }
+  .blog-details-body h5 { font-size: 17px; }
+  .blog-details-body p  { font-size: 17px; }
+}
+
+@media (max-width: 767px) {
+  .blog-details-body h1 { font-size: 24px; }
+  .blog-details-body h2 { font-size: 21px; }
+  .blog-details-body h3 { font-size: 18px; }
+  .blog-details-body h4 { font-size: 17px; }
+  .blog-details-body h5 { font-size: 16px; }
+  .blog-details-body p  { font-size: 16px; }
+}
+
+/* Blog detail hero image — full image, no fixed-height crop */
+.blog-details-content .main-img {
+  height: auto !important;
+}
+.blog-details-content .main-img img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Blog card image — natural 16:9 ratio, no clip-path crop */
+.chy-blog-1-item .main-img {
+  height: auto !important;
+  aspect-ratio: 16 / 9;
+}
+.chy-blog-1-item .main-img img,
+.chy-blog-1-item:hover .main-img img {
+  clip-path: none !important;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Contact form — custom grid overriding template's 6-slot layout */
+.contact-form-shopa {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
+  grid-template-areas:
+    "f-name   f-phone"
+    "f-email  f-biz"
+    "f-web    f-service"
+    "f-msg    f-msg"
+    "f-check  f-check"
+    "f-btn    f-btn" !important;
+  gap: 20px 18px !important;
+}
+.contact-form-shopa .f-name    { grid-area: f-name; }
+.contact-form-shopa .f-phone   { grid-area: f-phone; }
+.contact-form-shopa .f-email   { grid-area: f-email; }
+.contact-form-shopa .f-biz     { grid-area: f-biz; }
+.contact-form-shopa .f-web     { grid-area: f-web; }
+.contact-form-shopa .f-service { grid-area: f-service; }
+.contact-form-shopa .f-msg     { grid-area: f-msg; }
+.contact-form-shopa .f-check   { grid-area: f-check; }
+.contact-form-shopa .f-btn     { grid-area: f-btn; }
+.contact-form-shopa textarea   { height: 140px !important; border-radius: 15px !important; }
+@media (max-width: 767px) {
+  .contact-form-shopa {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "f-name" "f-phone" "f-email" "f-biz"
+      "f-web" "f-service" "f-msg" "f-check" "f-btn" !important;
+  }
+}
+/* Native select styled like template inputs */
+.contact-form-shopa select {
+  width: 100%;
+  height: 62px;
+  background: #F3F3F5;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  padding: 0 25px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #504E4E;
+  font-family: 'Montserrat', sans-serif;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23504E4E' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 20px center;
+  cursor: pointer;
+}
+.contact-form-shopa select:focus { outline: none; }
+/* Checkbox label — reset template uppercase/bold */
+.contact-form-shopa .f-check label {
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  line-height: 1.6 !important;
+  margin-bottom: 0 !important;
+  color: #504E4E !important;
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 10px !important;
+  cursor: pointer !important;
+  width: 100% !important;
+}
+/* Prevent text span from overflowing the flex container */
+.contact-form-shopa .f-check label span {
+  flex: 1 !important;
+  min-width: 0 !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  text-transform: none !important;
+}
+.contact-form-shopa .f-check input[type="checkbox"] {
+  flex-shrink: 0 !important;
+  margin-top: 3px !important;
+  width: 16px !important;
+  height: 16px !important;
+  accent-color: #663dff !important;
+}
+
+/* Scroll-to-top button — primary colour override */
+.scroll-top {
+  background: var(--primary) !important;
+}
+
+/* ── Footer responsive grid ── */
+.footer-main-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+.footer-services-list {
+  columns: 1;
+  column-gap: 16px;
+}
+.footer-locations-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px 24px;
+}
+
+@media (min-width: 640px) {
+  .footer-main-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .footer-locations-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer-main-grid {
+    grid-template-columns: 2fr 1fr 1fr 2fr;
+  }
+  .footer-services-list {
+    columns: 2;
+  }
+}
+
+/* Typewriter cursor blink on search input placeholder */
+.blog-live-search-bar .search-input::placeholder {
+  color: #888;
+  transition: color 0.2s;
+}
+.blog-live-search-bar .search-input:not(:focus)::placeholder {
+  animation: cursor-blink 1s step-end infinite;
+}
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.35; }
+}
+
+/* Blog pagination */
+.chy-blog-pagination .pagination-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.chy-blog-pagination .page-num,
+.chy-blog-pagination .page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 6px;
+  border: 2px solid #e5e5e5;
+  color: #141515;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: #fff;
+}
+
+.chy-blog-pagination .page-num:hover,
+.chy-blog-pagination .page-btn:hover {
+  background: #663dff;
+  border-color: #663dff;
+  color: #fff;
+}
+
+.chy-blog-pagination .page-num.active {
+  background: #663dff;
+  border-color: #663dff;
+  color: #fff;
+}
+
+.chy-blog-pagination .page-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  color: #888;
+  font-weight: 600;
+  font-size: 15px;
 }
