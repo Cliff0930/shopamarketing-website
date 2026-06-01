@@ -101,6 +101,55 @@ body {
   text-transform: none !important;
 }
 
+/* ── Contact form grid layout ────────────────────────── */
+.contact-form-shopa {
+  display: grid !important;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px 18px;
+  grid-template-areas:
+    "f-name    f-phone"
+    "f-email   f-biz"
+    "f-web     f-service"
+    "f-msg     f-msg"
+    "f-check   f-check"
+    "f-btn     f-btn";
+}
+
+@media (max-width: 767px) {
+  .contact-form-shopa {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "f-name" "f-phone" "f-email" "f-biz"
+      "f-web" "f-service" "f-msg" "f-check" "f-btn";
+  }
+}
+
+.contact-form-shopa .f-name    { grid-area: f-name; }
+.contact-form-shopa .f-phone   { grid-area: f-phone; }
+.contact-form-shopa .f-email   { grid-area: f-email; }
+.contact-form-shopa .f-biz     { grid-area: f-biz; }
+.contact-form-shopa .f-web     { grid-area: f-web; }
+.contact-form-shopa .f-service { grid-area: f-service; }
+.contact-form-shopa .f-msg     { grid-area: f-msg; }
+.contact-form-shopa .f-check   { grid-area: f-check; }
+.contact-form-shopa .f-btn     { grid-area: f-btn; }
+
+/* Style native <select> to match template inputs */
+.contact-form-2 select {
+  width: 100%;
+  height: 62px;
+  background: #F3F3F5;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  padding: 0 25px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #504E4E;
+  appearance: auto;
+  cursor: pointer;
+}
+
 /* ── Footer layout ───────────────────────────────────── */
 .footer-main-grid {
   display: grid;
