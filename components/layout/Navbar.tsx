@@ -281,11 +281,11 @@ export default function Navbar() {
                   Give us a call
                 </span>
                 <a
-                  href="tel:+61390000000"
+                  href="tel:+611800247034"
                   className={clsx("whitespace-nowrap transition-colors duration-300 hover:text-primary", isDark ? "text-white" : "text-[#141515]")}
                   style={{ fontSize: "18px", fontWeight: 800, lineHeight: 1 }}
                 >
-                  +61 3 9000 0000
+                  1800 247 034
                 </a>
               </div>
             </div>
@@ -505,10 +505,10 @@ export default function Navbar() {
             <div className="flex items-center justify-center gap-2 mt-5">
               <Phone size={13} className="text-white/30" />
               <a
-                href="tel:+61390000000"
+                href="tel:+611800247034"
                 className="text-[14px] font-[500] text-white/40 hover:text-white/70 transition-colors"
               >
-                +61 3 9000 0000
+                1800 247 034
               </a>
             </div>
           </div>
