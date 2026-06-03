@@ -125,7 +125,7 @@ export default async function HomePage() {
                     <i className="fa-solid fa-star"></i>
                   </div>
                   <span className="line"></span>
-                  <h4 className="chy-heading-1 text">Google Reviews · 4.7 / 319 Verified Reviews</h4>
+                  <h4 className="chy-heading-1 text">Google Reviews · 4.7<br />319 Verified Reviews</h4>
                 </div>
               </div>
 
