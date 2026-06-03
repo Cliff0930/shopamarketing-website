@@ -621,3 +621,120 @@ body {
   line-height: 1.75;
   margin: 0;
 }
+
+/* ── Homepage hero ───────────────────────────────────── */
+.chy-hero-1-content .title {
+  font-size: 65px !important;
+}
+@media (max-width: 1399px) { .chy-hero-1-content .title { font-size: 56px !important; } }
+@media (max-width: 1199px) { .chy-hero-1-content .title { font-size: 48px !important; } }
+@media (max-width: 991px)  { .chy-hero-1-content .title { font-size: 42px !important; } }
+@media (max-width: 767px)  { .chy-hero-1-content .title { font-size: 34px !important; } }
+.chy-hero-1-content .btn-wrap { flex-wrap: nowrap !important; }
+
+/* ── Trusted section ─────────────────────────────────── */
+.chy-trusted-1-area .chy-container-1 { max-width: 1480px !important; }
+.chy-trusted-1-reating,
+.chy-trusted-1-progress {
+  height: 100% !important;
+  box-sizing: border-box;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+}
+.chy-trusted-1-reating { height: auto !important; }
+
+/* ── Services Option Label ───────────────────────────── */
+.svc-opt-label-wrap { text-align: center; margin-bottom: 12px; }
+.svc-opt-label {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  color: #663dff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border: 1px solid #663dff;
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Option A: Accordion Rows (saved for future use) ─── */
+.svc-accordion-row { border-bottom: 1px solid #eee; overflow: hidden; }
+.svc-accordion-row:first-of-type { border-top: 1px solid #eee; }
+.svc-accordion-header { display: flex; align-items: center; gap: 24px; padding: 22px 0; cursor: default; }
+.svc-accordion-num { font-size: 44px; font-weight: 800; color: #663dff; opacity: 0.12; font-family: 'Montserrat', sans-serif; line-height: 1; min-width: 64px; transition: opacity 0.3s ease; }
+.svc-accordion-row:hover .svc-accordion-num { opacity: 0.45; }
+.svc-accordion-title { font-size: 22px !important; font-weight: 700 !important; flex: 1; margin: 0 !important; transition: color 0.25s ease; }
+.svc-accordion-row:hover .svc-accordion-title { color: #663dff; }
+.svc-accordion-arrow { font-size: 18px; color: #663dff; transition: transform 0.35s ease; }
+.svc-accordion-row:hover .svc-accordion-arrow { transform: rotate(45deg); }
+.svc-accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.45s ease, padding-bottom 0.35s ease; padding: 0 0 0 88px; }
+.svc-accordion-row:hover .svc-accordion-body { max-height: 220px; padding-bottom: 24px; }
+.svc-accordion-list { list-style: none; padding: 0; margin: 10px 0 0; display: flex; gap: 20px; flex-wrap: wrap; }
+.svc-accordion-list li { font-size: 13px; color: #555; display: flex; align-items: center; gap: 6px; font-family: 'Montserrat', sans-serif; }
+.svc-accordion-list li i { color: #663dff; font-size: 10px; }
+
+/* ── Services Ticker (Option C — active) ─────────────── */
+.svc-ticker-drag-wrap {
+  overflow-x: auto;
+  overflow-y: visible;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding: 20px 0 40px;
+  user-select: none;
+}
+.svc-ticker-drag-wrap::-webkit-scrollbar { display: none; }
+.svc-ticker-track-js { display: flex; gap: 20px; width: max-content; }
+.svc-ticker-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px;
+  border: 2px solid #f0eefc;
+  width: 380px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.35s ease;
+}
+.svc-ticker-card:hover {
+  border-color: #663dff;
+  box-shadow: 0 20px 50px rgba(102,61,255,0.18);
+  transform: scale(1.06);
+}
+.svc-ticker-img {
+  width: 100%;
+  height: 110px;
+  background: #f4f4f6;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  transition: background 0.3s ease;
+}
+.svc-ticker-img::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(102,61,255,0.15), rgba(102,61,255,0));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  border-radius: 8px;
+}
+.svc-ticker-card:hover .svc-ticker-img::after { opacity: 1; }
+.svc-ticker-title {
+  font-size: 24px !important;
+  font-weight: 700 !important;
+  margin-bottom: 12px !important;
+  white-space: nowrap !important;
+  transition: color 0.3s ease;
+}
+.svc-ticker-card:hover .svc-ticker-title { color: #663dff !important; }
+.svc-ticker-desc { font-size: 15px !important; line-height: 1.7 !important; color: #666 !important; margin-bottom: 16px !important; }
+.svc-ticker-list { list-style: none; padding: 0; margin: 0; }
+.svc-ticker-list li { font-size: 14px; color: #555; padding: 3px 0; display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; }
+.svc-ticker-list li i { color: #663dff; font-size: 11px; }
+.svc-ticker-card .chy-pr-btn-1 { transform: scale(0.82); transform-origin: left center; }
