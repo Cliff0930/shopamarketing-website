@@ -99,13 +99,7 @@ export default async function HomePage() {
 
               <div className="chy-trusted-1-item">
                 <h3 className="chy-trusted-1-title chy-heading-1">
-                  Trusted by{' '}
-                  <span className="icon-1"><img src="/assets/img/trusted/t1-world-1.png" alt="" /></span>
-                  <span className="icon-2"><img src="/assets/img/trusted/t1-world-2.png" alt="" /></span>
-                  {' '}1,000+ Businesses{' '}
-                  <span className="icon-1"><img src="/assets/img/trusted/t1-world-3.png" alt="" /></span>
-                  <span className="icon-2"><img src="/assets/img/trusted/t1-world-4.png" alt="" /></span>
-                  {' '}Across Australia &amp; New Zealand
+                  Trusted by 1,000+ Businesses Across Australia &amp; New Zealand
                 </h3>
               </div>
 
