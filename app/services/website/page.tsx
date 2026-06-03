@@ -270,7 +270,7 @@ export default function WebsiteDesignPage() {
       </div>
 
       {/* stats / impact section */}
-      <div className="web-stats-area pt-90 pb-90" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
+      <div className="web-stats-area pt-90 pb-90" data-navbar-dark="true" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h2 className="chy-title-1 chy-split-in-right chy-split-text" style={{ color: '#fff' }}>
