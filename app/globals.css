@@ -737,3 +737,18 @@ body {
 .svc-ticker-list li { font-size: 14px; color: #555; padding: 3px 0; display: flex; align-items: center; gap: 8px; font-family: 'Montserrat', sans-serif; }
 .svc-ticker-list li i { color: #663dff; font-size: 11px; }
 .svc-ticker-card .chy-pr-btn-1 { transform: scale(0.82); transform-origin: left center; }
+
+/* ── Pricing section — wider container & lighter feature list ── */
+.chy-price-card-1-area .chy-container-1 {
+  max-width: 1480px !important;
+}
+.chy-price-card-1-item-list li {
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  font-family: var(--urbanist) !important;
+  text-transform: none !important;
+  color: #3a3a3a !important;
+}
+.chy-price-card-1-item:is(.active) .chy-price-card-1-item-list li {
+  color: rgba(255,255,255,0.9) !important;
+}

@@ -147,7 +147,7 @@ export default function PricingSection() {
                   <span style={{ fontSize: 14, fontWeight: 500 }}>/mo</span>
                 </h6>
 
-                <p className="chy-para-1" style={{ fontSize: 12, marginBottom: 16, opacity: 0.6 }}>
+                <p className="chy-para-1" style={{ fontSize: 13, fontWeight: 600, marginBottom: 16, opacity: 0.75 }}>
                   Billed {annual ? 'annually' : 'monthly'} + GST
                 </p>
 
