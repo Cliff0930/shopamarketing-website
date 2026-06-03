@@ -33,7 +33,7 @@ export default async function BlogPage({
       {/* breadcrumb-area-start */}
       <div
         className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
+        style={{ backgroundImage: "url('/assets/img/breadcrumb/blog-hero.webp')", backgroundSize: 'cover' }}
       >
         <div className="container h1-container">
           <div className="row">

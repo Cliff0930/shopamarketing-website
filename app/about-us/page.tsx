@@ -14,7 +14,7 @@ export default function AboutUsPage() {
       {/* breadcrumb-start */}
       <div
         className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
+        style={{ backgroundImage: "url('/assets/img/breadcrumb/about-us.webp')", backgroundSize: 'cover' }}
       >
         <div className="container h1-container">
           <div className="row">

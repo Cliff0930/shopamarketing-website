@@ -291,9 +291,333 @@ body {
 
 /* Fix SplitText capitalize-per-char bug — each char div gets capitalize applied,
    making every letter uppercase. Force none on all split character wrappers. */
+.chy-split-in-right,
+.chy-split-in-right-2 {
+  padding-bottom: 6px !important;
+}
+.chy-split-in-right .split-line,
+.chy-split-in-right-2 .split-line {
+  margin-bottom: 2px;
+}
 .chy-split-in-right .split-line div div,
 .chy-split-in-right-2 .split-line div div,
 .chy-split-in-hero-1 .split-line div div,
 .chy-split-in-hero-4 .split-line div div {
   text-transform: none !important;
+}
+
+.has-breadcrumb-overlay::after {
+  opacity: 0.5 !important;
+}
+
+/* Blog pagination */
+.chy-blog-pagination {
+  display: flex;
+  justify-content: center;
+}
+.chy-blog-pagination .pagination-wrap {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.chy-blog-pagination .page-num,
+.chy-blog-pagination .page-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Montserrat', sans-serif;
+  color: #141515;
+  background: #f4f4f6;
+  border: 2px solid transparent;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.chy-blog-pagination .page-num:hover,
+.chy-blog-pagination .page-btn:hover {
+  background: #ede8ff;
+  color: #663dff;
+  border-color: #663dff;
+}
+.chy-blog-pagination .page-num.active {
+  background: #663dff;
+  color: #fff;
+  border-color: #663dff;
+  pointer-events: none;
+}
+.chy-blog-pagination .page-btn {
+  font-size: 12px;
+  color: #663dff;
+  background: #ede8ff;
+  border-color: #663dff;
+}
+.chy-blog-pagination .page-btn:hover {
+  background: #663dff;
+  color: #fff;
+}
+.chy-blog-pagination .page-ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  font-size: 14px;
+  color: #888;
+  user-select: none;
+}
+
+/* ── Website Design Page ─────────────────────────────── */
+
+/* Numbered cards — Why Australian Websites Underperform */
+.web-numbered-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 32px;
+  height: 100%;
+  border: 2px solid #f0eefc;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.web-numbered-card:hover {
+  border-color: #663dff;
+  box-shadow: 0 8px 32px rgba(102,61,255,0.1);
+}
+.web-numbered-card__num {
+  display: block;
+  font-size: 72px;
+  font-weight: 800;
+  line-height: 1;
+  color: #663dff;
+  opacity: 0.15;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+}
+.web-numbered-card:hover .web-numbered-card__num {
+  opacity: 0.4;
+}
+.web-numbered-card__title {
+  font-size: 22px !important;
+  font-weight: 700 !important;
+  margin-bottom: 18px !important;
+}
+.web-numbered-card__body {
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Stats section */
+.web-stats-area .chy-split-in-right {
+  color: #fff;
+}
+.web-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 20px;
+  overflow: hidden;
+}
+@media (max-width: 991px) {
+  .web-stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575px) {
+  .web-stats-grid { grid-template-columns: 1fr; }
+}
+.web-stat-item {
+  padding: 44px 28px;
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.web-stat-item:last-child {
+  border-right: none;
+}
+@media (max-width: 991px) {
+  .web-stat-item {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .web-stat-item:last-child { border-bottom: none; }
+}
+.web-stat-item__accent {
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(90deg, #a78bfa, #fff);
+  border-radius: 2px;
+  margin-bottom: 24px;
+}
+.web-stat-item__num-wrap {
+  min-height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.web-stat-item__num {
+  font-size: 52px;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.1;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+.web-stat-item__num--sm {
+  font-size: 30px;
+}
+@media (max-width: 1199px) {
+  .web-stat-item__num { font-size: 36px; }
+  .web-stat-item__num--sm { font-size: 24px; }
+  .web-stat-item__num-wrap { min-height: 90px; }
+}
+.web-stat-item__line {
+  width: 28px;
+  height: 1px;
+  background: rgba(255,255,255,0.25);
+  margin: 18px auto;
+}
+.web-stat-item__label {
+  font-size: 13px;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.7);
+  margin: 0;
+  max-width: 180px;
+}
+
+/* Build cards — What Shopa Marketing Builds */
+.web-build-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px;
+  height: 100%;
+  border: 2px solid #f0eefc;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.web-build-card:hover {
+  border-color: #663dff;
+  box-shadow: 0 10px 36px rgba(102,61,255,0.12);
+  transform: translateY(-4px);
+}
+.web-build-card__icon {
+  width: 60px;
+  height: 60px;
+  background: #f0eefc;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  transition: background 0.25s ease;
+}
+.web-build-card:hover .web-build-card__icon {
+  background: #663dff;
+}
+.web-build-card__icon i {
+  font-size: 26px;
+  color: #663dff;
+  transition: color 0.25s ease;
+}
+.web-build-card:hover .web-build-card__icon i {
+  color: #fff;
+}
+.web-build-card__title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-bottom: 18px !important;
+}
+.web-build-card__body {
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Process steps — How We Work */
+.web-process-step {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px;
+  height: 100%;
+  border: 2px solid #f0eefc;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.web-process-step:hover {
+  border-color: #663dff;
+  box-shadow: 0 8px 32px rgba(102,61,255,0.1);
+}
+.web-process-step__num {
+  font-size: 56px;
+  font-weight: 800;
+  color: #663dff;
+  opacity: 0.12;
+  line-height: 1;
+  margin-bottom: 16px;
+  font-family: 'Montserrat', sans-serif;
+  transition: opacity 0.25s ease;
+}
+.web-process-step:hover .web-process-step__num {
+  opacity: 0.35;
+}
+.web-process-step__title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-bottom: 18px !important;
+}
+.web-process-step__body {
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
+}
+
+/* Difference cards — The Shopa Marketing Difference */
+.web-diff-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px 28px;
+  height: 100%;
+  border: 2px solid #f0eefc;
+  text-align: center;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+.web-diff-card:hover {
+  border-color: #663dff;
+  box-shadow: 0 10px 36px rgba(102,61,255,0.1);
+  transform: translateY(-4px);
+}
+.web-diff-card__icon {
+  width: 70px;
+  height: 70px;
+  background: #f0eefc;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+  transition: background 0.25s ease;
+}
+.web-diff-card:hover .web-diff-card__icon {
+  background: #663dff;
+}
+.web-diff-card__icon i {
+  font-size: 28px;
+  color: #663dff;
+  transition: color 0.25s ease;
+}
+.web-diff-card:hover .web-diff-card__icon i {
+  color: #fff;
+}
+.web-diff-card__title {
+  font-size: 20px !important;
+  font-weight: 700 !important;
+  margin-bottom: 18px !important;
+}
+.web-diff-card__body {
+  font-size: 15px;
+  line-height: 1.75;
+  margin: 0;
 }
