@@ -58,7 +58,7 @@ export default function TemplateScripts() {
         // so every scrubbed animation snaps to the correct position for the current
         // scroll offset (prevents half-stuck animations on slow dev first load).
         setTimeout(() => {
-          if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch (_) {} }
+          if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch { /* ignore */ } }
           w.$(window).trigger('scroll');
         }, 400);
       }
