@@ -32,7 +32,7 @@ function InstagramIcon() {
 
 
 const services = [
-  { label: "CMO for Hire", href: "/services/cmo-for-hire" },
+  { label: "Done For You", href: "/services/done-for-you" },
   { label: "OOH Advertising", href: "/services/ooh-advertising" },
   { label: "SEO Services", href: "/services/seo-services" },
   { label: "Social Media Ads", href: "/services/social-media" },

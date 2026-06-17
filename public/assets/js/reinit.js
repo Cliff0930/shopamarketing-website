@@ -102,7 +102,10 @@
     if (typeof WOW !== 'undefined') { try { new WOW({ mobile: false }).init(); } catch (_) {} }
 
     /* 7 — Re-init counters */
-    if ($.fn.counterUp) { $('.counter').counterUp({ delay: 10, time: 3000 }); }
+    if ($.fn.counterUp) {
+      $('.counter').counterUp({ delay: 10, time: 3000 });
+      setTimeout(function () { $(window).trigger('scroll'); }, 100);
+    }
 
     /* 8 — Re-init magnific popup */
     if ($.fn.magnificPopup) {
@@ -110,8 +113,13 @@
       $('.popup_img').magnificPopup({ type: 'image', gallery: { enabled: true } });
     }
 
-    /* 9 — Final ScrollTrigger refresh after layout settles */
-    if (ST) { setTimeout(function () { try { ST.refresh(); } catch (_) {} }, 250); }
+    /* 9 — Final ScrollTrigger refresh after layout settles, then sync scroll */
+    if (ST) {
+      setTimeout(function () {
+        try { ST.refresh(); } catch (_) {}
+        $(window).trigger('scroll');
+      }, 400);
+    }
   };
 
 })();

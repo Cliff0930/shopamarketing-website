@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react';
 
 const SERVICE_OPTIONS = [
-  'CMO for Hire',
+  'Done For You',
   'OOH Advertising',
   'SEO Services',
   'Social Media Ads',

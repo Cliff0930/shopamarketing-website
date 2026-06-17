@@ -9,8 +9,8 @@ import { clsx } from "clsx";
 
 const services = [
   {
-    label: "CMO for Hire",
-    href: "/services/cmo-for-hire",
+    label: "Done For You",
+    href: "/services/done-for-you",
     icon: Megaphone,
     desc: "Fractional marketing leadership for SMEs",
   },
@@ -62,40 +62,17 @@ const navLinks = [
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
-  const [isDark, setIsDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
+  const isHome = pathname === '/';
   const dropdownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
-    const NAV_BOTTOM = 120; // px — height of navbar area to check overlap against
-
-    const checkTheme = () => {
-      const darkSections = document.querySelectorAll(
-        '.breadcrumb-area, [data-navbar-dark]'
-      );
-      let dark = false;
-      darkSections.forEach((el) => {
-        const rect = el.getBoundingClientRect();
-        // Overlaps with navbar if section top is above NAV_BOTTOM and bottom is still in view
-        if (rect.top <= NAV_BOTTOM && rect.bottom > 0) dark = true;
-      });
-      setIsDark(dark);
-    };
-
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-      checkTheme();
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 30);
     window.addEventListener("scroll", handleScroll, { passive: true });
-    const t = setTimeout(checkTheme, 100);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-      clearTimeout(t);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [pathname]);
 
   useEffect(() => {
@@ -127,10 +104,7 @@ export default function Navbar() {
       ════════════════════════════════════════════ */}
       <header
         className={clsx(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
-          /* Sticky scroll behaviour — commented out, re-enable when needed:
-          scrolled ? "py-3" : "pt-[45px] pb-0"
-          */
+          "absolute top-0 left-0 right-0 z-50 bg-transparent transition-all duration-500",
           "pt-[45px] pb-0"
         )}
       >
@@ -152,7 +126,7 @@ export default function Navbar() {
               fill
               className="object-contain object-left"
               style={{
-                filter: isDark ? 'brightness(0) invert(1)' : 'none',
+                filter: isHome ? 'none' : 'brightness(0) invert(1)',
                 transition: 'filter 0.3s ease',
               }}
               priority
@@ -268,21 +242,21 @@ export default function Navbar() {
             {/* Phone — hidden below 1400px to give the pill enough room */}
             <div className="hidden [@media(min-width:1400px)]:flex items-center gap-3 flex-shrink-0">
               <div className={clsx(
-                "w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 transition-colors duration-300",
-                isDark ? "bg-white/20 text-white" : "bg-primary/10 text-primary"
+                "w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0",
+                isHome ? "bg-primary/10 text-primary" : "bg-white/20 text-white"
               )}>
                 <Phone size={17} />
               </div>
               <div className="flex flex-col leading-none gap-1 min-w-max">
                 <span
-                  className={clsx("whitespace-nowrap transition-colors duration-300", isDark ? "text-white/80" : "text-[#252A4E]")}
+                  className={clsx("whitespace-nowrap", isHome ? "text-[#252A4E]" : "text-white/80")}
                   style={{ fontSize: "15px", fontWeight: 500 }}
                 >
                   Give us a call
                 </span>
                 <a
                   href="tel:+611800247034"
-                  className={clsx("whitespace-nowrap transition-colors duration-300 hover:text-primary", isDark ? "text-white" : "text-[#141515]")}
+                  className={clsx("whitespace-nowrap hover:text-primary", isHome ? "text-[#141515]" : "text-white")}
                   style={{ fontSize: "18px", fontWeight: 800, lineHeight: 1 }}
                 >
                   1800 247 034
@@ -294,8 +268,8 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(true)}
               className={clsx(
-                "lg:hidden w-11 h-11 rounded-xl flex items-center justify-center transition-all duration-200",
-                scrolled ? "bg-gray-100 text-[#141515]" : "bg-white/15 text-white"
+                "lg:hidden w-11 h-11 rounded-xl flex items-center justify-center",
+                isHome ? "bg-gray-100 text-[#141515]" : "bg-white/20 text-white"
               )}
               aria-label="Open menu"
             >

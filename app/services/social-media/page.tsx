@@ -174,7 +174,7 @@ export default function SocialMediaPage() {
                   <h4 className="sidebar-box-title chy-heading-1">Services</h4>
                   <div className="sidebar-box-wrap">
                     <ul className="sidebar-category">
-                      <li className="wow fadeInUp"><a href="/services/cmo-for-hire"><span className="text">CMO for Hire</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
+                      <li className="wow fadeInUp"><a href="/services/done-for-you"><span className="text">Done For You</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
                       <li className="wow fadeInUp"><a href="/services/ooh-advertising"><span className="text">OOH Advertising</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
                       <li className="wow fadeInUp"><a href="/services/seo-services"><span className="text">SEO Services</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
                       <li className="wow fadeInUp"><a href="/services/social-media"><span className="text">Social Media Ads</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>

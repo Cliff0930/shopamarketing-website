@@ -54,6 +54,13 @@ export default function TemplateScripts() {
       const w = window as any;
       if (typeof w.$ !== 'undefined') {
         w.$(window).trigger('load');
+        // After GSAP + main.js initialise their ScrollTrigger animations, refresh
+        // so every scrubbed animation snaps to the correct position for the current
+        // scroll offset (prevents half-stuck animations on slow dev first load).
+        setTimeout(() => {
+          if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch (_) {} }
+          w.$(window).trigger('scroll');
+        }, 400);
       }
       ready.current = true;
     });

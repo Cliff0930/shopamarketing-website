@@ -621,7 +621,6 @@ body {
   line-height: 1.75;
   margin: 0;
 }
-
 /* ── Homepage hero ───────────────────────────────────── */
 .chy-hero-1-content .title {
   font-size: 65px !important;
@@ -751,4 +750,10 @@ body {
 }
 .chy-price-card-1-item:is(.active) .chy-price-card-1-item-list li {
   color: rgba(255,255,255,0.9) !important;
+}
+
+/* Prevent GSAP rotatedscal image from overlapping text column during animation init */
+.chy-solutions-1-content {
+  position: relative;
+  z-index: 2;
 }

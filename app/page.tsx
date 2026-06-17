@@ -1,6 +1,5 @@
 import TemplateScripts from '@/components/TemplateScripts';
 import { getPosts, featuredImage, formatDate, authorAvatar } from '@/lib/wordpress';
-import PricingSection from '@/components/PricingSection';
 import ServicesTicker from '@/components/ServicesTicker';
 
 export const revalidate = 3600;
@@ -18,6 +17,7 @@ export default async function HomePage() {
     { quote: "Lawrence's professional guidance was instrumental in crafting a compelling advertisement. Thrilled with the results and highly recommend his services.", name: 'Home Caring Tranmere', bio: 'NDIS & Home Care Provider, Adelaide' },
     { quote: 'The team were easy to communicate with which made the process smooth.', name: 'Hutt Dental Hub', bio: 'Dental Clinic' },
     { quote: 'They were quick to respond and provided us with great quality artwork.', name: 'Fountain College', bio: 'Education' },
+    { quote: 'We (Bare) partnered with Shopa Marketing to execute our branded in-store print and digital signage across local supermarkets in Adelaide, and the results have been great. From initial discussions to final rollout, the team has been wonderful to work with - highly professional, responsive, and deeply attentive. They brought our vision to life, and the signage has significantly expanded our brand awareness in the local community.', name: 'Bare', bio: 'Brand, Adelaide' },
   ];
 
   const whyItems = [
@@ -28,7 +28,7 @@ export default async function HomePage() {
   ];
 
   const homeServices = [
-    { title: 'CMO for Hire', desc: 'Senior marketing leadership. Fractional cost. A dedicated CMO embedded in your business, backed by a full execution team, without the full-time salary.', items: ['Marketing Strategy & Roadmap', 'Brand Positioning', 'Team Leadership'], link: '/services/cmo-for-hire' },
+    { title: 'Done For You', desc: 'Senior marketing leadership. Fractional cost. A dedicated CMO embedded in your business, backed by a full execution team, without the full-time salary.', items: ['Marketing Strategy & Roadmap', 'Brand Positioning', 'Team Leadership'], link: '/services/done-for-you' },
     { title: 'OOH Advertising', desc: 'Put your brand where your customers actually live. Grocery stores, medical centres, digital billboards and transit networks across Australia and New Zealand.', items: ['Grocery Store TV Screens', 'Digital Billboards', 'Transit & Outdoor Media'], link: '/services/ooh-advertising' },
     { title: 'AI SEO Services', desc: "If you're not on page one, you're invisible. We get your business ranking for the keywords your customers are actively searching — driving leads without ongoing ad spend.", items: ['Keyword Research', 'On-Page Optimisation', 'Search Rankings Boost'], link: '/services/seo-services' },
     { title: 'Social Media Ads', desc: "Your customers are scrolling right now. We run targeted Facebook, Instagram and TikTok campaigns that put your business in front of the right people at the right moment.", items: ['Facebook & Instagram Ads', 'TikTok Campaigns', 'Audience Targeting'], link: '/services/social-media' },
@@ -250,9 +250,6 @@ export default async function HomePage() {
 
       {/* ── BODY BG 2 ── */}
       <div className="body-bg-2 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-2.png')" }}>
-
-        {/* ── PRICE CARDS ── */}
-        <PricingSection />
 
         {/* ── TEAM — HIDDEN ── */}
         {false && <div className="chy-team-1-area"></div>}

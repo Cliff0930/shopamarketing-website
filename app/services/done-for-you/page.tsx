@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
+import PricingSection from "@/components/PricingSection";
 
-export default function CmoForHirePage() {
+export default function DoneForYouPage() {
   return (
     <>
       <TemplateScripts />
@@ -20,11 +21,11 @@ export default function CmoForHirePage() {
           <div className="row">
             <div className="col-xxl-12">
               <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">CMO for Hire</h2>
+                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">Done For You</h2>
                 <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
                   <a href="/">Home</a>
                   <a href="/services">Services</a>
-                  <span>CMO for Hire</span>
+                  <span>Done For You</span>
                 </div>
               </div>
             </div>
@@ -32,6 +33,10 @@ export default function CmoForHirePage() {
         </div>
       </div>
       {/* breadcrumb-area-end */}
+
+      {/* pricing-section-start */}
+      <PricingSection />
+      {/* pricing-section-end */}
 
       {/* service-details-start */}
       <div className="service-details-area pt-120 pb-70">
@@ -43,13 +48,13 @@ export default function CmoForHirePage() {
               <div className="service-details-content mb-50">
 
                 <div className="service-details-main-img img-cover">
-                  <img src="/assets/img/services/sd-img-1.jpg" alt="CMO for Hire" />
+                  <img src="/assets/img/services/sd-img-1.jpg" alt="Done For You" />
                 </div>
 
-                <h2 className="chy-heading-1 service-details-title chy-split-in-right chy-split-text">CMO for Hire: Strategic Marketing Leadership</h2>
+                <h2 className="chy-heading-1 service-details-title chy-split-in-right chy-split-text">Done For You: Strategic Marketing Leadership</h2>
 
                 <p className="chy-para-1 inner-page-disc">
-                  Access the strategic expertise of a Chief Marketing Officer without the full-time commitment. Our CMO for Hire service provides your business with senior-level marketing leadership, helping you develop and execute comprehensive marketing strategies that drive growth and build brand equity.
+                  Access the strategic expertise of a Chief Marketing Officer without the full-time commitment. Our Done For You service provides your business with senior-level marketing leadership, helping you develop and execute comprehensive marketing strategies that drive growth and build brand equity.
                 </p>
                 <p className="chy-para-1 inner-page-disc">
                   Whether you&apos;re a growing startup needing marketing direction, an established business looking to scale, or a company in transition, our fractional CMO service delivers the strategic oversight and execution support you need to achieve your marketing goals.
@@ -58,7 +63,7 @@ export default function CmoForHirePage() {
                 <h2 className="chy-heading-1 chy-split-in-right chy-split-text service-details-subtitle">What We Provide</h2>
 
                 <p className="chy-para-1 inner-page-disc">
-                  Our CMO for Hire service encompasses the full spectrum of marketing leadership — from high-level strategy development to hands-on campaign execution oversight, team building, and performance measurement.
+                  Our Done For You service encompasses the full spectrum of marketing leadership — from high-level strategy development to hands-on campaign execution oversight, team building, and performance measurement.
                 </p>
 
                 <div className="service-details-feature mb-30 mt-30">
@@ -95,7 +100,7 @@ export default function CmoForHirePage() {
                 <h2 className="chy-heading-1 chy-split-in-right chy-split-text service-details-subtitle">The Challenge</h2>
 
                 <p className="chy-para-1 inner-page-disc">
-                  Many businesses struggle with inconsistent marketing direction, siloed campaigns, and lack of strategic alignment. Without senior marketing leadership, budgets are often misallocated and opportunities missed. Our CMO for Hire service bridges this gap, giving you experienced leadership that transforms your marketing from reactive to strategic.
+                  Many businesses struggle with inconsistent marketing direction, siloed campaigns, and lack of strategic alignment. Without senior marketing leadership, budgets are often misallocated and opportunities missed. Our Done For You service bridges this gap, giving you experienced leadership that transforms your marketing from reactive to strategic.
                 </p>
 
                 <h2 className="chy-heading-1 chy-split-in-right chy-split-text service-details-subtitle">Frequently Asked Questions</h2>
@@ -136,7 +141,7 @@ export default function CmoForHirePage() {
                     <h2 className="accordion-header" id="cmo-h3">
                       <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cmo-c3" aria-expanded="false" aria-controls="cmo-c3">
                         <span className="icon-2"><i className="flaticon-arrow"></i></span>
-                        <span className="title chy-heading-1">Is a CMO for Hire right for my business?</span>
+                        <span className="title chy-heading-1">Is a Done For You right for my business?</span>
                         <span className="icon"><i className="far fa-plus"></i></span>
                       </button>
                     </h2>
@@ -174,7 +179,7 @@ export default function CmoForHirePage() {
                   <h4 className="sidebar-box-title chy-heading-1">Services</h4>
                   <div className="sidebar-box-wrap">
                     <ul className="sidebar-category">
-                      <li className="wow fadeInUp"><a href="/services/cmo-for-hire"><span className="text">CMO for Hire</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
+                      <li className="wow fadeInUp"><a href="/services/done-for-you"><span className="text">Done For You</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
                       <li className="wow fadeInUp"><a href="/services/ooh-advertising"><span className="text">OOH Advertising</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
                       <li className="wow fadeInUp"><a href="/services/seo-services"><span className="text">SEO Services</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
                       <li className="wow fadeInUp"><a href="/services/social-media"><span className="text">Social Media Ads</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
