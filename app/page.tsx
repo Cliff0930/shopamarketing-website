@@ -74,13 +74,7 @@ export default async function HomePage() {
             <div className="col-lg-6">
               <div className="chy-hero-1-img">
                 <div className="main-img">
-                  <img src="/assets/img/hero/h1-img-1.png" alt="" />
-                </div>
-                <div className="il-shape-1">
-                  <img src="/assets/img/hero/h1-il-1.png" alt="" className="object" data-value="6" />
-                </div>
-                <div className="il-shape-3">
-                  <img src="/assets/img/hero/h1-il-3.png" alt="" className="object" data-value="3" />
+                  <img src="/assets/img/hero/home-page-3.webp" alt="Shopa Marketing Hero" />
                 </div>
               </div>
             </div>
