@@ -673,6 +673,10 @@ body {
 .svc-accordion-list li { font-size: 13px; color: #555; display: flex; align-items: center; gap: 6px; font-family: 'Montserrat', sans-serif; }
 .svc-accordion-list li i { color: #663dff; font-size: 10px; }
 
+/* ── Blog card hover: keep zoom, remove greyscale ────── */
+.chy-blog-1-item:hover .main-img img,
+.chy-blog-2-item:hover .main-img img { filter: none !important; }
+
 /* ── Testimonial: logo in left panel ─────────────────── */
 .main-img.has-client-logo {
   background: #fff;
