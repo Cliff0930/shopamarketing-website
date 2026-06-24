@@ -320,7 +320,7 @@ export default async function HomePage() {
           <div className="container chy-container-1">
             <div className="section-title-wrap text-center mb-50">
               <h5 className="chy-subtitle-1 wow fadeInDown">our clients</h5>
-              <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted By Australia's Best Brands</h2>
+              <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted By Australia&apos;s Best Brands</h2>
               <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '560px', margin: '14px auto 0' }}>
                 From national franchises to ambitious growth brands — they all chose Shopa.
               </p>
