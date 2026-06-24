@@ -6,6 +6,7 @@ interface Service {
   desc: string;
   items: string[];
   link: string;
+  image?: string;
 }
 
 export default function ServicesTicker({ services }: { services: Service[] }) {
@@ -59,7 +60,10 @@ export default function ServicesTicker({ services }: { services: Service[] }) {
         {doubled.map((svc, i) => (
           <div key={i} className="svc-ticker-card">
             <div className="svc-ticker-img">
-              <span style={{ fontSize: '11px', color: '#bbb', letterSpacing: '1px', textTransform: 'uppercase' }}>Image</span>
+              {svc.image
+                ? <img src={svc.image} alt={svc.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
+                : <span style={{ fontSize: '11px', color: '#bbb', letterSpacing: '1px', textTransform: 'uppercase' }}>Image</span>
+              }
             </div>
             <h4 className="chy-heading-1 svc-ticker-title">{svc.title}</h4>
             <p className="chy-para-1 svc-ticker-desc">{svc.desc}</p>

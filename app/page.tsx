@@ -8,16 +8,16 @@ export default async function HomePage() {
   const latestPosts = await getPosts(3);
 
   const testimonials = [
-    { quote: 'Royal Park Dental uses Shopa Marketing and are pleased with their customer service and product. Thank you for your patience and being so accommodating to our needs. Highly recommend!', name: 'Royal Park Dental', bio: 'Dental Clinic, Melbourne' },
-    { quote: 'We really appreciate Shopa Marketing and their service. Their employees are reliable and quick to action anything you need.', name: 'First Step Fertility', bio: 'Fertility Clinic, Australia' },
-    { quote: 'I am so happy with the entire process and end product. Tom Richards from Shopa Marketing handled my digital advertising campaign and web design. Result is excellent.', name: 'Lmt Finance', bio: 'Mortgage Broker, Geelong' },
-    { quote: 'They look after the people they work with, with very good deals.', name: 'Bargain Beds', bio: 'Small Family Business' },
+    { quote: 'Royal Park Dental uses Shopa Marketing and are pleased with their customer service and product. Thank you for your patience and being so accommodating to our needs. Highly recommend!', name: 'Royal Park Dental', bio: 'Dental Clinic, Melbourne', logo: '/assets/img/testimonials/royal-park-dental.png' },
+    { quote: 'We really appreciate Shopa Marketing and their service. Their employees are reliable and quick to action anything you need.', name: 'First Step Fertility', bio: 'Fertility Clinic, Australia', logo: '/assets/img/testimonials/first-step-fertility.png' },
+    { quote: 'I am so happy with the entire process and end product. Tom Richards from Shopa Marketing handled my digital advertising campaign and web design. Result is excellent.', name: 'Lmt Finance', bio: 'Mortgage Broker, Geelong', logo: '/assets/img/testimonials/lmt-finance.jpg' },
+    { quote: 'They look after the people they work with, with very good deals.', name: 'Bargain Beds', bio: 'Small Family Business', logo: '/assets/img/testimonials/bargain-beds.png' },
     { quote: 'Very professional and very helpful with building a new business website and online marketing.', name: 'Independent Property Sales', bio: 'Real Estate, Geelong' },
-    { quote: 'Easy well supported process with excellent communication along the way.', name: 'Coastal Skin & Beauty', bio: 'Beauty Clinic, Kapiti Coast' },
-    { quote: "Lawrence's professional guidance was instrumental in crafting a compelling advertisement. Thrilled with the results and highly recommend his services.", name: 'Home Caring Tranmere', bio: 'NDIS & Home Care Provider, Adelaide' },
-    { quote: 'The team were easy to communicate with which made the process smooth.', name: 'Hutt Dental Hub', bio: 'Dental Clinic' },
-    { quote: 'They were quick to respond and provided us with great quality artwork.', name: 'Fountain College', bio: 'Education' },
-    { quote: 'We (Bare) partnered with Shopa Marketing to execute our branded in-store print and digital signage across local supermarkets in Adelaide, and the results have been great. From initial discussions to final rollout, the team has been wonderful to work with - highly professional, responsive, and deeply attentive. They brought our vision to life, and the signage has significantly expanded our brand awareness in the local community.', name: 'Bare', bio: 'Brand, Adelaide' },
+    { quote: 'Easy well supported process with excellent communication along the way.', name: 'Coastal Skin & Beauty', bio: 'Beauty Clinic, Kapiti Coast', logo: '/assets/img/testimonials/coastal-skin-beauty.png' },
+    { quote: "Lawrence's professional guidance was instrumental in crafting a compelling advertisement. Thrilled with the results and highly recommend his services.", name: 'Home Caring Tranmere', bio: 'NDIS & Home Care Provider, Adelaide', logo: '/assets/img/testimonials/home-caring-tranmere.webp' },
+    { quote: 'The team were easy to communicate with which made the process smooth.', name: 'Hutt Dental Hub', bio: 'Dental Clinic', logo: '/assets/img/testimonials/hutt-dental-hub.png' },
+    { quote: 'They were quick to respond and provided us with great quality artwork.', name: 'Fountain College', bio: 'Education', logo: '/assets/img/testimonials/fountain-college.png' },
+    { quote: 'We (Bare) partnered with Shopa Marketing to execute our branded in-store print and digital signage across local supermarkets in Adelaide, and the results have been great. From initial discussions to final rollout, the team has been wonderful to work with - highly professional, responsive, and deeply attentive. They brought our vision to life, and the signage has significantly expanded our brand awareness in the local community.', name: 'Bare', bio: 'Brand, Adelaide', logo: '/assets/img/testimonials/bare.svg' },
   ];
 
   const whyItems = [
@@ -27,14 +27,29 @@ export default async function HomePage() {
     { icon: 'flaticon-trophy', title: '45+ Years Experience', body: 'Over 5,000 campaigns delivered for more than 1,000 businesses across Australia and New Zealand. That experience shows up in every campaign we run.' },
   ];
 
+  const clientLogos = [
+    { src: '/assets/img/client/mcdonalds.webp',   alt: "McDonald's" },
+    { src: '/assets/img/client/nike.webp',         alt: 'Nike' },
+    { src: '/assets/img/client/kfc.webp',          alt: 'KFC' },
+    { src: '/assets/img/client/bookingcom.webp',   alt: 'Booking.com' },
+    { src: '/assets/img/client/raywhite.webp',     alt: 'Ray White' },
+    { src: '/assets/img/client/pizzahut.webp',     alt: 'Pizza Hut' },
+    { src: '/assets/img/client/redrooster.webp',   alt: 'Red Rooster' },
+    { src: '/assets/img/client/adairs.webp',       alt: 'Adairs' },
+    { src: '/assets/img/client/bridgestone.webp',  alt: 'Bridgestone' },
+    { src: '/assets/img/client/oroton.webp',       alt: 'Oroton' },
+    { src: '/assets/img/client/jbl.webp',          alt: 'JBL' },
+    { src: '/assets/img/client/ops.webp',          alt: 'OPS' },
+  ];
+
   const homeServices = [
-    { title: 'Done For You', desc: 'Senior marketing leadership. Fractional cost. A dedicated CMO embedded in your business, backed by a full execution team, without the full-time salary.', items: ['Marketing Strategy & Roadmap', 'Brand Positioning', 'Team Leadership'], link: '/services/done-for-you' },
-    { title: 'OOH Advertising', desc: 'Put your brand where your customers actually live. Grocery stores, medical centres, digital billboards and transit networks across Australia and New Zealand.', items: ['Grocery Store TV Screens', 'Digital Billboards', 'Transit & Outdoor Media'], link: '/services/ooh-advertising' },
-    { title: 'AI SEO Services', desc: "If you're not on page one, you're invisible. We get your business ranking for the keywords your customers are actively searching — driving leads without ongoing ad spend.", items: ['Keyword Research', 'On-Page Optimisation', 'Search Rankings Boost'], link: '/services/seo-services' },
-    { title: 'Social Media Ads', desc: "Your customers are scrolling right now. We run targeted Facebook, Instagram and TikTok campaigns that put your business in front of the right people at the right moment.", items: ['Facebook & Instagram Ads', 'TikTok Campaigns', 'Audience Targeting'], link: '/services/social-media' },
-    { title: 'Website Design', desc: 'Your website should be converting visitors into customers around the clock. We build fast, mobile-first custom websites — with 12 months maintenance and a lifetime technical guarantee included.', items: ['Custom Web Design', 'Mobile Responsive', 'Conversion Optimised'], link: '/services/website' },
-    { title: 'Google Ads', desc: 'Get in front of high-intent buyers the moment they search. Search, Display, Shopping and YouTube campaigns built around your revenue goals. Every dollar tracked.', items: ['Google Search Ads', 'Display & YouTube Ads', 'Real ROI Tracking'], link: '/services/google-ads' },
-    { title: 'Graphic Design', desc: 'First impressions are everything. We produce logos, ad creatives, social assets and brand identity systems that make your business look as good as it performs.', items: ['Logo & Brand Identity', 'Marketing Collateral', 'Social Media Assets'], link: '/services/graphic-design' },
+    { title: 'Done For You', desc: 'Senior marketing leadership. Fractional cost. A dedicated CMO embedded in your business, backed by a full execution team, without the full-time salary.', items: ['Marketing Strategy & Roadmap', 'Brand Positioning', 'Team Leadership'], link: '/services/done-for-you', image: '/assets/img/services/DONWFORYOU.webp' },
+    { title: 'OOH Advertising', desc: 'Put your brand where your customers actually live. Grocery stores, medical centres, digital billboards and transit networks across Australia and New Zealand.', items: ['Grocery Store TV Screens', 'Digital Billboards', 'Transit & Outdoor Media'], link: '/services/ooh-advertising', image: '/assets/img/services/ooh.webp' },
+    { title: 'AI SEO Services', desc: "If you're not on page one, you're invisible. We get your business ranking for the keywords your customers are actively searching — driving leads without ongoing ad spend.", items: ['Keyword Research', 'On-Page Optimisation', 'Search Rankings Boost'], link: '/services/seo-services', image: '/assets/img/services/seoAI.webp' },
+    { title: 'Social Media Ads', desc: "Your customers are scrolling right now. We run targeted Facebook, Instagram and TikTok campaigns that put your business in front of the right people at the right moment.", items: ['Facebook & Instagram Ads', 'TikTok Campaigns', 'Audience Targeting'], link: '/services/social-media', image: '/assets/img/services/SocialMedia.webp' },
+    { title: 'Website Design', desc: 'Your website should be converting visitors into customers around the clock. We build fast, mobile-first custom websites — with 12 months maintenance and a lifetime technical guarantee included.', items: ['Custom Web Design', 'Mobile Responsive', 'Conversion Optimised'], link: '/services/website', image: '/assets/img/services/webdesign.webp' },
+    { title: 'Google Ads', desc: 'Get in front of high-intent buyers the moment they search. Search, Display, Shopping and YouTube campaigns built around your revenue goals. Every dollar tracked.', items: ['Google Search Ads', 'Display & YouTube Ads', 'Real ROI Tracking'], link: '/services/google-ads', image: '/assets/img/services/GAds.webp' },
+    { title: 'Graphic Design', desc: 'First impressions are everything. We produce logos, ad creatives, social assets and brand identity systems that make your business look as good as it performs.', items: ['Logo & Brand Identity', 'Marketing Collateral', 'Social Media Assets'], link: '/services/graphic-design', image: '/assets/img/services/GraphicDes.webp' },
   ];
 
   return (
@@ -68,6 +83,25 @@ export default async function HomePage() {
                     <span className="text">Get a Free Strategy Session</span>
                     <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                   </a>
+                </div>
+
+                {/* ── AS FEATURED IN ── */}
+                <div className="featured-in-strip wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="3s">
+                  <span className="featured-in-label">As Featured In</span>
+                  <div className="featured-in-logos">
+                    <div className="logo-pill">
+                      <img src="/assets/img/press/ceo-weekly.webp" alt="CEO Weekly" />
+                    </div>
+                    <div className="featured-in-logo-slot">
+                      <img src="/assets/img/press/business-insider.png" alt="Business Insider" />
+                    </div>
+                    <div className="featured-in-logo-slot">
+                      <img src="/assets/img/press/the-guardian.webp" alt="The Guardian" />
+                    </div>
+                    <div className="featured-in-logo-slot">
+                      <img src="/assets/img/press/ap.png" alt="Associated Press" />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -154,7 +188,7 @@ export default async function HomePage() {
         </div>
 
         {/* ── SOLUTIONS ── */}
-        <div className="chy-solutions-1-area pt-120 pb-120 fix" style={{ paddingTop: '150px', paddingBottom: '150px' }}>
+        <div className="chy-solutions-1-area pt-120 pb-120 fix" style={{ paddingTop: '80px', paddingBottom: '150px' }}>
           <div className="container chy-container-1">
             <div className="row align-items-center">
 
@@ -179,9 +213,9 @@ export default async function HomePage() {
               <div className="col-xl-7 col-lg-6">
                 <div className="chy-solutions-1-img">
                   <div className="main-img rotatedscal">
-                    <img src="/assets/img/solutions/s1-img-1png.png" alt="" />
+                    <img src="/assets/img/solutions/SM_HOME_Whatwedo.webp" alt="" />
                   </div>
-                  <div className="chy-solutions-1-goals">
+                  <div className="chy-solutions-1-goals" style={{ left: '20px', bottom: '-60px' }}>
                     <h5 className="chy-heading-1 title">results</h5>
                     <div className="chy-solutions-1-goals-item">
                       <div className="icon"><i className="flaticon-digital-campaign"></i></div>
@@ -257,8 +291,11 @@ export default async function HomePage() {
                   {testimonials.map((t, i) => (
                     <div key={i} className="swiper-slide">
                       <div className="chy-team-slider-1-item">
-                        <div className="main-img">
-                          <img src="/assets/img/team/t1-slider-img-1.png" alt="" />
+                        <div className={`main-img${t.logo ? ' has-client-logo' : ''}`}>
+                          <img
+                            src={t.logo ?? '/assets/img/team/t1-slider-img-1.png'}
+                            alt={t.name}
+                          />
                         </div>
                         <div className="content-wrap">
                           <h4 className="chy-heading-1 title">What people are saying</h4>
@@ -279,29 +316,24 @@ export default async function HomePage() {
         </div>
 
         {/* ── CLIENTS ── */}
-        <div className="chy-client-1-area pb-80 fix">
+        <div className="shopa-clients-area pt-60 pb-80 fix">
           <div className="container chy-container-1">
-            <div className="chy-client-1-wrap">
-              <div className="row align-items-center">
-                <div className="col-lg-5">
-                  <div className="chy-client-1-content chy-slideinright">
-                    <h3 className="chy-heading-1 title chy-split-in-right chy-split-text">Our Clients</h3>
-                    <p className="chy-para-1 disc wow fadeInRight">
-                      Join the growing list of satisfied <br /> businesses who trust Shopa Marketing.
-                    </p>
-                  </div>
+            <div className="section-title-wrap text-center mb-50">
+              <h5 className="chy-subtitle-1 wow fadeInDown">our clients</h5>
+              <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted By Australia's Best Brands</h2>
+              <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '560px', margin: '14px auto 0' }}>
+                From national franchises to ambitious growth brands — they all chose Shopa.
+              </p>
+            </div>
+          </div>
+          {/* infinite scroll ticker — doubled for seamless loop */}
+          <div className="clients-ticker-wrap">
+            <div className="clients-ticker-track">
+              {[...clientLogos, ...clientLogos].map((logo, i) => (
+                <div key={i} className="clients-logo-card">
+                  <img src={logo.src} alt={logo.alt} />
                 </div>
-                <div className="col-lg-7">
-                  <div className="chy-client-1-logo chy-slideinright">
-                    {[1, 2, 3, 4, 5, 6].map((n) => (
-                      <div key={n} className="logo-item">
-                        <img className="logo-1" src={`/assets/img/client/logo-${n}.png`} alt="" />
-                        <img className="logo-2" src={`/assets/img/client/logo-${n}.png`} alt="" />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
