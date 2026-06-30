@@ -36,9 +36,8 @@ export default function RootLayout({
         {/* Critical CSS only — blocks render but needed for above-fold styles */}
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/css/all.min.css" />
-        <link rel="stylesheet" href="/assets/css/flaticon_choicy.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
-        {/* animate.css, swiper.min.css, odometer.min.css, magnific-popup.css
+        {/* flaticon_choicy, animate, swiper, odometer, magnific-popup
             and Google Fonts are loaded non-blocking via DeferredStyles */}
       </head>
       <body className="font-sans antialiased bg-white text-gray-900">

@@ -3,6 +3,9 @@ import { useEffect } from 'react';
 
 export default function HeroVideoScrub() {
   useEffect(() => {
+    // No video source on mobile — skip scrub entirely
+    if (window.innerWidth < 768) return;
+
     const video = document.getElementById('hero-bg-video') as HTMLVideoElement | null;
     const section = document.getElementById('hero-section') as HTMLElement | null;
     if (!video || !section) return;

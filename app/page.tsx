@@ -87,7 +87,8 @@ export default async function HomePage() {
               zIndex: 0,
             }}
           >
-            <source src="/assets/img/hero/v1-scrub.mp4" type="video/mp4" />
+            {/* media attr prevents browser downloading video on mobile — saves 15MB */}
+            <source src="/assets/img/hero/v1-scrub.mp4" type="video/mp4" media="(min-width: 768px)" />
           </video>
 
           {/* Left fade — text readability */}
