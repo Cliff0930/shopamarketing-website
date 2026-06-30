@@ -81,6 +81,7 @@ export default function ServicesTicker({ services }: { services: Service[] }) {
                   src={svc.image}
                   alt={svc.title}
                   className={`svc-ticker-img__static${svc.video ? ' has-video' : ''}`}
+                  loading="lazy"
                 />
               )}
               {svc.video && (

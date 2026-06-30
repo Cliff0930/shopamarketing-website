@@ -75,7 +75,7 @@ export default async function HomePage() {
             id="hero-bg-video"
             muted
             playsInline
-            preload="auto"
+            preload="metadata"
             style={{
               position: 'absolute',
               top: 0,
@@ -254,7 +254,7 @@ export default async function HomePage() {
               <div className="col-xl-7 col-lg-6">
                 <div className="chy-solutions-1-img">
                   <div className="main-img rotatedscal">
-                    <img src="/assets/img/solutions/SM_HOME_Whatwedo.webp" alt="" />
+                    <img src="/assets/img/solutions/SM_HOME_Whatwedo.webp" alt="" loading="lazy" />
                   </div>
                   <div className="chy-solutions-1-goals" style={{ left: '20px', bottom: '-60px' }}>
                     <h5 className="chy-heading-1 title">Results</h5>
@@ -348,7 +348,7 @@ export default async function HomePage() {
                       <div className="chy-team-slider-1-item">
                         <div className={`main-img${t.logo ? ' has-client-logo' : ' no-logo'}`}>
                           {t.logo
-                            ? <img src={t.logo} alt={t.name} />
+                            ? <img src={t.logo} alt={t.name} loading="lazy" />
                             : <span className="testimonial-initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
                           }
                         </div>
@@ -386,7 +386,7 @@ export default async function HomePage() {
             <div className="clients-ticker-track">
               {[...clientLogos, ...clientLogos].map((logo, i) => (
                 <div key={i} className="clients-logo-card">
-                  <img src={logo.src} alt={logo.alt} />
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
                 </div>
               ))}
             </div>
@@ -413,7 +413,7 @@ export default async function HomePage() {
               <div key={post.id} className="col-xl-4 col-lg-6 col-md-6">
                 <div className="chy-blog-1-item">
                   <div className="main-img img-cover">
-                    <img src={featuredImage(post)} alt={post.title.rendered} />
+                    <img src={featuredImage(post)} alt={post.title.rendered} loading="lazy" />
                   </div>
                   <span className="chy-para-1 date">{formatDate(post.date)}</span>
                   <h4 className="chy-heading-1 title">
@@ -424,7 +424,7 @@ export default async function HomePage() {
                   />
                   <div className="author">
                     <div className="img img-cover">
-                      <img src={authorAvatar(post)} alt="" />
+                      <img src={authorAvatar(post)} alt="" loading="lazy" />
                     </div>
                     <span className="chy-heading-1 name">by {post._embedded?.author?.[0]?.name ?? 'Shopa Marketing'}</span>
                     <span className="line"></span>

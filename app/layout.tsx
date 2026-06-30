@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import DeferredStyles from "@/components/DeferredStyles";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -29,20 +30,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Preconnect hints — establish connections early for deferred font load */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
-        {/* Template CSS — order matters */}
+        {/* Critical CSS only — blocks render but needed for above-fold styles */}
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/css/all.min.css" />
         <link rel="stylesheet" href="/assets/css/flaticon_choicy.css" />
-        <link rel="stylesheet" href="/assets/css/animate.css" />
-        <link rel="stylesheet" href="/assets/css/swiper.min.css" />
-        <link rel="stylesheet" href="/assets/css/odometer.min.css" />
-        <link rel="stylesheet" href="/assets/css/magnific-popup.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
+        {/* animate.css, swiper.min.css, odometer.min.css, magnific-popup.css
+            and Google Fonts are loaded non-blocking via DeferredStyles */}
       </head>
       <body className="font-sans antialiased bg-white text-gray-900">
+        <DeferredStyles />
         <Navbar />
         <main>{children}</main>
         <Footer />
