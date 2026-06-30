@@ -33,11 +33,12 @@ export default function RootLayout({
         {/* Preconnect hints — establish connections early for deferred font load */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Critical CSS only — blocks render but needed for above-fold styles */}
+        {/* Critical CSS — blocks render but needed for above-fold styles + WOW.js keyframes */}
         <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
         <link rel="stylesheet" href="/assets/css/all.min.css" />
+        <link rel="stylesheet" href="/assets/css/animate.css" />
         <link rel="stylesheet" href="/assets/css/main.css" />
-        {/* flaticon_choicy, animate, swiper, odometer, magnific-popup
+        {/* flaticon_choicy, swiper, odometer, magnific-popup
             and Google Fonts are loaded non-blocking via DeferredStyles */}
       </head>
       <body className="font-sans antialiased bg-white text-gray-900">

@@ -4,7 +4,6 @@ import { useEffect } from 'react';
 const DEFERRED = [
   'https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap',
   '/assets/css/flaticon_choicy.css',
-  '/assets/css/animate.css',
   '/assets/css/swiper.min.css',
   '/assets/css/odometer.min.css',
   '/assets/css/magnific-popup.css',

@@ -67,6 +67,8 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
+  // Contact page has a light hero — use same dark-logo/dark-text as home
+  const isLightBg = isHome || pathname === '/contact-us';
   const dropdownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {
@@ -127,7 +129,7 @@ export default function Navbar() {
               fill
               className="object-contain object-left"
               style={{
-                filter: isHome ? 'none' : 'brightness(0) invert(1)',
+                filter: isLightBg ? 'none' : 'brightness(0) invert(1)',
                 transition: 'filter 0.3s ease',
               }}
               priority
@@ -243,20 +245,20 @@ export default function Navbar() {
             <div className="hidden [@media(min-width:1400px)]:flex items-center gap-3 flex-shrink-0">
               <div className={clsx(
                 "w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0",
-                isHome ? "bg-primary/10 text-primary" : "bg-white/20 text-white"
+                isLightBg ? "bg-primary/10 text-primary" : "bg-white/20 text-white"
               )}>
                 <Phone size={17} />
               </div>
               <div className="flex flex-col leading-none gap-1 min-w-max">
                 <span
-                  className={clsx("whitespace-nowrap", isHome ? "text-[#252A4E]" : "text-white/80")}
+                  className={clsx("whitespace-nowrap", isLightBg ? "text-[#252A4E]" : "text-white/80")}
                   style={{ fontSize: "15px", fontWeight: 500 }}
                 >
                   Give us a call
                 </span>
                 <a
                   href="tel:+611800247034"
-                  className={clsx("whitespace-nowrap hover:text-primary", isHome ? "text-[#141515]" : "text-white")}
+                  className={clsx("whitespace-nowrap hover:text-primary", isLightBg ? "text-[#141515]" : "text-white")}
                   style={{ fontSize: "18px", fontWeight: 800, lineHeight: 1 }}
                 >
                   1800 247 034
