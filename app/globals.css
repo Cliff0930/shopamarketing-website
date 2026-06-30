@@ -23,7 +23,15 @@ html {
 
 body {
   color: var(--foreground);
-  background: var(--background);
+  /* Butter-smooth gradient — barely-there lavender that eases in and out */
+  background: linear-gradient(
+    180deg,
+    #ffffff   0%,
+    #faf8ff  25%,
+    #f4f0ff  50%,
+    #faf8ff  75%,
+    #ffffff 100%
+  ) !important;
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -229,7 +237,7 @@ body {
 /* ── Footer layout ───────────────────────────────────── */
 .footer-main-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1.8fr 0.8fr 0.9fr 1.5fr;
   gap: 40px;
 }
 
@@ -715,8 +723,8 @@ body {
   to   { transform: translateX(-50%); }
 }
 .clients-logo-card {
-  width: 160px;
-  height: 80px;
+  width: 220px;
+  height: 110px;
   flex-shrink: 0;
   background: #111827;
   border: 1px solid rgba(255,255,255,0.08);
@@ -725,7 +733,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 14px 18px;
+  padding: 18px 24px;
   transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 .clients-logo-card:hover {
@@ -864,8 +872,30 @@ body {
   opacity: 0;
   transition: opacity 0.3s ease;
   border-radius: 8px;
+  z-index: 2;
+  pointer-events: none;
 }
 .svc-ticker-card:hover .svc-ticker-img::after { opacity: 1; }
+/* No colour overlay when video is active */
+.svc-ticker-card:hover .svc-ticker-img:has(.svc-ticker-img__video)::after { opacity: 0; }
+
+/* Hover video crossfade */
+.svc-ticker-img__static,
+.svc-ticker-img__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+  transition: opacity 0.4s ease;
+}
+.svc-ticker-img__video {
+  opacity: 0;
+  z-index: 1;
+}
+.svc-ticker-card:hover .svc-ticker-img__static.has-video { opacity: 0; }
+.svc-ticker-card:hover .svc-ticker-img__video { opacity: 1; }
 .svc-ticker-title {
   font-size: 24px !important;
   font-weight: 700 !important;
@@ -900,3 +930,845 @@ body {
   position: relative;
   z-index: 2;
 }
+
+/* ═══════════════════════════════════════════════════════════
+   MOBILE RESPONSIVE  (≤ 767px)
+   ═══════════════════════════════════════════════════════════ */
+@media (max-width: 767px) {
+
+  /* ── Stop horizontal scroll ───────────────────────────── */
+  html, body { overflow-x: hidden !important; }
+  .chy-hero-1-area,
+  .body-bg-1,
+  .body-bg-2,
+  .svc-opt-section,
+  .chy-solutions-1-area,
+  .chy-blog-1-area,
+  .shopa-clients-area { overflow-x: hidden !important; }
+
+  /* ── Hero ─────────────────────────────────────────────── */
+  /* Collapse 250vh scroll-scrub container to natural height on mobile;
+     release sticky positioning; hide the scrub video */
+  #hero-section { height: auto !important; min-height: 100svh; }
+  .chy-hero-1-area {
+    position: relative !important;
+    height: auto !important;
+    min-height: 100svh;
+    padding-top: 140px !important;
+    padding-bottom: 24px !important;
+  }
+  #hero-bg-video { display: none !important; }
+
+  /* Trusted bar: remove gap — hero bottom padding is enough */
+  .chy-trusted-1-area { margin-top: 0 !important; }
+
+  /* Reset any GSAP pre-animation transforms on hero heading */
+  .chy-hero-1-content .title,
+  .chy-hero-1-content h1 {
+    font-size: 32px !important;
+    line-height: 1.2 !important;
+    letter-spacing: -0.5px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    opacity: 1 !important;
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    float: none !important;
+    display: block !important;
+  }
+  .chy-hero-1-content {
+    max-width: 100% !important;
+    padding-top: 0;
+    padding-bottom: 30px;
+  }
+  /* Hide floating "Have an idea or project?" sticker — overlaps hamburger on mobile */
+  .chy-hero-1-content .il-shape-1 { display: none !important; }
+  .chy-hero-1-content .disc {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+  .chy-hero-1-content .btn-wrap { flex-wrap: wrap !important; }
+
+  /* ── As Featured In logos ─────────────────────────────── */
+  .featured-in-strip {
+    flex-wrap: wrap !important;
+    gap: 10px !important;
+  }
+  .featured-in-logos {
+    display: grid !important;
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+    width: 100% !important;
+  }
+  .featured-in-logo-slot,
+  .logo-pill {
+    width: 100% !important;
+    height: 52px !important;
+    padding: 8px 14px !important;
+  }
+  .featured-in-logo-slot img,
+  .logo-pill img { max-height: 30px !important; }
+
+  /* ── Section title wrappers — must be full width & visible ── */
+  /* These containers have no xs Bootstrap column class, so they auto-size to
+     their content. Force them to 100% so headings and paragraphs can wrap. */
+  .section-title-wrap,
+  .sec-title {
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+  .section-title-wrap h2,
+  .section-title-wrap p,
+  .sec-title h2,
+  .sec-title p {
+    width: 100% !important;
+    max-width: 100% !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    overflow: visible !important;
+  }
+
+  /* ── All section headings — reset GSAP & force wrap ──── */
+  .chy-title-1 {
+    font-size: 32px !important;
+    line-height: 1.3 !important;
+    letter-spacing: -0.3px !important;
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  /* GSAP split containers — allow overflow & normal wrapping */
+  .chy-split-text,
+  .chy-split-text-2,
+  .chy-split-in-right,
+  .chy-split-in-hero-1 {
+    white-space: normal !important;
+    overflow: visible !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  /* Reset ALL children inside any GSAP-split element on mobile.
+     Must include overflow:visible — GSAP SplitText sets overflow:hidden
+     inline on each .split-line, which clips text at desktop measurements. */
+  .chy-split-in-right *,
+  .chy-split-in-hero-1 * {
+    transform: none !important;
+    opacity: 1 !important;
+    white-space: normal !important;
+    overflow: visible !important;
+    width: auto !important;
+    max-width: 100% !important;
+  }
+  /* GSAP SplitText generates .split-line divs with inline overflow:hidden
+     and pixel widths based on desktop measurements. Force them back to full
+     width blocks so their text content wraps within the mobile container. */
+  .chy-title-1 .split-line,
+  .chy-hero-1-content .title .split-line {
+    display: block !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+  .chy-title-1 .split-line > div,
+  .chy-title-1 .split-line > div > div,
+  .chy-hero-1-content .title .split-line > div,
+  .chy-hero-1-content .title .split-line > div > div {
+    display: inline !important;
+    transform: none !important;
+    opacity: 1 !important;
+    white-space: normal !important;
+    width: auto !important;
+    overflow: visible !important;
+  }
+
+  /* ── Services section bottom padding ─────────────────── */
+  .svc-opt-section { padding-bottom: 30px !important; }
+
+  /* ── Trusted bar — tighten padding & reset GSAP scale ─────── */
+  .chy-trusted-1-wrap {
+    padding: 24px 20px !important;
+    transform: none !important;
+    scale: 1 !important;
+  }
+  .chy-trusted-1-wrap .chy-trusted-1-title { font-size: 22px !important; }
+
+  /* ── Solutions / Why Choose Us ────────────────────────── */
+  /* Float card goes off-screen on mobile — pull it into normal flow */
+  .chy-solutions-1-goals {
+    position: relative !important;
+    left: auto !important;
+    bottom: auto !important;
+    margin-top: 24px !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+  .chy-solutions-1-img { overflow: visible !important; padding-bottom: 0 !important; }
+  .chy-solutions-1-area { padding-top: 30px !important; padding-bottom: 60px !important; }
+  /* Reset GSAP rotatedscal — image stays invisible if ScrollTrigger doesn't fire */
+  .chy-solutions-1-img .main-img,
+  .chy-solutions-1-img .rotatedscal,
+  .chy-solutions-1-img img {
+    transform: none !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /* ── xl/lg-only columns have no xs fallback — force full width ── */
+  /* col-xl-8/offset-xl-2 in Why Shopa and Clients section headings */
+  .col-xl-8, .col-lg-8, .col-xl-10, .col-lg-10 {
+    width: 100% !important;
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+    margin-left: 0 !important;
+  }
+  .offset-xl-2, .offset-lg-2, .offset-xl-1, .offset-lg-1 { margin-left: 0 !important; }
+  /* sec-title paragraph and heading must also fill full width */
+  .sec-title h2, .sec-title p { width: 100% !important; max-width: 100% !important; }
+  .sec-title p { word-break: break-word !important; overflow-wrap: break-word !important; }
+
+  /* ── Why Shopa cards — force single column on mobile ──── */
+  .bg-default .col-xl-3,
+  .bg-default .col-lg-3 {
+    width: 100% !important;
+    flex: 0 0 100% !important;
+    max-width: 100% !important;
+  }
+  .web-diff-card {
+    text-align: center;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  .web-diff-card__title {
+    white-space: normal !important;
+    word-break: break-word !important;
+    overflow-wrap: break-word !important;
+    font-size: 17px !important;
+  }
+  /* Paragraph is inside flex-column align-items:center — must set width:100%
+     or it sizes to its longest unwrapped line and overflows the card */
+  .web-diff-card__body {
+    width: 100% !important;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    font-size: 13px !important;
+  }
+
+  /* ── Testimonials ─────────────────────────────────────── */
+  .chy-team-slider-1-wrap,
+  .swiper-container,
+  .swiper-wrapper { overflow: hidden !important; }
+
+  /* Reset all GSAP/CSS pre-animation transforms so slides are always visible */
+  .chy-team-slider-1-item,
+  .chy-team-slider-1-item .main-img,
+  .chy-team-slider-1-item .main-img img,
+  .chy-team-slider-1-item .title,
+  .chy-team-slider-1-item .comment,
+  .chy-team-slider-1-item .content-wrap {
+    transform: none !important;
+    opacity: 1 !important;
+    overflow: visible;
+  }
+
+  /* Collapse the 60px flex gap between logo and content on mobile */
+  .chy-team-slider-1-item { gap: 12px !important; }
+
+  /* Logo image area — compact rectangle, not a tall circle */
+  .chy-team-slider-1-item .main-img {
+    height: 110px !important;
+    width: 100% !important;
+    border-radius: 12px !important;
+    background: #f5f0ff !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    margin-bottom: 0 !important;
+  }
+  .chy-team-slider-1-item .main-img img {
+    width: auto !important;
+    height: 70px !important;
+    max-width: 200px !important;
+    object-fit: contain !important;
+    border-radius: 0 !important;
+  }
+
+  /* No-logo initials box — keep purple circle style */
+  .chy-team-slider-1-item .main-img.no-logo {
+    border-radius: 50% !important;
+    width: 110px !important;
+    height: 110px !important;
+    margin: 0 auto 20px !important;
+  }
+
+  /* Text sizing */
+  .chy-team-slider-1-item .title { font-size: 18px !important; margin-bottom: 12px !important; }
+  .chy-team-slider-1-item .comment { font-size: 14px !important; line-height: 1.65 !important; padding-left: 14px !important; border-left-width: 3px !important; margin-bottom: 16px !important; }
+  .chy-team-slider-1-item .name { font-size: 15px !important; }
+  .chy-team-slider-1-item .bio { font-size: 13px !important; }
+
+  /* Pagination dots — centre-align, tighten gap below content */
+  .chy-team-slider-1-wrap .chy-team-slider-1-pagination {
+    padding-left: 0 !important;
+    justify-content: center !important;
+    padding-top: 10px !important;
+  }
+  .chy-team-slider-1-area { padding-bottom: 40px !important; }
+
+  /* ── Clients ──────────────────────────────────────────── */
+  .shopa-clients-area .chy-title-1 { font-size: 20px !important; }
+
+  /* ── Services ticker → single column on mobile ────────── */
+  .svc-ticker-drag-wrap {
+    overflow: visible !important;
+    cursor: default !important;
+    padding: 0 16px !important;
+  }
+  .svc-ticker-track-js {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    gap: 16px !important;
+  }
+  .svc-ticker-card {
+    width: 100% !important;
+    flex-shrink: unset !important;
+  }
+  /* Hide the duplicated cards (doubled for infinite scroll — not needed on mobile) */
+  .svc-ticker-track-js .svc-ticker-card:nth-child(n+8) { display: none !important; }
+
+  /* ── Blog ─────────────────────────────────────────────── */
+  .chy-blog-1-item { overflow: hidden; }
+  .chy-blog-1-item .title a { word-break: break-word; }
+}
+
+/* ══════════════════════════════════════════════════════════
+   WHY SHOPA — Floating 3D Cards (Pixis-style)
+══════════════════════════════════════════════════════════ */
+.shopa-floating-section {
+  position: relative;
+  padding: 120px 0 160px;
+  overflow: hidden;
+}
+
+/* Scrolling background text — infinite marquee */
+.shopa-floating-scrolltext {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+.shopa-floating-scrolltext__track {
+  display: flex;
+  width: max-content;
+  animation: shopa-scroll-text 22s linear infinite;
+}
+.shopa-floating-scrolltext__track span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(3rem, 6vw, 5.5rem);
+  font-weight: 800;
+  color: rgba(102, 61, 255, 0.05);
+  white-space: nowrap;
+  padding-right: 80px;
+  letter-spacing: -0.02em;
+}
+@keyframes shopa-scroll-text {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* Two-column layout: sticky title left, cards right */
+.shopa-floating-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+  position: relative;
+  z-index: 1;
+}
+.shopa-floating-sticky-col {
+  position: sticky;
+  top: 160px;
+}
+
+/* Cards column — 2×2 grid */
+.shopa-floating-cards-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  justify-items: center;
+  align-items: start;
+}
+/* Right column cards (2nd and 4th) offset down for stagger depth */
+.shopa-floating-holder--2 { margin-top: 3rem; }
+.shopa-floating-holder--3 { margin-top: 0; }
+.shopa-floating-holder--4 { margin-top: 3rem; }
+
+.shopa-floating-holder {
+  perspective: 2000px;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Card */
+.shopa-floating-card {
+  --fc-pad: clamp(18px, 2.5vw, 26px);
+  width: 230px;
+  height: 230px;
+  background: #ffffff;
+  border: 1.5px solid rgba(102, 61, 255, 0.35);
+  box-shadow: 0 8px 32px rgba(102, 61, 255, 0.14), 0 2px 8px rgba(102, 61, 255, 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  transform-style: preserve-3d;
+  cursor: pointer;
+}
+
+/* Brand gradient overlay — fades in on hover/active */
+.shopa-floating-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #663dff 0%, #aa00ff 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease-in;
+  z-index: 2;
+}
+
+/* Heading layer (icon + title, sits at bottom by default) */
+.shopa-floating-card__heading {
+  position: absolute;
+  inset: 0;
+  padding: var(--fc-pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  transition: transform 0.8s cubic-bezier(0.33, 1.4, 0.6, 1);
+  z-index: 3;
+}
+/* Body layer (slides in from below on hover) */
+.shopa-floating-card__body {
+  position: absolute;
+  inset: 0;
+  padding: var(--fc-pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  transform: translateY(100%);
+  transition: transform 0.8s cubic-bezier(0.33, 1.4, 0.6, 1);
+  z-index: 3;
+}
+.shopa-floating-card__body p {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.7;
+  color: #ffffff;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Icon — absolute top-right */
+.shopa-floating-card__icon {
+  position: absolute;
+  top: var(--fc-pad);
+  right: var(--fc-pad);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  background: rgba(102, 61, 255, 0.08);
+  border: 1px solid rgba(102, 61, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 3;
+  flex-shrink: 0;
+}
+.shopa-floating-card__icon i {
+  font-size: 42px;
+  background: linear-gradient(135deg, #663dff, #aa00ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.shopa-floating-card__title {
+  font-size: 21px;
+  font-weight: 700;
+  color: #1a0a3e;
+  line-height: 1.3;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* Hover — pointer devices */
+@media (hover: hover) {
+  .shopa-floating-card:hover::after { opacity: 1; transition: opacity 0.4s ease-out; }
+  .shopa-floating-card:hover .shopa-floating-card__heading { transform: translateY(-100%); }
+  .shopa-floating-card:hover .shopa-floating-card__body   { transform: translateY(0); }
+}
+/* Active — touch tap */
+.shopa-floating-card--active::after { opacity: 1; transition: opacity 0.4s ease-out; }
+.shopa-floating-card--active .shopa-floating-card__heading { transform: translateY(-100%); }
+.shopa-floating-card--active .shopa-floating-card__body    { transform: translateY(0); }
+
+/* Tablet / Mobile */
+@media (max-width: 991px) {
+  .shopa-floating-section { padding: 80px 0 100px; }
+  .shopa-floating-layout  { grid-template-columns: 1fr; gap: 48px; }
+  .shopa-floating-sticky-col { position: static; }
+  /* Keep 2-col card grid on tablet, reset stagger */
+  .shopa-floating-holder--2,
+  .shopa-floating-holder--4 { margin-top: 2rem; }
+  .shopa-floating-holder--3 { margin-top: 0; }
+  .shopa-floating-card { width: 200px; height: 200px; }
+}
+@media (max-width: 575px) {
+  /* Single column on small phones */
+  .shopa-floating-cards-col { grid-template-columns: 1fr; }
+  .shopa-floating-holder--2,
+  .shopa-floating-holder--3,
+  .shopa-floating-holder--4 { margin-top: 1.5rem; }
+  .shopa-floating-card { width: 260px; height: 260px; }
+}
+
+
+/* ── Testimonial fallback — no logo available ─────────────── */
+.chy-team-slider-1-item .main-img.no-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #663dff, #aa00ff);
+}
+.testimonial-initials {
+  font-size: 56px;
+  font-weight: 800;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: -2px;
+}
+
+/* ── Extra small phones (≤ 480px) ────────────────────────── */
+@media (max-width: 480px) {
+  .chy-hero-1-content .title,
+  .chy-hero-1-content h1 { font-size: 28px !important; }
+  .chy-title-1 { font-size: 28px !important; }
+  .shopa-clients-area .chy-title-1 { font-size: 26px !important; }
+}
+
+/* ── Navbar & Footer CTA — shimmer via ::before, no JSX changes ─── */
+.nav-cta-btn,
+.footer-cta-btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.nav-cta-btn::before,
+.footer-cta-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 85%
+  );
+  transform: skewX(-20deg) translateX(-200%);
+  transition: transform 0.65s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+.nav-cta-btn:hover::before,
+.footer-cta-btn:hover::before {
+  transform: skewX(-20deg) translateX(400%);
+}
+.nav-cta-btn:hover,
+.footer-cta-btn:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 36px rgba(102, 61, 255, 0.45) !important;
+}
+/* Keep existing white ripple on nav button hidden (shimmer replaces it) */
+.nav-cta-btn .group-hover\:scale-\[18\] {
+  display: none !important;
+}
+
+/* ── Button shimmer sweep — replaces orange ripple ──────────────── */
+
+/* Ensure text always sits above the shimmer layer */
+.chy-pr-btn-1 .text,
+.chy-pr-btn-5 .text {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* btn-1 — reset orange circle, replace with diagonal shimmer strip */
+.chy-pr-btn-1 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.chy-pr-btn-1::after {
+  background: linear-gradient(
+    120deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.55) 50%,
+    transparent 85%
+  ) !important;
+  height: 100% !important;
+  width: 55% !important;
+  border-radius: 0 !important;
+  top: 0 !important;
+  right: auto !important;
+  left: 0 !important;
+  z-index: 0 !important;
+  scale: 1 !important;
+  transform: skewX(-20deg) translateX(-200%) !important;
+  transition: transform 0.65s ease !important;
+}
+.chy-pr-btn-1:hover {
+  color: #fff !important;
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 36px rgba(102, 61, 255, 0.45) !important;
+}
+.chy-pr-btn-1:hover::after {
+  transform: skewX(-20deg) translateX(400%) !important;
+  scale: 1 !important;
+}
+
+/* btn-5 — same shimmer treatment (was white circle expand) */
+.chy-pr-btn-5 {
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.chy-pr-btn-5::after {
+  background: linear-gradient(
+    120deg,
+    transparent 15%,
+    rgba(255, 255, 255, 0.45) 50%,
+    transparent 85%
+  ) !important;
+  height: 100% !important;
+  width: 55% !important;
+  border-radius: 0 !important;
+  top: 0 !important;
+  right: auto !important;
+  left: 0 !important;
+  z-index: 0 !important;
+  scale: 1 !important;
+  transform: skewX(-20deg) translateX(-200%) !important;
+  transition: transform 0.65s ease !important;
+}
+.chy-pr-btn-5:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 16px 36px rgba(102, 61, 255, 0.35) !important;
+}
+.chy-pr-btn-5:hover::after {
+  transform: skewX(-20deg) translateX(400%) !important;
+  scale: 1 !important;
+}
+
+/* ── Transparent section wrappers — let body gradient flow through ── */
+.body-bg-1,
+.body-bg-2,
+.bg-default:not(.breadcrumb-area),
+.chy-blog-1-area,
+.chy-solutions-1-area,
+.chy-trusted-1-area,
+.svc-opt-section,
+.chy-team-slider-1-area,
+.shopa-clients-area {
+  background: transparent !important;
+  background-image: none !important;
+}
+
+/* ── Glassmorphism: Trusted section ──────────────────────── */
+.chy-trusted-1-wrap {
+  background: rgba(255, 255, 255, 0.08) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: 1px solid rgba(102, 61, 255, 0.3) !important;
+  border-radius: 24px !important;
+  box-shadow:
+    0 8px 40px rgba(102, 61, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25) !important;
+  padding: 36px 40px !important;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle purple shimmer top-left */
+.chy-trusted-1-wrap::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: -60px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle, rgba(102, 61, 255, 0.25) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Heading — gradient text matching site theme */
+.chy-trusted-1-wrap .chy-trusted-1-title {
+  background: linear-gradient(135deg, #663dff 0%, #aa00ff 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  font-weight: 800 !important;
+}
+
+/* Stat numbers */
+.chy-trusted-1-wrap .chy-trusted-1-progress .number,
+.chy-trusted-1-wrap .chy-trusted-1-progress h3 {
+  color: #ffffff !important;
+  font-weight: 800 !important;
+}
+
+/* Labels & sub-titles */
+.chy-trusted-1-wrap .chy-trusted-1-progress .title,
+.chy-trusted-1-wrap .chy-trusted-1-progress h4,
+.chy-trusted-1-wrap .chy-trusted-1-progress h5 {
+  color: rgba(255, 255, 255, 0.75) !important;
+}
+
+/* Stars */
+.chy-trusted-1-wrap .chy-trusted-1-reating .icon i {
+  color: #f6a623 !important;
+}
+
+/* Review text */
+.chy-trusted-1-wrap .chy-trusted-1-reating .text {
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+
+/* Divider lines */
+.chy-trusted-1-wrap .chy-trusted-1-item > .line,
+.chy-trusted-1-wrap .chy-trusted-1-progress > .line,
+.chy-trusted-1-wrap .chy-trusted-1-reating > .line {
+  background: rgba(102, 61, 255, 0.4) !important;
+}
+
+/* Progress bar track */
+.chy-trusted-1-wrap .chy-trusted-1-progress-item .line {
+  background: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* Progress bar fill */
+.chy-trusted-1-wrap .chy-trusted-1-progress-item .line .line-fill {
+  background: linear-gradient(90deg, #663dff, #aa00ff) !important;
+}
+
+/* ── Inner stat cards (progress + rating) ── */
+.chy-trusted-1-wrap .chy-trusted-1-progress,
+.chy-trusted-1-wrap .chy-trusted-1-reating {
+  background: rgba(255, 255, 255, 0.75) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border: 1px solid rgba(102, 61, 255, 0.15) !important;
+  box-shadow: 0 4px 16px rgba(102, 61, 255, 0.08) !important;
+}
+
+/* Inner card — stat title */
+.chy-trusted-1-wrap .chy-trusted-1-progress .title,
+.chy-trusted-1-wrap .chy-trusted-1-progress h4 {
+  color: #555577 !important;
+  font-size: 13px !important;
+  letter-spacing: 0.04em !important;
+  text-transform: uppercase !important;
+}
+
+/* Inner card — big numbers */
+.chy-trusted-1-wrap .chy-trusted-1-progress .number,
+.chy-trusted-1-wrap .chy-trusted-1-progress h3 {
+  color: #1a0a3e !important;
+  font-size: 32px !important;
+  font-weight: 800 !important;
+}
+
+/* Inner card — sub-label below progress bar */
+.chy-trusted-1-wrap .chy-trusted-1-progress-item .title,
+.chy-trusted-1-wrap .chy-trusted-1-progress-item h5 {
+  color: #888899 !important;
+  font-size: 11px !important;
+}
+
+/* Inner card — divider line */
+.chy-trusted-1-wrap .chy-trusted-1-progress .line,
+.chy-trusted-1-wrap .chy-trusted-1-reating .line {
+  background: rgba(102, 61, 255, 0.15) !important;
+}
+
+/* Inner card — progress bar track */
+.chy-trusted-1-wrap .chy-trusted-1-progress-item .line {
+  background: rgba(102, 61, 255, 0.12) !important;
+  height: 10px !important;
+}
+
+/* Inner card — rating review text */
+.chy-trusted-1-wrap .chy-trusted-1-reating .text {
+  color: #1a0a3e !important;
+  font-size: 15px !important;
+  line-height: 1.5 !important;
+}
+
+/* Inner card — stars */
+.chy-trusted-1-wrap .chy-trusted-1-reating .icon i {
+  color: #f6a623 !important;
+}
+
+/* Google brand row */
+.google-review-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.google-review-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: #444 !important;
+  letter-spacing: 0.02em;
+}
+
+/* ── Star pop-in animation (one time, sequential) ── */
+@keyframes star-popin {
+  0%   { transform: scale(0) rotate(-20deg); opacity: 0; filter: brightness(2); }
+  60%  { transform: scale(1.35) rotate(8deg); opacity: 1; filter: brightness(1.6) drop-shadow(0 0 6px #f6a623); }
+  80%  { transform: scale(0.9) rotate(-3deg); filter: brightness(1.1); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; filter: brightness(1); }
+}
+
+.animated-stars i {
+  display: inline-block;
+  opacity: 0;
+}
+
+/* Animation only fires once the section is in view */
+.animated-stars.in-view i {
+  animation: star-popin 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+.animated-stars.in-view .star-1 { animation-delay: 0.1s; }
+.animated-stars.in-view .star-2 { animation-delay: 0.22s; }
+.animated-stars.in-view .star-3 { animation-delay: 0.34s; }
+.animated-stars.in-view .star-4 { animation-delay: 0.46s; }
+.animated-stars.in-view .star-5 { animation-delay: 0.58s; }

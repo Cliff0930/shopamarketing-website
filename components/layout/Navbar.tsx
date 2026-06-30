@@ -81,8 +81,9 @@ export default function Navbar() {
   }, [pathname]);
 
   useEffect(() => {
-    document.body.style.overflow = mobileOpen ? "hidden" : "";
-    return () => { document.body.style.overflow = ""; };
+    // Use html element (not body) — body overflow:hidden breaks position:fixed on iOS Safari
+    document.documentElement.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.documentElement.style.overflow = ""; };
   }, [mobileOpen]);
 
   const handleMouseEnter = () => {
@@ -209,14 +210,13 @@ export default function Navbar() {
             {/* CTA button — gradient pill inside the white pill */}
             <Link
               href="/contact-us"
-              className="group relative overflow-hidden flex-shrink-0 inline-flex items-center gap-2.5 text-white font-[700] uppercase tracking-wide leading-none rounded-[30px] whitespace-nowrap transition-colors duration-300"
+              className="group relative overflow-hidden flex-shrink-0 inline-flex items-center gap-2.5 text-white font-[700] uppercase tracking-wide leading-none rounded-[30px] whitespace-nowrap transition-colors duration-300 nav-cta-btn"
               style={{
                 fontSize: "clamp(13px, 1vw, 16px)",
                 padding: "clamp(16px, 1.5vw, 23px) clamp(20px, 2.5vw, 40px)",
                 background: "linear-gradient(90deg, #663dff -2.17%, #aa00ff 100%)",
               }}
             >
-              {/* Ripple circle expands on hover */}
               <span
                 className="absolute rounded-full bg-white/25 group-hover:scale-[18] transition-transform duration-[400ms] ease-in-out pointer-events-none"
                 style={{
@@ -373,7 +373,8 @@ export default function Navbar() {
       )}>
         {/* Backdrop */}
         <div
-          className="absolute inset-0 bg-[#0c0c14]/97 backdrop-blur-md"
+          className="absolute inset-0"
+          style={{ backgroundColor: 'rgba(12, 12, 20, 0.97)', backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)' }}
           onClick={() => setMobileOpen(false)}
         />
 
@@ -469,18 +470,18 @@ export default function Navbar() {
           <div className="px-5 sm:px-8 pb-10 pt-4 border-t border-white/10">
             <Link
               href="/contact-us"
-              className="flex items-center justify-center gap-2 w-full text-white font-[700] uppercase tracking-wide gradient-bg shadow-xl shadow-primary/30 active:scale-[0.98] transition-transform rounded-[30px]"
-              style={{ fontSize: "15px", padding: "18px 32px" }}
+              className="flex items-center justify-center gap-2 w-full text-white font-[700] uppercase tracking-widest gradient-bg shadow-xl shadow-primary/30 active:scale-[0.98] transition-transform rounded-[30px] whitespace-nowrap"
+              style={{ fontSize: "13px", padding: "16px 24px" }}
               onClick={() => setMobileOpen(false)}
             >
               Book a Free Consultation
-              <ArrowRight size={14} />
+              <ArrowRight size={14} className="flex-shrink-0" />
             </Link>
             <div className="flex items-center justify-center gap-2 mt-5">
-              <Phone size={13} className="text-white/30" />
+              <Phone size={14} className="text-white/70 flex-shrink-0" />
               <a
                 href="tel:+611800247034"
-                className="text-[14px] font-[500] text-white/40 hover:text-white/70 transition-colors"
+                className="text-[15px] font-[600] text-white/70 hover:text-white transition-colors"
               >
                 1800 247 034
               </a>

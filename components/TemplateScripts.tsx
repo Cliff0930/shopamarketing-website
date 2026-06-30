@@ -57,11 +57,47 @@ export default function TemplateScripts() {
         // After GSAP + main.js initialise their ScrollTrigger animations, refresh
         // so every scrubbed animation snaps to the correct position for the current
         // scroll offset (prevents half-stuck animations on slow dev first load).
+        // First refresh — catches most animations quickly
         setTimeout(() => {
           if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch { /* ignore */ } }
           w.$(window).trigger('scroll');
         }, 400);
+        // Second refresh — catches animations whose trigger positions shifted due
+        // to the 250vh sticky hero container settling after first paint
+        setTimeout(() => {
+          if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch { /* ignore */ } }
+          if (typeof w.WOW !== 'undefined') { try { new w.WOW({ live: false }).init(); } catch { /* ignore */ } }
+        }, 1200);
       }
+
+      // On mobile, GSAP SplitText sets inline styles (white-space:nowrap, pixel
+      // widths) on split-line divs based on DESKTOP measurements. This makes
+      // headings overflow on narrow screens. After GSAP finishes, fix each
+      // split-line to be a full-width block so text wraps naturally.
+      if (window.innerWidth <= 767) {
+        setTimeout(() => {
+          document.querySelectorAll<HTMLElement>('.chy-split-in-right, .chy-split-in-hero-1').forEach(el => {
+            el.style.setProperty('overflow', 'visible', 'important');
+            el.style.setProperty('white-space', 'normal', 'important');
+            el.querySelectorAll<HTMLElement>('.split-line').forEach(line => {
+              line.style.setProperty('display', 'block', 'important');
+              line.style.setProperty('width', '100%', 'important');
+              line.style.setProperty('max-width', '100%', 'important');
+              line.style.setProperty('overflow', 'visible', 'important');
+              line.style.setProperty('white-space', 'normal', 'important');
+              line.style.setProperty('opacity', '1', 'important');
+              line.style.setProperty('transform', 'none', 'important');
+              line.querySelectorAll<HTMLElement>('div').forEach(d => {
+                d.style.setProperty('display', 'inline', 'important');
+                d.style.setProperty('transform', 'none', 'important');
+                d.style.setProperty('opacity', '1', 'important');
+                d.style.setProperty('white-space', 'normal', 'important');
+              });
+            });
+          });
+        }, 600); // after GSAP init (~400ms) finishes
+      }
+
       ready.current = true;
     });
   }, []);

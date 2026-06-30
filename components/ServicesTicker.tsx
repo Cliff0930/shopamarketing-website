@@ -7,6 +7,7 @@ interface Service {
   items: string[];
   link: string;
   image?: string;
+  video?: string;
 }
 
 export default function ServicesTicker({ services }: { services: Service[] }) {
@@ -52,18 +53,46 @@ export default function ServicesTicker({ services }: { services: Service[] }) {
     };
   }, []);
 
+  const handleImgEnter = (e: React.MouseEvent<HTMLDivElement>) => {
+    const video = e.currentTarget.querySelector<HTMLVideoElement>('video');
+    if (video) { video.currentTime = 0; video.play().catch(() => {}); }
+  };
+
+  const handleImgLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const video = e.currentTarget.querySelector<HTMLVideoElement>('video');
+    if (video) { video.pause(); video.currentTime = 0; }
+  };
+
   const doubled = [...services, ...services];
 
   return (
     <div ref={wrapRef} className="svc-ticker-drag-wrap" style={{ cursor: 'grab' }}>
       <div className="svc-ticker-track-js">
         {doubled.map((svc, i) => (
-          <div key={i} className="svc-ticker-card">
+          <div
+            key={i}
+            className="svc-ticker-card"
+            onMouseEnter={svc.video ? handleImgEnter : undefined}
+            onMouseLeave={svc.video ? handleImgLeave : undefined}
+          >
             <div className="svc-ticker-img">
-              {svc.image
-                ? <img src={svc.image} alt={svc.title} style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '12px' }} />
-                : <span style={{ fontSize: '11px', color: '#bbb', letterSpacing: '1px', textTransform: 'uppercase' }}>Image</span>
-              }
+              {svc.image && (
+                <img
+                  src={svc.image}
+                  alt={svc.title}
+                  className={`svc-ticker-img__static${svc.video ? ' has-video' : ''}`}
+                />
+              )}
+              {svc.video && (
+                <video
+                  src={svc.video}
+                  muted
+                  loop
+                  playsInline
+                  preload="metadata"
+                  className="svc-ticker-img__video"
+                />
+              )}
             </div>
             <h4 className="chy-heading-1 svc-ticker-title">{svc.title}</h4>
             <p className="chy-para-1 svc-ticker-desc">{svc.desc}</p>

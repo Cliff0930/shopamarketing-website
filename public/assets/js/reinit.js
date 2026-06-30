@@ -40,11 +40,14 @@
       });
     }
     if ($('.chy_team_slider_1_active').length) {
-      new Swiper('.chy_team_slider_1_active', {
-        loop: true, spaceBetween: 0, speed: 500, slidesPerView: 1, effect: 'fade',
-        autoplay: { delay: 5000 }, fadeEffect: { crossFade: true },
-        pagination: { el: '.chy-team-slider-1-pagination', clickable: true }
-      });
+      try {
+        new Swiper('.chy_team_slider_1_active', {
+          spaceBetween: 0, speed: 500, slidesPerView: 1, effect: 'fade',
+          autoplay: { delay: 5000, disableOnInteraction: false },
+          fadeEffect: { crossFade: true },
+          pagination: { el: '.chy-team-slider-1-pagination', clickable: true }
+        });
+      } catch (_) {}
     }
 
     /* 4 — Re-run GSAP ScrollTrigger animations for new DOM elements */
