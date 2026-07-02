@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import BlogSearch from "@/components/blog/BlogSearch";
-import { getPostsPaged, getPosts, getCategories, getTags, featuredImage, formatDate } from "@/lib/wordpress";
+import BlogHeroCounters from "@/components/BlogHeroCounters";
+import { getPostsPaged, getCategories } from "@/lib/wordpress";
 
 export const revalidate = 3600;
 
@@ -14,42 +15,58 @@ export default async function BlogPage({
   const currentPage = Math.max(1, parseInt(searchParams.page ?? '1', 10));
   const activeCatId = searchParams.cat ? parseInt(searchParams.cat, 10) : undefined;
 
-  const [{ posts, totalPages }, recentPosts, categories, tags] = await Promise.all([
+  const [{ posts, totalPages }, categories] = await Promise.all([
     getPostsPaged(currentPage, PER_PAGE, '', activeCatId),
-    getPosts(4),
     getCategories(),
-    getTags(),
   ]);
+
+  const totalArticles = categories.reduce((sum, c) => sum + c.count, 0);
 
   return (
     <>
       <TemplateScripts />
+      <BlogHeroCounters years={45} articles={totalArticles} categories={categories.length} />
 
       {/* preloader */}
       <div id="preloader">
         <div className="loader_line"></div>
       </div>
 
-      {/* breadcrumb-area-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/blog-hero.webp')", backgroundSize: 'cover' }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">Our Blog</h2>
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <span>Our Blog</span>
-                </div>
+      {/* ── BLOG HERO ── */}
+      <section className="blog-hero">
+        <div className="container chy-container-1">
+          <div className="blog-hero__inner">
+
+            <h1 className="chy-title-1 blog-hero__headline wow fadeInLeft" data-wow-duration="1.2s">
+              Marketing Insights <br />Worth Your Time.
+            </h1>
+
+            <p className="blog-hero__sub wow fadeInUp" data-wow-duration="2s">
+              Straight-talking strategy, campaign breakdowns, and growth tactics from the specialists behind 1,000+ Australian and NZ businesses. No fluff, no recycled advice.
+            </p>
+
+            {/* Stats strip */}
+            <div className="blog-hero__stats blog-hero__stats--animate">
+              <div className="blog-hero__stat">
+                <span className="blog-hero__stat-num"><span id="blog-hero-counter-1">0</span>+</span>
+                <span className="blog-hero__stat-label">Years Combined Experience</span>
+              </div>
+              <div className="blog-hero__stat-divider" />
+              <div className="blog-hero__stat">
+                <span className="blog-hero__stat-num"><span id="blog-hero-counter-2">0</span>+</span>
+                <span className="blog-hero__stat-label">Articles Published</span>
+              </div>
+              <div className="blog-hero__stat-divider" />
+              <div className="blog-hero__stat">
+                <span className="blog-hero__stat-num"><span id="blog-hero-counter-3">0</span></span>
+                <span className="blog-hero__stat-label">Categories Covered</span>
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-      {/* breadcrumb-area-end */}
+      </section>
+      {/* ── BLOG HERO END ── */}
 
       {/* blog-start */}
       <div className="blog-page-2-area pt-120 pb-70">
@@ -93,46 +110,6 @@ export default async function BlogPage({
                         </li>
                       ))}
                     </ul>
-                  </div>
-                </div>
-
-                {/* recent posts */}
-                <div className="sidebar-box mb-30 wow fadeInUp">
-                  <h4 className="sidebar-box-title chy-heading-1">recent posts</h4>
-                  <div className="sidebar-box-wrap">
-                    <div className="latest-post-item-wrap">
-                      {recentPosts.slice(0, 4).map((post) => (
-                        <div key={post.id} className="latest-post-item">
-                          <div className="img">
-                            <a aria-label="recent post" href={`/blog/${post.slug}`}>
-                              <img src={featuredImage(post)} alt=""
-                                style={{ width: '100%', height: 'auto', display: 'block', borderRadius: '8px' }} />
-                            </a>
-                          </div>
-                          <div className="content">
-                            <span className="date chy-para-1">
-                              <i className="fal fa-calendar-alt"></i> {formatDate(post.date)}
-                            </span>
-                            <h6 className="title chy-heading-1">
-                              <a aria-label="recent post" href={`/blog/${post.slug}`}
-                                dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                            </h6>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
-                {/* tags */}
-                <div className="sidebar-box wow fadeInUp">
-                  <h4 className="sidebar-box-title chy-heading-1">tags</h4>
-                  <div className="sidebar-box-wrap">
-                    <div className="sidebar-tag">
-                      {tags.map((tag) => (
-                        <a key={tag.id} aria-label="tags" href={`/blog?cat=${tag.id}`}>{tag.name}</a>
-                      ))}
-                    </div>
                   </div>
                 </div>
 

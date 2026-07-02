@@ -1,4 +1,5 @@
 import TemplateScripts from "@/components/TemplateScripts";
+import ServiceHero from "@/components/ServiceHero";
 
 export default function GoogleAdsPage() {
   return (
@@ -11,27 +12,10 @@ export default function GoogleAdsPage() {
       </div>
       {/* preloader-end */}
 
-      {/* breadcrumb-area-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">Google Ads</h2>
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <a href="/services">Services</a>
-                  <span>Google Ads</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* breadcrumb-area-end */}
+      <ServiceHero
+        headline="Pay-Per-Click, With Real ROI."
+        subtext="Google Ads campaigns managed by senior specialists who obsess over cost-per-lead, not just clicks. No wasted spend, no set-and-forget."
+      />
 
       {/* service-details-start */}
       <div className="service-details-area pt-120 pb-70">

@@ -67,8 +67,8 @@ export default function Navbar() {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const pathname = usePathname();
   const isHome = pathname === '/';
-  // Contact page has a light hero — use same dark-logo/dark-text as home
-  const isLightBg = isHome || pathname === '/contact-us';
+  // Contact, Blog, About Us, and all Services pages have a light hero — use same dark-logo/dark-text as home
+  const isLightBg = isHome || pathname === '/contact-us' || pathname === '/blog' || pathname === '/about-us' || pathname.startsWith('/services');
   const dropdownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {

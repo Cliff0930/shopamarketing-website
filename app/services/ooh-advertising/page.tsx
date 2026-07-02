@@ -1,4 +1,5 @@
 import TemplateScripts from "@/components/TemplateScripts";
+import ServiceHero from "@/components/ServiceHero";
 
 export default function OohAdvertisingPage() {
   return (
@@ -11,27 +12,10 @@ export default function OohAdvertisingPage() {
       </div>
       {/* preloader-end */}
 
-      {/* breadcrumb-area-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">OOH Advertising</h2>
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <a href="/services">Services</a>
-                  <span>OOH Advertising</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* breadcrumb-area-end */}
+      <ServiceHero
+        headline="Get Seen Where Your Customers Actually Are."
+        subtext="Billboards, transit, and outdoor media planned and placed for maximum local reach — from concept to installation."
+      />
 
       {/* service-details-start */}
       <div className="service-details-area pt-120 pb-70">

@@ -1,9 +1,11 @@
 import TemplateScripts from "@/components/TemplateScripts";
+import HeroCounters from "@/components/HeroCounters";
 
 export default function AboutUsPage() {
   return (
     <>
       <TemplateScripts />
+      <HeroCounters />
 
       {/* preloader-start */}
       <div id="preloader">
@@ -11,26 +13,41 @@ export default function AboutUsPage() {
       </div>
       {/* preloader-end */}
 
-      {/* breadcrumb-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/about-us.webp')", backgroundSize: 'cover' }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">About us</h2>
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <span>About us</span>
-                </div>
+      {/* ── ABOUT HERO ── */}
+      <section className="about-hero">
+        <div className="container chy-container-1">
+          <div className="about-hero__inner">
+
+            <h1 className="chy-title-1 about-hero__headline wow fadeInLeft" data-wow-duration="1.2s">
+              The People Behind <br />Your Growth.
+            </h1>
+
+            <p className="about-hero__sub wow fadeInUp" data-wow-duration="2s">
+              Shopa Marketing is a team of senior specialists — not a revolving door of juniors. For over a decade we&apos;ve helped SMEs across Australia and New Zealand grow with honest strategy and real results.
+            </p>
+
+            {/* Stats strip */}
+            <div className="about-hero__stats about-hero__stats--animate">
+              <div className="about-hero__stat">
+                <span className="about-hero__stat-num"><span id="hero-counter-1">0</span>+</span>
+                <span className="about-hero__stat-label">Years Combined Experience</span>
+              </div>
+              <div className="about-hero__stat-divider" />
+              <div className="about-hero__stat">
+                <span className="about-hero__stat-num"><span id="hero-counter-2">0</span>+</span>
+                <span className="about-hero__stat-label">Campaigns Delivered</span>
+              </div>
+              <div className="about-hero__stat-divider" />
+              <div className="about-hero__stat">
+                <span className="about-hero__stat-num"><span id="hero-counter-3">0</span>+</span>
+                <span className="about-hero__stat-label">Businesses Served</span>
               </div>
             </div>
+
           </div>
         </div>
-      </div>
-      {/* breadcrumb-end */}
+      </section>
+      {/* ── ABOUT HERO END ── */}
 
       <div
         className="body-bg-1 bg-default"

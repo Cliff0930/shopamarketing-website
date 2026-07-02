@@ -1,5 +1,6 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import PricingSection from "@/components/PricingSection";
+import ServiceHero from "@/components/ServiceHero";
 
 export default function DoneForYouPage() {
   return (
@@ -12,27 +13,10 @@ export default function DoneForYouPage() {
       </div>
       {/* preloader-end */}
 
-      {/* breadcrumb-area-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">Done For You</h2>
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <a href="/services">Services</a>
-                  <span>Done For You</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* breadcrumb-area-end */}
+      <ServiceHero
+        headline="Fractional Marketing Leadership For SMEs."
+        subtext="A senior marketing team on demand — strategy, execution, and reporting handled end-to-end, without the cost of a full in-house department."
+      />
 
       {/* pricing-section-start */}
       <PricingSection />

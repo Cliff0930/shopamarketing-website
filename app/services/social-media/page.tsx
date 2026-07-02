@@ -1,4 +1,5 @@
 import TemplateScripts from "@/components/TemplateScripts";
+import ServiceHero from "@/components/ServiceHero";
 
 export default function SocialMediaPage() {
   return (
@@ -11,27 +12,10 @@ export default function SocialMediaPage() {
       </div>
       {/* preloader-end */}
 
-      {/* breadcrumb-area-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text">Social Media Ads</h2>
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <a href="/services">Services</a>
-                  <span>Social Media Ads</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/* breadcrumb-area-end */}
+      <ServiceHero
+        headline="Social Ads That Actually Convert."
+        subtext="Meta and Instagram campaigns built on real audience data — not boosted posts. Creative, targeting, and reporting that ties back to revenue."
+      />
 
       {/* service-details-start */}
       <div className="service-details-area pt-120 pb-70">
