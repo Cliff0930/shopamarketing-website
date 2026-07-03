@@ -70,12 +70,15 @@ export default async function HomePage() {
           className="chy-hero-1-area chy-class-add fix"
           style={{ position: 'sticky', top: 0, height: '100vh', background: 'transparent', overflow: 'hidden', zIndex: 10 }}
         >
-          {/* Video — scrubbed by scroll, not autoplay */}
+          {/* Video — scrubbed by scroll, not autoplay. src is set in JS (HeroVideoScrub)
+              after the file is fully fetched as a blob, so this element never triggers
+              its own network request — avoids downloading the file twice. */}
           <video
             id="hero-bg-video"
             muted
             playsInline
-            preload="metadata"
+            preload="none"
+            poster="/assets/img/hero/HeroIMG.webp"
             style={{
               position: 'absolute',
               top: 0,
@@ -86,10 +89,7 @@ export default async function HomePage() {
               objectPosition: 'right center',
               zIndex: 0,
             }}
-          >
-            {/* media attr prevents browser downloading video on mobile — saves 15MB */}
-            <source src="/assets/img/hero/v1-scrub.mp4" type="video/mp4" media="(min-width: 768px)" />
-          </video>
+          />
 
           {/* Left fade — text readability */}
           <div style={{

@@ -1,6 +1,8 @@
 'use client';
 import { useEffect } from 'react';
 
+const VIDEO_SRC = '/assets/img/hero/v1-scrub.mp4';
+
 export default function HeroVideoScrub() {
   useEffect(() => {
     // No video source on mobile — skip scrub entirely
@@ -10,12 +12,12 @@ export default function HeroVideoScrub() {
     const section = document.getElementById('hero-section') as HTMLElement | null;
     if (!video || !section) return;
 
-    video.pause();
-    video.currentTime = 0;
-
-    let targetTime = 0;
+    let objectUrl = '';
     let rafId = 0;
+    const abortController = new AbortController();
     let animating = false;
+    let targetTime = 0;
+    let scrubEnabled = false;
 
     // Smoothly lerp currentTime toward targetTime each frame.
     // This avoids the browser seeking on every scroll tick —
@@ -32,7 +34,7 @@ export default function HeroVideoScrub() {
     };
 
     const onScroll = () => {
-      if (!video.duration) return;
+      if (!scrubEnabled || !video.duration) return;
       const scrollRange = section.offsetHeight - window.innerHeight;
       const progress = Math.min(Math.max(window.scrollY / scrollRange, 0), 1);
       targetTime = progress * video.duration;
@@ -43,28 +45,52 @@ export default function HeroVideoScrub() {
       }
     };
 
-    const init = () => {
-      window.addEventListener('scroll', onScroll, { passive: true });
-      onScroll();
-      // Video metadata loaded = layout is stable. Refresh ScrollTrigger so GSAP
-      // animations below the 250vh hero fire at the correct scroll positions.
-      setTimeout(() => {
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const w = window as any;
-        if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch { /* ignore */ } }
-        if (w.$) { try { w.$(window).trigger('scroll'); } catch { /* ignore */ } }
-      }, 300);
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    const refreshLayout = () => {
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      const w = window as any;
+      if (w.ScrollTrigger) { try { w.ScrollTrigger.refresh(); } catch { /* ignore */ } }
+      if (w.$) { try { w.$(window).trigger('scroll'); } catch { /* ignore */ } }
     };
 
-    if (video.readyState >= 1) {
-      init();
-    } else {
-      video.addEventListener('loadedmetadata', init, { once: true });
-    }
+    // Fetch the whole file into memory first. Scrubbing via currentTime seeks
+    // into arbitrary timestamps — if those bytes aren't downloaded yet the
+    // browser blocks the seek until they arrive, which is what causes the
+    // scrub to freeze on real-world connections (invisible on localhost,
+    // where the file loads instantly off disk). Once it's a blob URL, every
+    // seek reads from memory, so it can never stall on the network again.
+    const activate = (src: string) => {
+      video.src = src;
+      const onReady = () => {
+        scrubEnabled = true;
+        onScroll();
+        // Video metadata loaded = layout is stable. Refresh ScrollTrigger so
+        // GSAP animations below the 250vh hero fire at the correct positions.
+        setTimeout(refreshLayout, 300);
+      };
+      if (video.readyState >= 1) onReady();
+      else video.addEventListener('loadedmetadata', onReady, { once: true });
+    };
+
+    fetch(VIDEO_SRC, { signal: abortController.signal })
+      .then((res) => res.blob())
+      .then((blob) => {
+        objectUrl = URL.createObjectURL(blob);
+        activate(objectUrl);
+      })
+      .catch((err) => {
+        if (err.name === 'AbortError') return;
+        // Network/CORS failure — fall back to native progressive seeking
+        // rather than leaving the hero on a static poster forever.
+        activate(VIDEO_SRC);
+      });
 
     return () => {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
+      abortController.abort();
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
   }, []);
 
