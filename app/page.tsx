@@ -78,7 +78,7 @@ export default async function HomePage() {
             muted
             playsInline
             preload="none"
-            poster="/assets/img/hero/HeroIMG.webp"
+            poster="/assets/img/hero/hero-poster.webp"
             style={{
               position: 'absolute',
               top: 0,
