@@ -7,21 +7,25 @@ export default function WebsiteDesignPage() {
       quote: 'Royal Park Dental uses Shopa Marketing and are pleased with their customer service and product. Thank you for your patience and being so accommodating to our needs. Highly recommend!',
       name: 'Royal Park Dental',
       bio: 'Dental Clinic, Melbourne',
+      logo: '/assets/img/testimonials/royal-park-dental.png',
     },
     {
       quote: 'We really appreciate Shopa Marketing and their service. Their employees are reliable and quick to action anything you need.',
       name: 'First Step Fertility',
       bio: 'Fertility Clinic, Australia',
+      logo: '/assets/img/testimonials/first-step-fertility.png',
     },
     {
       quote: 'I am so happy with the entire process and end product. Tom Richards from Shopa Marketing handled my digital advertising campaign and web design. Result is excellent.',
       name: 'Lmt Finance',
       bio: 'Mortgage Broker, Geelong',
+      logo: '/assets/img/testimonials/lmt-finance.jpg',
     },
     {
       quote: 'They look after the people they work with, with very good deals.',
       name: 'Bargain Beds',
       bio: 'Small Family Business',
+      logo: '/assets/img/testimonials/bargain-beds.png',
     },
     {
       quote: 'Very professional and very helpful with building a new business website and online marketing.',
@@ -32,26 +36,31 @@ export default function WebsiteDesignPage() {
       quote: 'Easy well supported process with excellent communication along the way.',
       name: 'Coastal Skin & Beauty',
       bio: 'Beauty Clinic, Kapiti Coast',
+      logo: '/assets/img/testimonials/coastal-skin-beauty.png',
     },
     {
       quote: "Lawrence's professional guidance was instrumental in crafting a compelling advertisement. Thrilled with the results and highly recommend his services.",
       name: 'Home Caring Tranmere',
       bio: 'NDIS & Home Care Provider, Adelaide',
+      logo: '/assets/img/testimonials/home-caring-tranmere.webp',
     },
     {
       quote: 'The team were easy to communicate with which made the process smooth.',
       name: 'Hutt Dental Hub',
       bio: 'Dental Clinic',
+      logo: '/assets/img/testimonials/hutt-dental-hub.png',
     },
     {
       quote: 'They were quick to respond and provided us with great quality artwork.',
       name: 'Fountain College',
       bio: 'Education',
+      logo: '/assets/img/testimonials/fountain-college.png',
     },
     {
       quote: 'We (Bare) partnered with Shopa Marketing to execute our branded in-store print and digital signage across local supermarkets in Adelaide, and the results have been great. From initial discussions to final rollout, the team has been wonderful to work with - highly professional, responsive, and deeply attentive. They brought our vision to life, and the signage has significantly expanded our brand awareness in the local community.',
       name: 'Bare',
       bio: 'Brand, Adelaide',
+      logo: '/assets/img/testimonials/bare.svg',
     },
   ];
 
@@ -164,6 +173,16 @@ export default function WebsiteDesignPage() {
     },
   ];
 
+  const serviceLinks = [
+    { label: 'Done For You', href: '/services/done-for-you' },
+    { label: 'OOH Advertising', href: '/services/ooh-advertising' },
+    { label: 'SEO Services', href: '/services/seo-services' },
+    { label: 'Social Media Ads', href: '/services/social-media' },
+    { label: 'Website Design', href: '/services/website', active: true },
+    { label: 'Google Ads', href: '/services/google-ads' },
+    { label: 'Graphic Design', href: '/services/graphic-design' },
+  ];
+
   return (
     <>
       <TemplateScripts />
@@ -178,56 +197,107 @@ export default function WebsiteDesignPage() {
         subtext="High-converting sites designed around your customer's journey — fast, mobile-first, and built to turn visitors into leads."
       />
 
-      {/* intro section */}
-      <div className="service-details-area pt-120 pb-70">
+      {/* ── INTRO — editorial split, home "Solutions" rhythm ── */}
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
-            {/* left column */}
-            <div className="col-xxl-8 col-xl-8 col-lg-8">
-              <div className="service-details-content mb-50">
-
-                <h2 className="chy-heading-1 service-details-title chy-split-in-right chy-split-text">
-                  Websites Engineered for Sustainable Business Growth Across Australia
-                </h2>
-
-                <p className="chy-para-1 inner-page-disc">
-                  Your website is the only employee who never calls in sick, never clocks off, and never stops selling. It works continuously to attract attention, build confidence, and convert opportunity into revenue every hour of every day.
-                </p>
-                <p className="chy-para-1 inner-page-disc">
-                  That is exactly what we build at Shopa Marketing.
-                </p>
-                <p className="chy-para-1 inner-page-disc">
-                  We design and develop high-performance websites that do far more than simply exist online. They load instantly, are structurally prepared for modern search platforms, and are strategically engineered to transform visitors into loyal customers.
-                </p>
-
-                <div className="mt-35 wow fadeInUp">
-                  <a href="/contact-us" className="chy-pr-btn-1">
-                    <span className="text">Book An Appointment</span>
-                    <span className="icon"><i className="fa-solid fa-right-long"></i></span>
-                  </a>
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-intro-content">
+                <div className="section-title-wrap mb-35">
+                  <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
+                    Websites Engineered for Sustainable Business Growth Across Australia
+                  </h2>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    Your website is the only employee who never calls in sick, never clocks off, and never stops selling. It works continuously to attract attention, build confidence, and convert opportunity into revenue every hour of every day.
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp" style={{ fontWeight: 700 }}>
+                    That is exactly what we build at Shopa Marketing.
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    We design and develop high-performance websites that do far more than simply exist online. They load instantly, are structurally prepared for modern search platforms, and are strategically engineered to transform visitors into loyal customers.
+                  </p>
                 </div>
-
+                <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
+                  <span className="text">Book An Appointment</span>
+                  <span className="icon"><i className="fa-solid fa-right-long"></i></span>
+                </a>
               </div>
             </div>
 
-            {/* sidebar */}
-            <div className="col-xxl-4 col-xl-4 col-lg-4">
-              <div className="blog-2-page-sidebar mb-50">
-                <div className="sidebar-box mb-30 wow fadeInUp">
-                  <h4 className="sidebar-box-title chy-heading-1">Services</h4>
-                  <div className="sidebar-box-wrap">
-                    <ul className="sidebar-category">
-                      <li className="wow fadeInUp"><a href="/services/done-for-you"><span className="text">Done For You</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                      <li className="wow fadeInUp"><a href="/services/ooh-advertising"><span className="text">OOH Advertising</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                      <li className="wow fadeInUp"><a href="/services/seo-services"><span className="text">SEO Services</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                      <li className="wow fadeInUp"><a href="/services/social-media"><span className="text">Social Media Ads</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                      <li className="wow fadeInUp"><a href="/services/website"><span className="text">Website Design</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                      <li className="wow fadeInUp"><a href="/services/google-ads"><span className="text">Google Ads</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                      <li className="wow fadeInUp"><a href="/services/graphic-design"><span className="text">Graphic Design</span><span className="icon-1"><i className="flaticon-next"></i></span></a></li>
-                    </ul>
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-ph wds-ph--intro">
+                  <span>Image Placeholder — 760 × 640</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── WHY UNDERPERFORM — sticky title + staggered numbered cards ── */}
+      <section className="wds-under-section fix">
+        {/* Scrolling background text — decorative */}
+        <div className="shopa-floating-scrolltext" aria-hidden="true">
+          <div className="shopa-floating-scrolltext__track">
+            <span>Why Websites Underperform &nbsp;·&nbsp; Why Websites Underperform &nbsp;·&nbsp; Why Websites Underperform &nbsp;·&nbsp;</span>
+            <span aria-hidden="true">Why Websites Underperform &nbsp;·&nbsp; Why Websites Underperform &nbsp;·&nbsp; Why Websites Underperform &nbsp;·&nbsp;</span>
+          </div>
+        </div>
+
+        <div className="container chy-container-1">
+          <div className="wds-under-layout">
+
+            <div className="wds-under-sticky">
+              <h2 className="chy-title-1">Why Many Australian Business Websites Underperform</h2>
+              <p className="chy-section-para-1" style={{ marginTop: '16px' }}>
+                A website should build credibility, generate enquiries, and support growth. Yet many Australian businesses invest in sites that look good but fail commercially. The reasons sit beneath the surface — and they&apos;re costing you leads every single day.
+              </p>
+            </div>
+
+            <div className="wds-under-cards">
+              {underperformCards.map((card, i) => (
+                <div key={card.num} className={`wds-under-holder wds-under-holder--${i + 1} wow fadeInUp`} data-wow-delay={`${i * 0.1}s`}>
+                  <div className="web-numbered-card">
+                    <span className="web-numbered-card__num">{card.num}</span>
+                    <h4 className="chy-heading-1 web-numbered-card__title">{card.title}</h4>
+                    <p className="chy-para-1 web-numbered-card__body">{card.body}</p>
                   </div>
                 </div>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS — dark gradient band, split layout ── */}
+      <div className="wds-stats-area pt-110 pb-110" data-navbar-dark="true" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
+        <div className="container chy-container-1">
+          <div className="row align-items-center">
+
+            <div className="col-xl-5 col-lg-5">
+              <div className="wds-stats-content mb-30">
+                <h2 className="chy-title-1 chy-split-in-right chy-split-text" style={{ color: '#fff' }}>
+                  Why Your Website Is Make or Break for Business Growth
+                </h2>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ marginTop: '18px', color: 'rgba(255,255,255,0.8)' }}>
+                  Your website is no longer an online brochure. It is the most commercially influential asset your business owns. Research consistently highlights the impact of design, speed, and performance on business outcomes.
+                </p>
+              </div>
+            </div>
+
+            <div className="col-xl-7 col-lg-7">
+              <div className="wds-stats-grid wow fadeInUp">
+                {stats.map((stat, i) => (
+                  <div key={i} className="wds-stat">
+                    <div className="wds-stat__accent"></div>
+                    <div className={`wds-stat__num${stat.long ? ' wds-stat__num--sm' : ''}`}>{stat.num}</div>
+                    <p className="wds-stat__label">{stat.label}</p>
+                  </div>
+                ))}
               </div>
             </div>
 
@@ -235,57 +305,8 @@ export default function WebsiteDesignPage() {
         </div>
       </div>
 
-      {/* why many australian business websites underperform */}
-      <div className="bg-default pt-100 pb-80" style={{ backgroundColor: '#f8f8fb' }}>
-        <div className="container chy-container-1">
-          <div className="section-title-wrap text-center mb-50">
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Why Many Australian Business Websites Underperform</h2>
-            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '780px', margin: '16px auto 0' }}>
-              A website should build credibility, generate enquiries, and support growth. Yet many Australian businesses invest in sites that look good but fail commercially. The reasons sit beneath the surface — and they&apos;re costing you leads every single day.
-            </p>
-          </div>
-          <div className="row g-4">
-            {underperformCards.map((card) => (
-              <div key={card.num} className="col-xl-6 col-lg-6 wow fadeInUp">
-                <div className="web-numbered-card">
-                  <span className="web-numbered-card__num">{card.num}</span>
-                  <h4 className="chy-heading-1 web-numbered-card__title">{card.title}</h4>
-                  <p className="chy-para-1 web-numbered-card__body">{card.body}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* stats / impact section */}
-      <div className="web-stats-area pt-90 pb-90" data-navbar-dark="true" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
-        <div className="container chy-container-1">
-          <div className="section-title-wrap text-center mb-50">
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text" style={{ color: '#fff' }}>
-              Why Your Website Is Make or Break for Business Growth
-            </h2>
-            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '700px', margin: '16px auto 0', color: 'rgba(255,255,255,0.8)' }}>
-              Your website is no longer an online brochure. It is the most commercially influential asset your business owns. Research consistently highlights the impact of design, speed, and performance on business outcomes.
-            </p>
-          </div>
-          <div className="web-stats-grid wow fadeInUp">
-            {stats.map((stat, i) => (
-              <div key={i} className="web-stat-item">
-                <div className="web-stat-item__accent"></div>
-                <div className="web-stat-item__num-wrap">
-                  <div className={`web-stat-item__num${stat.long ? ' web-stat-item__num--sm' : ''}`}>{stat.num}</div>
-                </div>
-                <div className="web-stat-item__line"></div>
-                <p className="web-stat-item__label">{stat.label}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      {/* what shopa marketing builds */}
-      <div className="bg-default pt-100 pb-80" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+      {/* ── WHAT WE BUILD — numbered accordion rows ── */}
+      <div className="wds-build-area pt-110 pb-110" style={{ backgroundColor: '#f8f8fb' }}>
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">what we build</h5>
@@ -297,15 +318,18 @@ export default function WebsiteDesignPage() {
               From new builds to full strategic redesigns, we deliver websites built for long-term performance. Beautifully executed. Technically robust. Structured to scale with your business.
             </p>
           </div>
-          <div className="row g-4">
-            {buildCards.map((card) => (
-              <div key={card.title} className="col-xl-4 col-lg-4 col-md-6 wow fadeInUp">
-                <div className="web-build-card">
-                  <div className="web-build-card__icon">
-                    <i className={card.icon}></i>
-                  </div>
-                  <h4 className="chy-heading-1 web-build-card__title">{card.title}</h4>
-                  <p className="chy-para-1 web-build-card__body">{card.body}</p>
+
+          <div className="wds-build-rows">
+            {buildCards.map((card, i) => (
+              <div key={card.title} className="svc-accordion-row wow fadeInUp" data-wow-delay={`${i * 0.08}s`}>
+                <div className="svc-accordion-header">
+                  <span className="svc-accordion-num">{`0${i + 1}`}</span>
+                  <span className="wds-build-row-icon"><i className={card.icon}></i></span>
+                  <h4 className="chy-heading-1 svc-accordion-title">{card.title}</h4>
+                  <span className="svc-accordion-arrow"><i className="far fa-plus"></i></span>
+                </div>
+                <div className="svc-accordion-body">
+                  <p className="chy-para-1 wds-build-row-body">{card.body}</p>
                 </div>
               </div>
             ))}
@@ -313,8 +337,8 @@ export default function WebsiteDesignPage() {
         </div>
       </div>
 
-      {/* how we work */}
-      <div className="bg-default pt-100 pb-80" style={{ backgroundColor: '#f8f8fb' }}>
+      {/* ── HOW WE WORK — connected timeline ── */}
+      <div className="wds-process-area pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">our process</h5>
@@ -326,13 +350,14 @@ export default function WebsiteDesignPage() {
               A clear, structured process designed for efficiency and measurable outcomes. Every stage is intentional. Every decision supports performance.
             </p>
           </div>
-          <div className="row g-4">
-            {processSteps.map((step) => (
-              <div key={step.step} className="col-xl-3 col-lg-3 col-md-6 wow fadeInUp">
-                <div className="web-process-step">
-                  <div className="web-process-step__num">{step.step}</div>
-                  <h4 className="chy-heading-1 web-process-step__title">{step.title}</h4>
-                  <p className="chy-para-1 web-process-step__body">{step.body}</p>
+
+          <div className="wds-timeline">
+            {processSteps.map((step, i) => (
+              <div key={step.step} className="wds-timeline-step wow fadeInUp" data-wow-delay={`${i * 0.15}s`}>
+                <div className="wds-timeline-card">
+                  <div className="wds-timeline-num">{step.step}</div>
+                  <h4 className="chy-heading-1 wds-timeline-title">{step.title}</h4>
+                  <p className="chy-para-1 wds-timeline-body">{step.body}</p>
                 </div>
               </div>
             ))}
@@ -340,37 +365,54 @@ export default function WebsiteDesignPage() {
         </div>
       </div>
 
-      {/* the shopa marketing difference */}
-      <div className="bg-default pt-100 pb-80" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+      {/* ── THE DIFFERENCE — image + icon rows split ── */}
+      <div className="wds-diff-area pt-110 pb-110 bg-default fix">
         <div className="container chy-container-1">
-          <div className="section-title-wrap text-center mb-50">
-            <h5 className="chy-subtitle-1 wow fadeInDown">why choose us</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">The Shopa Marketing Difference</h2>
-            <p className="chy-section-para-1 wow fadeInUp" style={{ fontWeight: 700, marginTop: '8px' }}>
-              Your Long-Term Digital Growth Partner
-            </p>
-            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '680px', margin: '10px auto 0' }}>
-              We exist to make strategic, performance-driven marketing accessible to ambitious small and medium businesses across Australia. Clear. Commercial. Always aligned with your growth.
-            </p>
-          </div>
-          <div className="row g-4">
-            {diffCards.map((card) => (
-              <div key={card.title} className="col-xl-3 col-lg-3 col-md-6 wow fadeInUp">
-                <div className="web-diff-card">
-                  <div className="web-diff-card__icon">
-                    <i className={card.icon}></i>
-                  </div>
-                  <h4 className="chy-heading-1 web-diff-card__title">{card.title}</h4>
-                  <p className="chy-para-1 web-diff-card__body">{card.body}</p>
+          <div className="row align-items-center">
+
+            <div className="col-xl-5 col-lg-5">
+              <div className="wds-diff-media mb-30 wow fadeInLeft" data-wow-duration="1.2s">
+                <div className="wds-ph wds-ph--diff">
+                  <span>Image Placeholder — 600 × 720</span>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="col-xl-7 col-lg-7">
+              <div className="wds-diff-content">
+                <div className="section-title-wrap mb-35">
+                  <h5 className="chy-subtitle-1 wow fadeInDown">why choose us</h5>
+                  <h2 className="chy-title-1 chy-split-in-right chy-split-text">The Shopa Marketing Difference</h2>
+                  <p className="chy-section-para-1 wow fadeInUp" style={{ fontWeight: 700, marginTop: '8px' }}>
+                    Your Long-Term Digital Growth Partner
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp" style={{ marginTop: '10px' }}>
+                    We exist to make strategic, performance-driven marketing accessible to ambitious small and medium businesses across Australia. Clear. Commercial. Always aligned with your growth.
+                  </p>
+                </div>
+
+                <div className="wds-diff-list">
+                  {diffCards.map((card, i) => (
+                    <div key={card.title} className="wds-diff-row wow fadeInUp" data-wow-delay={`${i * 0.1}s`}>
+                      <div className="wds-diff-row__icon">
+                        <i className={card.icon}></i>
+                      </div>
+                      <div className="wds-diff-row__content">
+                        <h4 className="chy-heading-1 wds-diff-row__title">{card.title}</h4>
+                        <p className="chy-para-1 wds-diff-row__body">{card.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
 
-      {/* testimonials */}
-      <div className="chy-team-slider-1-area pt-80 pb-80" style={{ backgroundColor: '#f8f8fb' }}>
+      {/* ── TESTIMONIALS — home-page slider treatment ── */}
+      <div className="chy-team-slider-1-area pt-90 pb-90" style={{ backgroundColor: '#f8f8fb' }}>
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-40">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
@@ -388,8 +430,11 @@ export default function WebsiteDesignPage() {
                 {testimonials.map((t, i) => (
                   <div key={i} className="swiper-slide">
                     <div className="chy-team-slider-1-item">
-                      <div className="main-img">
-                        <img src="/assets/img/team/t1-slider-img-1.png" alt="" />
+                      <div className={`main-img${t.logo ? ' has-client-logo' : ' no-logo'}`}>
+                        {t.logo
+                          ? <img src={t.logo} alt={t.name} loading="lazy" />
+                          : <span className="testimonial-initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
+                        }
                       </div>
                       <div className="content-wrap">
                         <h4 className="chy-heading-1 title">What people are saying</h4>
@@ -409,14 +454,35 @@ export default function WebsiteDesignPage() {
         </div>
       </div>
 
-      {/* faq */}
-      <div className="bg-default pt-100 pb-100" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+      {/* ── SERVICES — pill links (relocated sidebar) ── */}
+      <div className="wds-explore-area pt-90 pb-90 bg-default fix">
         <div className="container chy-container-1">
-          <div className="section-title-wrap text-center mb-50">
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Frequently Asked Questions</h2>
+          <div className="section-title-wrap text-center mb-40">
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Services</h2>
           </div>
-          <div className="row justify-content-center">
-            <div className="col-xxl-8 col-xl-9 col-lg-10">
+          <div className="wds-explore-links wow fadeInUp">
+            {serviceLinks.map((link) => (
+              <a key={link.href} href={link.href} className={`wds-explore-pill${link.active ? ' wds-explore-pill--active' : ''}`}>
+                <span className="text">{link.label}</span>
+                <i className="flaticon-next"></i>
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAQ — sticky title + accordion split ── */}
+      <div className="wds-faq-area pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+        <div className="container chy-container-1">
+          <div className="row">
+
+            <div className="col-xl-4 col-lg-4">
+              <div className="wds-faq-sticky mb-40">
+                <h2 className="chy-title-1">Frequently Asked Questions</h2>
+              </div>
+            </div>
+
+            <div className="col-xl-8 col-lg-8">
               <div className="accordion chy-sd-1-item wow fadeInUp" id="acc-web">
 
                 <div className="accordion-item mb-15">
@@ -481,6 +547,7 @@ export default function WebsiteDesignPage() {
 
               </div>
             </div>
+
           </div>
         </div>
       </div>
