@@ -5,6 +5,7 @@ import { useState } from 'react';
 const plans = [
   {
     name: 'Starter',
+    tagline: 'For businesses ready to get serious about being seen.',
     monthly: '$3,499',
     annual: '$3,149',
     featured: false,
@@ -26,6 +27,7 @@ const plans = [
   },
   {
     name: 'Growth',
+    tagline: 'For businesses ready to outgrow their competitors.',
     monthly: '$4,999',
     annual: '$3,499',
     featured: true,
@@ -47,6 +49,7 @@ const plans = [
   },
   {
     name: 'Dominate',
+    tagline: 'For businesses that want to own their market, full stop.',
     monthly: '$9,999',
     annual: '$8,999',
     featured: false,
@@ -72,12 +75,15 @@ export default function PricingSection() {
   const [annual, setAnnual] = useState(false);
 
   return (
-    <div className="wdsp-area pt-110 pb-110" style={{ backgroundColor: '#f8f8fb' }}>
+    <div className="wdsp-area pt-110 pb-110">
       <div className="container chy-container-1">
 
         <div className="section-title-wrap mb-40 text-center">
           <h5 className="chy-subtitle-1 wow fadeInDown">our service plans</h5>
-          <h2 className="chy-title-1 chy-split-in-right chy-split-text">Simple, All-Inclusive Rates</h2>
+          <h2 className="chy-title-1 chy-split-in-right chy-split-text">Simple, All-Inclusive Rates. No Nasty Surprises.</h2>
+          <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '680px', margin: '10px auto 0' }}>
+            Every plan includes strategy, execution, creative AND ad spend. The price you see is the price you pay. Pick your pace:
+          </p>
         </div>
 
         {/* ── Monthly / Annually toggle ── */}
@@ -101,6 +107,7 @@ export default function PricingSection() {
               {plan.featured && <div className="wdsp-badge">★ Best Value</div>}
 
               <div className="wdsp-name">{plan.name}</div>
+              <p className="wdsp-tagline">{plan.tagline}</p>
               <div>
                 <span className="wdsp-price">{annual ? plan.annual : plan.monthly}</span>
                 <span className="wdsp-per">/mo</span>

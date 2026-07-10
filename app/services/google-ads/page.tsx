@@ -1,11 +1,87 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
-import ServiceDetailsBody from "@/components/ServiceDetailsBody";
+import { testimonials } from "@/components/testimonialsData";
 
 export default function GoogleAdsPage() {
+  const provideCards = [
+    {
+      icon: 'flaticon-target',
+      title: 'Campaign Strategy: Keywords Worth Paying For',
+      body: "Not every search deserves your money. We dig through keyword research and competitor analysis to find the searches that actually end in sales, then build campaign structures that capture buyers at every stage, from early research to 'shut up and take my money'. Strategy first, spend second!",
+    },
+    {
+      icon: 'flaticon-megaphone',
+      title: 'Ad Copywriting: Words That Earn the Click',
+      body: "Your ad shares the page with your fiercest competitors, and the best line wins. We write sharp, persuasive ad copy that lifts click-through rates and quality scores, which is Google's way of rewarding you with cheaper clicks and better positions. Better words, lower bills.",
+    },
+    {
+      icon: 'flaticon-price-tag',
+      title: 'Bid Management: Watched Like a Hawk',
+      body: "Smart bidding is clever, but unsupervised it can spend like a teenager with your credit card. We combine Google's machine learning with senior human oversight, shifting budget to what's converting and pulling it from what isn't, as market conditions change by the day.",
+    },
+    {
+      icon: 'flaticon-statistics',
+      title: 'Conversion Tracking: Every Dollar Accounted For',
+      body: "If you can't see what a click turned into, you're advertising with a blindfold on. We set up full conversion tracking: calls, form fills, purchases and the micro-steps in between, so every optimisation decision is grounded in real revenue data, not hunches.",
+    },
+  ];
+
+  const faqs = [
+    {
+      q: 'How much should I spend on Google Ads?',
+      a: "It depends on your industry, competition and goals, but as a rule of thumb we recommend a minimum of $2,000 per month in ad spend to compete properly in most markets. Before you commit a cent, we'll run keyword research for your industry and give you a budget recommendation based on real numbers, not wishful thinking.",
+    },
+    {
+      q: 'Do I own my Google Ads account?',
+      a: "Yes, always, and we're proud this even needs saying. We work inside your own Google Ads account, which you own and can access any time. No proprietary accounts, no held-hostage data, no drama if you ever leave. Your campaign history stays yours, full stop.",
+    },
+    {
+      q: 'How quickly can Google Ads generate leads?',
+      a: 'This is the sprinter of digital marketing! Traffic can start within hours of launch. The first 2 to 4 weeks is a learning phase while the bidding strategies gather data, and most clients see strong, steady lead flow by week 4 to 6. If you need results this quarter rather than this year, this is your channel.',
+    },
+    {
+      q: 'What types of Google Ads campaigns do you run?',
+      a: "The full menu: Search ads for high-intent buyers, Shopping ads for online stores, Display for brand awareness, YouTube video ads, and Performance Max across Google's entire network. We recommend the mix that fits your objectives and budget, not the one that pads the invoice.",
+    },
+    {
+      q: 'Should I do Google Ads or SEO?',
+      a: 'Trick question: the best answer is usually both, on different clocks. Google Ads delivers leads this month while SEO builds the organic engine that delivers them for years. Ads without SEO means renting visibility forever; SEO without ads means waiting. Together, they cover the whole search page, and your competitors hate that.',
+      aJsx: (
+        <>Trick question: the best answer is usually both, on different clocks. Google Ads delivers leads this month while <a href="/services/seo-services">SEO</a> builds the organic engine that delivers them for years. Ads without SEO means renting visibility forever; SEO without ads means waiting. Together, they cover the whole search page, and your competitors hate that.</>
+      ),
+    },
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const reviewSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Google Ads Management',
+    serviceType: 'Google Ads Management Services',
+    provider: { '@type': 'Organization', name: 'Shopa Marketing' },
+    areaServed: ['Australia', 'New Zealand'],
+    review: testimonials.map((t) => ({
+      '@type': 'Review',
+      reviewBody: t.quote,
+      author: { '@type': 'Organization', name: t.name },
+    })),
+  };
+
   return (
     <>
       <TemplateScripts />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
 
       {/* preloader */}
       <div id="preloader">
@@ -13,62 +89,177 @@ export default function GoogleAdsPage() {
       </div>
 
       <ServiceHero
-        headline="Pay-Per-Click, With Real ROI."
-        subtext="Google Ads campaigns managed by senior specialists who obsess over cost-per-lead, not just clicks. No wasted spend, no set-and-forget."
+        headline="Google Ads That Catch Customers Mid-Search"
+        subtext="When someone Googles what you sell, it's a race with one winner. As the Google Ads agency Australian SMEs trust, we run campaigns obsessed with cost per lead, not vanity clicks. No wasted spend, no set-and-forget, no excuses!"
       />
 
-      <ServiceDetailsBody
-        currentPath="/services/google-ads"
-        marquee="Google Ads"
-        introTitle="Google Ads: Get In Front of Ready-to-Buy Customers"
-        introParas={[
-          "Google Ads puts your business in front of high-intent customers at the exact moment they're searching for what you offer. Our Google Ads management service helps Australian businesses capture demand, generate leads, and drive sales with precision-targeted campaigns that deliver measurable ROI.",
-          "We manage Search, Shopping, Display, YouTube, and Performance Max campaigns across Google's full network — always focused on the metrics that actually matter to your business, not just clicks and impressions.",
-        ]}
-        provideIntro="From account setup and keyword strategy to ongoing optimisation and reporting, we handle every aspect of your Google Ads campaigns to maximise return on ad spend."
-        features={[
-          {
-            icon: 'flaticon-target',
-            title: 'Campaign Strategy',
-            body: 'Comprehensive keyword research, competitor analysis, and campaign architecture designed to capture intent at every stage of the buyer journey.',
-          },
-          {
-            icon: 'flaticon-megaphone',
-            title: 'Ad Copywriting',
-            body: 'Compelling ad copy crafted to maximise click-through rates and quality scores — reducing your cost per click while improving ad positions.',
-          },
-          {
-            icon: 'flaticon-web-design-1',
-            title: 'Bid Management',
-            body: 'Smart bidding strategy and manual oversight to allocate budget where it delivers the highest return — continuously adjusted as market conditions change.',
-          },
-          {
-            icon: 'flaticon-web-design',
-            title: 'Conversion Tracking',
-            body: 'Full conversion tracking setup — calls, form fills, purchases, and micro-conversions — so every optimisation decision is grounded in real revenue data.',
-          },
-        ]}
-        challenge="Google Ads is increasingly complex — smart bidding, Performance Max campaigns, consent mode, and constant algorithm updates make it harder than ever to maintain profitability without specialist expertise. Poor account structure and wasted spend on irrelevant searches can quickly drain your budget. Our team actively manages your campaigns to eliminate waste and drive consistent results."
-        faqPrefix="gads"
-        faqs={[
-          {
-            q: 'How much should I spend on Google Ads?',
-            a: "The right budget depends on your industry, competition, and goals. We typically recommend a minimum of $2,000/month in ad spend to compete effectively in most markets. We'll provide a budget recommendation based on keyword research for your specific industry.",
-          },
-          {
-            q: 'Do I own my Google Ads account?',
-            a: 'Yes, always. We work inside your own Google Ads account, which you own and retain full access to. We never lock clients into proprietary accounts. All your campaign data and history stays with you if you ever decide to manage campaigns in-house or switch agencies.',
-          },
-          {
-            q: 'How quickly can Google Ads generate leads?',
-            a: 'Google Ads can start driving traffic within hours of campaign launch. The first 2–4 weeks is typically a learning phase. Most clients see strong lead flow by week 4–6 as smart bidding strategies mature.',
-          },
-          {
-            q: 'What types of Google Ads campaigns do you run?',
-            a: "We manage Search, Shopping, Display, YouTube video, and Performance Max campaigns. We'll recommend the right campaign types based on your business objectives and budget.",
-          },
-        ]}
-      />
+      {/* ── INTRO — editorial split ── */}
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+        <div className="container chy-container-1">
+          <div className="row align-items-center">
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-intro-content">
+                <div className="section-title-wrap mb-35">
+                  <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
+                    Google Ads Management for Customers Who Are Ready to Buy
+                  </h2>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    There&apos;s no warmer lead on earth than someone typing exactly what you sell into Google. They&apos;re not browsing, they&apos;re not &apos;just looking&apos;, their hand is already up. Google Ads puts your business in front of them at that precise moment, and our job is making sure you win that moment more often, for less money.
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    We manage Search, Shopping, Display, YouTube and Performance Max campaigns across Google&apos;s entire network, with every decision anchored to the numbers that actually pay your bills: leads, sales and return on ad spend. Impressions don&apos;t buy anything. Customers do.
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    Precision targeting, sharp creative and daily optimisation, all run by senior specialists who treat your budget like it&apos;s their own. Because honestly, we&apos;re a bit precious about wasted money.
+                  </p>
+                </div>
+                <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
+                  <span className="text">Get a Quote</span>
+                  <span className="icon"><i className="fa-solid fa-right-long"></i></span>
+                </a>
+              </div>
+            </div>
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
+                {/* Real image pending — alt: "Google Ads agency Australia: search campaign dashboard showing lead growth for an Australian small business" */}
+                <div className="wds-ph wds-ph--intro">
+                  <span>Image Placeholder — 760 × 640</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── WHAT WE PROVIDE — bento with marquee ── */}
+      <section className="wds-under-section fix">
+        {/* Scrolling background text — decorative */}
+        <div className="shopa-floating-scrolltext" aria-hidden="true">
+          <div className="shopa-floating-scrolltext__track">
+            <span>Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp;</span>
+            <span aria-hidden="true">Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp; Google Ads &nbsp;·&nbsp;</span>
+          </div>
+        </div>
+
+        <div className="container chy-container-1">
+          <div className="wds-deal-head">
+            <h2 className="chy-title-1">Google Ads Services That Squeeze Every Cent</h2>
+            <p className="chy-section-para-1 wow fadeInUp">
+              Account setup, keyword strategy, creative, bidding and reporting: every piece of your Google Ads managed under one roof, with one goal. Maximum return on every dollar you put in.
+            </p>
+          </div>
+
+          <div className="wds-deal-grid">
+            {provideCards.map((card, i) => (
+              <div key={card.title} className={`wds-deal-card wds-deal-card--${i + 1} wow fadeInUp`} data-wow-delay={`${i * 0.1}s`}>
+                {i === 0 && <span className="wds-deal-card__ghost" aria-hidden="true">$</span>}
+                <span className="wds-deal-card__icon"><i className={card.icon}></i></span>
+                <h3 className="chy-heading-1 wds-deal-card__title">{card.title}</h3>
+                <p className="chy-para-1 wds-deal-card__body">{card.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── THE CHALLENGE — gradient statement band ── */}
+      <div className="wds-ledger-area pt-110 pb-110" data-navbar-dark="true">
+        <div className="container chy-container-1">
+          <div className="wds-ledger-head" style={{ marginBottom: 0 }}>
+            <h2 className="chy-title-1" style={{ color: '#fff' }}>
+              Google Ads Got Complicated. Lucky for You, We Kept Up.
+            </h2>
+            <div>
+              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                Once upon a time, Google Ads was ten keywords and a prayer. These days it&apos;s smart bidding, Performance Max, consent mode and algorithm updates arriving faster than public holidays. The platform is brilliant, but it&apos;s also very happy to spend your entire budget on searches that have nothing to do with your business, and it won&apos;t apologise afterwards.
+              </p>
+              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
+                Poor account structure and unwatched campaigns drain budgets quietly and quickly. Our specialists actively manage your account every day: tightening targeting, culling wasted spend and steering the machine so it works for you, not on you. The result? Consistent leads at a cost per lead that keeps making sense.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── TESTIMONIALS — masonry review wall ── */}
+      <div className="wds-reviews-area pt-110 pb-110">
+        <div className="container chy-container-1">
+          <div className="section-title-wrap text-center mb-50">
+            <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Google Ads Results Australian Business Owners Rave About</h2>
+            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+            </p>
+          </div>
+          <div className="wds-reviews-wall">
+            {testimonials.map((t, i) => (
+              <div key={i} className="wds-review-holder wow wds-unfold-in" data-wow-delay={`${i * 0.12}s`} data-wow-duration="0.8s">
+                <figure className="wds-review-card">
+                  <span className="wds-review-card__mark" aria-hidden="true">&ldquo;</span>
+                  <blockquote className="wds-review-card__quote">{t.quote}</blockquote>
+                  <figcaption className="wds-review-card__person">
+                    <span className="wds-review-card__avatar">
+                      {t.logo
+                        ? <img src={t.logo} alt={t.name} loading="lazy" />
+                        : <span className="wds-review-card__initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
+                      }
+                    </span>
+                    <span className="wds-review-card__who">
+                      <span className="wds-review-card__name">{t.name}</span>
+                      <span className="wds-review-card__bio">{t.bio}</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAQ — sticky title + hover accordion rows ── */}
+      <div className="wds-faq-area pt-110 pb-110 bg-default">
+        <div className="container chy-container-1">
+          <div className="row">
+
+            <div className="col-xl-4 col-lg-4">
+              <div className="wds-faq-sticky mb-40">
+                <h2 className="chy-title-1">Frequently Asked Questions</h2>
+              </div>
+            </div>
+
+            <div className="col-xl-8 col-lg-8">
+              <div className="wds-faq-rows wow fadeInUp">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="svc-accordion-row" tabIndex={0}>
+                    <div className="svc-accordion-header">
+                      <span className="svc-accordion-num">{`0${i + 1}`}</span>
+                      <h3 className="chy-heading-1 svc-accordion-title">{faq.q}</h3>
+                      <span className="svc-accordion-arrow"><i className="far fa-plus"></i></span>
+                    </div>
+                    <div className="svc-accordion-body">
+                      <p className="chy-para-1 wds-faq-answer">{faq.aJsx ?? faq.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* back to top */}
+      <div className="scroll-top has-home-1">
+        <div className="scroll-top-wrap">
+          <i className="icon-1 fal fa-long-arrow-up"></i>
+        </div>
+      </div>
+
+      {/* overlay */}
+      <div className="offcanvas-overlay"></div>
     </>
   );
 }

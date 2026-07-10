@@ -1,37 +1,81 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import PricingSection from "@/components/PricingSection";
 import ServiceHero from "@/components/ServiceHero";
-import ServiceTestimonials from "@/components/ServiceTestimonials";
+import { testimonials } from "@/components/testimonialsData";
 
 export default function DoneForYouPage() {
   const focusItems = [
-    'building the foundation',
-    'gathering campaign data',
-    'testing creatives and audiences',
-    'optimizing performance',
-    'improving conversion rates',
-    'strengthening online visibility',
+    'Building the foundation',
+    'Gathering campaign data',
+    'Testing creatives and audiences',
+    'Optimising performance',
+    'Improving conversion rates',
+    'Strengthening online visibility',
   ];
 
   const teamPoints = [
-    'Easy stress free marketing options for SMEs',
-    'All inclusive rates to avoid any nasty surprises',
+    'Easy, stress-free marketing options for SMEs',
+    'All-inclusive rates to avoid any nasty surprises',
     'Dedicated account manager',
   ];
 
-  const serviceLinks = [
-    { label: 'Done For You', href: '/services/done-for-you', active: true },
-    { label: 'OOH Advertising', href: '/services/ooh-advertising' },
-    { label: 'SEO Services', href: '/services/seo-services' },
-    { label: 'Social Media Ads', href: '/services/social-media' },
-    { label: 'Website Design', href: '/services/website' },
-    { label: 'Google Ads', href: '/services/google-ads' },
-    { label: 'Graphic Design', href: '/services/graphic-design' },
+  const faqs = [
+    {
+      q: 'What exactly is included in a Done For You package?',
+      a: "Everything on the plan card, genuinely everything: website management, SEO, Google and Meta ads including the ad spend, creative design, brand videos, organic social posting, blogs, AI search visibility across ChatGPT and Gemini, plus a custom dashboard where you can watch it all work. One fee, no surprise extras, no 'that'll be additional' emails.",
+    },
+    {
+      q: 'How is this different from hiring an in-house marketer?',
+      a: "One good in-house marketer costs $80,000+ a year, and even the best can't be a strategist, designer, SEO specialist, ads expert and videographer at once. Nobody can! For a fraction of that, you get a whole team of specialists who do this all day, every day, with no leave, no notice periods and no birthday cake obligations.",
+    },
+    {
+      q: 'Are there lock-in contracts?',
+      a: "No. We keep clients with results, not paperwork. We do recommend giving your campaigns 3 to 4 months to build proper momentum, because that's honestly how long good marketing takes to compound. But you're free to leave any time, and if you do, we'll hand everything over cleanly.",
+    },
+    {
+      q: 'When will I start seeing results?',
+      a: "Paid ads start moving quickly, often within weeks. The full engine, SEO climbing, audiences dialled in, creative tested and conversion rates optimised, typically hits its stride at the 3 to 4 month mark. From there, it compounds. We'll never promise overnight miracles, because we'd rather keep you for years than impress you for a fortnight.",
+    },
+    {
+      q: 'Which plan is right for my business?',
+      a: "That's exactly what the free strategy call is for! Tell us your goals, your market and your appetite for growth, and we'll recommend the plan that fits, even if it's the cheaper one. You can move between plans as your business grows, and plenty of our clients do.",
+    },
+    {
+      q: "What does 'guaranteed impressions' mean?",
+      a: "Every plan guarantees a minimum number of times your brand is seen each month across ads and placements, from 100,000 on Starter to 500,000 on Dominate. It's our way of putting a floor under your visibility, so you always know the minimum your investment is delivering.",
+    },
   ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const reviewSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'Done For You Marketing Packages',
+    serviceType: 'Full-Service Marketing Management',
+    provider: { '@type': 'Organization', name: 'Shopa Marketing' },
+    areaServed: ['Australia', 'New Zealand'],
+    review: testimonials.map((t) => ({
+      '@type': 'Review',
+      reviewBody: t.quote,
+      author: { '@type': 'Organization', name: t.name },
+    })),
+  };
 
   return (
     <>
       <TemplateScripts />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
 
       {/* preloader */}
       <div id="preloader">
@@ -39,8 +83,8 @@ export default function DoneForYouPage() {
       </div>
 
       <ServiceHero
-        headline="Fractional Marketing Leadership For SMEs."
-        subtext="A senior marketing team on demand — strategy, execution, and reporting handled end-to-end, without the cost of a full in-house department."
+        headline="Your Entire Marketing Department. One Monthly Fee."
+        subtext="Why juggle five agencies, three freelancers and a nephew who's 'good with computers'? Our Done For You packages hand your whole marketing operation to one senior team: strategy, execution and reporting, end to end, without the cost of hiring in-house."
       />
 
       {/* ── INTRO — editorial split ── */}
@@ -52,26 +96,20 @@ export default function DoneForYouPage() {
               <div className="wds-intro-content">
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                    Built for Businesses That Want Growth, Not More Marketing Tasks
+                    Built for Businesses That Want Growth, Not More Marketing Homework
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Most marketing providers sell individual services. We take a different approach. Instead of asking whether you need SEO, social media, Google Ads, content, or design, we start with a more important question:
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp" style={{ fontWeight: 700 }}>
-                    What are you trying to achieve? More enquiries? More customers? Stronger local visibility? Greater market share?
+                    Most marketing providers hand you a menu. SEO or social? Google Ads or content? It&apos;s like asking someone to assemble a car from the parts catalogue. We start with a better question: what are you actually trying to achieve? More enquiries? More customers? A name people recognise at the school gate and the footy club?
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Our Done For You packages combine the channels that make the most sense for your business and manage them as one coordinated strategy.
+                    Then we build backwards from the answer. Our Done For You packages combine the channels that make sense for YOUR business: website, SEO, Google Ads, social media, creative, content and AI search visibility, and run them as one coordinated strategy with one team and one report that actually makes sense.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    With over 5000 businesses supported across Australia and New Zealand, we&apos;ve seen firsthand that the best results rarely come from a single platform. They come from multiple channels working together to keep your brand visible, trusted, and top of mind.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp" style={{ fontWeight: 700 }}>
-                    That&apos;s exactly what these packages are designed to do.
+                    After 5,000+ campaigns across Australia and New Zealand, we can tell you the worst-kept secret in marketing: the best results never come from a single channel. They come from channels working together, keeping your brand visible, trusted and top of mind wherever your customers look. That&apos;s exactly what these packages deliver!
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
-                  <span className="text">Get A Quote</span>
+                  <span className="text">Get a Quote</span>
                   <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                 </a>
               </div>
@@ -79,6 +117,7 @@ export default function DoneForYouPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
+                {/* Real image pending — alt: "Done for you marketing Australia: one team managing website, SEO, ads and social media for an Australian small business" */}
                 <div className="wds-ph wds-ph--intro">
                   <span>Image Placeholder — 760 × 640</span>
                 </div>
@@ -100,22 +139,19 @@ export default function DoneForYouPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-nolock-content">
                 <div className="section-title-wrap mb-35">
-                  <h2 className="chy-title-1 chy-split-in-right chy-split-text">No Lock In Contracts</h2>
+                  <h2 className="chy-title-1 chy-split-in-right chy-split-text">No Lock-In Contracts. Just Results Worth Staying For.</h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    We don&apos;t believe in locking businesses into lengthy contracts. Our clients stay with us because the strategy, execution and results make sense — not because they&apos;re tied into complicated agreements.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp" style={{ fontWeight: 700 }}>
-                    That said, we also believe in being transparent from the beginning.
+                    We don&apos;t do handcuffs. No lengthy contracts, no exit fees, no fine print that needs a lawyer and a strong coffee. Our clients stay because the strategy, execution and results make sense, not because a document says they must.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Real marketing momentum takes time. Building brand awareness, collecting data, optimizing campaigns, improving SEO rankings and refining targeting strategies typically takes 3–4 months before businesses start seeing consistent traction and long-term performance improvements.
+                    But let&apos;s be upfront about one thing, because honesty is cheaper than disappointment: real marketing momentum takes time. Building brand awareness, gathering campaign data, optimising performance and climbing SEO rankings typically takes 3 to 4 months before the consistent traction kicks in. Anyone who promises otherwise is selling you a lottery ticket, not a strategy.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    While there are no long-term lock-in contracts, we recommend allowing enough time for the strategy and campaigns to properly optimize and deliver measurable results. If you ever decide to move internally or in another direction, we can also provide a smooth handover process for your business.
+                    So while you&apos;re free to leave any time, we recommend giving the machine time to warm up properly. And if you ever decide to take things in-house or in another direction, we&apos;ll hand everything over smoothly, with a smile and zero drama.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
-                  <span className="text">Get A Quote</span>
+                  <span className="text">Get a Quote</span>
                   <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                 </a>
               </div>
@@ -139,17 +175,16 @@ export default function DoneForYouPage() {
         </div>
       </div>
 
-      {/* ── YOUR ENTIRE MARKETING TEAM — dark gradient band ── */}
-      <div className="wds-team-band pt-100 pb-100" data-navbar-dark="true" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
+      {/* ── YOUR ENTIRE MARKETING TEAM — gradient band ── */}
+      <div className="wds-team-band pt-100 pb-100" data-navbar-dark="true" style={{ background: 'var(--chy-gd-1)' }}>
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
             <div className="col-xl-6 col-lg-6">
               <div className="mb-30">
-                <div className="wds-stat__accent"></div>
-                <h2 className="chy-title-1" style={{ color: '#fff' }}>Your Entire Marketing Team — Ready To Go</h2>
-                <p className="chy-section-para-1 wow fadeInUp" style={{ marginTop: '18px', color: 'rgba(255,255,255,0.85)' }}>
-                  Get access to strategists, designers, SEO specialists, paid ads experts and content creators — without the cost and complexity of hiring internally. From brand awareness and lead generation through to AI search visibility and reporting dashboards, Shopa Marketing manages the entire process end-to-end.
+                <h2 className="chy-title-1" style={{ color: '#fff' }}>A Full Marketing Team, Minus the Payroll</h2>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ marginTop: '18px', color: 'rgba(255,255,255,0.95)' }}>
+                  Hiring a strategist, designer, SEO specialist, ads expert and content creator would cost you several salaries, a bigger office and a small mountain of HR paperwork. Or you could have all of them tomorrow, for one monthly fee. From brand awareness and lead generation through to AI search visibility and live reporting dashboards, Shopa Marketing runs the entire process end to end while you run your business.
                 </p>
               </div>
             </div>
@@ -169,28 +204,43 @@ export default function DoneForYouPage() {
         </div>
       </div>
 
-      {/* ── TESTIMONIALS ── */}
-      <ServiceTestimonials />
-
-      {/* ── SERVICES — pill links ── */}
-      <div className="wds-explore-area pt-90 pb-90 bg-default fix">
+      {/* ── TESTIMONIALS — masonry review wall ── */}
+      <div className="wds-reviews-area pt-110 pb-110">
         <div className="container chy-container-1">
-          <div className="section-title-wrap text-center mb-40">
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Services</h2>
+          <div className="section-title-wrap text-center mb-50">
+            <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Results Australian Business Owners Rave About</h2>
+            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+            </p>
           </div>
-          <div className="wds-explore-links wow fadeInUp">
-            {serviceLinks.map((link) => (
-              <a key={link.href} href={link.href} className={`wds-explore-pill${link.active ? ' wds-explore-pill--active' : ''}`}>
-                <span className="text">{link.label}</span>
-                <i className="flaticon-next"></i>
-              </a>
+          <div className="wds-reviews-wall">
+            {testimonials.map((t, i) => (
+              <div key={i} className="wds-review-holder wow wds-unfold-in" data-wow-delay={`${i * 0.12}s`} data-wow-duration="0.8s">
+                <figure className="wds-review-card">
+                  <span className="wds-review-card__mark" aria-hidden="true">&ldquo;</span>
+                  <blockquote className="wds-review-card__quote">{t.quote}</blockquote>
+                  <figcaption className="wds-review-card__person">
+                    <span className="wds-review-card__avatar">
+                      {t.logo
+                        ? <img src={t.logo} alt={t.name} loading="lazy" />
+                        : <span className="wds-review-card__initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
+                      }
+                    </span>
+                    <span className="wds-review-card__who">
+                      <span className="wds-review-card__name">{t.name}</span>
+                      <span className="wds-review-card__bio">{t.bio}</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
             ))}
           </div>
         </div>
       </div>
 
-      {/* ── FAQ — sticky title + accordion split ── */}
-      <div className="wds-faq-area pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+      {/* ── FAQ — sticky title + hover accordion rows ── */}
+      <div className="wds-faq-area pt-110 pb-110 bg-default">
         <div className="container chy-container-1">
           <div className="row">
 
@@ -201,68 +251,19 @@ export default function DoneForYouPage() {
             </div>
 
             <div className="col-xl-8 col-lg-8">
-              <div className="accordion chy-sd-1-item wow fadeInUp" id="acc-cmo">
-
-                <div className="accordion-item mb-15">
-                  <h2 className="accordion-header" id="cmo-h1">
-                    <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#cmo-c1" aria-expanded="true" aria-controls="cmo-c1">
-                      <span className="icon-2"><i className="flaticon-arrow"></i></span>
-                      <span className="title chy-heading-1">What does a fractional CMO do?</span>
-                      <span className="icon"><i className="far fa-plus"></i></span>
-                    </button>
-                  </h2>
-                  <div id="cmo-c1" className="accordion-collapse collapse show" aria-labelledby="cmo-h1" data-bs-parent="#acc-cmo">
-                    <div className="accordion-body">
-                      <div className="disc chy-para-1">A fractional CMO provides part-time senior marketing leadership — typically 1–3 days per week — handling strategy, team oversight, vendor management, and executive reporting. You get C-suite expertise at a fraction of the cost of a full-time hire.</div>
+              <div className="wds-faq-rows wow fadeInUp">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="svc-accordion-row" tabIndex={0}>
+                    <div className="svc-accordion-header">
+                      <span className="svc-accordion-num">{`0${i + 1}`}</span>
+                      <h3 className="chy-heading-1 svc-accordion-title">{faq.q}</h3>
+                      <span className="svc-accordion-arrow"><i className="far fa-plus"></i></span>
+                    </div>
+                    <div className="svc-accordion-body">
+                      <p className="chy-para-1 wds-faq-answer">{faq.a}</p>
                     </div>
                   </div>
-                </div>
-
-                <div className="accordion-item mb-15">
-                  <h2 className="accordion-header" id="cmo-h2">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cmo-c2" aria-expanded="false" aria-controls="cmo-c2">
-                      <span className="icon-2"><i className="flaticon-arrow"></i></span>
-                      <span className="title chy-heading-1">How long does an engagement typically last?</span>
-                      <span className="icon"><i className="far fa-plus"></i></span>
-                    </button>
-                  </h2>
-                  <div id="cmo-c2" className="accordion-collapse collapse" aria-labelledby="cmo-h2" data-bs-parent="#acc-cmo">
-                    <div className="accordion-body">
-                      <div className="disc chy-para-1">Engagements typically run from 3 to 12 months, depending on your goals. We start with a discovery phase to understand your business, then move into strategy development and execution. Many clients continue on a retainer basis after the initial engagement.</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="accordion-item mb-15">
-                  <h2 className="accordion-header" id="cmo-h3">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cmo-c3" aria-expanded="false" aria-controls="cmo-c3">
-                      <span className="icon-2"><i className="flaticon-arrow"></i></span>
-                      <span className="title chy-heading-1">Is a Done For You right for my business?</span>
-                      <span className="icon"><i className="far fa-plus"></i></span>
-                    </button>
-                  </h2>
-                  <div id="cmo-c3" className="accordion-collapse collapse" aria-labelledby="cmo-h3" data-bs-parent="#acc-cmo">
-                    <div className="accordion-body">
-                      <div className="disc chy-para-1">This service is ideal for businesses with $2M–$50M in revenue that need strategic marketing direction but aren&apos;t ready for a full-time CMO. It&apos;s also perfect for companies in transition — post-funding, post-acquisition, or undergoing rebrand.</div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="accordion-item">
-                  <h2 className="accordion-header" id="cmo-h4">
-                    <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#cmo-c4" aria-expanded="false" aria-controls="cmo-c4">
-                      <span className="icon-2"><i className="flaticon-arrow"></i></span>
-                      <span className="title chy-heading-1">How do you measure success?</span>
-                      <span className="icon"><i className="far fa-plus"></i></span>
-                    </button>
-                  </h2>
-                  <div id="cmo-c4" className="accordion-collapse collapse" aria-labelledby="cmo-h4" data-bs-parent="#acc-cmo">
-                    <div className="accordion-body">
-                      <div className="disc chy-para-1">We establish clear KPIs at the start of every engagement — typically tied to revenue growth, lead generation, brand awareness, and marketing ROI. Monthly reporting and quarterly reviews keep all stakeholders aligned on progress.</div>
-                    </div>
-                  </div>
-                </div>
-
+                ))}
               </div>
             </div>
 

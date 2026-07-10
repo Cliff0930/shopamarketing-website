@@ -1066,7 +1066,11 @@ $(window).on('load',function(){
 	if(st.length == 0) return;
 	gsap.registerPlugin(SplitText);
 	st.each(function(index, el) {
-	  el.split = new SplitText(el, { 
+	  /* idempotent: 'load' can fire multiple times (manual trigger + native + reinit);
+	     re-splitting an already-split heading nests stale purple spans that never resolve */
+	  if (el.anim) { try { if (el.anim.scrollTrigger) el.anim.scrollTrigger.kill(); el.anim.kill(); } catch (e) {} el.anim = null; }
+	  if (el.split && el.split.revert) { try { el.split.revert(); } catch (e) {} }
+	  el.split = new SplitText(el, {
 		type: "lines,words,chars",
 		linesClass: "split-line"
 	  });
@@ -1117,7 +1121,11 @@ $(window).on('load',function(){
 	if(st.length == 0) return;
 	gsap.registerPlugin(SplitText);
 	st.each(function(index, el) {
-	  el.split = new SplitText(el, { 
+	  /* idempotent: 'load' can fire multiple times (manual trigger + native + reinit);
+	     re-splitting an already-split heading nests stale purple spans that never resolve */
+	  if (el.anim) { try { if (el.anim.scrollTrigger) el.anim.scrollTrigger.kill(); el.anim.kill(); } catch (e) {} el.anim = null; }
+	  if (el.split && el.split.revert) { try { el.split.revert(); } catch (e) {} }
+	  el.split = new SplitText(el, {
 		type: "lines,words,chars",
 		linesClass: "split-line"
 	  });
@@ -1161,7 +1169,11 @@ $(window).on('load',function(){
 	if(st.length == 0) return;
 	gsap.registerPlugin(SplitText);
 	st.each(function(index, el) {
-	  el.split = new SplitText(el, { 
+	  /* idempotent: 'load' can fire multiple times (manual trigger + native + reinit);
+	     re-splitting an already-split heading nests stale purple spans that never resolve */
+	  if (el.anim) { try { if (el.anim.scrollTrigger) el.anim.scrollTrigger.kill(); el.anim.kill(); } catch (e) {} el.anim = null; }
+	  if (el.split && el.split.revert) { try { el.split.revert(); } catch (e) {} }
+	  el.split = new SplitText(el, {
 		type: "lines,words,chars",
 		linesClass: "split-line"
 	  });

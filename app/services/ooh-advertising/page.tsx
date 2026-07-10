@@ -1,11 +1,131 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
-import ServiceDetailsBody from "@/components/ServiceDetailsBody";
+import { testimonials, type Testimonial } from "@/components/testimonialsData";
 
 export default function OohAdvertisingPage() {
+  const stages = [
+    {
+      num: '01',
+      short: 'Planning',
+      title: 'Strategic Planning: The Right Corner at the Right Time',
+      body: "A brilliant ad in the wrong spot is just expensive wallpaper. We match formats, locations and timing to your exact audience: where they shop, which routes they drive, when they're paying attention. Precision first, so every dollar lands where it counts.",
+    },
+    {
+      num: '02',
+      short: 'Creative',
+      title: 'Creative Design: Ads That Stop Traffic (Politely)',
+      body: 'Outdoor creative plays by different rules. Your audience is walking, driving or wrangling a trolley, so you get about three seconds to land the message. We design bold, punchy creative built specifically for OOH formats: readable at a distance, memorable at a glance, impossible to unsee.',
+    },
+    {
+      num: '03',
+      short: 'Media Buying',
+      title: 'Media Buying: Prime Spots Without the Prime Mark-Up',
+      body: 'The best locations usually go to whoever has the biggest budget or the best connections. We bring the connections! Our media relationships across Australia and New Zealand secure premium placements at genuinely competitive rates, from major billboards to local screen networks.',
+    },
+    {
+      num: '04',
+      short: 'Reporting',
+      title: 'Campaign Reporting: Proof, Not Promises',
+      body: "Outdoor doesn't have to be a leap of faith. We report on reach, frequency, dwell time and impressions, run post-campaign analysis, and track the uplift in searches and website visits while your ads are up. You'll know exactly what worked, and where to double down next time.",
+    },
+  ];
+
+  const spots = [
+    {
+      title: 'Grocery Store Screens',
+      body: 'High-definition digital screens in the heart of busy supermarkets, seen by thousands of shoppers every week, right at the point of purchase. Weekly grocery runs mean weekly exposure, and familiarity turns into sales.',
+    },
+    {
+      title: 'Community Boards',
+      body: "Static boards at the entrances and exits of busy grocery stores, greeting the same local shoppers week after week. Repetition builds recognition, and recognition builds the kind of trust money can't rush.",
+    },
+    {
+      title: 'Medical Centre Screens',
+      body: 'Waiting rooms mean captive audiences and serious dwell time, all in an environment people inherently trust. Perfect for NDIS providers, home care, dental and allied health businesses building long-term local recognition.',
+    },
+    {
+      title: 'Shopping Centres',
+      body: 'Turn foot traffic into brand traction! Shopping centre displays put your business front and centre in bustling retail hubs, ideal for fashion, beauty, retail and service brands chasing maximum visibility.',
+    },
+    {
+      title: 'Bus Advertising',
+      body: 'Your message, doing laps of the suburbs all day. Bus wraps and shelter ads deliver massive reach and repetition across multiple postcodes, perfect for service businesses that want to own their patch.',
+    },
+    {
+      title: 'Train Stations',
+      body: 'Catch commuters during the most predictable minutes of their day. High dwell times and daily repetition make station advertising a recognition machine for brands targeting urban professionals.',
+    },
+    {
+      title: 'Fuel Stations',
+      body: 'Reach customers during the two idle minutes nobody enjoys: filling the tank. Fuel station screens offer prime visibility for fast food, automotive, insurance and convenience brands.',
+    },
+    {
+      title: 'Digital Billboards',
+      body: 'Big, bold and impossible to miss. Digital billboards in high-traffic zones give you flexibility and scale: swap creative in days, run time-sensitive promotions, and make the kind of impression that gets talked about at dinner.',
+    },
+  ];
+
+  const featuredNames = ['Bare', 'Coastal Skin & Beauty'];
+  const oohTestimonials = [
+    ...featuredNames
+      .map((n) => testimonials.find((t) => t.name === n))
+      .filter((t): t is Testimonial => !!t),
+    ...testimonials.filter((t) => !featuredNames.includes(t.name)),
+  ];
+
+  const faqs = [
+    {
+      q: 'What types of OOH advertising do you offer?',
+      a: 'The whole toolkit! Static and digital billboards, transit advertising (buses, trains and taxis), street furniture like bus shelters and kiosks, airport advertising, shopping centre displays, large-format building wraps, plus our specialty networks: grocery store screens, community boards and medical centre screens across Australia and New Zealand.',
+    },
+    {
+      q: "Isn't outdoor advertising only for big brands?",
+      a: 'It used to be, and plenty of agencies would love you to keep believing it. Our network partnerships unlock premium OOH placements at rates designed for SMEs, and hyper-local formats like grocery and medical screens mean you only pay to reach your actual service area, not the whole city.',
+    },
+    {
+      q: 'What budget do I need for an OOH campaign?',
+      a: "Local campaigns start from around $5,000, while city-wide or national campaigns typically start at $20,000 and up. Tell us your number and we'll build the biggest possible impact around it. No judgement, no upselling, just honest maths.",
+    },
+    {
+      q: 'How do you measure OOH campaign effectiveness?',
+      a: 'With data, not gut feel. We use audience reach data, foot traffic analysis and brand lift studies, and we tie it back to your digital numbers: uplift in searches, website visits and enquiries while your campaign is live. Outdoor and online working together tell you the full story.',
+    },
+    {
+      q: 'How long does it take to launch an OOH campaign?',
+      a: 'A typical campaign goes from briefing to launch in 3 to 6 weeks, covering creative, production and placement. In a hurry? Digital OOH formats can go live within days of creative approval. Perfect for flash sales, launches and seasonal pushes!',
+    },
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  const reviewSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: 'OOH Advertising',
+    serviceType: 'Out-of-Home Advertising Services',
+    provider: { '@type': 'Organization', name: 'Shopa Marketing' },
+    areaServed: ['Australia', 'New Zealand'],
+    review: oohTestimonials.map((t) => ({
+      '@type': 'Review',
+      reviewBody: t.quote,
+      author: { '@type': 'Organization', name: t.name },
+    })),
+  };
+
   return (
     <>
       <TemplateScripts />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
 
       {/* preloader */}
       <div id="preloader">
@@ -13,62 +133,204 @@ export default function OohAdvertisingPage() {
       </div>
 
       <ServiceHero
-        headline="Get Seen Where Your Customers Actually Are."
-        subtext="Billboards, transit, and outdoor media planned and placed for maximum local reach — from concept to installation."
+        headline="OOH Advertising Your Customers Can't Scroll Past"
+        subtext="Ad blockers can't touch a billboard, and nobody skips a bus. As the OOH advertising specialists for Australian SMEs, we put your brand where customers live, shop, wait and move, at rates that finally make outdoor affordable for the little guy!"
       />
 
-      <ServiceDetailsBody
-        currentPath="/services/ooh-advertising"
-        marquee="OOH Advertising"
-        introTitle="OOH Advertising: Make Your Brand Unmissable"
-        introParas={[
-          'Out-of-Home advertising places your brand in front of audiences where they live, work, and play. From billboards and transit ads to digital screens and street furniture, our OOH advertising service helps Australian businesses command attention and drive brand recall at scale.',
-          'We handle everything from creative concept and production through to placement, scheduling, and performance reporting — ensuring your OOH campaign delivers maximum impact within your budget.',
-        ]}
-        provideIntro="Our OOH advertising service covers the full campaign lifecycle — strategy, creative, media buying, production, installation, and measurement — all under one roof."
-        features={[
-          {
-            icon: 'flaticon-target',
-            title: 'Strategic Planning',
-            body: 'Identify the right formats, locations, and timing to reach your target audience with precision and efficiency.',
-          },
-          {
-            icon: 'flaticon-megaphone',
-            title: 'Creative Design',
-            body: 'Bold, impactful creative designed specifically for OOH formats — built to stop audiences in their tracks and leave a lasting impression.',
-          },
-          {
-            icon: 'flaticon-web-design-1',
-            title: 'Media Buying',
-            body: 'Leverage our media relationships to secure prime placements at competitive rates, from premium billboards to transit networks.',
-          },
-          {
-            icon: 'flaticon-web-design',
-            title: 'Campaign Reporting',
-            body: 'Measure reach, frequency, and brand lift with post-campaign analysis and audience data to inform future placements.',
-          },
-        ]}
-        challenge="In an increasingly digital world, physical advertising cuts through the noise in ways screens can't. But OOH advertising requires specialist knowledge of formats, audiences, and media networks. Without the right strategy and creative, budget is easily wasted on placements that don't deliver. We bring the expertise to make every dollar count."
-        faqPrefix="ooh"
-        faqs={[
-          {
-            q: 'What types of OOH advertising do you offer?',
-            a: 'We work across the full spectrum of OOH formats including billboards (static and digital), transit advertising (buses, trains, taxis), street furniture (bus shelters, kiosks), airport advertising, shopping centre displays, and large-format building wraps.',
-          },
-          {
-            q: 'What budget do I need for an OOH campaign?',
-            a: "We recommend a minimum of $5,000 for local campaigns and $20,000+ for city-wide or national campaigns. We'll work with your budget to maximise impact and coverage.",
-          },
-          {
-            q: 'How do you measure OOH campaign effectiveness?',
-            a: 'We measure OOH effectiveness using audience reach data, foot traffic analysis, brand lift studies, and integration with your digital campaigns to track uplift in online searches and website visits during the campaign period.',
-          },
-          {
-            q: 'How long does it take to launch an OOH campaign?',
-            a: 'A typical OOH campaign takes 3–6 weeks from briefing to launch. Digital OOH formats can be deployed more quickly — sometimes within days of creative approval.',
-          },
-        ]}
-      />
+      {/* ── INTRO — editorial split ── */}
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+        <div className="container chy-container-1">
+          <div className="row align-items-center">
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-intro-content">
+                <div className="section-title-wrap mb-35">
+                  <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
+                    Out-of-Home Advertising That Makes Your Brand a Local Landmark
+                  </h2>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    There&apos;s something the internet still can&apos;t do: stand on a street corner. Out-of-home advertising builds the kind of trust that only comes from being seen in the real world, again and again, right where your customers live, shop, wait and commute. See a brand online once, you scroll past. See it at your grocery store every week, and suddenly it&apos;s a household name.
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    Here&apos;s the part most SMEs don&apos;t know: outdoor advertising isn&apos;t just for the big end of town anymore. We&apos;ve partnered with OOH networks across Australia and New Zealand to unlock premium placements at rates built for small and medium businesses. Big-brand visibility, without the big-brand invoice!
+                  </p>
+                  <p className="chy-section-para-1 wow fadeInUp">
+                    And you won&apos;t lift a finger. From creative concept and production through to placement, scheduling and performance reporting, our team handles the entire campaign while you get on with running your business.
+                  </p>
+                </div>
+                <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
+                  <span className="text">Get a Quote</span>
+                  <span className="icon"><i className="fa-solid fa-right-long"></i></span>
+                </a>
+              </div>
+            </div>
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
+                {/* Real image pending — alt: "OOH advertising Australia: digital billboard and grocery store screen campaign for an Australian small business" */}
+                <div className="wds-ph wds-ph--intro">
+                  <span>Image Placeholder — 760 × 640</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* ── WHAT WE PROVIDE — expanding stage columns with marquee ── */}
+      <section className="wds-under-section fix">
+        {/* Scrolling background text — decorative */}
+        <div className="shopa-floating-scrolltext" aria-hidden="true">
+          <div className="shopa-floating-scrolltext__track">
+            <span>OOH Advertising &nbsp;·&nbsp; OOH Advertising &nbsp;·&nbsp; OOH Advertising &nbsp;·&nbsp; OOH Advertising &nbsp;·&nbsp;</span>
+            <span aria-hidden="true">OOH Advertising &nbsp;·&nbsp; OOH Advertising &nbsp;·&nbsp; OOH Advertising &nbsp;·&nbsp; OOH Advertising &nbsp;·&nbsp;</span>
+          </div>
+        </div>
+
+        <div className="container chy-container-1">
+          <div className="wds-culprit-head">
+            <h2 className="chy-title-1">OOH Advertising Services From First Sketch to Final Report</h2>
+            <p className="chy-section-para-1">
+              Strategy, creative, media buying, production, installation and measurement: the full campaign lifecycle under one roof. No juggling suppliers, no chasing installers, no mystery about what your money did.
+            </p>
+          </div>
+
+          <div className="wds-culprits">
+            {stages.map((card) => (
+              <div key={card.num} className="wds-culprit" tabIndex={0}>
+                <div className="wds-culprit__closed" aria-hidden="true">
+                  <span className="wds-culprit__closed-num">{card.num}</span>
+                  <span className="wds-culprit__closed-label">{card.short}</span>
+                  <span className="wds-culprit__closed-tip"><i className="far fa-plus"></i></span>
+                </div>
+                <div className="wds-culprit__open">
+                  <span className="wds-culprit__ghost" aria-hidden="true">{card.num}</span>
+                  <span className="wds-culprit__tag">Stage {card.num}</span>
+                  <h3 className="chy-heading-1 wds-culprit__title">{card.title}</h3>
+                  <p className="chy-para-1 wds-culprit__body">{card.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── WHERE WE ADVERTISE — 8-format hover grid ── */}
+      <div className="wds-spots-area pt-110 pb-110 bg-default fix">
+        <div className="container chy-container-1">
+          <div className="section-title-wrap text-center mb-50">
+            <h5 className="chy-subtitle-1 wow fadeInDown">where we advertise</h5>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Eight Ways to Be Everywhere Your Customers Go</h2>
+          </div>
+
+          <div className="wds-spot-grid">
+            {spots.map((spot, i) => (
+              <div key={spot.title} className="wds-spot wow fadeInUp" data-wow-delay={`${(i % 4) * 0.08}s`}>
+                <span className="wds-spot__ghost" aria-hidden="true">{`0${i + 1}`}</span>
+                <h3 className="chy-heading-1 wds-spot__title">{spot.title}</h3>
+                <p className="chy-para-1 wds-spot__body">{spot.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── THE CHALLENGE — gradient statement band ── */}
+      <div className="wds-ledger-area pt-110 pb-110" data-navbar-dark="true">
+        <div className="container chy-container-1">
+          <div className="wds-ledger-head" style={{ marginBottom: 0 }}>
+            <h2 className="chy-title-1" style={{ color: '#fff' }}>
+              Real-World Attention Is Priceless. Wasted Placements Aren&apos;t.
+            </h2>
+            <div>
+              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
+                In a world drowning in digital ads, physical advertising cuts through in ways screens simply can&apos;t. No ad blockers, no skip buttons, no doom-scrolling past your message. But here&apos;s the catch: OOH advertising is a specialist&apos;s game. Formats, audience data, network relationships, creative rules, timing windows. Get one wrong and your budget quietly evaporates on placements nobody sees.
+              </p>
+              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
+                That&apos;s where we come in. With thousands of campaigns behind us and partnerships across Australia and New Zealand&apos;s OOH networks, we know exactly which placements pull their weight and which ones just look good in a proposal. Every dollar works, or it doesn&apos;t go out the door.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ── TESTIMONIALS — masonry review wall (OOH stories first) ── */}
+      <div className="wds-reviews-area pt-110 pb-110">
+        <div className="container chy-container-1">
+          <div className="section-title-wrap text-center mb-50">
+            <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">OOH Results Australian Business Owners Rave About</h2>
+            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+            </p>
+          </div>
+          <div className="wds-reviews-wall">
+            {oohTestimonials.map((t, i) => (
+              <div key={i} className="wds-review-holder wow wds-unfold-in" data-wow-delay={`${i * 0.12}s`} data-wow-duration="0.8s">
+                <figure className="wds-review-card">
+                  <span className="wds-review-card__mark" aria-hidden="true">&ldquo;</span>
+                  <blockquote className="wds-review-card__quote">{t.quote}</blockquote>
+                  <figcaption className="wds-review-card__person">
+                    <span className="wds-review-card__avatar">
+                      {t.logo
+                        ? <img src={t.logo} alt={t.name} loading="lazy" />
+                        : <span className="wds-review-card__initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
+                      }
+                    </span>
+                    <span className="wds-review-card__who">
+                      <span className="wds-review-card__name">{t.name}</span>
+                      <span className="wds-review-card__bio">{t.bio}</span>
+                    </span>
+                  </figcaption>
+                </figure>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* ── FAQ — sticky title + hover accordion rows ── */}
+      <div className="wds-faq-area pt-110 pb-110 bg-default">
+        <div className="container chy-container-1">
+          <div className="row">
+
+            <div className="col-xl-4 col-lg-4">
+              <div className="wds-faq-sticky mb-40">
+                <h2 className="chy-title-1">Frequently Asked Questions</h2>
+              </div>
+            </div>
+
+            <div className="col-xl-8 col-lg-8">
+              <div className="wds-faq-rows wow fadeInUp">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="svc-accordion-row" tabIndex={0}>
+                    <div className="svc-accordion-header">
+                      <span className="svc-accordion-num">{`0${i + 1}`}</span>
+                      <h3 className="chy-heading-1 svc-accordion-title">{faq.q}</h3>
+                      <span className="svc-accordion-arrow"><i className="far fa-plus"></i></span>
+                    </div>
+                    <div className="svc-accordion-body">
+                      <p className="chy-para-1 wds-faq-answer">{faq.a}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      {/* back to top */}
+      <div className="scroll-top has-home-1">
+        <div className="scroll-top-wrap">
+          <i className="icon-1 fal fa-long-arrow-up"></i>
+        </div>
+      </div>
+
+      {/* overlay */}
+      <div className="offcanvas-overlay"></div>
     </>
   );
 }

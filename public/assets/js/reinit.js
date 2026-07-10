@@ -1,6 +1,53 @@
 /* shopaReinit — re-initialises Choicy template on Next.js soft navigation */
 (function () {
 
+  /* Guard: autoplay/transition ticks can fire slideTo on an instance that was
+     destroyed mid-tick (soft nav or dev hot-reload swaps the DOM). Destroyed
+     instances have no params — bail instead of throwing slidesPerGroupSkip. */
+  var Sw = window.Swiper;
+  if (Sw && !Sw.__shopaGuard) {
+    Sw.__shopaGuard = true;
+    ['slideTo', 'slideNext', 'slidePrev', 'slideToLoop'].forEach(function (m) {
+      var orig = Sw.prototype[m];
+      if (!orig) return;
+      Sw.prototype[m] = function () {
+        if (!this || this.destroyed || !this.params) return this;
+        return orig.apply(this, arguments);
+      };
+    });
+
+    /* Registry: React removes a page's DOM before shopaReinit runs, so
+       instances can't always be found via the DOM — track them directly. */
+    window.__shopaSwipers = [];
+    var origInit = Sw.prototype.init;
+    Sw.prototype.init = function () {
+      window.__shopaSwipers.push(this);
+      return origInit.apply(this, arguments);
+    };
+    /* Capture instances main.js already created before this script parsed */
+    document.querySelectorAll('.swiper-container, .swiper').forEach(function (el) {
+      if (el.swiper && window.__shopaSwipers.indexOf(el.swiper) === -1) {
+        window.__shopaSwipers.push(el.swiper);
+      }
+    });
+  }
+
+  /* Watchdog: a split-text heading reveal can stall mid-play (trigger killed,
+     refresh mid-tween, competing re-init). If we're past a heading's trigger
+     and its tween stopped short of the end, snap it to complete. */
+  setInterval(function () {
+    if (!window.gsap) return;
+    document.querySelectorAll('.chy-split-text, .chy-split-text-2, .chy-split-text-4').forEach(function (el) {
+      var anim = el.anim;
+      if (!anim || typeof anim.progress !== 'function') return;
+      var st = anim.scrollTrigger;
+      if (!st) return;
+      if (st.progress > 0 && anim.progress() < 1 && !anim.isActive()) {
+        try { anim.progress(1); } catch (_) {}
+      }
+    });
+  }, 1500);
+
   window.shopaReinit = function () {
     var $ = window.jQuery;
     if (!$ || !window.gsap) return;
@@ -13,7 +60,12 @@
       ST.getAll().forEach(function (t) { try { t.kill(); } catch (_) {} });
     }
 
-    /* 2 — Destroy any Swiper instances left on DOM elements */
+    /* 2 — Destroy every Swiper created so far; the registry catches instances
+           whose DOM React already replaced (autoplay timers would otherwise leak) */
+    (window.__shopaSwipers || []).forEach(function (sw) {
+      if (sw && !sw.destroyed) { try { sw.destroy(true, true); } catch (_) {} }
+    });
+    if (window.__shopaSwipers) window.__shopaSwipers.length = 0;
     document.querySelectorAll('.swiper-container').forEach(function (el) {
       if (el.swiper) { try { el.swiper.destroy(true, true); } catch (_) {} }
     });
