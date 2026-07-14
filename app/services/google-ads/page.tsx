@@ -165,21 +165,47 @@ export default function GoogleAdsPage() {
         </div>
       </section>
 
-      {/* ── THE CHALLENGE — gradient statement band ── */}
+      {/* ── THE CHALLENGE — gradient band with steer-the-machine panel ── */}
       <div className="wds-ledger-area pt-110 pb-110" data-navbar-dark="true">
         <div className="container chy-container-1">
-          <div className="wds-ledger-head" style={{ marginBottom: 0 }}>
-            <h2 className="chy-title-1" style={{ color: '#fff' }}>
-              Google Ads Got Complicated. Lucky for You, We Kept Up.
-            </h2>
-            <div>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                Once upon a time, Google Ads was ten keywords and a prayer. These days it&apos;s smart bidding, Performance Max, consent mode and algorithm updates arriving faster than public holidays. The platform is brilliant, but it&apos;s also very happy to spend your entire budget on searches that have nothing to do with your business, and it won&apos;t apologise afterwards.
-              </p>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                Poor account structure and unwatched campaigns drain budgets quietly and quickly. Our specialists actively manage your account every day: tightening targeting, culling wasted spend and steering the machine so it works for you, not on you. The result? Consistent leads at a cost per lead that keeps making sense.
-              </p>
+          <div className="row align-items-center">
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="mb-30">
+                <h2 className="chy-title-1" style={{ color: '#fff' }}>
+                  Google Ads Got Complicated. Lucky for You, We Kept Up.
+                </h2>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
+                  Once upon a time, Google Ads was ten keywords and a prayer. These days it&apos;s smart bidding, Performance Max, consent mode and algorithm updates arriving faster than public holidays. The platform is brilliant, but it&apos;s also very happy to spend your entire budget on searches that have nothing to do with your business, and it won&apos;t apologise afterwards.
+                </p>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
+                  Poor account structure and unwatched campaigns drain budgets quietly and quickly. Our specialists actively manage your account every day: tightening targeting, culling wasted spend and steering the machine so it works for you, not on you. The result? Consistent leads at a cost per lead that keeps making sense.
+                </p>
+              </div>
             </div>
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-machine wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-machine__head">
+                  <i className="fa-solid fa-gear"></i>
+                  <span className="wds-machine__title">Inside your Google Ads account</span>
+                </div>
+                <div className="wds-machine__chips">
+                  <span className="wds-machine__chip">Smart bidding</span>
+                  <span className="wds-machine__chip">Performance Max</span>
+                  <span className="wds-machine__chip">Consent mode</span>
+                  <span className="wds-machine__chip">Algorithm updates</span>
+                  <span className="wds-machine__chip">Account structure</span>
+                  <span className="wds-machine__chip">Targeting</span>
+                  <span className="wds-machine__chip wds-machine__chip--waste">Wasted spend</span>
+                </div>
+                <div className="wds-machine__foot">
+                  <span className="wds-machine__foot-unmanaged">Left unwatched, it drains your budget quietly.</span>
+                  <span className="wds-machine__foot-steered">Steered daily &mdash; consistent leads at a cost per lead that keeps making sense.</span>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

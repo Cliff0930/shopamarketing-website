@@ -1,7 +1,11 @@
 'use client';
 import { useEffect } from 'react';
 
-const VIDEO_SRC = '/assets/img/hero/v1-scrub.mp4';
+// All-intra encode (every frame a keyframe) — scrubbing seeks to arbitrary
+// timestamps, and sparse keyframes make the scrub stall between them.
+const VIDEO_SRC = '/assets/img/hero/hero-scrub-v3.mp4';
+// Safety margin so full scroll never lands on a dark tail frame.
+const END_TRIM_SECONDS = 0.1;
 
 export default function HeroVideoScrub() {
   useEffect(() => {
@@ -37,7 +41,7 @@ export default function HeroVideoScrub() {
       if (!scrubEnabled || !video.duration) return;
       const scrollRange = section.offsetHeight - window.innerHeight;
       const progress = Math.min(Math.max(window.scrollY / scrollRange, 0), 1);
-      targetTime = progress * video.duration;
+      targetTime = progress * Math.max(video.duration - END_TRIM_SECONDS, 0);
 
       if (!animating) {
         animating = true;

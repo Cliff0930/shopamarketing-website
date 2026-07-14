@@ -4,24 +4,12 @@ import ServicesTicker from '@/components/ServicesTicker';
 import HeroVideoScrub from '@/components/HeroVideoScrub';
 import StarAnimationTrigger from '@/components/StarAnimationTrigger';
 import FloatingCardsGSAP from '@/components/FloatingCardsGSAP';
+import ServiceTestimonials from '@/components/ServiceTestimonials';
 
 export const revalidate = 3600;
 
 export default async function HomePage() {
   const latestPosts = await getPosts(3);
-
-  const testimonials = [
-    { quote: 'Royal Park Dental uses Shopa Marketing and are pleased with their customer service and product. Thank you for your patience and being so accommodating to our needs. Highly recommend!', name: 'Royal Park Dental', bio: 'Dental Clinic, Melbourne', logo: '/assets/img/testimonials/royal-park-dental.png' },
-    { quote: 'We really appreciate Shopa Marketing and their service. Their employees are reliable and quick to action anything you need.', name: 'First Step Fertility', bio: 'Fertility Clinic, Australia', logo: '/assets/img/testimonials/first-step-fertility.png' },
-    { quote: 'I am so happy with the entire process and end product. Tom Richards from Shopa Marketing handled my digital advertising campaign and web design. Result is excellent.', name: 'Lmt Finance', bio: 'Mortgage Broker, Geelong', logo: '/assets/img/testimonials/lmt-finance.jpg' },
-    { quote: 'They look after the people they work with, with very good deals.', name: 'Bargain Beds', bio: 'Small Family Business', logo: '/assets/img/testimonials/bargain-beds.png' },
-    { quote: 'Very professional and very helpful with building a new business website and online marketing.', name: 'Independent Property Sales', bio: 'Real Estate, Geelong' },
-    { quote: 'Easy well supported process with excellent communication along the way.', name: 'Coastal Skin & Beauty', bio: 'Beauty Clinic, Kapiti Coast', logo: '/assets/img/testimonials/coastal-skin-beauty.png' },
-    { quote: "Lawrence's professional guidance was instrumental in crafting a compelling advertisement. Thrilled with the results and highly recommend his services.", name: 'Home Caring Tranmere', bio: 'NDIS & Home Care Provider, Adelaide', logo: '/assets/img/testimonials/home-caring-tranmere.webp' },
-    { quote: 'The team were easy to communicate with which made the process smooth.', name: 'Hutt Dental Hub', bio: 'Dental Clinic', logo: '/assets/img/testimonials/hutt-dental-hub.png' },
-    { quote: 'They were quick to respond and provided us with great quality artwork.', name: 'Fountain College', bio: 'Education', logo: '/assets/img/testimonials/fountain-college.png' },
-    { quote: 'We (Bare) partnered with Shopa Marketing to execute our branded in-store print and digital signage across local supermarkets in Adelaide, and the results have been great. From initial discussions to final rollout, the team has been wonderful to work with - highly professional, responsive, and deeply attentive. They brought our vision to life, and the signage has significantly expanded our brand awareness in the local community.', name: 'Bare', bio: 'Brand, Adelaide', logo: '/assets/img/testimonials/bare.svg' },
-  ];
 
   const whyItems = [
     { icon: 'flaticon-digital-campaign', title: 'One Strategy Across Every Channel', body: 'Digital and physical. Online and offline. Every channel working together because disconnected marketing produces disconnected results.' },
@@ -78,7 +66,7 @@ export default async function HomePage() {
             muted
             playsInline
             preload="none"
-            poster="/assets/img/hero/hero-poster.webp"
+            poster="/assets/img/hero/hero-poster-v2.webp"
             style={{
               position: 'absolute',
               top: 0,
@@ -123,18 +111,42 @@ export default async function HomePage() {
                   <div className="featured-in-strip wow fadeInLeft" data-wow-delay=".7s" data-wow-duration="3s">
                     <span className="featured-in-label">As Featured In</span>
                     <div className="featured-in-logos">
-                      <div className="logo-pill">
+                      <a
+                        className="logo-pill"
+                        href="https://ceoweekly.com/making-marketing-human-again-how-one-founder-is-reshaping-sme-advertising-across-australia-and-new-zealand/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read the Shopa Marketing feature in CEO Weekly"
+                      >
                         <img src="/assets/img/press/ceo-weekly.webp" alt="CEO Weekly" />
-                      </div>
-                      <div className="featured-in-logo-slot">
+                      </a>
+                      <a
+                        className="featured-in-logo-slot"
+                        href="https://markets.businessinsider.com/news/stocks/shopa-marketing-introduces-a-new-multi-platform-advertising-model-designed-exclusively-for-smes-across-australia-and-new-zealand-1035614816"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read the Shopa Marketing feature on Business Insider"
+                      >
                         <img src="/assets/img/press/business-insider.png" alt="Business Insider" />
-                      </div>
-                      <div className="featured-in-logo-slot">
+                      </a>
+                      <a
+                        className="featured-in-logo-slot"
+                        href="https://theguardian.com.au/recommended/partner-content/2026/03/06/growing-with-purpose-shopa-marketings-strengthened-position-in-new-zealand/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read the Shopa Marketing feature in The Guardian"
+                      >
                         <img src="/assets/img/press/the-guardian.webp" alt="The Guardian" />
-                      </div>
-                      <div className="featured-in-logo-slot">
+                      </a>
+                      <a
+                        className="featured-in-logo-slot"
+                        href="https://apnews.com/press-release/marketersmedia/shopa-marketing-strengthens-position-as-go-to-advertising-partner-for-smes-across-australia-and-new-zealand-86c3162d8575a96ebff6b5981d7fb529"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read the Shopa Marketing press release on AP News"
+                      >
                         <img src="/assets/img/press/ap.png" alt="Associated Press" />
-                      </div>
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -338,38 +350,8 @@ export default async function HomePage() {
       {/* ── BODY BG 2 ── */}
       <div className="body-bg-2 bg-default">
 
-        {/* ── TESTIMONIALS SLIDER ── */}
-        <div className="chy-team-slider-1-area pt-80 pb-80">
-          <div className="container chy-container-1">
-            <div className="chy-team-slider-1-wrap">
-              <div className="swiper-container chy_team_slider_1_active fix">
-                <div className="swiper-wrapper">
-                  {testimonials.map((t, i) => (
-                    <div key={i} className="swiper-slide">
-                      <div className="chy-team-slider-1-item">
-                        <div className={`main-img${t.logo ? ' has-client-logo' : ' no-logo'}`}>
-                          {t.logo
-                            ? <img src={t.logo} alt={t.name} loading="lazy" />
-                            : <span className="testimonial-initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
-                          }
-                        </div>
-                        <div className="content-wrap">
-                          <h4 className="chy-heading-1 title">What People Are Saying</h4>
-                          <p className="chy-para-1 comment">{t.quote}</p>
-                          <div className="person">
-                            <h5 className="chy-heading-1 name">{t.name}</h5>
-                            <span className="chy-para-1 bio">{t.bio}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              <div className="chy-team-slider-1-pagination"></div>
-            </div>
-          </div>
-        </div>
+        {/* ── TESTIMONIALS — masonry review wall ── */}
+        <ServiceTestimonials />
 
         {/* ── CLIENTS ── */}
         <div className="shopa-clients-area pt-60 pb-80 fix">

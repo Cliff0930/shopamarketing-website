@@ -175,21 +175,82 @@ export default function SocialMediaPage() {
         </div>
       </section>
 
-      {/* ── THE CHALLENGE — gradient statement band ── */}
+      {/* ── THE CHALLENGE — gradient band with overnight update feed ── */}
       <div className="wds-ledger-area pt-110 pb-110" data-navbar-dark="true">
         <div className="container chy-container-1">
-          <div className="wds-ledger-head" style={{ marginBottom: 0 }}>
-            <h2 className="chy-title-1" style={{ color: '#fff' }}>
-              The Algorithm Changed Again. Good Thing We Never Sleep.
-            </h2>
-            <div>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                Here&apos;s the uncomfortable truth about social media advertising: the platforms move the goalposts constantly. Algorithms shift, ad formats appear and vanish, targeting rules get rewritten overnight. What worked brilliantly in March can quietly burn money by June, and the platforms won&apos;t send you a memo about it.
-              </p>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                That&apos;s why DIY ads and set-and-forget agencies get expensive fast. Our team lives inside these platforms every day, spotting the changes early and adjusting your campaigns before performance dips. You stay profitable while everyone else is still reading the update notes!
-              </p>
+          <div className="row align-items-center">
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="mb-30">
+                <h2 className="chy-title-1" style={{ color: '#fff' }}>
+                  The Algorithm Changed Again. Good Thing We Never Sleep.
+                </h2>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
+                  Here&apos;s the uncomfortable truth about social media advertising: the platforms move the goalposts constantly. Algorithms shift, ad formats appear and vanish, targeting rules get rewritten overnight. What worked brilliantly in March can quietly burn money by June, and the platforms won&apos;t send you a memo about it.
+                </p>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
+                  That&apos;s why DIY ads and set-and-forget agencies get expensive fast. Our team lives inside these platforms every day, spotting the changes early and adjusting your campaigns before performance dips. You stay profitable while everyone else is still reading the update notes!
+                </p>
+              </div>
             </div>
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-feed wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-feed__head">
+                  <span className="wds-feed__dot"></span>
+                  <span className="wds-feed__title">Overnight update feed</span>
+                  <span className="wds-feed__badge">live</span>
+                </div>
+
+                <div className="wds-feed__msg wds-feed__msg--in wow fadeInUp">
+                  <i className="fa-solid fa-bolt"></i>
+                  <div>
+                    <p className="wds-feed__text">Algorithm updated. No memo sent.</p>
+                    <span className="wds-feed__time">2:47 AM</span>
+                  </div>
+                </div>
+                <div className="wds-feed__msg wds-feed__msg--out wow fadeInUp" data-wow-delay=".15s">
+                  <i className="flaticon-check"></i>
+                  <div>
+                    <p className="wds-feed__text">Spotted. Campaigns adjusted.</p>
+                    <span className="wds-feed__time">2:58 AM</span>
+                  </div>
+                </div>
+
+                <div className="wds-feed__msg wds-feed__msg--in wow fadeInUp" data-wow-delay=".3s">
+                  <i className="fa-solid fa-bolt"></i>
+                  <div>
+                    <p className="wds-feed__text">Targeting rules rewritten overnight.</p>
+                    <span className="wds-feed__time">3:31 AM</span>
+                  </div>
+                </div>
+                <div className="wds-feed__msg wds-feed__msg--out wow fadeInUp" data-wow-delay=".45s">
+                  <i className="flaticon-check"></i>
+                  <div>
+                    <p className="wds-feed__text">Audiences rebuilt before performance dips.</p>
+                    <span className="wds-feed__time">3:38 AM</span>
+                  </div>
+                </div>
+
+                <div className="wds-feed__msg wds-feed__msg--in wow fadeInUp" data-wow-delay=".6s">
+                  <i className="fa-solid fa-bolt"></i>
+                  <div>
+                    <p className="wds-feed__text">Ad format vanished.</p>
+                    <span className="wds-feed__time">4:06 AM</span>
+                  </div>
+                </div>
+                <div className="wds-feed__msg wds-feed__msg--out wow fadeInUp" data-wow-delay=".75s">
+                  <i className="flaticon-check"></i>
+                  <div>
+                    <p className="wds-feed__text">New format already live.</p>
+                    <span className="wds-feed__time">4:12 AM</span>
+                  </div>
+                </div>
+
+                <p className="wds-feed__foot wow fadeInUp" data-wow-delay=".9s">While everyone else is still reading the update notes.</p>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

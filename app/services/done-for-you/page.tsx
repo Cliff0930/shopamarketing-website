@@ -13,10 +13,13 @@ export default function DoneForYouPage() {
     'Strengthening online visibility',
   ];
 
-  const teamPoints = [
-    'Easy, stress-free marketing options for SMEs',
-    'All-inclusive rates to avoid any nasty surprises',
-    'Dedicated account manager',
+  const teamRoles = [
+    'Marketing Strategist',
+    'Designer',
+    'SEO Specialist',
+    'Ads Expert',
+    'Content Creator',
+    'Dedicated Account Manager',
   ];
 
   const faqs = [
@@ -158,16 +161,21 @@ export default function DoneForYouPage() {
             </div>
 
             <div className="col-xl-6 col-lg-6">
-              <div className="wds-focus-card wow fadeInRight" data-wow-duration="1.2s">
-                <h4 className="chy-heading-1 wds-focus-card__title">The first few months are focused on:</h4>
-                <ul className="wds-focus-list">
-                  {focusItems.map((item) => (
-                    <li key={item}>
-                      <i className="flaticon-check"></i>
-                      {item}
-                    </li>
+              <div className="wds-momentum wow fadeInRight" data-wow-duration="1.2s">
+                <h4 className="chy-heading-1 wds-momentum__title">The first few months are focused on:</h4>
+                <div className="wds-momentum__track">
+                  {focusItems.map((item, i) => (
+                    <div key={item} className="wds-momentum__step wow fadeInUp" data-wow-delay={`${i * 0.08}s`}>
+                      <span className="wds-momentum__node"><i className="flaticon-check"></i></span>
+                      <span className="wds-momentum__num">{`0${i + 1}`}</span>
+                      <span className="wds-momentum__label">{item}</span>
+                    </div>
                   ))}
-                </ul>
+                  <div className="wds-momentum__finish wow fadeInUp" data-wow-delay=".5s">
+                    <span className="wds-momentum__finish-badge">Months 3&ndash;4</span>
+                    <span className="wds-momentum__finish-text">Consistent traction kicks in</span>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -190,13 +198,24 @@ export default function DoneForYouPage() {
             </div>
 
             <div className="col-xl-6 col-lg-6">
-              <div className="wds-glass-list">
-                {teamPoints.map((point, i) => (
-                  <div key={point} className="wds-glass-row wow fadeInUp" data-wow-delay={`${i * 0.1}s`}>
-                    <i className="flaticon-check"></i>
-                    <span>{point}</span>
+              <div className="wds-payroll wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-payroll__head">
+                  <span className="wds-payroll__head-label">If you hired in-house</span>
+                  <span className="wds-payroll__head-icon"><i className="flaticon-team"></i></span>
+                </div>
+                {teamRoles.map((role, i) => (
+                  <div key={role} className="wds-payroll__row">
+                    <span className="wds-payroll__role">
+                      <span className="wds-payroll__role-num">{`0${i + 1}`}</span>
+                      {role}
+                    </span>
+                    <span className="wds-payroll__salary">a full salary</span>
                   </div>
                 ))}
+                <div className="wds-payroll__total">
+                  <span className="wds-payroll__total-label">Your entire team, all-inclusive</span>
+                  <span className="wds-payroll__total-value">One monthly fee</span>
+                </div>
               </div>
             </div>
 

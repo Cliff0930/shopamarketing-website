@@ -236,21 +236,45 @@ export default function OohAdvertisingPage() {
         </div>
       </div>
 
-      {/* ── THE CHALLENGE — gradient statement band ── */}
+      {/* ── THE CHALLENGE — gradient band with mini billboard ── */}
       <div className="wds-ledger-area pt-110 pb-110" data-navbar-dark="true">
         <div className="container chy-container-1">
-          <div className="wds-ledger-head" style={{ marginBottom: 0 }}>
-            <h2 className="chy-title-1" style={{ color: '#fff' }}>
-              Real-World Attention Is Priceless. Wasted Placements Aren&apos;t.
-            </h2>
-            <div>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                In a world drowning in digital ads, physical advertising cuts through in ways screens simply can&apos;t. No ad blockers, no skip buttons, no doom-scrolling past your message. But here&apos;s the catch: OOH advertising is a specialist&apos;s game. Formats, audience data, network relationships, creative rules, timing windows. Get one wrong and your budget quietly evaporates on placements nobody sees.
-              </p>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                That&apos;s where we come in. With thousands of campaigns behind us and partnerships across Australia and New Zealand&apos;s OOH networks, we know exactly which placements pull their weight and which ones just look good in a proposal. Every dollar works, or it doesn&apos;t go out the door.
-              </p>
+          <div className="row align-items-center">
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="mb-30">
+                <h2 className="chy-title-1" style={{ color: '#fff' }}>
+                  Real-World Attention Is Priceless. Wasted Placements Aren&apos;t.
+                </h2>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
+                  In a world drowning in digital ads, physical advertising cuts through in ways screens simply can&apos;t. No ad blockers, no skip buttons, no doom-scrolling past your message. But here&apos;s the catch: OOH advertising is a specialist&apos;s game. Formats, audience data, network relationships, creative rules, timing windows. Get one wrong and your budget quietly evaporates on placements nobody sees.
+                </p>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
+                  That&apos;s where we come in. With thousands of campaigns behind us and partnerships across Australia and New Zealand&apos;s OOH networks, we know exactly which placements pull their weight and which ones just look good in a proposal. Every dollar works, or it doesn&apos;t go out the door.
+                </p>
+              </div>
             </div>
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-bill-wrap wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-billboard">
+                  <div className="wds-billboard__screen">
+                    <span className="wds-billboard__line">Seen.</span>
+                    <span className="wds-billboard__line wds-billboard__line--dim">Not skipped.</span>
+                  </div>
+                  <div className="wds-billboard__legs"><span></span><span></span></div>
+                </div>
+                <div className="wds-bill-chips">
+                  <span className="wds-bill-chips__label">Doesn&apos;t exist out here</span>
+                  <div className="wds-bill-chips__row">
+                    <span className="wds-bill-chip"><span className="wds-bill-chip__x">&times;</span>Ad blockers</span>
+                    <span className="wds-bill-chip"><span className="wds-bill-chip__x">&times;</span>Skip buttons</span>
+                    <span className="wds-bill-chip"><span className="wds-bill-chip__x">&times;</span>Doom-scrolling</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

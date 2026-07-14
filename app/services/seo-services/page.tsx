@@ -239,18 +239,55 @@ export default function SeoServicesPage() {
       {/* ── THE CHALLENGE — gradient statement band ── */}
       <div className="wds-ledger-area pt-110 pb-110" data-navbar-dark="true">
         <div className="container chy-container-1">
-          <div className="wds-ledger-head" style={{ marginBottom: 0 }}>
-            <h2 className="chy-title-1" style={{ color: '#fff' }}>
-              SEO Isn&apos;t Set-and-Forget. It&apos;s Set-and-Soar.
-            </h2>
-            <div>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
-                Here&apos;s the thing about search: it rewards expertise, authority and trust, and it never stops checking in on you. Google&apos;s algorithm changes more often than the weather in spring, AI engines are rewriting the rules as they go, and your competitors never stop investing. Businesses that treat SEO as a one-off project watch their rankings quietly slide back down the hill they just climbed.
-              </p>
-              <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                That&apos;s why our SEO service never sits still. We monitor every algorithm update, track how AI engines are answering questions in your industry, and adjust your strategy before problems become plummets. You stay ahead of the curve while your competitors wonder what just overtook them!
-              </p>
+          <div className="row align-items-center">
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="mb-30">
+                <h2 className="chy-title-1" style={{ color: '#fff' }}>
+                  SEO Isn&apos;t Set-and-Forget. It&apos;s Set-and-Soar.
+                </h2>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
+                  Here&apos;s the thing about search: it rewards expertise, authority and trust, and it never stops checking in on you. Google&apos;s algorithm changes more often than the weather in spring, AI engines are rewriting the rules as they go, and your competitors never stop investing. Businesses that treat SEO as a one-off project watch their rankings quietly slide back down the hill they just climbed.
+                </p>
+                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
+                  That&apos;s why our SEO service never sits still. We monitor every algorithm update, track how AI engines are answering questions in your industry, and adjust your strategy before problems become plummets. You stay ahead of the curve while your competitors wonder what just overtook them!
+                </p>
+              </div>
             </div>
+
+            <div className="col-xl-6 col-lg-6">
+              <div className="wds-soar-stack wow fadeInRight" data-wow-duration="1.2s">
+
+                <div className="wds-soar-panel wds-soar-panel--forget">
+                  <div className="wds-soar-panel__head">
+                    <i className="fa-solid fa-arrow-trend-down"></i>
+                    <span className="wds-soar-panel__label">Set-and-Forget</span>
+                  </div>
+                  <svg className="wds-soar-panel__spark" viewBox="0 0 220 54" preserveAspectRatio="none" aria-hidden="true">
+                    <polyline points="4,10 48,18 82,14 124,30 164,40 216,48" />
+                  </svg>
+                  <p className="wds-soar-panel__caption">Rankings quietly slide back down the hill they just climbed.</p>
+                </div>
+
+                <div className="wds-soar-panel wds-soar-panel--soar">
+                  <div className="wds-soar-panel__head">
+                    <i className="fa-solid fa-arrow-trend-up"></i>
+                    <span className="wds-soar-panel__label">Set-and-Soar</span>
+                  </div>
+                  <svg className="wds-soar-panel__spark" viewBox="0 0 220 54" preserveAspectRatio="none" aria-hidden="true">
+                    <polyline points="4,46 48,40 82,42 124,24 164,16 216,6" />
+                  </svg>
+                  <p className="wds-soar-panel__caption">Strategy adjusted before problems become plummets — so you stay ahead of the curve.</p>
+                  <div className="wds-soar-panel__chips">
+                    <span className="wds-soar-chip"><span className="wds-soar-chip__dot"></span>Algorithm updates</span>
+                    <span className="wds-soar-chip"><span className="wds-soar-chip__dot"></span>AI engine answers</span>
+                    <span className="wds-soar-chip"><span className="wds-soar-chip__dot"></span>Competitor moves</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

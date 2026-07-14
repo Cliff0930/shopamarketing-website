@@ -107,30 +107,30 @@ export default function AboutUsPage() {
         </div>
       </div>
 
-      {/* ── VISION & MISSION — icon cards ── */}
-      <div className="pt-100 pb-90" style={{ backgroundColor: '#f8f8fb' }}>
+      {/* ── VISION & MISSION — split manifesto panels ── */}
+      <div className="pt-100 pb-100" style={{ backgroundColor: '#f8f8fb' }}>
         <div className="container chy-container-1">
-          <div className="row g-4 justify-content-center">
+          <div className="wds-vm-grid">
 
-            <div className="col-xl-6 col-lg-6 wow fadeInUp">
-              <div className="web-build-card">
-                <div className="web-build-card__icon">
-                  <i className="flaticon-target"></i>
-                </div>
-                <h4 className="chy-heading-1 web-build-card__title">Our Vision</h4>
-                <p className="chy-para-1 web-build-card__body">
+            <div className="wds-vm-panel wds-vm-panel--vision wow fadeInUp">
+              <span className="wds-vm-panel__ghost" aria-hidden="true">Vision</span>
+              <div className="wds-vm-panel__inner">
+                <div className="wds-vm-panel__accent"></div>
+                <span className="wds-vm-panel__num">01 — Where we&apos;re headed</span>
+                <h3 className="wds-vm-panel__title">Our Vision</h3>
+                <p className="wds-vm-panel__body">
                   To be the leading one-stop marketing agency for SMEs, revolutionizing their growth by providing innovative, comprehensive, and tailored marketing solutions that drive measurable success and lasting impact.
                 </p>
               </div>
             </div>
 
-            <div className="col-xl-6 col-lg-6 wow fadeInUp" data-wow-delay=".15s">
-              <div className="web-build-card">
-                <div className="web-build-card__icon">
-                  <i className="flaticon-digital-campaign"></i>
-                </div>
-                <h4 className="chy-heading-1 web-build-card__title">Our Mission</h4>
-                <p className="chy-para-1 web-build-card__body">
+            <div className="wds-vm-panel wds-vm-panel--mission wow fadeInUp" data-wow-delay=".15s">
+              <span className="wds-vm-panel__ghost" aria-hidden="true">Mission</span>
+              <div className="wds-vm-panel__inner">
+                <div className="wds-vm-panel__accent"></div>
+                <span className="wds-vm-panel__num">02 — How we get there</span>
+                <h3 className="wds-vm-panel__title">Our Mission</h3>
+                <p className="wds-vm-panel__body">
                   At Shopa Marketing, our mission is to empower small and medium-sized enterprises by delivering top-notch, data-driven marketing services across all channels. We strive to simplify the marketing process for our clients, offering everything from community board ads to advanced SEO, social media, and digital advertising, ensuring their goals are met with efficiency, creativity, and unparalleled expertise.
                 </p>
               </div>
