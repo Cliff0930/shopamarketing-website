@@ -21,7 +21,7 @@ export default function ServicesPage() {
     { label: 'Website', top: '72%', left: '82%' },
     { label: 'OOH', top: '90%', left: '55%' },
     { label: 'Design', top: '80%', left: '20%' },
-    { label: 'Content', top: '40%', left: '8%' },
+    { label: 'Content', top: '40%', left: '13%' },
   ];
 
   const ctaPoints = [

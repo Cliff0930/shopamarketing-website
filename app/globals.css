@@ -210,10 +210,13 @@ body {
   letter-spacing: 1.5px;
   text-transform: uppercase;
   color: #663dff;
+  white-space: nowrap;
 }
 .contact-form-shopa .cfw-progress-hint {
   font-size: 12.5px;
   color: #6f6a85;
+  text-align: right;
+  margin-left: 16px;
 }
 .contact-form-shopa .cfw-progress {
   height: 6px;
@@ -1134,7 +1137,7 @@ body {
   /* ── Hero ─────────────────────────────────────────────── */
   /* Collapse 250vh scroll-scrub container to natural height on mobile;
      release sticky positioning; hide the scrub video */
-  #hero-section { height: auto !important; min-height: 100svh; }
+  #hero-section { height: auto !important; min-height: 100vh; min-height: 100svh; }
   .chy-hero-1-area {
     position: relative !important;
     height: auto !important;
@@ -2480,6 +2483,16 @@ body {
 
 @media (max-width: 767px) {
   .about-hero { padding: 110px 0 60px; }
+
+  /* Photo background runs behind the text on small screens — soft white
+     wash keeps the subheading and stats readable */
+  .about-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.45) 100%);
+  }
 
   .about-hero__stats {
     display: grid;
@@ -4137,6 +4150,7 @@ p.wds-culprit__body {
 }
 @media (max-width: 575px) {
   .wds-payroll { padding: 26px 22px 24px; }
+  .wds-payroll__row { flex-wrap: wrap; gap: 4px 14px; }
   .wds-payroll__total { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 
@@ -4729,7 +4743,7 @@ p.wds-culprit__body {
   transform-origin: left center;
   display: inline-flex;
 }
-@media (max-width: 991px) {
+@media (max-width: 991px), (hover: none) {
   .wds-deck { flex-direction: column; height: auto; }
   .wds-deck__card,
   .wds-deck__card:hover,
@@ -5008,10 +5022,107 @@ p.wds-culprit__body {
 @media (max-width: 991px) {
   .wds-brandfix { margin: 36px auto 0; }
 }
+@media (max-width: 399px) {
+  .wds-brandfix__tiles { grid-template-columns: repeat(2, 1fr); }
+}
 @media (hover: none) {
   .wds-brandfix__tile { font-family: 'Montserrat', sans-serif !important; font-style: normal !important; font-weight: 800 !important; font-size: 12.5px !important; letter-spacing: 0.5px !important; text-transform: none !important; color: #663dff !important; background: #fff !important; transform: none !important; }
   .wds-brandfix__foot-messy { opacity: 0; }
   .wds-brandfix__foot-fixed { opacity: 1; }
+}
+
+/* ── Primary button, white variant (for gradient surfaces) ──
+   double-class specificity beats main.css (which loads after globals.css) */
+.chy-pr-btn-1.chy-pr-btn-1--white {
+  background: #fff;
+  color: #663dff;
+  box-shadow: 0 8px 24px rgba(15, 9, 38, 0.28);
+}
+.chy-pr-btn-1.chy-pr-btn-1--white .icon { color: #663dff; }
+.chy-pr-btn-1.chy-pr-btn-1--white:hover { color: #fff; }
+.chy-pr-btn-1.chy-pr-btn-1--white:hover .icon { color: #fff; }
+
+/* ── About — outside-the-box escape panel (CTA band) ── */
+.wds-escape {
+  position: relative;
+  height: 380px;
+  max-width: 470px;
+  margin-left: auto;
+}
+.wds-escape__box {
+  position: absolute;
+  top: 50%;
+  left: 4%;
+  transform: translateY(-50%);
+  width: 55%;
+  height: 72%;
+  border: 2px dashed rgba(255, 255, 255, 0.35);
+  border-radius: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease;
+}
+.wds-escape:hover .wds-escape__box { border-color: rgba(255, 255, 255, 0.5); }
+.wds-escape__box span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+.wds-escape__chip {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  max-width: 250px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 15px 18px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.45;
+  color: #0f0926;
+  box-shadow: 0 16px 40px rgba(15, 9, 38, 0.35);
+  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+}
+.wds-escape__chip i {
+  color: #663dff;
+  font-size: 12px;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.wds-escape__chip--1 { top: 2%; right: 0; transform: rotate(4deg); }
+.wds-escape__chip--2 { top: 40%; right: 0; transform: rotate(-5deg); }
+.wds-escape__chip--3 { bottom: 3%; right: 10%; transform: rotate(3deg); }
+.wds-escape:hover .wds-escape__chip {
+  transform: rotate(0);
+  box-shadow: 0 22px 50px rgba(15, 9, 38, 0.45);
+}
+@media (max-width: 991px) {
+  .wds-escape { margin: 40px auto 0; }
+}
+@media (max-width: 575px) {
+  .wds-escape { height: auto; }
+  .wds-escape__box {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+    padding: 18px 0;
+    margin-bottom: 14px;
+  }
+  .wds-escape__chip {
+    position: static;
+    max-width: none;
+    margin-bottom: 12px;
+  }
+  .wds-escape__chip--1 { transform: rotate(-1.5deg); }
+  .wds-escape__chip--2 { transform: rotate(1.5deg); margin-left: 12px; }
+  .wds-escape__chip--3 { transform: rotate(-1deg); }
 }
 
 /* ── Legal pages (terms, privacy) — shared layout ── */
@@ -5037,7 +5148,8 @@ p.wds-culprit__body {
   user-select: none;
   white-space: nowrap;
 }
-.wds-legal-hero__title { margin: 0 0 12px; color: #fff; }
+/* !important — main.css loads after globals.css and its .chy-title-1 colour wins otherwise */
+.wds-legal-hero__title { margin: 0 0 12px; color: #fff !important; }
 .wds-legal-hero__meta {
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;

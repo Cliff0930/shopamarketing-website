@@ -215,7 +215,7 @@ export default async function HomePage() {
                 <div className="chy-trusted-1-progress">
                   <h4 className="chy-heading-1 title">Campaigns Managed</h4>
                   <span className="line"></span>
-                  <h3 className="chy-heading-1 number"><span className="counter">5000</span>+</h3>
+                  <h3 className="chy-heading-1 number">5,000+</h3>
                   <div className="chy-trusted-1-progress-item chy-class-add active">
                     <h5 className="chy-heading-1 title">Campaigns Per Year</h5>
                     <div className="line"><span className="line-fill"></span></div>
@@ -274,14 +274,14 @@ export default async function HomePage() {
                     <div className="chy-solutions-1-goals-item">
                       <div className="icon"><i className="flaticon-digital-campaign"></i></div>
                       <div className="content-wrap">
-                        <h4 className="chy-heading-1 number"><span className="counter">90</span>%</h4>
+                        <h4 className="chy-heading-1 number">90%</h4>
                         <p className="chy-para-1 disc">Team Retention Rate</p>
                       </div>
                     </div>
                     <div className="chy-solutions-1-goals-item has-bg">
                       <div className="icon"><i className="flaticon-email"></i></div>
                       <div className="content-wrap">
-                        <h4 className="chy-heading-1 number"><span className="counter">5000</span>+</h4>
+                        <h4 className="chy-heading-1 number">5,000+</h4>
                         <p className="chy-para-1 disc">Campaigns Run</p>
                       </div>
                     </div>

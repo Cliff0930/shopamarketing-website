@@ -199,7 +199,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* ── UNLEASH YOUR POTENTIAL — dark gradient CTA band ── */}
-      <div className="pt-100 pb-100" data-navbar-dark="true" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
+      <div className="pt-100 pb-100" data-navbar-dark="true" style={{ background: 'var(--chy-gd-1)' }}>
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -211,7 +211,7 @@ export default function AboutUsPage() {
                   If you&apos;re keen to break free from the norm and dive into a realm where creativity has no limits, you&apos;ve stumbled upon your ultimate marketing crew. Welcome to a spot where thinking &quot;outside the box&quot; is just a regular thing.
                 </p>
                 <div style={{ marginTop: '28px' }}>
-                  <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
+                  <a href="/contact-us" className="chy-pr-btn-1 chy-pr-btn-1--white wow fadeInLeft">
                     <span className="text">Get A Quote</span>
                     <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                   </a>
@@ -220,12 +220,13 @@ export default function AboutUsPage() {
             </div>
 
             <div className="col-xl-6 col-lg-6">
-              <div className="wds-glass-list">
+              <div className="wds-escape wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-escape__box"><span>The Norm</span></div>
                 {unleashPoints.map((point, i) => (
-                  <div key={point} className="wds-glass-row wow fadeInUp" data-wow-delay={`${i * 0.1}s`}>
+                  <span key={point} className={`wds-escape__chip wds-escape__chip--${i + 1}`}>
                     <i className="flaticon-check"></i>
-                    <span>{point}</span>
-                  </div>
+                    {point}
+                  </span>
                 ))}
               </div>
             </div>
