@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { testimonials } from "@/components/testimonialsData";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function WebsiteDesignPage() {
   const underperformCards = [
@@ -210,10 +211,11 @@ export default function WebsiteDesignPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                {/* Real image pending — alt: "Custom website design on desktop and mobile by Shopa Marketing, web design agency Australia" */}
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/website-scrub.mp4"
+                  className="wds-intro-video"
+                  ariaLabel="Custom website design on desktop and mobile by Shopa Marketing, web design agency Australia"
+                />
               </div>
             </div>
 

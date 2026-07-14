@@ -2626,6 +2626,13 @@ body {
   white-space: nowrap;
 }
 .wds-ph--intro { aspect-ratio: 760 / 640; }
+.wds-intro-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 760 / 640;
+  object-fit: cover;
+  border-radius: 20px;
+}
 .wds-ph--diff  { aspect-ratio: 600 / 720; }
 
 /* ── Why Underperform — sticky split + staggered cards ── */

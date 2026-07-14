@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { testimonials } from "@/components/testimonialsData";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function SeoServicesPage() {
   const pillars = [
@@ -155,10 +156,11 @@ export default function SeoServicesPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                {/* Real image pending — alt: "SEO agency Australia dashboard showing Google rankings and AI search visibility for an Australian small business" */}
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/seo-scrub.mp4"
+                  className="wds-intro-video"
+                  ariaLabel="SEO agency Australia dashboard showing Google rankings and AI search visibility for an Australian small business"
+                />
               </div>
             </div>
 
