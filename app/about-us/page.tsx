@@ -175,9 +175,11 @@ export default function AboutUsPage() {
             </div>
             <div className="col-xl-4 col-lg-5 col-md-6 wow fadeInUp" data-wow-delay=".15s">
               <div className="wds-founder-card wds-founder-card--offset">
-                <div className="wds-ph wds-ph--founder">
-                  <span>Photo — 480 × 560</span>
-                </div>
+                <HoverRevealVideo
+                  src="/assets/img/team/ben-hover.mp4"
+                  className="wds-founder-video"
+                  ariaLabel="Benjamin Kennedy, co-founder of Shopa Marketing"
+                />
                 <h4 className="chy-heading-1 wds-founder-card__name">Benjamin Kennedy</h4>
                 <span className="wds-founder-card__role">Co-Founder</span>
               </div>
