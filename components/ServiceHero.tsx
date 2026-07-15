@@ -3,14 +3,19 @@ import HeroCounters from "@/components/HeroCounters";
 export default function ServiceHero({
   headline,
   subtext,
+  bgImage,
 }: {
   headline: React.ReactNode;
   subtext: string;
+  bgImage?: string;
 }) {
   return (
     <>
       <HeroCounters />
-      <section className="service-hero">
+      <section
+        className={`service-hero${bgImage ? ' service-hero--photo' : ''}`}
+        style={bgImage ? { backgroundImage: `linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244,243,251,0) 58%), url('${bgImage}')` } : undefined}
+      >
         <div className="container chy-container-1">
           <div className="service-hero__inner">
 

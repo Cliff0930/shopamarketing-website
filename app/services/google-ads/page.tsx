@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { testimonials } from "@/components/testimonialsData";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function GoogleAdsPage() {
   const provideCards = [
@@ -91,10 +92,12 @@ export default function GoogleAdsPage() {
       <ServiceHero
         headline="Google Ads That Catch Customers Mid-Search"
         subtext="When someone Googles what you sell, it's a race with one winner. As the Google Ads agency Australian SMEs trust, we run campaigns obsessed with cost per lead, not vanity clicks. No wasted spend, no set-and-forget, no excuses!"
+        bgImage="/assets/img/breadcrumb/gads-hero.webp"
       />
 
-      {/* ── INTRO — editorial split ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      {/* ── INTRO — editorial split, pinned while the video scrubs ── */}
+      <div id="gads-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -123,16 +126,19 @@ export default function GoogleAdsPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                {/* Real image pending — alt: "Google Ads agency Australia: search campaign dashboard showing lead growth for an Australian small business" */}
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/gads-scrub.mp4"
+                  className="wds-intro-video wds-intro-video--full"
+                  ariaLabel="Google Ads agency Australia: search campaign dashboard showing lead growth for an Australian small business"
+                  pinContainerId="gads-intro-pin"
+                />
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── WHAT WE PROVIDE — bento with marquee ── */}
       <section className="wds-under-section fix">

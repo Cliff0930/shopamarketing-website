@@ -2527,6 +2527,25 @@ body {
   background-color: #f4f3fb;
   padding: 180px 0 160px;
 }
+/* photo variant — background image supplied per page via ServiceHero bgImage.
+   The photo renders height-fitted and right-anchored (≈1:1 with its native
+   pixels on retina — full-bleed cover upscales ~1.8× and looks blurry);
+   a gradient layer blends the hero colour into the photo's plain left side. */
+.service-hero--photo {
+  background-size: 100% 100%, auto 100%;
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
+}
+@media (max-width: 767px) {
+  /* keep text readable when the photo runs behind it (same as about-hero) */
+  .service-hero--photo::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.45) 100%);
+  }
+}
 
 .service-hero__inner {
   position: relative;
@@ -2645,6 +2664,27 @@ body {
   aspect-ratio: 760 / 640;
   object-fit: cover;
   border-radius: 20px;
+}
+/* Pinned intro — tall wrapper pins the section while the video scrubs,
+   then releases (home-hero mechanics for in-page sections) */
+.wds-pin-wrap { height: 260vh; }
+.wds-pin-panel {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (max-width: 767px) {
+  .wds-pin-wrap { height: auto; }
+  .wds-pin-panel { position: static; min-height: 0; display: block; }
+}
+/* natural-ratio variant — no cropping, video keeps its own aspect */
+.wds-intro-video--full {
+  aspect-ratio: auto;
+  height: auto;
+  object-fit: unset;
 }
 .wds-ph--diff  { aspect-ratio: 600 / 720; }
 

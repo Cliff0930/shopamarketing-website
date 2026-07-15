@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { testimonials, Testimonial } from "@/components/testimonialsData";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function GraphicDesignPage() {
   // Artwork/print-specific testimonials lead on this page
@@ -97,10 +98,12 @@ export default function GraphicDesignPage() {
       <ServiceHero
         headline="Graphic Design That Makes People Look Twice"
         subtext="Your brand gets about a heartbeat to make its first impression, and there are no do-overs. Our graphic design services give Australian SMEs logos, brand identities and creative that don't just get noticed, they get remembered!"
+        bgImage="/assets/img/breadcrumb/gfx-hero.webp"
       />
 
       {/* ── INTRO — editorial split ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      <div id="gfx-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -129,16 +132,19 @@ export default function GraphicDesignPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                {/* Real image pending — alt: "Graphic design services Australia: brand identity, logo and marketing collateral for an Australian small business" */}
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/gfx-scrub.mp4"
+                  className="wds-intro-video wds-intro-video--full"
+                  ariaLabel="Graphic design services Australia: brand identity, logo and marketing collateral for an Australian small business"
+                  pinContainerId="gfx-intro-pin"
+                />
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── WHAT WE PROVIDE — swatch cards with marquee ── */}
       <section className="wds-under-section fix">

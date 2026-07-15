@@ -179,10 +179,12 @@ export default function WebsiteDesignPage() {
       <ServiceHero
         headline="Web Design That Stops the Scroll and Starts the Sales"
         subtext="Why settle for a website that just sits there nodding politely? As the go-to web design agency for Australian SMEs, we build fast, mobile-first websites that grab attention, hold it, and hand it back only after it's become a customer!"
+        bgImage="/assets/img/breadcrumb/website-hero.webp"
       />
 
       {/* ── INTRO — editorial split, home "Solutions" rhythm ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      <div id="website-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -213,8 +215,9 @@ export default function WebsiteDesignPage() {
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
                   src="/assets/img/services/website-scrub.mp4"
-                  className="wds-intro-video"
+                  className="wds-intro-video wds-intro-video--full"
                   ariaLabel="Custom website design on desktop and mobile by Shopa Marketing, web design agency Australia"
+                  pinContainerId="website-intro-pin"
                 />
               </div>
             </div>
@@ -222,6 +225,7 @@ export default function WebsiteDesignPage() {
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── WHY UNDERPERFORM — sticky title + staggered numbered cards ── */}
       <section className="wds-under-section fix">

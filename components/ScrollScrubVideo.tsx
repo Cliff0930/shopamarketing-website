@@ -7,12 +7,17 @@ import { useEffect, useRef } from 'react';
 // encoded (-g 1) or seeking stalls between keyframes.
 const END_TRIM_SECONDS = 0.1;
 
-export default function ScrollScrubVideo({ src, className, ariaLabel }: { src: string; className?: string; ariaLabel?: string }) {
+export default function ScrollScrubVideo({ src, className, ariaLabel, pinContainerId }: { src: string; className?: string; ariaLabel?: string; pinContainerId?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Pinned mode: scrub follows a sticky wrapper's scroll progress
+    // (same mechanics as the home hero) instead of the element's own
+    // journey through the viewport.
+    const pin = pinContainerId ? document.getElementById(pinContainerId) : null;
 
     // Mobile: no scroll-scrub — show the first frame only
     if (window.innerWidth < 768) {
@@ -23,34 +28,34 @@ export default function ScrollScrubVideo({ src, className, ariaLabel }: { src: s
     let objectUrl = '';
     let rafId = 0;
     const abortController = new AbortController();
-    let animating = false;
     let targetTime = 0;
     let scrubEnabled = false;
 
-    const animate = () => {
-      const diff = targetTime - video.currentTime;
-      if (Math.abs(diff) > 0.016) {
-        video.currentTime += diff * 0.12;
-        rafId = requestAnimationFrame(animate);
-      } else {
-        video.currentTime = targetTime;
-        animating = false;
+    // One persistent ease loop — restarting the loop on every wheel tick
+    // reads as stutter; a soft factor keeps the glide continuous.
+    const tick = () => {
+      if (scrubEnabled) {
+        const diff = targetTime - video.currentTime;
+        if (Math.abs(diff) > 0.008) video.currentTime += diff * 0.08;
       }
+      rafId = requestAnimationFrame(tick);
     };
+    rafId = requestAnimationFrame(tick);
 
     const onScroll = () => {
       if (!scrubEnabled || !video.duration) return;
-      const rect = video.getBoundingClientRect();
       const vh = window.innerHeight;
-      // 0 when the video's top enters at the bottom of the viewport,
-      // 1 when its bottom leaves at the top
-      const progress = Math.min(Math.max((vh - rect.top) / (vh + rect.height), 0), 1);
-      targetTime = progress * Math.max(video.duration - END_TRIM_SECONDS, 0);
-
-      if (!animating) {
-        animating = true;
-        rafId = requestAnimationFrame(animate);
+      let progress;
+      if (pin) {
+        const range = pin.offsetHeight - vh;
+        progress = range > 0 ? Math.min(Math.max(-pin.getBoundingClientRect().top / range, 0), 1) : 0;
+      } else {
+        // 0 when the video's top enters at the bottom of the viewport,
+        // 1 when its bottom leaves at the top
+        const rect = video.getBoundingClientRect();
+        progress = Math.min(Math.max((vh - rect.top) / (vh + rect.height), 0), 1);
       }
+      targetTime = progress * Math.max(video.duration - END_TRIM_SECONDS, 0);
     };
 
     window.addEventListener('scroll', onScroll, { passive: true });
@@ -83,7 +88,7 @@ export default function ScrollScrubVideo({ src, className, ariaLabel }: { src: s
       abortController.abort();
       if (objectUrl) URL.revokeObjectURL(objectUrl);
     };
-  }, [src]);
+  }, [src, pinContainerId]);
 
   return (
     <video

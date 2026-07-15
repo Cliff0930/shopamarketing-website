@@ -124,10 +124,12 @@ export default function SeoServicesPage() {
       <ServiceHero
         headline="SEO Services That Take You From Page Ten to Centre Stage"
         subtext="Sick of being the internet's best-kept secret? As the SEO agency Australian SMEs trust, we get you found everywhere your customers search: Google, AI Overviews, ChatGPT and whatever comes next. No fads, no shortcuts, just visibility that sticks!"
+        bgImage="/assets/img/breadcrumb/seo-hero.webp"
       />
 
       {/* ── INTRO — editorial split ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      <div id="seo-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -158,8 +160,9 @@ export default function SeoServicesPage() {
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
                   src="/assets/img/services/seo-scrub.mp4"
-                  className="wds-intro-video"
+                  className="wds-intro-video wds-intro-video--full"
                   ariaLabel="SEO agency Australia dashboard showing Google rankings and AI search visibility for an Australian small business"
+                  pinContainerId="seo-intro-pin"
                 />
               </div>
             </div>
@@ -167,6 +170,7 @@ export default function SeoServicesPage() {
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── WHAT WE PROVIDE — expanding pillar columns ── */}
       <section className="wds-under-section fix">

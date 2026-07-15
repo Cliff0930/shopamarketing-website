@@ -2,6 +2,7 @@ import TemplateScripts from "@/components/TemplateScripts";
 import PricingSection from "@/components/PricingSection";
 import ServiceHero from "@/components/ServiceHero";
 import { testimonials } from "@/components/testimonialsData";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function DoneForYouPage() {
   const focusItems = [
@@ -88,10 +89,12 @@ export default function DoneForYouPage() {
       <ServiceHero
         headline="Your Entire Marketing Department. One Monthly Fee."
         subtext="Why juggle five agencies, three freelancers and a nephew who's 'good with computers'? Our Done For You packages hand your whole marketing operation to one senior team: strategy, execution and reporting, end to end, without the cost of hiring in-house."
+        bgImage="/assets/img/breadcrumb/dfy-hero.webp"
       />
 
       {/* ── INTRO — editorial split ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      <div id="dfy-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -120,16 +123,19 @@ export default function DoneForYouPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                {/* Real image pending — alt: "Done for you marketing Australia: one team managing website, SEO, ads and social media for an Australian small business" */}
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/dfy-scrub.mp4"
+                  className="wds-intro-video wds-intro-video--full"
+                  ariaLabel="Done for you marketing Australia: one team managing website, SEO, ads and social media for an Australian small business"
+                  pinContainerId="dfy-intro-pin"
+                />
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── PRICING — Simple, All-Inclusive Rates ── */}
       <PricingSection />

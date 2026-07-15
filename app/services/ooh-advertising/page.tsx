@@ -1,6 +1,7 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { testimonials, type Testimonial } from "@/components/testimonialsData";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function OohAdvertisingPage() {
   const stages = [
@@ -135,10 +136,12 @@ export default function OohAdvertisingPage() {
       <ServiceHero
         headline="OOH Advertising Your Customers Can't Scroll Past"
         subtext="Ad blockers can't touch a billboard, and nobody skips a bus. As the OOH advertising specialists for Australian SMEs, we put your brand where customers live, shop, wait and move, at rates that finally make outdoor affordable for the little guy!"
+        bgImage="/assets/img/breadcrumb/ooh-hero.webp"
       />
 
       {/* ── INTRO — editorial split ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      <div id="ooh-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -167,16 +170,19 @@ export default function OohAdvertisingPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                {/* Real image pending — alt: "OOH advertising Australia: digital billboard and grocery store screen campaign for an Australian small business" */}
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/ooh-scrub.mp4"
+                  className="wds-intro-video wds-intro-video--full"
+                  ariaLabel="OOH advertising Australia: digital billboard and grocery store screen campaign for an Australian small business"
+                  pinContainerId="ooh-intro-pin"
+                />
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── WHAT WE PROVIDE — expanding stage columns with marquee ── */}
       <section className="wds-under-section fix">
