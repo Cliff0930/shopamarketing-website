@@ -42,34 +42,40 @@ export default function WebsiteDesignPage() {
     { value: '2x', unit: 'and more', label: 'High-performance websites turn the same traffic into double the enquiries, sometimes more. Identical visitors, very different results.' },
   ];
 
-  const buildCards = [
+  const buildCards: { icon: string; title: string; body: React.ReactNode; image?: string }[] = [
     {
       icon: 'flaticon-web-designing',
+      image: '/assets/img/website/console-custom.webp',
       title: 'One-of-a-Kind Custom Website Design',
       body: <>Templates are the fast fashion of the internet: everywhere, identical and instantly forgettable. We design from a blank canvas, shaping every page around your brand, your customers and your goals. If an element doesn&apos;t pull its weight, it doesn&apos;t make the cut!</>,
     },
     {
       icon: 'flaticon-shopping-cart',
+      image: '/assets/img/website/console-ecommerce.webp',
       title: 'Checkout Champions: eCommerce Website Design',
       body: <>Shopify and WooCommerce stores where browsing turns into buying. Product pages that sell the sizzle, a checkout smoother than a flat white, and payments locked up tight. Every abandoned cart is money strolling out the door, so we build stores that close the deal.</>,
     },
     {
       icon: 'flaticon-mobile-development',
+      image: '/assets/img/website/console-responsive.webp',
       title: 'Small-Screen Superstars: Responsive Web Design',
       body: <>Phone, tablet, laptop, or the giant monitor in reception: your website shows up dressed for the occasion on all of them. We design mobile-first, because that&apos;s where your customers live, then polish the experience for every other screen size going.</>,
     },
     {
       icon: 'flaticon-seo',
+      image: '/assets/img/website/console-seo.webp',
       title: 'Born to Rank: SEO-Friendly Web Design',
       body: <>Plenty of agencies hand over a shiny new site, then charge extra to make Google notice it. We think that&apos;s backwards! Clean architecture, structured data and technical SEO go into the foundations of every build, so you launch ready to climb. Our <a href="/services/seo-services">SEO services</a> can then take you all the way to the summit.</>,
     },
     {
       icon: 'flaticon-statistics',
+      image: '/assets/img/website/console-performance.webp',
       title: 'Lightning Loaders: High-Performance Builds',
       body: <>In web terms, slow is invisible. Every site we build meets Google&apos;s Core Web Vitals standards, with lean code, optimised assets and clever hosting aimed at load times under two seconds. Your customers get answers before they remember they were waiting.</>,
     },
     {
       icon: 'flaticon-customer-service',
+      image: '/assets/img/website/console-maintenance.webp',
       title: 'Aftercare All-Stars: Maintenance and Support',
       body: <>Some agencies treat launch day like a farewell party. We treat it like opening night! Every website design package includes a sweet bonus: 12 months of complimentary maintenance covering security, updates, backups and real support, plus a lifetime guarantee against technical glitches.</>,
     },
@@ -320,7 +326,10 @@ export default function WebsiteDesignPage() {
                 </div>
                 <div className="wds-svc-item__panel">
                   <span className="wds-svc-item__ghost" aria-hidden="true">{`0${i + 1}`}</span>
-                  <span className="wds-svc-item__icon"><i className={card.icon}></i></span>
+                  {card.image
+                    ? <img className="wds-svc-item__img" src={card.image} alt={card.title} loading="lazy" />
+                    : <span className="wds-svc-item__icon"><i className={card.icon}></i></span>
+                  }
                   <span className="wds-svc-item__panel-title">{card.title}</span>
                   <p className="chy-para-1 wds-svc-item__body">{card.body}</p>
                 </div>

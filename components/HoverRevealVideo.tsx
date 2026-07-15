@@ -11,7 +11,40 @@ export default function HoverRevealVideo({ src, className, ariaLabel }: { src: s
   const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef(0);
 
-  useEffect(() => () => cancelAnimationFrame(rafRef.current), []);
+  // Only the first frame loads with the page (preload="metadata"); the full
+  // file downloads as a blob once the card scrolls near the viewport, so the
+  // hover-play and rewind never buffer — without weighing down page load.
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    let objectUrl = '';
+    const abortController = new AbortController();
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        io.disconnect();
+        fetch(src, { signal: abortController.signal })
+          .then((res) => res.blob())
+          .then((blob) => {
+            objectUrl = URL.createObjectURL(blob);
+            const keepTime = video.currentTime;
+            const wasPlaying = !video.paused;
+            video.src = objectUrl;
+            video.addEventListener('loadedmetadata', () => {
+              video.currentTime = keepTime;
+              if (wasPlaying) video.play().catch(() => {});
+            }, { once: true });
+          })
+          .catch(() => {});
+      }
+    }, { rootMargin: '800px 0px' });
+    io.observe(video);
+    return () => {
+      io.disconnect();
+      abortController.abort();
+      cancelAnimationFrame(rafRef.current);
+      if (objectUrl) URL.revokeObjectURL(objectUrl);
+    };
+  }, [src]);
 
   const stopRewind = () => cancelAnimationFrame(rafRef.current);
 
@@ -48,7 +81,7 @@ export default function HoverRevealVideo({ src, className, ariaLabel }: { src: s
       src={src}
       muted
       playsInline
-      preload="auto"
+      preload="metadata"
       className={className}
       aria-label={ariaLabel}
       onMouseEnter={handleEnter}

@@ -19,11 +19,11 @@ export default function ScrollScrubVideo({ src, className, ariaLabel, pinContain
     // journey through the viewport.
     const pin = pinContainerId ? document.getElementById(pinContainerId) : null;
 
-    // Mobile: no scroll-scrub — show the first frame only
-    if (window.innerWidth < 768) {
-      video.src = src;
-      return;
-    }
+    // Show the first frame immediately without downloading the whole file
+    video.src = src;
+
+    // Mobile: no scroll-scrub — the first frame is all we need
+    if (window.innerWidth < 768) return;
 
     let objectUrl = '';
     let rafId = 0;
@@ -60,29 +60,46 @@ export default function ScrollScrubVideo({ src, className, ariaLabel, pinContain
 
     window.addEventListener('scroll', onScroll, { passive: true });
 
-    const activate = (videoSrc: string) => {
-      video.src = videoSrc;
-      const onReady = () => {
-        scrubEnabled = true;
-        onScroll();
-      };
-      if (video.readyState >= 1) onReady();
-      else video.addEventListener('loadedmetadata', onReady, { once: true });
+    // Full download as a blob (so seeks never stall on the network), but only
+    // once the section approaches the viewport — page load stays light.
+    const startFetch = () => {
+      fetch(src, { signal: abortController.signal })
+        .then((res) => res.blob())
+        .then((blob) => {
+          objectUrl = URL.createObjectURL(blob);
+          const keepTime = video.currentTime;
+          video.src = objectUrl;
+          const onReady = () => {
+            video.currentTime = keepTime;
+            scrubEnabled = true;
+            onScroll();
+          };
+          if (video.readyState >= 1) onReady();
+          else video.addEventListener('loadedmetadata', onReady, { once: true });
+        })
+        .catch((err) => {
+          if (err.name === 'AbortError') return;
+          // Network failure — scrub against the progressive src instead
+          scrubEnabled = true;
+        });
     };
 
-    // Fetch the whole file as a blob first so seeks never stall on the network
-    fetch(src, { signal: abortController.signal })
-      .then((res) => res.blob())
-      .then((blob) => {
-        objectUrl = URL.createObjectURL(blob);
-        activate(objectUrl);
-      })
-      .catch((err) => {
-        if (err.name === 'AbortError') return;
-        activate(src);
-      });
+    // Never compete with first paint: wait for window load before downloading
+    const begin = () => {
+      if (document.readyState === 'complete') startFetch();
+      else window.addEventListener('load', startFetch, { once: true });
+    };
+
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        io.disconnect();
+        begin();
+      }
+    }, { rootMargin: '1200px 0px' });
+    io.observe(pin ?? video);
 
     return () => {
+      io.disconnect();
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
       abortController.abort();
