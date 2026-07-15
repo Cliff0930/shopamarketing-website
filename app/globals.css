@@ -1194,6 +1194,17 @@ body {
     padding-top: 0;
     padding-bottom: 30px;
   }
+  /* LCP: on throttled phones the 3s WOW fade delays the hero text's final
+     paint by many seconds (CSS → JS chain → WOW init → 3s fade). Paint
+     the hero content immediately on mobile instead. */
+  .chy-hero-1-content .subtitle,
+  .chy-hero-1-content .disc,
+  .chy-hero-1-content .btn-wrap .chy-pr-btn-1,
+  .chy-hero-1-content .featured-in-strip {
+    visibility: visible !important;
+    opacity: 1 !important;
+    animation: none !important;
+  }
   /* Hide floating "Have an idea or project?" sticker — overlaps hamburger on mobile */
   .chy-hero-1-content .il-shape-1 { display: none !important; }
   .chy-hero-1-content .disc {
