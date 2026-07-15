@@ -1,6 +1,8 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import HeroCounters from "@/components/HeroCounters";
 import ServiceTestimonials from "@/components/ServiceTestimonials";
+import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+import HoverRevealVideo from "@/components/HoverRevealVideo";
 
 export default function AboutUsPage() {
   const clientLogos = [
@@ -69,8 +71,9 @@ export default function AboutUsPage() {
         </div>
       </section>
 
-      {/* ── WHO WE ARE — editorial split ── */}
-      <div className="wds-intro-area pt-120 pb-110 bg-default fix">
+      {/* ── WHO WE ARE — editorial split, pinned while the video scrubs ── */}
+      <div id="about-intro-pin" className="wds-pin-wrap">
+      <div className="wds-intro-area pt-120 pb-110 bg-default fix wds-pin-panel">
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -97,15 +100,19 @@ export default function AboutUsPage() {
 
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
-                <div className="wds-ph wds-ph--intro">
-                  <span>Image Placeholder — 760 × 640</span>
-                </div>
+                <ScrollScrubVideo
+                  src="/assets/img/services/about-scrub.mp4"
+                  className="wds-intro-video wds-intro-video--full"
+                  ariaLabel="The Shopa Marketing team of senior specialists working together for Australian small businesses"
+                  pinContainerId="about-intro-pin"
+                />
               </div>
             </div>
 
           </div>
         </div>
       </div>
+      </div>{/* /wds-pin-wrap */}
 
       {/* ── VISION & MISSION — split manifesto panels ── */}
       <div className="pt-100 pb-100" style={{ backgroundColor: '#f8f8fb' }}>
@@ -157,9 +164,11 @@ export default function AboutUsPage() {
           <div className="row g-4 justify-content-center">
             <div className="col-xl-4 col-lg-5 col-md-6 wow fadeInUp">
               <div className="wds-founder-card">
-                <div className="wds-ph wds-ph--founder">
-                  <span>Photo — 480 × 560</span>
-                </div>
+                <HoverRevealVideo
+                  src="/assets/img/team/preeti-hover.mp4"
+                  className="wds-founder-video"
+                  ariaLabel="Preeti Kennedy, founder of Shopa Marketing"
+                />
                 <h4 className="chy-heading-1 wds-founder-card__name">Preeti Kennedy</h4>
                 <span className="wds-founder-card__role">Founder</span>
               </div>

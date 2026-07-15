@@ -270,9 +270,10 @@ export default function Navbar() {
             <button
               onClick={() => setMobileOpen(true)}
               className={clsx(
-                "lg:hidden w-11 h-11 rounded-xl flex items-center justify-center",
-                isHome ? "bg-gray-100 text-[#141515]" : "bg-white/20 text-white"
+                "lg:hidden w-11 h-11 rounded-xl flex items-center justify-center text-white",
+                !isLightBg && "bg-white/20"
               )}
+              style={isLightBg ? { background: 'var(--chy-gd-1)' } : undefined}
               aria-label="Open menu"
             >
               <Menu size={22} />

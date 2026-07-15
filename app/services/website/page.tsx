@@ -4,28 +4,32 @@ import { testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function WebsiteDesignPage() {
-  const underperformCards = [
+  const underperformCards: { num: string; short: string; title: string; body: string; image?: string }[] = [
     {
       num: '01',
       short: 'No Game Plan',
+      image: '/assets/img/website/culprit-gameplan.webp',
       title: 'Pretty Face, No Game Plan',
       body: 'A website without strategy is like a billboard in the desert: technically impressive, seen by nobody who matters. When the layout wanders, the message mumbles and the buttons whisper instead of shout, visitors drift off and buy elsewhere. Strategic website design gives every page one job: turning lookers into bookers!',
     },
     {
       num: '02',
       short: 'Seven Seconds',
+      image: '/assets/img/website/culprit-seconds.webp',
       title: 'Seven Seconds to Win or Lose',
       body: "That's roughly how long you have before a visitor decides whether you're the real deal. A tired layout or an obvious template can undo years of hard-earned reputation in a single glance. Your website should walk into the room the way your business does: sharp, confident and impossible to ignore.",
     },
     {
       num: '03',
       short: 'Mobile Walkouts',
+      image: '/assets/img/website/culprit-mobile.webp',
       title: "Mobile Visitors Don't Wait, They Leave",
       body: "More than half your traffic arrives on a phone, usually between other things: the tram, the queue, the couch. If your site stutters or squishes on a small screen, they're gone before your logo loads, and Google files it all away. Responsive web design is the entry fee now, not a bonus feature.",
     },
     {
       num: '04',
       short: 'Invisible to AI',
+      image: '/assets/img/website/culprit-ai.webp',
       title: 'Invisible to the Machines That Matter',
       body: "Here's the plot twist of modern marketing: your next customer might never see page one of Google, because an AI answered their question first. Search engines and AI tools now judge your site's speed, structure and substance before humans get a look in. Websites without SEO-friendly foundations aren't losing the race. They were never entered.",
     },
@@ -254,6 +258,7 @@ export default function WebsiteDesignPage() {
                   <span className="wds-culprit__closed-tip"><i className="far fa-plus"></i></span>
                 </div>
                 <div className="wds-culprit__open">
+                  {card.image && <img className="wds-culprit__img" src={card.image} alt={card.title} loading="lazy" />}
                   <span className="wds-culprit__ghost" aria-hidden="true">{card.num}</span>
                   <span className="wds-culprit__tag">Culprit {card.num}</span>
                   <h3 className="chy-heading-1 wds-culprit__title">{card.title}</h3>

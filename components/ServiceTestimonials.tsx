@@ -6,9 +6,9 @@ export default function ServiceTestimonials() {
       <div className="container chy-container-1">
         <div className="section-title-wrap text-center mb-50">
           <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-          <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted by Australian Business Owners</h2>
+          <h2 className="chy-title-1 chy-split-in-right chy-split-text">Results Australian Business Owners Rave About</h2>
           <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-            Don&apos;t take our word for it. Here is what Australian business owners say about working with Shopa Marketing.
+            We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
           </p>
         </div>
         <div className="wds-reviews-wall">

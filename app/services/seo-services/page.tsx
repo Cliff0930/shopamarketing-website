@@ -4,28 +4,32 @@ import { testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function SeoServicesPage() {
-  const pillars = [
+  const pillars: { num: string; short: string; title: string; body: string; image?: string }[] = [
     {
       num: '01',
       short: 'Technical SEO',
+      image: '/assets/img/seo/pillar-technical.webp',
       title: 'Technical SEO: The Engine Room',
       body: 'A slow, clunky website is like a sports car with the handbrake on. We audit and tune your technical foundations: crawlability, indexability, Core Web Vitals, schema markup and site speed, so both search engines and AI crawlers can find your content, understand it, and rank it. Release the handbrake and watch what happens!',
     },
     {
       num: '02',
       short: 'Keyword Research',
+      image: '/assets/img/seo/pillar-keywords.webp',
       title: "Keyword Research: Read Your Customers' Minds",
       body: "What do your customers type, and increasingly, what do they ask? We research both: the high-value keywords typed into Google and the natural, conversational questions asked of AI assistants and voice search. Every opportunity mapped from 'just browsing' to 'take my money'. No guesswork, just data doing the detective work.",
     },
     {
       num: '03',
       short: 'Content',
+      image: '/assets/img/seo/pillar-content.webp',
       title: 'Content Optimisation: Words That Work Overtime',
       body: "Modern content has three audiences: humans who buy, search engines that rank, and AI models that quote. We create and optimise landing pages, service pages, blogs and FAQs that win over all three: clearly structured, genuinely helpful, and written with the expertise signals that Google's E-E-A-T standards and AI engines reward.",
     },
     {
       num: '04',
       short: 'Link Building',
+      image: '/assets/img/seo/pillar-links.webp',
       title: 'Link Building: Street Cred for Your Website',
       body: "Every quality backlink is another respected voice vouching for your business, and here's the kicker: AI engines lean on those same authority signals when deciding which businesses to recommend. We earn high-quality, relevant links from reputable Australian and international publications, building credibility that pays off twice.",
     },
@@ -199,6 +203,7 @@ export default function SeoServicesPage() {
                   <span className="wds-culprit__closed-tip"><i className="far fa-plus"></i></span>
                 </div>
                 <div className="wds-culprit__open">
+                  {card.image && <img className="wds-culprit__img" src={card.image} alt={card.title} loading="lazy" />}
                   <span className="wds-culprit__ghost" aria-hidden="true">{card.num}</span>
                   <span className="wds-culprit__tag">Pillar {card.num}</span>
                   <h3 className="chy-heading-1 wds-culprit__title">{card.title}</h3>

@@ -5,6 +5,8 @@ import HeroVideoScrub from '@/components/HeroVideoScrub';
 import StarAnimationTrigger from '@/components/StarAnimationTrigger';
 import FloatingCardsGSAP from '@/components/FloatingCardsGSAP';
 import ServiceTestimonials from '@/components/ServiceTestimonials';
+import { homeServices } from '@/components/homeServicesData';
+import { testimonials } from '@/components/testimonialsData';
 
 export const revalidate = 3600;
 
@@ -12,11 +14,24 @@ export default async function HomePage() {
   const latestPosts = await getPosts(3);
 
   const whyItems = [
-    { icon: 'flaticon-digital-campaign', title: 'One Strategy Across Every Channel', body: 'Digital and physical. Online and offline. Every channel working together because disconnected marketing produces disconnected results.' },
-    { icon: 'flaticon-team', title: 'Dedicated Account Manager', body: 'You work directly with a specialist who knows your business. No call centres. No ticket queues. Just clear communication and real accountability.' },
-    { icon: 'flaticon-price-tag', title: 'Transparent Pricing', body: 'Everything defined upfront. What is outlined in your proposal is exactly what you pay. No hidden fees. No surprises. Ever.' },
-    { icon: 'flaticon-trophy', title: '45+ Years Experience', body: 'Over 5,000 campaigns delivered for more than 1,000 businesses across Australia and New Zealand. That experience shows up in every campaign we run.' },
+    { icon: 'flaticon-digital-campaign', title: 'One Strategy Across Every Channel', body: "Digital and physical, online and offline, all working from the same playbook. Because five channels running five different strategies isn't marketing, it's an expensive argument." },
+    { icon: 'flaticon-team', title: 'A Real Person Who Knows Your Business', body: 'You work directly with a dedicated account manager who knows your goals, your market and your name. No call centres, no ticket queues, no retelling your story every time you ring.' },
+    { icon: 'flaticon-price-tag', title: 'Transparent, All-Inclusive Pricing', body: "Everything defined upfront, in writing. What's in your proposal is exactly what you pay. No hidden fees, no sneaky extras, no nasty surprises. Ever." },
+    { icon: 'flaticon-trophy', title: "Experience You Can't Fake", body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,000+ businesses across Australia and New Zealand. That track record shows up in every campaign we run for you.' },
   ];
+
+  const reviewSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'Shopa Marketing',
+    url: 'https://shopamarketing.com.au',
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.7', reviewCount: '319' },
+    review: testimonials.map((t) => ({
+      '@type': 'Review',
+      reviewBody: t.quote,
+      author: { '@type': 'Organization', name: t.name },
+    })),
+  };
 
   const clientLogos = [
     { src: '/assets/img/client/mcdonalds.webp',   alt: "McDonald's" },
@@ -33,19 +48,12 @@ export default async function HomePage() {
     { src: '/assets/img/client/ops.webp',          alt: 'OPS' },
   ];
 
-  const homeServices = [
-    { title: 'Done For You', desc: 'Senior marketing leadership. Fractional cost. A dedicated CMO embedded in your business, backed by a full execution team, without the full-time salary.', items: ['Marketing Strategy & Roadmap', 'Brand Positioning', 'Team Leadership'], link: '/services/done-for-you', image: '/assets/img/services/DONWFORYOU.webp', video: '/assets/img/services/done-for-you.mp4' },
-    { title: 'OOH Advertising', desc: 'Put your brand where your customers actually live. Grocery stores, medical centres, digital billboards and transit networks across Australia and New Zealand.', items: ['Grocery Store TV Screens', 'Digital Billboards', 'Transit & Outdoor Media'], link: '/services/ooh-advertising', image: '/assets/img/services/ooh.webp', video: '/assets/img/services/ooh.mp4' },
-    { title: 'AI SEO Services', desc: "If you're not on page one, you're invisible. We get your business ranking for the keywords your customers are actively searching — driving leads without ongoing ad spend.", items: ['Keyword Research', 'On-Page Optimisation', 'Search Rankings Boost'], link: '/services/seo-services', image: '/assets/img/services/seoAI.webp', video: '/assets/img/services/ai-seo.mp4' },
-    { title: 'Social Media Ads', desc: "Your customers are scrolling right now. We run targeted Facebook, Instagram and TikTok campaigns that put your business in front of the right people at the right moment.", items: ['Facebook & Instagram Ads', 'TikTok Campaigns', 'Audience Targeting'], link: '/services/social-media', image: '/assets/img/services/SocialMedia.webp', video: '/assets/img/services/social-media.mp4' },
-    { title: 'Website Design', desc: "Your website should be converting visitors into customers around the clock. We build fast, mobile-first custom websites — with 12 months' maintenance and a lifetime technical guarantee included.", items: ['Custom Web Design', 'Mobile Responsive', 'Conversion Optimised'], link: '/services/website', image: '/assets/img/services/webdesign.webp', video: '/assets/img/services/website.mp4' },
-    { title: 'Google Ads', desc: 'Get in front of high-intent buyers the moment they search. Search, Display, Shopping and YouTube campaigns built around your revenue goals. Every dollar tracked.', items: ['Google Search Ads', 'Display & YouTube Ads', 'Real ROI Tracking'], link: '/services/google-ads', image: '/assets/img/services/GAds.webp', video: '/assets/img/services/google-ads.mp4' },
-    { title: 'Graphic Design', desc: 'First impressions are everything. We produce logos, ad creatives, social assets and brand identity systems that make your business look as good as it performs.', items: ['Logo & Brand Identity', 'Marketing Collateral', 'Social Media Assets'], link: '/services/graphic-design', image: '/assets/img/services/GraphicDes.webp', video: '/assets/img/services/graphic.mp4' },
-  ];
 
   return (
     <>
       <TemplateScripts />
+
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
 
       {/* preloader */}
       <div id="preloader">
@@ -96,9 +104,9 @@ export default async function HomePage() {
               <div className="col-lg-6">
                 <div className="chy-hero-1-content">
                   <h5 className="chy-subtitle-1 subtitle wow fadeInLeft" data-wow-duration="3s">Your Go-To Marketing Agency</h5>
-                  <h1 className="chy-heading-1 title chy-split-in-hero-1 chy-split-text-2">You Run The Business. <br /> We&apos;ll Handle The Marketing.</h1>
+                  <h1 className="chy-heading-1 title chy-split-in-hero-1 chy-split-text-2">You Run the Business. We&apos;ll Make It Impossible to&nbsp;Miss.</h1>
                   <p className="chy-para-1 disc wow fadeInLeft" data-wow-duration="3s">
-                    You focus on delivering for your customers. We focus on making sure more of them find you across Google, social media, digital billboards, and beyond. One dedicated team. One clear strategy. Zero agency runaround.
+                    Why juggle five agencies, a freelancer and a mystery invoice when one crew can run the lot? From Google searches to grocery store screens, we put your business everywhere your customers look. One dedicated team. One clear strategy. Zero agency runaround.
                   </p>
                   <div className="btn-wrap">
                     <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="3s">
@@ -170,7 +178,7 @@ export default async function HomePage() {
 
               <div className="chy-trusted-1-item">
                 <h3 className="chy-trusted-1-title chy-heading-1">
-                  Trusted by 1,000+ Businesses Across Australia &amp; New Zealand
+                  Trusted by 1,000+ Businesses Across Australia and New Zealand
                 </h3>
               </div>
 
@@ -234,7 +242,7 @@ export default async function HomePage() {
               <h5 className="chy-subtitle-1">what we offer</h5>
               <h2 className="chy-title-1 chy-split-in-right chy-split-text">From Google to Grocery Stores. We&apos;ve Got You Covered.</h2>
               <p className="chy-section-para-1" style={{ maxWidth: '680px', margin: '16px auto 0' }}>
-                From search engines to shopping centre screens, we cover every channel your customers move through. No gaps. No guesswork. Just results.
+                Your customers don&apos;t live on one channel, so why would your marketing? Search engines, social feeds, shopping centre screens and everywhere in between: we cover every path your customers take, with no gaps, no guesswork and nothing left to chance.
               </p>
             </div>
           </div>
@@ -251,10 +259,10 @@ export default async function HomePage() {
                   <div className="section-title-wrap mb-35">
                     <h5 className="chy-subtitle-1 wow fadeInLeft">why choose us</h5>
                     <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                      Marketing That Works As Hard As You Do.
+                      Marketing That Works as Hard as You Do
                     </h2>
                     <p className="chy-section-para-1 wow fadeInLeft">
-                      With 45 years of combined experience and 5,000 campaigns delivered, we know what works for Australian businesses and we apply that knowledge to yours from day one.
+                      After 45 years of combined experience and 5,000+ campaigns, we&apos;ve learned what actually moves the needle for Australian businesses, and what just burns budget while looking busy. You get that hard-won knowledge applied to your business from day one, not learned at your expense.
                     </p>
                   </div>
                   <a href="/about-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -314,9 +322,9 @@ export default async function HomePage() {
             {/* Left: sticky section title */}
             <div className="shopa-floating-sticky-col">
               <h5 className="chy-subtitle-1">why shopa marketing</h5>
-              <h2 className="chy-title-1" style={{ marginTop: '12px' }}>Built For Businesses That Are Serious About Growth</h2>
+              <h2 className="chy-title-1" style={{ marginTop: '12px' }}>Built for Businesses That Are Serious About Growth</h2>
               <p className="chy-section-para-1" style={{ marginTop: '16px' }}>
-                One dedicated team managing every channel your business needs to grow. No fragmented agencies, no conflicting advice, no gaps in execution.
+                One dedicated team managing every channel your business needs, all pulling in the same direction. No fragmented agencies, no conflicting advice, no gaps where your leads quietly leak out.
               </p>
             </div>
 
@@ -358,9 +366,9 @@ export default async function HomePage() {
           <div className="container chy-container-1">
             <div className="section-title-wrap text-center mb-50">
               <h5 className="chy-subtitle-1 wow fadeInDown">our clients</h5>
-              <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted By Australia&apos;s Best Brands</h2>
+              <h2 className="chy-title-1 chy-split-in-right chy-split-text">In Good Company</h2>
               <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '560px', margin: '14px auto 0' }}>
-                From national franchises to ambitious growth brands — they all chose Shopa.
+                From household names to ambitious local brands, they all chose Shopa. Your logo would look great in this line-up.
               </p>
             </div>
           </div>
@@ -388,8 +396,11 @@ export default async function HomePage() {
       <div className="chy-blog-1-area pt-110 pb-70 bg-default fix">
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-30">
-            <h5 className="chy-subtitle-1 wow fadeInDown">our blogs</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">The Latest News &amp; Blog</h2>
+            <h5 className="chy-subtitle-1 wow fadeInDown">our blog</h5>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Fresh Thinking, Free of Charge</h2>
+            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '620px', margin: '14px auto 0' }}>
+              Marketing moves fast. Here&apos;s what our team is seeing, testing and recommending right now.
+            </p>
           </div>
           <div className="row">
             {latestPosts.map((post) => (

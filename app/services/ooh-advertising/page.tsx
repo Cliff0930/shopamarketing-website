@@ -4,65 +4,62 @@ import { testimonials, type Testimonial } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function OohAdvertisingPage() {
-  const stages = [
+  const stages: { num: string; short: string; title: string; body: string; image?: string }[] = [
     {
       num: '01',
       short: 'Planning',
+      image: '/assets/img/ooh/stage-planning.webp',
       title: 'Strategic Planning: The Right Corner at the Right Time',
       body: "A brilliant ad in the wrong spot is just expensive wallpaper. We match formats, locations and timing to your exact audience: where they shop, which routes they drive, when they're paying attention. Precision first, so every dollar lands where it counts.",
     },
     {
       num: '02',
       short: 'Creative',
+      image: '/assets/img/ooh/stage-creative.webp',
       title: 'Creative Design: Ads That Stop Traffic (Politely)',
       body: 'Outdoor creative plays by different rules. Your audience is walking, driving or wrangling a trolley, so you get about three seconds to land the message. We design bold, punchy creative built specifically for OOH formats: readable at a distance, memorable at a glance, impossible to unsee.',
     },
     {
       num: '03',
       short: 'Media Buying',
+      image: '/assets/img/ooh/stage-media-buying.webp',
       title: 'Media Buying: Prime Spots Without the Prime Mark-Up',
       body: 'The best locations usually go to whoever has the biggest budget or the best connections. We bring the connections! Our media relationships across Australia and New Zealand secure premium placements at genuinely competitive rates, from major billboards to local screen networks.',
     },
     {
       num: '04',
       short: 'Reporting',
+      image: '/assets/img/ooh/stage-reporting.webp',
       title: 'Campaign Reporting: Proof, Not Promises',
       body: "Outdoor doesn't have to be a leap of faith. We report on reach, frequency, dwell time and impressions, run post-campaign analysis, and track the uplift in searches and website visits while your ads are up. You'll know exactly what worked, and where to double down next time.",
     },
   ];
 
-  const spots = [
+  const spots: { title: string; body: string; image?: string }[] = [
     {
       title: 'Grocery Store Screens',
       body: 'High-definition digital screens in the heart of busy supermarkets, seen by thousands of shoppers every week, right at the point of purchase. Weekly grocery runs mean weekly exposure, and familiarity turns into sales.',
+      image: '/assets/img/ooh/grocery-screens.webp',
     },
     {
       title: 'Community Boards',
       body: "Static boards at the entrances and exits of busy grocery stores, greeting the same local shoppers week after week. Repetition builds recognition, and recognition builds the kind of trust money can't rush.",
+      image: '/assets/img/ooh/community-boards.webp',
     },
     {
       title: 'Medical Centre Screens',
       body: 'Waiting rooms mean captive audiences and serious dwell time, all in an environment people inherently trust. Perfect for NDIS providers, home care, dental and allied health businesses building long-term local recognition.',
+      image: '/assets/img/ooh/medical-screens.webp',
     },
     {
       title: 'Shopping Centres',
       body: 'Turn foot traffic into brand traction! Shopping centre displays put your business front and centre in bustling retail hubs, ideal for fashion, beauty, retail and service brands chasing maximum visibility.',
-    },
-    {
-      title: 'Bus Advertising',
-      body: 'Your message, doing laps of the suburbs all day. Bus wraps and shelter ads deliver massive reach and repetition across multiple postcodes, perfect for service businesses that want to own their patch.',
-    },
-    {
-      title: 'Train Stations',
-      body: 'Catch commuters during the most predictable minutes of their day. High dwell times and daily repetition make station advertising a recognition machine for brands targeting urban professionals.',
-    },
-    {
-      title: 'Fuel Stations',
-      body: 'Reach customers during the two idle minutes nobody enjoys: filling the tank. Fuel station screens offer prime visibility for fast food, automotive, insurance and convenience brands.',
+      image: '/assets/img/ooh/shopping-centres.webp',
     },
     {
       title: 'Digital Billboards',
       body: 'Big, bold and impossible to miss. Digital billboards in high-traffic zones give you flexibility and scale: swap creative in days, run time-sensitive promotions, and make the kind of impression that gets talked about at dinner.',
+      image: '/assets/img/ooh/digital-billboards.webp',
     },
   ];
 
@@ -77,7 +74,7 @@ export default function OohAdvertisingPage() {
   const faqs = [
     {
       q: 'What types of OOH advertising do you offer?',
-      a: 'The whole toolkit! Static and digital billboards, transit advertising (buses, trains and taxis), street furniture like bus shelters and kiosks, airport advertising, shopping centre displays, large-format building wraps, plus our specialty networks: grocery store screens, community boards and medical centre screens across Australia and New Zealand.',
+      a: 'The formats that work hardest for local businesses! Digital billboards in high-traffic zones, shopping centre displays, plus our specialty networks: grocery store screens, community boards and medical centre screens across Australia and New Zealand.',
     },
     {
       q: "Isn't outdoor advertising only for big brands?",
@@ -211,6 +208,7 @@ export default function OohAdvertisingPage() {
                   <span className="wds-culprit__closed-tip"><i className="far fa-plus"></i></span>
                 </div>
                 <div className="wds-culprit__open">
+                  {card.image && <img className="wds-culprit__img" src={card.image} alt={card.title} loading="lazy" />}
                   <span className="wds-culprit__ghost" aria-hidden="true">{card.num}</span>
                   <span className="wds-culprit__tag">Stage {card.num}</span>
                   <h3 className="chy-heading-1 wds-culprit__title">{card.title}</h3>
@@ -232,7 +230,8 @@ export default function OohAdvertisingPage() {
 
           <div className="wds-spot-grid">
             {spots.map((spot, i) => (
-              <div key={spot.title} className="wds-spot wow fadeInUp" data-wow-delay={`${(i % 4) * 0.08}s`}>
+              <div key={spot.title} className="wds-spot wow fadeInUp" data-wow-delay={`${(i % 3) * 0.08}s`}>
+                {spot.image && <img className="wds-spot__img" src={spot.image} alt={spot.title} loading="lazy" />}
                 <span className="wds-spot__ghost" aria-hidden="true">{`0${i + 1}`}</span>
                 <h3 className="chy-heading-1 wds-spot__title">{spot.title}</h3>
                 <p className="chy-para-1 wds-spot__body">{spot.body}</p>

@@ -13,26 +13,30 @@ export default function GraphicDesignPage() {
     ...testimonials.filter((t) => !featuredNames.includes(t.name)),
   ];
 
-  const provideItems = [
+  const provideItems: { title: string; body: string; icon: string; image?: string }[] = [
     {
       title: "Brand Identity: A Look That's Unmistakably Yours",
       body: "Your logo, typography, colour palette and brand guidelines, crafted into an identity that's recognisable at a glance and impossible to confuse with the shop down the road. One consistent look across every touchpoint, because customers trust what they recognise.",
       icon: 'flaticon-badge',
+      image: '/assets/img/gfx/swatch-brand.webp',
     },
     {
       title: 'Marketing Collateral: Print That Pulls Its Weight',
       body: 'Brochures, flyers, business cards, presentations and exhibition materials that do more than fill a drawer. Each piece is designed to communicate your value clearly and professionally, so the thing you hand over keeps selling long after the handshake.',
       icon: 'flaticon-read',
+      image: '/assets/img/gfx/swatch-collateral.webp',
     },
     {
       title: 'Digital Assets: Made for the Feed and the Inbox',
       body: 'Social media graphics, email templates, banner ads and website visuals, all optimised for the platform they live on. Designed to earn the pause, the click and the follow, in spaces where everyone is competing for the same eyeballs.',
       icon: 'flaticon-inbox',
+      image: '/assets/img/gfx/swatch-digital.webp',
     },
     {
       title: 'Ad Creative: Designs That Sell, Not Just Sparkle',
       body: "Performance-focused creative for Google Display, social media, OOH and print. Beautiful, yes, but built with one eye permanently on the results: stopping your audience mid-scroll or mid-stride and landing your message in the seconds you've got.",
       icon: 'flaticon-bullhorn',
+      image: '/assets/img/gfx/swatch-adcreative.webp',
     },
   ];
 
@@ -168,7 +172,10 @@ export default function GraphicDesignPage() {
             {provideItems.map((item, i) => (
               <div key={item.title} className="wds-swatch wow fadeInUp" data-wow-delay={`${(i % 2) * 0.12}s`}>
                 <span className="wds-swatch__ghost" aria-hidden="true">{`0${i + 1}`}</span>
-                <span className="wds-swatch__icon"><i className={item.icon}></i></span>
+                {item.image
+                  ? <img className="wds-swatch__img" src={item.image} alt={item.title} loading="lazy" />
+                  : <span className="wds-swatch__icon"><i className={item.icon}></i></span>
+                }
                 <h3 className="chy-heading-1 wds-swatch__title">{item.title}</h3>
                 <p className="chy-para-1 wds-swatch__body">{item.body}</p>
               </div>

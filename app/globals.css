@@ -825,6 +825,9 @@ body {
 @media (max-width: 1199px) { .chy-hero-1-content .title { font-size: 48px !important; } }
 @media (max-width: 991px)  { .chy-hero-1-content .title { font-size: 42px !important; } }
 @media (max-width: 767px)  { .chy-hero-1-content .title { font-size: 34px !important; } }
+/* Laptop band (MacBook Air etc.): the headline needs a size that wraps
+   cleanly inside the half-width hero column */
+@media (min-width: 1200px) and (max-width: 1599px) { .chy-hero-1-content .title { font-size: 44px !important; } }
 .chy-hero-1-content .btn-wrap { flex-wrap: nowrap !important; }
 
 /* ── Trusted section ─────────────────────────────────── */
@@ -1117,6 +1120,23 @@ body {
 .chy-solutions-1-content {
   position: relative;
   z-index: 2;
+}
+
+/* ── Home hero on tablets (768–991): same static treatment as phones —
+   collapse the 250vh scrub container, release sticky, hide the video.
+   Scrub itself is skipped below 992 in HeroVideoScrub. ── */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* no min-height here — tablet hero content is short and wide, forcing
+     full-screen height leaves a dead gap before the next section */
+  #hero-section { height: auto !important; }
+  .chy-hero-1-area {
+    position: relative !important;
+    height: auto !important;
+    padding-top: 160px !important;
+    padding-bottom: 40px !important;
+  }
+  #hero-bg-video { display: none !important; }
+  .chy-trusted-1-area { margin-top: 0 !important; }
 }
 
 /* ═══════════════════════════════════════════════════════════
@@ -1969,10 +1989,25 @@ body {
 .contact-hero {
   position: relative;
   overflow: hidden;
-  background-image: url('/assets/img/breadcrumb/contact-us.webp');
-  background-size: cover;
-  background-position: center center;
+  background-color: #f4f3fb;
+  /* photo at native scale, right-anchored (cover-stretch blurs on retina);
+     gradient layer blends the hero colour into the photo's plain left side */
+  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/contact-hero-v2.webp');
+  background-size: 100% 100%, auto 100%;
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
   padding: 180px 0 160px;
+}
+@media (max-width: 767px) {
+  /* keep text readable when the photo runs behind it on small screens */
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.45) 100%);
+    pointer-events: none;
+  }
 }
 
 /* Scrolling background text */
@@ -2291,18 +2326,25 @@ body {
 .blog-hero {
   position: relative;
   overflow: hidden;
-  background-image: url('/assets/img/breadcrumb/blog-hero.webp');
-  background-size: cover;
-  background-position: center center;
+  background-color: #f4f3fb;
+  /* photo at native scale, right-anchored (cover-stretch blurs on retina);
+     gradient layer blends the hero colour into the photo's plain left side */
+  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/blog-hero-v2.webp');
+  background-size: 100% 100%, auto 100%;
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
   padding: 180px 0 160px;
 }
-.blog-hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.97) 0%, rgba(255, 255, 255, 0.88) 40%, rgba(255, 255, 255, 0) 78%);
-  pointer-events: none;
+@media (max-width: 767px) {
+  /* keep text readable when the photo runs behind it on small screens */
+  .blog-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.45) 100%);
+    pointer-events: none;
+  }
 }
 
 .blog-hero__inner {
@@ -2418,9 +2460,13 @@ body {
 .about-hero {
   position: relative;
   overflow: hidden;
-  background-image: url('/assets/img/breadcrumb/about-us.webp');
-  background-size: cover;
-  background-position: center center;
+  background-color: #f4f3fb;
+  /* photo at native scale, right-anchored (cover-stretch blurs on retina);
+     gradient layer blends the hero colour into the photo's plain left side */
+  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/about-hero-v2.webp');
+  background-size: 100% 100%, auto 100%;
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
   padding: 180px 0 160px;
 }
 
@@ -2544,6 +2590,45 @@ body {
     inset: 0;
     z-index: 1;
     background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.45) 100%);
+  }
+}
+/* Tablet band (768–1199): the height-fitted photo grows wider than the
+   viewport and runs behind the text with no wash — apply a wide-screen-tuned
+   gradient (opaque over the text zone, photo stays vivid on the right) and
+   trim the desktop-scale padding. Applies to every photo hero. */
+@media (min-width: 768px) and (max-width: 1199px) {
+  .service-hero--photo::before,
+  .about-hero::before,
+  .blog-hero::before,
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 42%, rgba(255, 255, 255, 0) 72%);
+    pointer-events: none;
+  }
+  .service-hero--photo,
+  .about-hero,
+  .blog-hero,
+  .contact-hero {
+    padding-top: 140px;
+    padding-bottom: 100px;
+  }
+}
+/* Laptop band (1200–1599, e.g. MacBook Air): the photo still reaches well
+   into the text zone — lighter wash than tablet, photo stays vivid right */
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .service-hero--photo::before,
+  .about-hero::before,
+  .blog-hero::before,
+  .contact-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.85) 34%, rgba(255, 255, 255, 0) 62%);
+    pointer-events: none;
   }
 }
 
@@ -2747,6 +2832,8 @@ body {
   position: relative;
   z-index: 1;
 }
+/* stage panels with images need the extra height — tag + 3:2 image + text */
+.wds-culprits:has(.wds-culprit__img) { min-height: 525px; }
 .wds-culprit {
   position: relative;
   flex: 1;
@@ -2821,6 +2908,16 @@ body {
   visibility: hidden;
   transform: translateY(16px);
   transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s 0.3s;
+}
+/* stage image — 3:2, sits clearly below the "Stage NN" tag and left of the ghost numeral */
+.wds-culprit__img {
+  width: min(360px, 55%);
+  aspect-ratio: 3 / 2;
+  object-fit: cover;
+  border-radius: 14px;
+  align-self: flex-start;
+  margin-top: 72px;
+  margin-bottom: 24px;
 }
 .wds-culprits:not(:hover):not(:focus-within) .wds-culprit:first-child .wds-culprit__closed,
 .wds-culprit:hover .wds-culprit__closed,
@@ -2898,6 +2995,11 @@ p.wds-culprit__body {
     visibility: visible;
     transform: none;
     padding: 30px 26px 32px;
+  }
+  .wds-culprit__img {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 18px;
   }
   .wds-culprit__ghost {
     top: -18px;
@@ -3063,6 +3165,8 @@ p.wds-culprit__body {
   position: relative;
   min-height: 500px;
 }
+/* consoles whose panels carry images need more room or the body clips */
+.wds-svc-console:has(.wds-svc-item__img) { min-height: 640px; }
 .wds-svc-item__row {
   display: flex;
   align-items: center;
@@ -3144,6 +3248,15 @@ p.wds-culprit__body {
   -webkit-text-stroke: 1.5px rgba(102, 61, 255, 0.16);
   pointer-events: none;
   user-select: none;
+}
+.wds-svc-item__img {
+  display: block;
+  /* leave the top-right corner free so the ghost numeral stays visible */
+  width: calc(100% - 120px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 22px;
 }
 .wds-svc-item__icon {
   width: 60px;
@@ -3481,9 +3594,12 @@ p.wds-culprit__body {
 /* ── OOH — Where We Advertise: 8-format hover grid ── */
 .wds-spot-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
+.wds-spot-grid .wds-spot { grid-column: span 2; }
+/* with exactly 5 cards, centre the 2-card second row (3 + 2 layout) */
+.wds-spot-grid .wds-spot:nth-child(4):nth-last-child(2) { grid-column: 2 / span 2; }
 .wds-spot {
   position: relative;
   overflow: hidden;
@@ -3493,6 +3609,15 @@ p.wds-culprit__body {
   padding: 30px 26px 28px;
   box-shadow: 0 4px 24px rgba(102, 61, 255, 0.06);
   transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s ease, box-shadow 0.3s ease, background 0.35s ease;
+}
+.wds-spot__img {
+  display: block;
+  /* leave the top-right corner free so the ghost numeral stays visible */
+  width: calc(100% - 84px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 16px;
 }
 .wds-spot__ghost {
   position: absolute;
@@ -3532,6 +3657,8 @@ p.wds-culprit__body {
 .wds-spot:hover .wds-spot__ghost { -webkit-text-stroke-color: rgba(255, 255, 255, 0.3); }
 @media (max-width: 1199px) {
   .wds-spot-grid { grid-template-columns: repeat(2, 1fr); }
+  .wds-spot-grid .wds-spot { grid-column: auto; }
+  .wds-spot-grid .wds-spot:nth-child(4):nth-last-child(2) { grid-column: auto; }
 }
 @media (max-width: 575px) {
   .wds-spot-grid { grid-template-columns: 1fr; }
@@ -4057,6 +4184,16 @@ p.wds-culprit__body {
 
 /* ── About Us — founder cards ── */
 .wds-ph--founder { aspect-ratio: 480 / 560; border-radius: 14px; }
+.wds-founder-video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 480 / 560;
+  object-fit: cover;
+  /* video is slightly taller than the slot — crop from the bottom, never the head */
+  object-position: top;
+  border-radius: 14px;
+  margin-bottom: 22px;
+}
 .wds-founder-card {
   background: #fff;
   border: 2px solid #f0eefc;
@@ -4918,6 +5055,15 @@ p.wds-culprit__body {
   user-select: none;
   transition: -webkit-text-stroke-color 0.3s ease;
 }
+.wds-swatch__img {
+  display: block;
+  /* leave the top-right corner free so the ghost numeral stays visible */
+  width: calc(100% - 120px);
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 18px;
+}
 .wds-swatch__icon {
   display: inline-flex;
   align-items: center;
@@ -5081,6 +5227,131 @@ p.wds-culprit__body {
 .chy-pr-btn-1.chy-pr-btn-1--white .icon { color: #663dff; }
 .chy-pr-btn-1.chy-pr-btn-1--white:hover { color: #fff; }
 .chy-pr-btn-1.chy-pr-btn-1--white:hover .icon { color: #fff; }
+
+/* ── Services — marketing mixer desk (CTA band) ── */
+.wds-mixer {
+  background: rgba(15, 9, 38, 0.28);
+  border: 1.5px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 26px 28px 24px;
+  max-width: 470px;
+  margin-left: auto;
+  transition: border-color 0.3s ease;
+}
+.wds-mixer:hover { border-color: rgba(255, 255, 255, 0.35); }
+.wds-mixer__head {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 14px;
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.wds-mixer__head i { font-size: 13px; color: rgba(255, 255, 255, 0.8); }
+.wds-mixer__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+}
+.wds-mixer__tracks {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+.wds-mixer__track {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+.wds-mixer__rail {
+  position: relative;
+  width: 6px;
+  height: 190px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.14);
+}
+.wds-mixer__fill {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: var(--lvl);
+  border-radius: 6px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.75), rgba(255, 255, 255, 0.25));
+  transition: height 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wds-mixer__knob {
+  position: absolute;
+  bottom: calc(var(--lvl) - 11px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 4px 14px rgba(15, 9, 38, 0.45);
+  transition: bottom 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.wds-mixer:hover .wds-mixer__fill { height: var(--lvl2); }
+.wds-mixer:hover .wds-mixer__knob { bottom: calc(var(--lvl2) - 11px); }
+.wds-mixer__track:nth-child(2) .wds-mixer__fill, .wds-mixer__track:nth-child(2) .wds-mixer__knob { transition-delay: 0.05s; }
+.wds-mixer__track:nth-child(3) .wds-mixer__fill, .wds-mixer__track:nth-child(3) .wds-mixer__knob { transition-delay: 0.1s; }
+.wds-mixer__track:nth-child(4) .wds-mixer__fill, .wds-mixer__track:nth-child(4) .wds-mixer__knob { transition-delay: 0.15s; }
+.wds-mixer__track:nth-child(5) .wds-mixer__fill, .wds-mixer__track:nth-child(5) .wds-mixer__knob { transition-delay: 0.2s; }
+.wds-mixer__track:nth-child(6) .wds-mixer__fill, .wds-mixer__track:nth-child(6) .wds-mixer__knob { transition-delay: 0.25s; }
+.wds-mixer__label {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  white-space: nowrap;
+}
+.wds-mixer__foot {
+  display: grid;
+  margin-top: 20px;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+}
+.wds-mixer__foot span {
+  grid-area: 1 / 1;
+  font-size: 12.5px;
+  line-height: 1.5;
+  transition: opacity 0.35s ease;
+}
+.wds-mixer__foot-flat {
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+  opacity: 1;
+}
+.wds-mixer__foot-tuned {
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+}
+.wds-mixer:hover .wds-mixer__foot-flat { opacity: 0; }
+.wds-mixer:hover .wds-mixer__foot-tuned { opacity: 1; }
+@media (max-width: 991px) {
+  .wds-mixer { margin: 36px auto 0; }
+}
+@media (max-width: 575px) {
+  .wds-mixer { padding: 22px 18px 20px; }
+  .wds-mixer__rail { height: 150px; }
+  .wds-mixer__label { font-size: 9px; }
+}
+@media (hover: none) {
+  .wds-mixer__fill { height: var(--lvl2) !important; }
+  .wds-mixer__knob { bottom: calc(var(--lvl2) - 11px) !important; }
+  .wds-mixer__foot-flat { opacity: 0; }
+  .wds-mixer__foot-tuned { opacity: 1; }
+}
 
 /* ── About — outside-the-box escape panel (CTA band) ── */
 .wds-escape {

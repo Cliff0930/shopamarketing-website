@@ -9,8 +9,8 @@ const END_TRIM_SECONDS = 0.1;
 
 export default function HeroVideoScrub() {
   useEffect(() => {
-    // No video source on mobile — skip scrub entirely
-    if (window.innerWidth < 768) return;
+    // No video source on mobile/tablet — hero is static below 992px
+    if (window.innerWidth < 992) return;
 
     const video = document.getElementById('hero-bg-video') as HTMLVideoElement | null;
     const section = document.getElementById('hero-section') as HTMLElement | null;

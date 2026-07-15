@@ -2,17 +2,9 @@ import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import ServiceTestimonials from "@/components/ServiceTestimonials";
 import ServicesDeck from "@/components/ServicesDeck";
+import { homeServices } from "@/components/homeServicesData";
 
 export default function ServicesPage() {
-  const services = [
-    { title: 'Done For You', desc: 'Senior marketing leadership. Fractional cost. A dedicated CMO embedded in your business, backed by a full execution team, without the full-time salary.', items: ['Marketing Strategy & Roadmap', 'Brand Positioning', 'Team Leadership'], link: '/services/done-for-you', image: '/assets/img/services/DONWFORYOU.webp', video: '/assets/img/services/done-for-you.mp4' },
-    { title: 'OOH Advertising', desc: 'Put your brand where your customers actually live. Grocery stores, medical centres, digital billboards and transit networks across Australia and New Zealand.', items: ['Grocery Store TV Screens', 'Digital Billboards', 'Transit & Outdoor Media'], link: '/services/ooh-advertising', image: '/assets/img/services/ooh.webp', video: '/assets/img/services/ooh.mp4' },
-    { title: 'AI SEO Services', desc: "If you're not on page one, you're invisible. We get your business ranking for the keywords your customers are actively searching — driving leads without ongoing ad spend.", items: ['Keyword Research', 'On-Page Optimisation', 'Search Rankings Boost'], link: '/services/seo-services', image: '/assets/img/services/seoAI.webp', video: '/assets/img/services/ai-seo.mp4' },
-    { title: 'Social Media Ads', desc: "Your customers are scrolling right now. We run targeted Facebook, Instagram and TikTok campaigns that put your business in front of the right people at the right moment.", items: ['Facebook & Instagram Ads', 'TikTok Campaigns', 'Audience Targeting'], link: '/services/social-media', image: '/assets/img/services/SocialMedia.webp', video: '/assets/img/services/social-media.mp4' },
-    { title: 'Website Design', desc: "Your website should be converting visitors into customers around the clock. We build fast, mobile-first custom websites — with 12 months' maintenance and a lifetime technical guarantee included.", items: ['Custom Web Design', 'Mobile Responsive', 'Conversion Optimised'], link: '/services/website', image: '/assets/img/services/webdesign.webp', video: '/assets/img/services/website.mp4' },
-    { title: 'Google Ads', desc: 'Get in front of high-intent buyers the moment they search. Search, Display, Shopping and YouTube campaigns built around your revenue goals. Every dollar tracked.', items: ['Google Search Ads', 'Display & YouTube Ads', 'Real ROI Tracking'], link: '/services/google-ads', image: '/assets/img/services/GAds.webp', video: '/assets/img/services/google-ads.mp4' },
-    { title: 'Graphic Design', desc: 'First impressions are everything. We produce logos, ad creatives, social assets and brand identity systems that make your business look as good as it performs.', items: ['Logo & Brand Identity', 'Marketing Collateral', 'Social Media Assets'], link: '/services/graphic-design', image: '/assets/img/services/GraphicDes.webp', video: '/assets/img/services/graphic.mp4' },
-  ];
 
   const channels = [
     { label: 'SEO', top: '14%', left: '28%' },
@@ -24,10 +16,13 @@ export default function ServicesPage() {
     { label: 'Content', top: '40%', left: '13%' },
   ];
 
-  const ctaPoints = [
-    'Easy, stress-free marketing options for SMEs',
-    'All-inclusive rates to avoid any nasty surprises',
-    'Dedicated account manager',
+  const mixerChannels = [
+    { label: 'SEO', lvl: '55%', lvl2: '78%' },
+    { label: 'Ads', lvl: '70%', lvl2: '62%' },
+    { label: 'Social', lvl: '40%', lvl2: '66%' },
+    { label: 'Web', lvl: '62%', lvl2: '48%' },
+    { label: 'OOH', lvl: '30%', lvl2: '58%' },
+    { label: 'Design', lvl: '48%', lvl2: '72%' },
   ];
 
   const clientLogos = [
@@ -57,6 +52,7 @@ export default function ServicesPage() {
       <ServiceHero
         headline="Every Service You Need To Grow, In One Team."
         subtext="From SEO to paid ads, web design to outdoor advertising — Shopa Marketing delivers full-funnel marketing built specifically for Australian and New Zealand SMEs."
+        bgImage="/assets/img/breadcrumb/services-hero.webp"
       />
 
       {/* ── SERVICES DIRECTORY — expanding deck ── */}
@@ -71,7 +67,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="wow fadeInUp">
-            <ServicesDeck services={services} />
+            <ServicesDeck services={homeServices} />
           </div>
         </div>
       </div>
@@ -131,7 +127,7 @@ export default function ServicesPage() {
       </div>
 
       {/* ── CTA — dark gradient closer ── */}
-      <div className="pt-100 pb-100" data-navbar-dark="true" style={{ background: 'linear-gradient(135deg, #1a0533 0%, #2d1060 50%, #663dff 100%)' }}>
+      <div className="pt-100 pb-100" data-navbar-dark="true" style={{ background: 'var(--chy-gd-1)' }}>
         <div className="container chy-container-1">
           <div className="row align-items-center">
 
@@ -143,7 +139,7 @@ export default function ServicesPage() {
                   Tell us what you&apos;re trying to achieve and we&apos;ll recommend the mix of services that gets you there — no jargon, no pressure, and no paying for channels you don&apos;t need.
                 </p>
                 <div style={{ marginTop: '28px' }}>
-                  <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
+                  <a href="/contact-us" className="chy-pr-btn-1 chy-pr-btn-1--white wow fadeInLeft">
                     <span className="text">Get A Quote</span>
                     <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                   </a>
@@ -152,13 +148,26 @@ export default function ServicesPage() {
             </div>
 
             <div className="col-xl-6 col-lg-6">
-              <div className="wds-glass-list">
-                {ctaPoints.map((point, i) => (
-                  <div key={point} className="wds-glass-row wow fadeInUp" data-wow-delay={`${i * 0.1}s`}>
-                    <i className="flaticon-check"></i>
-                    <span>{point}</span>
-                  </div>
-                ))}
+              <div className="wds-mixer wow fadeInRight" data-wow-duration="1.2s">
+                <div className="wds-mixer__head">
+                  <i className="fa-solid fa-sliders"></i>
+                  <span className="wds-mixer__title">Your marketing mix</span>
+                </div>
+                <div className="wds-mixer__tracks">
+                  {mixerChannels.map((ch) => (
+                    <div key={ch.label} className="wds-mixer__track" style={{ '--lvl': ch.lvl, '--lvl2': ch.lvl2 } as React.CSSProperties}>
+                      <div className="wds-mixer__rail">
+                        <span className="wds-mixer__fill"></span>
+                        <span className="wds-mixer__knob"></span>
+                      </div>
+                      <span className="wds-mixer__label">{ch.label}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="wds-mixer__foot">
+                  <span className="wds-mixer__foot-flat">Everyone else sells the same package.</span>
+                  <span className="wds-mixer__foot-tuned">Your mix, tuned to your goal &mdash; nothing you don&apos;t need.</span>
+                </div>
               </div>
             </div>
 

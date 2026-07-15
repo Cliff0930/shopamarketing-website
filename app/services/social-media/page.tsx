@@ -10,26 +10,30 @@ export const metadata: Metadata = {
 };
 
 export default function SocialMediaPage() {
-  const provideItems = [
+  const provideItems: { title: string; body: string; icon: string; image?: string }[] = [
     {
       title: 'Audience Targeting: Find Your People in the Crowd',
       body: "Spraying ads at everyone is the fastest way to pay for strangers who'll never buy. We build laser-precise audiences from demographics, interests, behaviours, lookalikes and retargeting, so your ads land in front of people already halfway to yes. Right person, right moment, no wastage!",
       icon: 'flaticon-target',
+      image: '/assets/img/social/svc-targeting.webp',
     },
     {
       title: 'Ad Creative: Made to Stop Thumbs',
       body: 'The average thumb scrolls metres of feed a day, and your ad has a fraction of a second to interrupt the journey. We craft scroll-stopping creative across static, video, carousel and stories: bold enough to earn the pause, sharp enough to earn the click.',
       icon: 'flaticon-web-design-1',
+      image: '/assets/img/social/svc-creative.webp',
     },
     {
       title: 'Campaign Management: Never Set, Never Forget',
       body: "Launching a campaign and walking away is how budgets go to die. We monitor daily, A/B test constantly, tune bids and shift budget to whatever's winning. Your cost per result keeps dropping while your competitors wonder why theirs keeps climbing.",
       icon: 'flaticon-digital-campaign',
+      image: '/assets/img/social/svc-management.webp',
     },
     {
       title: 'Performance Reporting: Numbers That Speak Human',
       body: "No jargon avalanches, no vanity metrics dressed up as victory. Each month you get a clear view of reach, engagement, leads, conversions and ROAS, plus what we're doing next and why. You'll always know what your money did and what it's doing tomorrow.",
       icon: 'flaticon-statistics',
+      image: '/assets/img/social/svc-reporting.webp',
     },
   ];
 
@@ -171,7 +175,10 @@ export default function SocialMediaPage() {
                 </div>
                 <div className="wds-svc-item__panel">
                   <span className="wds-svc-item__ghost" aria-hidden="true">{`0${i + 1}`}</span>
-                  <span className="wds-svc-item__icon"><i className={item.icon}></i></span>
+                  {item.image
+                    ? <img className="wds-svc-item__img" src={item.image} alt={item.title} loading="lazy" />
+                    : <span className="wds-svc-item__icon"><i className={item.icon}></i></span>
+                  }
                   <span className="wds-svc-item__panel-title">{item.title}</span>
                   <p className="chy-para-1 wds-svc-item__body">{item.body}</p>
                 </div>
