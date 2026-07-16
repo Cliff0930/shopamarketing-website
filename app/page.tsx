@@ -7,11 +7,12 @@ import FloatingCardsGSAP from '@/components/FloatingCardsGSAP';
 import ServiceTestimonials from '@/components/ServiceTestimonials';
 import { homeServices } from '@/components/homeServicesData';
 import { testimonials } from '@/components/testimonialsData';
+import { getGoogleRating } from '@/lib/googleReviews';
 
 export const revalidate = 3600;
 
 export default async function HomePage() {
-  const latestPosts = await getPosts(3);
+  const [latestPosts, googleRating] = await Promise.all([getPosts(3), getGoogleRating()]);
 
   const whyItems = [
     { icon: 'flaticon-digital-campaign', title: 'One Strategy Across Every Channel', body: "Digital and physical, online and offline, all working from the same playbook. Because five channels running five different strategies isn't marketing, it's an expensive argument." },
@@ -25,7 +26,7 @@ export default async function HomePage() {
     '@type': 'Organization',
     name: 'Shopa Marketing',
     url: 'https://shopamarketing.com.au',
-    aggregateRating: { '@type': 'AggregateRating', ratingValue: '4.7', reviewCount: '319' },
+    aggregateRating: { '@type': 'AggregateRating', ratingValue: String(googleRating.rating), reviewCount: String(googleRating.count) },
     review: testimonials.map((t) => ({
       '@type': 'Review',
       reviewBody: t.quote,
@@ -189,7 +190,6 @@ export default async function HomePage() {
                   <h3 className="chy-heading-1 number">45+ yrs</h3>
                   <div className="chy-trusted-1-progress-item chy-class-add active">
                     <h5 className="chy-heading-1 title">In the Industry</h5>
-                    <div className="line"><span className="line-fill"></span></div>
                   </div>
                 </div>
               </div>
@@ -215,7 +215,7 @@ export default async function HomePage() {
                     <i className="fa-solid fa-star star-5"></i>
                   </div>
                   <span className="line"></span>
-                  <h4 className="chy-heading-1 text">4.7 · 319 Verified Reviews</h4>
+                  <h4 className="chy-heading-1 text">{googleRating.rating} · {googleRating.count} Verified Reviews</h4>
                 </div>
               </div>
 
@@ -226,7 +226,6 @@ export default async function HomePage() {
                   <h3 className="chy-heading-1 number">5,000+</h3>
                   <div className="chy-trusted-1-progress-item chy-class-add active">
                     <h5 className="chy-heading-1 title">Campaigns Per Year</h5>
-                    <div className="line"><span className="line-fill"></span></div>
                   </div>
                 </div>
               </div>

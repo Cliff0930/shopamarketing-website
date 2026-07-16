@@ -123,7 +123,7 @@ export default function AboutUsPage() {
               <span className="wds-vm-panel__ghost" aria-hidden="true">Vision</span>
               <div className="wds-vm-panel__inner">
                 <div className="wds-vm-panel__accent"></div>
-                <span className="wds-vm-panel__num">01 — Where we&apos;re headed</span>
+                <span className="wds-vm-panel__num">Where we&apos;re headed</span>
                 <h3 className="wds-vm-panel__title">Our Vision</h3>
                 <p className="wds-vm-panel__body">
                   To be the leading one-stop marketing agency for SMEs, revolutionizing their growth by providing innovative, comprehensive, and tailored marketing solutions that drive measurable success and lasting impact.
@@ -135,7 +135,7 @@ export default function AboutUsPage() {
               <span className="wds-vm-panel__ghost" aria-hidden="true">Mission</span>
               <div className="wds-vm-panel__inner">
                 <div className="wds-vm-panel__accent"></div>
-                <span className="wds-vm-panel__num">02 — How we get there</span>
+                <span className="wds-vm-panel__num">How we get there</span>
                 <h3 className="wds-vm-panel__title">Our Mission</h3>
                 <p className="wds-vm-panel__body">
                   At Shopa Marketing, our mission is to empower small and medium-sized enterprises by delivering top-notch, data-driven marketing services across all channels. We strive to simplify the marketing process for our clients, offering everything from community board ads to advanced SEO, social media, and digital advertising, ensuring their goals are met with efficiency, creativity, and unparalleled expertise.

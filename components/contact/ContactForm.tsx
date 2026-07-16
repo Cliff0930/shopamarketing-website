@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, FormEvent } from 'react';
+import { TOP_COUNTRIES, REST_COUNTRIES, ALL_COUNTRIES, flagEmoji, validateNationalNumber } from './countries';
 
 const SERVICE_OPTIONS = [
   { label: 'Done For You', icon: 'flaticon-team' },
@@ -19,16 +20,11 @@ const BUDGET_OPTIONS = ['Under $1k / month', '$1k–$2.5k / month', '$2.5k–$5k
 
 const TOTAL_STEPS = 5;
 
-function validatePhone(value: string): string {
-  const d = value.replace(/[\s\-().]/g, '');
-  if (
-    /^(\+?61|0)4\d{8}$/.test(d) ||       // AU mobile
-    /^(1800|1300)\d{6}$/.test(d) ||        // AU free-call
-    /^(\+?64|0)2\d{7,9}$/.test(d) ||       // NZ mobile
-    /^0800\d{6,7}$/.test(d) ||             // NZ free-call
-    /^(\+?1)?[2-9]\d{9}$/.test(d)          // USA
-  ) return '';
-  return 'Please enter a valid AU, NZ or US phone number';
+function validatePhone(iso: string, value: string): string {
+  const digits = value.replace(/[\s\-().+]/g, '');
+  if (validateNationalNumber(iso, digits)) return '';
+  const c = ALL_COUNTRIES.find((x) => x.iso === iso);
+  return `Please enter a valid ${c?.name ?? ''} phone number`.replace('  ', ' ');
 }
 
 function validateWebsite(value: string): string {
@@ -51,6 +47,7 @@ export default function ContactForm() {
   const [fullName, setFullName]         = useState('');
   const [businessName, setBusinessName] = useState('');
   const [phone, setPhone]               = useState('');
+  const [phoneCountry, setPhoneCountry]  = useState('AU');
   const [email, setEmail]               = useState('');
   const [website, setWebsite]           = useState('');
   const [message, setMessage]           = useState('');
@@ -86,7 +83,7 @@ export default function ContactForm() {
     const e: Errors = {};
     if (!fullName.trim()) e.fullName = 'Full name is required';
     if (!phone.trim())    e.phone    = 'Phone number is required';
-    else { const err = validatePhone(phone); if (err) e.phone = err; }
+    else { const err = validatePhone(phoneCountry, phone); if (err) e.phone = err; }
     if (!email.trim())    e.email    = 'Email is required';
     if (website.trim())   { const err = validateWebsite(website); if (err) e.website = err; }
     return e;
@@ -106,7 +103,10 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           services, goal, timeline, budget,
-          fullName, businessName, phone, email, website, message,
+          fullName, businessName,
+          phone: `${ALL_COUNTRIES.find((c) => c.iso === phoneCountry)?.dial ?? ''} ${phone}`.trim(),
+          phoneCountry,
+          email, website, message,
           consent1, consent2,
           company: honeypot,
         }),
@@ -261,12 +261,27 @@ export default function ContactForm() {
                 {errors.fullName && <span style={errMsgStyle}>{errors.fullName}</span>}
               </div>
 
-              {/* Phone */}
+              {/* Phone — dial-code select + national number */}
               <div className="f-phone">
                 <label htmlFor="phone">Phone Number<span>*</span></label>
-                <input id="phone" type="tel" placeholder="+61 / +64 / +1 number"
-                  value={phone} onChange={e => setPhone(e.target.value)}
-                  style={errors.phone ? errInputStyle : {}} />
+                <div className="cfw-phone-row" style={errors.phone ? errInputStyle : {}}>
+                  <select
+                    className="cfw-dial"
+                    aria-label="Country code"
+                    value={phoneCountry}
+                    onChange={e => { setPhoneCountry(e.target.value); setErrors(p => ({ ...p, phone: undefined })); }}
+                  >
+                    {TOP_COUNTRIES.map(c => (
+                      <option key={c.iso} value={c.iso}>{flagEmoji(c.iso)} {c.dial}</option>
+                    ))}
+                    <option disabled>──────────</option>
+                    {REST_COUNTRIES.map(c => (
+                      <option key={c.iso} value={c.iso}>{flagEmoji(c.iso)} {c.name} {c.dial}</option>
+                    ))}
+                  </select>
+                  <input id="phone" type="tel" placeholder="Phone number"
+                    value={phone} onChange={e => setPhone(e.target.value)} />
+                </div>
                 {errors.phone && <span style={errMsgStyle}>{errors.phone}</span>}
               </div>
 
