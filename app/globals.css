@@ -2482,7 +2482,7 @@ body {
   background-color: #f4f3fb;
   /* photo at native scale, right-anchored (cover-stretch blurs on retina);
      gradient layer blends the hero colour into the photo's plain left side */
-  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/about-hero-v2.webp');
+  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/about-hero-v3.webp');
   background-size: 100% 100%, auto 100%;
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;

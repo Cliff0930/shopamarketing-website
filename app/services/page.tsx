@@ -52,7 +52,7 @@ export default function ServicesPage() {
       <ServiceHero
         headline="Every Service You Need To Grow, In One Team."
         subtext="From SEO to paid ads, web design to outdoor advertising — Shopa Marketing delivers full-funnel marketing built specifically for Australian and New Zealand SMEs."
-        bgImage="/assets/img/breadcrumb/services-hero.webp"
+        bgImage="/assets/img/breadcrumb/services-hero-v2.webp"
       />
 
       {/* ── SERVICES DIRECTORY — expanding deck ── */}
