@@ -5455,6 +5455,91 @@ p.wds-culprit__body {
   .wds-escape__chip--3 { transform: rotate(-1deg); }
 }
 
+/* ── Blog post hero (shared image, per-post title) ── */
+.post-hero {
+  position: relative;
+  overflow: hidden;
+  background-color: #f4f3fb;
+  /* photo at native scale, right-anchored (cover-stretch blurs on retina);
+     wider blend than the other heroes so the photo's left edge dissolves
+     invisibly into the background at every viewport width */
+  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 35%, rgba(244, 243, 251, 0.55) 58%, rgba(244, 243, 251, 0) 78%), url('/assets/img/breadcrumb/post-hero.webp');
+  background-size: 100% 100%, auto 100%;
+  background-position: left top, right top;
+  background-repeat: no-repeat, no-repeat;
+  padding: 170px 0 90px;
+}
+.post-hero__inner {
+  position: relative;
+  z-index: 2;
+  max-width: 760px;
+}
+.post-hero__trail {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #663dff;
+  text-decoration: none;
+  margin-bottom: 16px;
+  transition: transform 0.25s ease;
+}
+.post-hero__trail:hover { transform: translateX(-4px); color: #663dff; }
+.post-hero__title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(26px, 3.2vw, 44px);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #0f0926;
+  margin: 0 0 18px;
+}
+.post-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6f6a85;
+}
+.post-hero__meta i { color: #663dff; font-size: 12px; }
+@media (max-width: 767px) {
+  .post-hero { padding: 130px 0 60px; }
+  .post-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.82) 55%, rgba(255, 255, 255, 0.45) 100%);
+    pointer-events: none;
+  }
+}
+@media (min-width: 768px) and (max-width: 1199px) {
+  .post-hero { padding: 140px 0 80px; }
+  .post-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.96) 0%, rgba(255, 255, 255, 0.9) 42%, rgba(255, 255, 255, 0) 72%);
+    pointer-events: none;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .post-hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.94) 0%, rgba(255, 255, 255, 0.85) 34%, rgba(255, 255, 255, 0) 62%);
+    pointer-events: none;
+  }
+}
+
 /* ── Mobile menu — brand atmosphere ── */
 .mm-bg {
   background:

@@ -68,7 +68,7 @@ export default function Navbar() {
   const pathname = usePathname();
   const isHome = pathname === '/';
   // Contact, Blog, About Us, and all Services pages have a light hero — use same dark-logo/dark-text as home
-  const isLightBg = isHome || pathname === '/contact-us' || pathname === '/blog' || pathname === '/about-us' || pathname.startsWith('/services');
+  const isLightBg = isHome || pathname === '/contact-us' || pathname.startsWith('/blog') || pathname === '/about-us' || pathname.startsWith('/services');
   const dropdownTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   useEffect(() => {

@@ -58,28 +58,22 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         <div className="loader_line"></div>
       </div>
 
-      {/* breadcrumb-area-start */}
-      <div
-        className="breadcrumb-area bg-default has-breadcrumb-overlay"
-        style={{ backgroundImage: "url('/assets/img/breadcrumb/breadcrumb-img-1.jpg')" }}
-      >
-        <div className="container h1-container">
-          <div className="row">
-            <div className="col-xxl-12">
-              <div className="breadcrumb-wrap text-center">
-                <h2 className="breadcrumb-title chy-heading-1 chy-split-in-right chy-split-text"
-                  dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                <div className="breadcrumb-list wow fadeInUp" data-wow-duration="2s">
-                  <a href="/">Home</a>
-                  <a href="/blog">Blog</a>
-                  <span dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
-                </div>
-              </div>
+      {/* ── POST HERO ── */}
+      <section className="post-hero">
+        <div className="container chy-container-1">
+          <div className="post-hero__inner">
+            <a href="/blog" className="post-hero__trail wow fadeInDown">
+              <i className="fa-solid fa-left-long"></i> All Articles
+            </a>
+            <h1 className="post-hero__title wow fadeInLeft" data-wow-duration="1.2s"
+              dangerouslySetInnerHTML={{ __html: post.title.rendered }} />
+            <div className="post-hero__meta wow fadeInUp">
+              <span><i className="fa-regular fa-calendar"></i> {formatDate(post.date)}</span>
+              <span>by {post._embedded?.author?.[0]?.name ?? 'Shopa Marketing'}</span>
             </div>
           </div>
         </div>
-      </div>
-      {/* breadcrumb-area-end */}
+      </section>
 
       {/* blog-details-start */}
       <div className="blog-details-area pt-120 pb-70 fix">
