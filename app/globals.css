@@ -952,6 +952,14 @@ body {
   gap: 20px;
   flex-wrap: wrap;
 }
+/* Height-constrained laptops (e.g. MacBook Air): the taller hero copy can
+   push the featured-in strip past the 100vh panel's bottom edge — tighten
+   the vertical rhythm so everything stays in view */
+@media (min-width: 992px) and (max-height: 980px) {
+  .chy-hero-1-content .title { margin-bottom: 10px !important; }
+  .chy-hero-1-content .disc { margin-bottom: 18px !important; }
+  .featured-in-strip { margin-top: 20px; padding-top: 16px; }
+}
 .featured-in-label {
   font-size: 11px;
   font-weight: 700;

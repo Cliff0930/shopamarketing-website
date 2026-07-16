@@ -104,9 +104,9 @@ export default async function HomePage() {
               <div className="col-lg-6">
                 <div className="chy-hero-1-content">
                   <h5 className="chy-subtitle-1 subtitle wow fadeInLeft" data-wow-duration="3s">Your Go-To Marketing Agency</h5>
-                  <h1 className="chy-heading-1 title chy-split-in-hero-1 chy-split-text-2">You Run the Business. We&apos;ll Bring the&nbsp;Spotlight.</h1>
+                  <h1 className="chy-heading-1 title chy-split-in-hero-1 chy-split-text-2">You Run the Business. <br /> We&apos;ll Bring the&nbsp;Spotlight.</h1>
                   <p className="chy-para-1 disc wow fadeInLeft" data-wow-duration="3s">
-                    Being brilliant is your job. Making you famous is ours. We take your business everywhere your customers look: search results, social feeds, grocery stores, medical centres and billboards nationwide. One dedicated team, one clear strategy, and a spotlight that stays on.
+                    Being brilliant is your job. Making you famous is ours. <br /> We take your business everywhere your customers look: search results, social feeds, grocery stores, medical centres and billboards nationwide. One dedicated team, one clear strategy, and a spotlight that stays on.
                   </p>
                   <div className="btn-wrap">
                     <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="3s">
