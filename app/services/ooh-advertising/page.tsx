@@ -24,7 +24,7 @@ export default function OohAdvertisingPage() {
       short: 'Media Buying',
       image: '/assets/img/ooh/stage-media-buying.webp',
       title: 'Media Buying: Prime Spots Without the Prime Mark-Up',
-      body: 'The best locations usually go to whoever has the biggest budget or the best connections. We bring the connections! Our media relationships across Australia and New Zealand secure premium placements at genuinely competitive rates, from major billboards to local screen networks.',
+      body: 'The best locations usually go to whoever has the biggest budget or the best connections. We bring the connections! Our media relationships secure premium placements at genuinely competitive rates, from major billboards to local screen networks.',
     },
     {
       num: '04',
@@ -74,7 +74,7 @@ export default function OohAdvertisingPage() {
   const faqs = [
     {
       q: 'What types of OOH advertising do you offer?',
-      a: 'The formats that work hardest for local businesses! Digital billboards in high-traffic zones, shopping centre displays, plus our specialty networks: grocery store screens, community boards and medical centre screens across Australia and New Zealand.',
+      a: 'The formats that work hardest for local businesses! Digital billboards in high-traffic zones, shopping centre displays, plus our specialty networks: grocery store screens, community boards and medical centre screens.',
     },
     {
       q: "Isn't outdoor advertising only for big brands?",
@@ -132,7 +132,7 @@ export default function OohAdvertisingPage() {
 
       <ServiceHero
         headline="OOH Advertising Your Customers Can't Scroll Past"
-        subtext="Ad blockers can't touch a billboard, and nobody skips a bus. As the OOH advertising specialists for Australian SMEs, we put your brand where customers live, shop, wait and move, at rates that finally make outdoor affordable for the little guy!"
+        subtext="Ad blockers can't touch a billboard, and nobody skips a bus. As the OOH advertising specialists for SMEs, we put your brand where customers live, shop, wait and move, at rates that finally make outdoor affordable for the little guy!"
         bgImage="/assets/img/breadcrumb/ooh-hero.webp"
       />
 
@@ -152,7 +152,7 @@ export default function OohAdvertisingPage() {
                     There&apos;s something the internet still can&apos;t do: stand on a street corner. Out-of-home advertising builds the kind of trust that only comes from being seen in the real world, again and again, right where your customers live, shop, wait and commute. See a brand online once, you scroll past. See it at your grocery store every week, and suddenly it&apos;s a household name.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Here&apos;s the part most SMEs don&apos;t know: outdoor advertising isn&apos;t just for the big end of town anymore. We&apos;ve partnered with OOH networks across Australia and New Zealand to unlock premium placements at rates built for small and medium businesses. Big-brand visibility, without the big-brand invoice!
+                    Here&apos;s the part most SMEs don&apos;t know: outdoor advertising isn&apos;t just for the big end of town anymore. We&apos;ve partnered with OOH networks to unlock premium placements at rates built for small and medium businesses. Big-brand visibility, without the big-brand invoice!
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
                     And you won&apos;t lift a finger. From creative concept and production through to placement, scheduling and performance reporting, our team handles the entire campaign while you get on with running your business.
@@ -170,7 +170,7 @@ export default function OohAdvertisingPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/ooh-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="OOH advertising Australia: digital billboard and grocery store screen campaign for an Australian small business"
+                  ariaLabel="OOH advertising: digital billboard and grocery store screen campaign for a small business"
                   pinContainerId="ooh-intro-pin"
                 />
               </div>
@@ -255,7 +255,7 @@ export default function OohAdvertisingPage() {
                   In a world drowning in digital ads, physical advertising cuts through in ways screens simply can&apos;t. No ad blockers, no skip buttons, no doom-scrolling past your message. But here&apos;s the catch: OOH advertising is a specialist&apos;s game. Formats, audience data, network relationships, creative rules, timing windows. Get one wrong and your budget quietly evaporates on placements nobody sees.
                 </p>
                 <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                  That&apos;s where we come in. With thousands of campaigns behind us and partnerships across Australia and New Zealand&apos;s OOH networks, we know exactly which placements pull their weight and which ones just look good in a proposal. Every dollar works, or it doesn&apos;t go out the door.
+                  That&apos;s where we come in. With thousands of campaigns behind us and partnerships across our OOH networks, we know exactly which placements pull their weight and which ones just look good in a proposal. Every dollar works, or it doesn&apos;t go out the door.
                 </p>
               </div>
             </div>
@@ -289,9 +289,9 @@ export default function OohAdvertisingPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">OOH Results Australian Business Owners Rave About</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">OOH Results Business Owners Rave About</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">

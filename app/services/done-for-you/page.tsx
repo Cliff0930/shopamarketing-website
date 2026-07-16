@@ -42,7 +42,7 @@ export default function DoneForYouPage() {
     },
     {
       q: 'Which plan is right for my business?',
-      a: "That's exactly what the free strategy call is for! Tell us your goals, your market and your appetite for growth, and we'll recommend the plan that fits, even if it's the cheaper one. You can move between plans as your business grows, and plenty of our clients do.",
+      a: "That's exactly what the strategy call is for! Tell us your goals, your market and your appetite for growth, and we'll recommend the plan that fits, even if it's the cheaper one. You can move between plans as your business grows, and plenty of our clients do.",
     },
     {
       q: "What does 'guaranteed impressions' mean?",
@@ -111,7 +111,7 @@ export default function DoneForYouPage() {
                     Then we build backwards from the answer. Our Done For You packages combine the channels that make sense for YOUR business: website, SEO, Google Ads, social media, creative, content and AI search visibility, and run them as one coordinated strategy with one team and one report that actually makes sense.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    After 5,000+ campaigns across Australia and New Zealand, we can tell you the worst-kept secret in marketing: the best results never come from a single channel. They come from channels working together, keeping your brand visible, trusted and top of mind wherever your customers look. That&apos;s exactly what these packages deliver!
+                    After 5,000+ campaigns, we can tell you the worst-kept secret in marketing: the best results never come from a single channel. They come from channels working together, keeping your brand visible, trusted and top of mind wherever your customers look. That&apos;s exactly what these packages deliver!
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -126,7 +126,7 @@ export default function DoneForYouPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/dfy-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="Done for you marketing Australia: one team managing website, SEO, ads and social media for an Australian small business"
+                  ariaLabel="Done for you marketing: one team managing website, SEO, ads and social media for a small business"
                   pinContainerId="dfy-intro-pin"
                 />
               </div>
@@ -234,9 +234,9 @@ export default function DoneForYouPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Results Australian Business Owners Rave About</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Results Business Owners Rave About</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">

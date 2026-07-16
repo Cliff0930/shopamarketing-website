@@ -5,7 +5,7 @@ import HeroCounters from "@/components/HeroCounters";
 
 export const metadata = {
   title: "Contact Us — Shopa Marketing",
-  description: "Book a free strategy session with Shopa Marketing. Speak directly with a senior marketing specialist — no junior accounts, no sales pitch.",
+  description: "Book a strategy session with Shopa Marketing. Speak directly with a senior marketing specialist — no junior accounts, no sales pitch.",
 };
 
 export default function ContactUsPage() {
@@ -30,7 +30,7 @@ export default function ContactUsPage() {
             </h1>
 
             <p className="contact-hero__sub wow fadeInUp" data-wow-duration="2s">
-              Book a free strategy session and speak directly with a senior marketing specialist — no junior account managers, no generic sales pitch. Just an honest conversation about your business.
+              Book a strategy session and speak directly with a senior marketing specialist — no junior account managers, no generic sales pitch. Just an honest conversation about your business.
             </p>
 
             {/* Google rating */}

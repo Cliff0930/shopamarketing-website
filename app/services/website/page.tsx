@@ -129,7 +129,7 @@ export default function WebsiteDesignPage() {
 
   const faqs = [
     {
-      q: 'How much does website design cost in Australia?',
+      q: 'How much does website design cost?',
       a: "It depends on the size and scope of the build, but you'll know before we start, in writing, with everything included. No discovery-meeting marathon, no mood boards held hostage. Fixed all-inclusive pricing with 12 months of maintenance included. Get a quote and get a number!",
     },
     {
@@ -188,7 +188,7 @@ export default function WebsiteDesignPage() {
 
       <ServiceHero
         headline="Web Design That Stops the Scroll and Starts the Sales"
-        subtext="Why settle for a website that just sits there nodding politely? As the go-to web design agency for Australian SMEs, we build fast, mobile-first websites that grab attention, hold it, and hand it back only after it's become a customer!"
+        subtext="Why settle for a website that just sits there nodding politely? As the go-to web design agency for SMEs, we build fast, mobile-first websites that grab attention, hold it, and hand it back only after it's become a customer!"
         bgImage="/assets/img/breadcrumb/website-hero.webp"
       />
 
@@ -226,7 +226,7 @@ export default function WebsiteDesignPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/website-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="Custom website design on desktop and mobile by Shopa Marketing, web design agency Australia"
+                  ariaLabel="Custom website design on desktop and mobile by Shopa Marketing, web design agency"
                   pinContainerId="website-intro-pin"
                 />
               </div>
@@ -249,7 +249,7 @@ export default function WebsiteDesignPage() {
 
         <div className="container chy-container-1">
           <div className="wds-culprit-head">
-            <h2 className="chy-title-1">Why Many Australian Business Websites Underperform</h2>
+            <h2 className="chy-title-1">Why Many Business Websites Underperform</h2>
             <p className="chy-section-para-1">
               Ever wondered why some websites pull in customers like a bakery pulls in morning commuters, while others just gather dust? It&apos;s rarely bad luck. The culprits hide under the bonnet, quietly costing you enquiries every single day. Let&apos;s pop the hood.
             </p>
@@ -371,10 +371,10 @@ export default function WebsiteDesignPage() {
           <div className="wds-deal-head">
             <div>
               <h5 className="chy-subtitle-1 wow fadeInDown">why choose us</h5>
-              <h2 className="chy-title-1">Why Australian SMEs Pick Our Web Design Team</h2>
+              <h2 className="chy-title-1">Why SMEs Pick Our Web Design Team</h2>
             </div>
             <p className="chy-section-para-1 wow fadeInUp">
-              Because we bring the kind of marketing muscle usually reserved for companies with skyscrapers on their letterhead, and we bring it to SMEs across Australia and New Zealand at prices that don&apos;t require a board meeting.
+              Because we bring the kind of marketing muscle usually reserved for companies with skyscrapers on their letterhead, and we bring it to SMEs at prices that don&apos;t require a board meeting.
             </p>
           </div>
 
@@ -397,9 +397,9 @@ export default function WebsiteDesignPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Website Design Reviews from Australian Business Owners</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Website Design Reviews from Business Owners</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">

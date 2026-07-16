@@ -42,7 +42,7 @@ export default async function BlogPage({
             </h1>
 
             <p className="blog-hero__sub wow fadeInUp" data-wow-duration="2s">
-              Straight-talking strategy, campaign breakdowns, and growth tactics from the specialists behind 1,000+ Australian and NZ businesses. No fluff, no recycled advice.
+              Straight-talking strategy, campaign breakdowns, and growth tactics from the specialists behind 1,000+ businesses. No fluff, no recycled advice.
             </p>
 
             {/* Stats strip */}

@@ -89,7 +89,7 @@ export default function Footer() {
           <Link href="/contact-us"
             className="footer-cta-btn flex-shrink-0 inline-flex items-center gap-3 text-white font-bold uppercase tracking-wide rounded-[30px] transition-all duration-300"
             style={{ fontSize: "14px", padding: "16px 28px", background: "linear-gradient(90deg, #663dff -2.17%, #aa00ff 100%)" }}>
-            <span>Book Free Consultation</span>
+            <span>Book a Consultation</span>
             <ArrowRight size={14} />
           </Link>
 

@@ -101,7 +101,7 @@ export default function GraphicDesignPage() {
 
       <ServiceHero
         headline="Graphic Design That Makes People Look Twice"
-        subtext="Your brand gets about a heartbeat to make its first impression, and there are no do-overs. Our graphic design services give Australian SMEs logos, brand identities and creative that don't just get noticed, they get remembered!"
+        subtext="Your brand gets about a heartbeat to make its first impression, and there are no do-overs. Our graphic design services give SMEs logos, brand identities and creative that don't just get noticed, they get remembered!"
         bgImage="/assets/img/breadcrumb/gfx-hero.webp"
       />
 
@@ -139,7 +139,7 @@ export default function GraphicDesignPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/gfx-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="Graphic design services Australia: brand identity, logo and marketing collateral for an Australian small business"
+                  ariaLabel="Graphic design services: brand identity, logo and marketing collateral for a small business"
                   pinContainerId="gfx-intro-pin"
                 />
               </div>
@@ -233,9 +233,9 @@ export default function GraphicDesignPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Design Work Australian Business Owners Rave About</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Design Work Business Owners Rave About</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">

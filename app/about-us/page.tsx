@@ -21,7 +21,7 @@ export default function AboutUsPage() {
   ];
 
   const unleashPoints = [
-    'Easy stress free marketing options for SMEs',
+    'Easy, stress-free marketing options for SMEs',
     'All inclusive rates to avoid any nasty surprises',
     'Dedicated account manager',
   ];
@@ -46,7 +46,7 @@ export default function AboutUsPage() {
             </h1>
 
             <p className="about-hero__sub wow fadeInUp" data-wow-duration="2s">
-              Shopa Marketing is a team of senior specialists — not a revolving door of juniors. For over a decade we&apos;ve helped SMEs across Australia and New Zealand grow with honest strategy and real results.
+              Shopa Marketing is a team of senior specialists — not a revolving door of juniors. For over a decade we&apos;ve helped SMEs grow with honest strategy and real results.
             </p>
 
             {/* Stats strip */}
@@ -103,7 +103,7 @@ export default function AboutUsPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/about-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="The Shopa Marketing team of senior specialists working together for Australian small businesses"
+                  ariaLabel="The Shopa Marketing team of senior specialists working together for small businesses"
                   pinContainerId="about-intro-pin"
                 />
               </div>

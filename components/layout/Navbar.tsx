@@ -340,10 +340,10 @@ export default function Navbar() {
                   <Calendar size={18} className="text-white" />
                 </div>
                 <p style={{ fontSize: 20, fontWeight: 800, color: "#fff", lineHeight: 1.3, marginBottom: 10 }}>
-                  Free Strategy Session
+                  Strategy Session
                 </p>
                 <p style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", lineHeight: 1.65, marginBottom: 20 }}>
-                  Book a free 30-min consultation with our marketing experts. No obligation.
+                  Book a 30-min consultation with our marketing experts. No obligation.
                 </p>
                 {[
                   "700+ SME clients worldwide",
@@ -359,7 +359,7 @@ export default function Navbar() {
               <Link href="/contact-us"
                 className="mt-6 flex items-center justify-center gap-2 bg-white text-primary font-[700] rounded-[30px] py-3 hover:bg-white/90 transition-all duration-200"
                 style={{ fontSize: 13 }}>
-                Book Free Consultation <ArrowRight size={13} />
+                Book a Consultation <ArrowRight size={13} />
               </Link>
             </div>
 
@@ -490,7 +490,7 @@ export default function Navbar() {
               style={{ fontSize: "13px", padding: "16px 24px" }}
               onClick={() => setMobileOpen(false)}
             >
-              Book a Free Consultation
+              Book a Consultation
               <ArrowRight size={14} className="flex-shrink-0" />
             </Link>
             <div className="flex items-center justify-between mt-6">

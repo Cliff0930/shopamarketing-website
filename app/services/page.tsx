@@ -51,7 +51,7 @@ export default function ServicesPage() {
 
       <ServiceHero
         headline="Every Service You Need To Grow, In One Team."
-        subtext="From SEO to paid ads, web design to outdoor advertising — Shopa Marketing delivers full-funnel marketing built specifically for Australian and New Zealand SMEs."
+        subtext="From SEO to paid ads, web design to outdoor advertising — Shopa Marketing delivers full-funnel marketing built specifically for SMEs."
         bgImage="/assets/img/breadcrumb/services-hero-v2.webp"
       />
 
@@ -112,7 +112,7 @@ export default function ServicesPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">our clients</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted By Australia&apos;s Best Brands</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted By The Best Brands</h2>
           </div>
         </div>
         <div className="clients-ticker-wrap">

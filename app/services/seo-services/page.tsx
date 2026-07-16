@@ -31,7 +31,7 @@ export default function SeoServicesPage() {
       short: 'Link Building',
       image: '/assets/img/seo/pillar-links.webp',
       title: 'Link Building: Street Cred for Your Website',
-      body: "Every quality backlink is another respected voice vouching for your business, and here's the kicker: AI engines lean on those same authority signals when deciding which businesses to recommend. We earn high-quality, relevant links from reputable Australian and international publications, building credibility that pays off twice.",
+      body: "Every quality backlink is another respected voice vouching for your business, and here's the kicker: AI engines lean on those same authority signals when deciding which businesses to recommend. We earn high-quality, relevant links from reputable international publications, building credibility that pays off twice.",
     },
   ];
 
@@ -72,7 +72,7 @@ export default function SeoServicesPage() {
       a: 'SEO is a marathon with a very rewarding finish line. Most clients see rankings start to move within 3 to 4 months, with the real traffic growth arriving around the 6 to 12 month mark. Competitive industries can take longer, while local SEO often delivers faster. Anyone promising page one in a fortnight is selling magic beans.',
     },
     {
-      q: 'Do you offer local SEO for Australian businesses?',
+      q: 'Do you offer local SEO for businesses?',
       a: "Absolutely, it's one of our favourite party tricks. We optimise your Google Business Profile, build local citations and create location-specific content so you dominate local results, in classic search and in AI answers, whether your patch is one suburb, a city, or an entire state.",
     },
     {
@@ -127,7 +127,7 @@ export default function SeoServicesPage() {
 
       <ServiceHero
         headline="SEO Services That Take You From Page Ten to Centre Stage"
-        subtext="Sick of being the internet's best-kept secret? As the SEO agency Australian SMEs trust, we get you found everywhere your customers search: Google, AI Overviews, ChatGPT and whatever comes next. No fads, no shortcuts, just visibility that sticks!"
+        subtext="Sick of being the internet's best-kept secret? As the SEO agency SMEs trust, we get you found everywhere your customers search: Google, AI Overviews, ChatGPT and whatever comes next. No fads, no shortcuts, just visibility that sticks!"
         bgImage="/assets/img/breadcrumb/seo-hero.webp"
       />
 
@@ -147,14 +147,14 @@ export default function SeoServicesPage() {
                     Right now, someone nearby is looking for exactly what you sell. But here&apos;s the plot twist: they might not be typing it into Google at all. They could be asking ChatGPT for a recommendation, reading an AI Overview that answers before they ever click, or talking to their phone like it&apos;s an old mate. Search has changed more in the past two years than in the previous twenty.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Most SEO agencies are still playing the old game: ten blue links and a prayer. We play the whole board. Our SEO services get Australian businesses ranking on Google AND cited by the AI tools your customers increasingly trust, combining technical excellence, magnetic content and quality links with genuine AI search optimisation.
+                    Most SEO agencies are still playing the old game: ten blue links and a prayer. We play the whole board. Our SEO services get businesses ranking on Google AND cited by the AI tools your customers increasingly trust, combining technical excellence, magnetic content and quality links with genuine AI search optimisation.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
                     Local suburb, capital city or the whole country: wherever and however your customers search, we make sure the answer they find is you.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
-                  <span className="text">Get Your FREE Site Audit Report</span>
+                  <span className="text">Get Your Site Audit Report</span>
                   <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                 </a>
               </div>
@@ -165,7 +165,7 @@ export default function SeoServicesPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/seo-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="SEO agency Australia dashboard showing Google rankings and AI search visibility for an Australian small business"
+                  ariaLabel="SEO agency dashboard showing Google rankings and AI search visibility for a small business"
                   pinContainerId="seo-intro-pin"
                 />
               </div>
@@ -308,9 +308,9 @@ export default function SeoServicesPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">SEO Results Australian Business Owners Rave About</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">SEO Results Business Owners Rave About</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">

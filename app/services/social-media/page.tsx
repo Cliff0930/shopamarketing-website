@@ -98,7 +98,7 @@ export default function SocialMediaPage() {
 
       <ServiceHero
         headline="Social Media Ads That Turn Scrollers Into Shoppers"
-        subtext="Boosting posts and hoping for the best? That's not a strategy, that's a raffle ticket. As the social media advertising agency Australian SMEs trust, we build Meta, Instagram and TikTok campaigns on real audience data, and tie every dollar back to revenue."
+        subtext="Boosting posts and hoping for the best? That's not a strategy, that's a raffle ticket. As the social media advertising agency SMEs trust, we build Meta, Instagram and TikTok campaigns on real audience data, and tie every dollar back to revenue."
         bgImage="/assets/img/breadcrumb/social-hero.webp"
       />
 
@@ -118,7 +118,7 @@ export default function SocialMediaPage() {
                     Scrolling is the new strolling, and the feed is the new main street. Your customers wander through it for hours every day, past thousands of shopfronts fighting for a glance. The brands that win aren&apos;t the loudest. They&apos;re the ones who know exactly who&apos;s walking past, and exactly what makes them stop.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    That&apos;s our home turf. Our social media advertising gets Australian businesses in front of precisely the right people on Facebook, Instagram, TikTok, LinkedIn and beyond, with creative they actually want to look at. Likes are lovely, but we&apos;re greedy about the things that matter: leads, sales and brand awareness you can measure.
+                    That&apos;s our home turf. Our social media advertising gets businesses in front of precisely the right people on Facebook, Instagram, TikTok, LinkedIn and beyond, with creative they actually want to look at. Likes are lovely, but we&apos;re greedy about the things that matter: leads, sales and brand awareness you can measure.
                   </p>
                   <p className="chy-section-para-1 wow fadeInUp">
                     Audience intelligence, creative strategy and relentless optimisation, all pulling in one direction: your bottom line.
@@ -136,7 +136,7 @@ export default function SocialMediaPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/social-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="Social media advertising Australia: Facebook and Instagram ad campaign results for an Australian small business"
+                  ariaLabel="Social media advertising: Facebook and Instagram ad campaign results for a small business"
                   pinContainerId="social-intro-pin"
                 />
               </div>
@@ -273,9 +273,9 @@ export default function SocialMediaPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Social Media Results Australian Business Owners Rave About</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Social Media Results Business Owners Rave About</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">

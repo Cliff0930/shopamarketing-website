@@ -18,7 +18,7 @@ export const homeServices: HomeService[] = [
   },
   {
     title: 'OOH Advertising',
-    desc: "Ad blockers can't touch a billboard! Put your brand where your customers actually live: grocery stores, medical centres, digital billboards and transit networks across Australia and New Zealand.",
+    desc: "Ad blockers can't touch a billboard! Put your brand where your customers actually live: grocery stores, medical centres, digital billboards and transit networks.",
     items: ['Grocery Store TV Screens', 'Digital Billboards', 'Transit & Outdoor Media'],
     link: '/services/ooh-advertising',
     image: '/assets/img/services/ooh.webp',

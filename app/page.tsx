@@ -17,7 +17,7 @@ export default async function HomePage() {
     { icon: 'flaticon-digital-campaign', title: 'One Strategy Across Every Channel', body: "Digital and physical, online and offline, all working from the same playbook. Because five channels running five different strategies isn't marketing, it's an expensive argument." },
     { icon: 'flaticon-team', title: 'A Real Person Who Knows Your Business', body: 'You work directly with a dedicated account manager who knows your goals, your market and your name. No call centres, no ticket queues, no retelling your story every time you ring.' },
     { icon: 'flaticon-price-tag', title: 'Transparent, All-Inclusive Pricing', body: "Everything defined upfront, in writing. What's in your proposal is exactly what you pay. No hidden fees, no sneaky extras, no nasty surprises. Ever." },
-    { icon: 'flaticon-trophy', title: "Experience You Can't Fake", body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,000+ businesses across Australia and New Zealand. That track record shows up in every campaign we run for you.' },
+    { icon: 'flaticon-trophy', title: "Experience You Can't Fake", body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,000+ businesses. That track record shows up in every campaign we run for you.' },
   ];
 
   const reviewSchema = {
@@ -110,7 +110,7 @@ export default async function HomePage() {
                   </p>
                   <div className="btn-wrap">
                     <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="3s">
-                      <span className="text">Get a Free Strategy Session</span>
+                      <span className="text">Get a Strategy Session</span>
                       <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                     </a>
                   </div>
@@ -178,7 +178,7 @@ export default async function HomePage() {
 
               <div className="chy-trusted-1-item">
                 <h3 className="chy-trusted-1-title chy-heading-1">
-                  Trusted by 1,000+ Businesses Across Australia and New Zealand
+                  Trusted by 1,000+ Businesses
                 </h3>
               </div>
 
@@ -262,7 +262,7 @@ export default async function HomePage() {
                       Marketing That Works as Hard as You Do
                     </h2>
                     <p className="chy-section-para-1 wow fadeInLeft">
-                      After 45 years of combined experience and 5,000+ campaigns, we&apos;ve learned what actually moves the needle for Australian businesses, and what just burns budget while looking busy. You get that hard-won knowledge applied to your business from day one, not learned at your expense.
+                      After 45 years of combined experience and 5,000+ campaigns, we&apos;ve learned what actually moves the needle for businesses, and what just burns budget while looking busy. You get that hard-won knowledge applied to your business from day one, not learned at your expense.
                     </p>
                   </div>
                   <a href="/about-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -390,14 +390,14 @@ export default async function HomePage() {
       {/* Suggestion: Brand video or client reel when available. */}
 
       {/* ── CTA — HIDDEN ── */}
-      {/* Suggestion: "Book a Free Strategy Session" focused CTA once messaging confirmed. */}
+      
 
       {/* ── BLOG ── */}
       <div className="chy-blog-1-area pt-110 pb-70 bg-default fix">
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-30">
             <h5 className="chy-subtitle-1 wow fadeInDown">our blog</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Fresh Thinking, Free of Charge</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Fresh Thinking</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '620px', margin: '14px auto 0' }}>
               Marketing moves fast. Here&apos;s what our team is seeing, testing and recommending right now.
             </p>

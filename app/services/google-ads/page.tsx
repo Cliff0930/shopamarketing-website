@@ -91,7 +91,7 @@ export default function GoogleAdsPage() {
 
       <ServiceHero
         headline="Google Ads That Catch Customers Mid-Search"
-        subtext="When someone Googles what you sell, it's a race with one winner. As the Google Ads agency Australian SMEs trust, we run campaigns obsessed with cost per lead, not vanity clicks. No wasted spend, no set-and-forget, no excuses!"
+        subtext="When someone Googles what you sell, it's a race with one winner. As the Google Ads agency SMEs trust, we run campaigns obsessed with cost per lead, not vanity clicks. No wasted spend, no set-and-forget, no excuses!"
         bgImage="/assets/img/breadcrumb/gads-hero.webp"
       />
 
@@ -129,7 +129,7 @@ export default function GoogleAdsPage() {
                 <ScrollScrubVideo
                   src="/assets/img/services/gads-scrub.mp4"
                   className="wds-intro-video wds-intro-video--full"
-                  ariaLabel="Google Ads agency Australia: search campaign dashboard showing lead growth for an Australian small business"
+                  ariaLabel="Google Ads agency: search campaign dashboard showing lead growth for a small business"
                   pinContainerId="gads-intro-pin"
                 />
               </div>
@@ -221,9 +221,9 @@ export default function GoogleAdsPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Google Ads Results Australian Business Owners Rave About</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Google Ads Results Business Owners Rave About</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners across Australia and New Zealand say about working with us.
+              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
             </p>
           </div>
           <div className="wds-reviews-wall">
