@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef, useCallback } from 'react';
 import type { WPPost } from '@/lib/wordpress';
-import { featuredImage, stripHtml, formatDate, authorAvatar } from '@/lib/wordpress';
+import { featuredImage, stripHtml, formatDate } from '@/lib/wordpress';
 
 const SEARCH_HINTS = [
   'SEO strategies',
@@ -181,9 +181,6 @@ export default function BlogSearch({ initialPosts, totalPages, currentPage, acti
                   {stripHtml(post.excerpt.rendered).slice(0, 120)}…
                 </p>
                 <div className="author">
-                  <div className="img img-cover">
-                    <img src={authorAvatar(post)} alt="" />
-                  </div>
                   <span className="chy-heading-1 name">
                     by {post._embedded?.author?.[0]?.name ?? 'Shopa Marketing'}
                   </span>
