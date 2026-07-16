@@ -5447,6 +5447,137 @@ p.wds-culprit__body {
   .wds-escape__chip--3 { transform: rotate(-1deg); }
 }
 
+/* ── Unsubscribe page (unlinked, email-signature use) ── */
+.unsub-page {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background: var(--chy-gd-1);
+  display: flex;
+  align-items: center;
+  padding: 140px 0 80px;
+}
+.unsub-ghost {
+  position: absolute;
+  top: 40px;
+  right: -30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(90px, 15vw, 230px);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgba(255, 255, 255, 0.16);
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+}
+.unsub-card {
+  position: relative;
+  z-index: 2;
+  max-width: 560px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 24px;
+  padding: 46px 44px 42px;
+  box-shadow: 0 30px 80px rgba(15, 9, 38, 0.4);
+  animation: unsubIn 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+@keyframes unsubIn {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+.unsub-title {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 800;
+  color: #0f0926;
+  margin: 0 0 10px;
+}
+.unsub-sub {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #4a4361;
+  margin: 0 0 28px;
+}
+.unsub-label {
+  display: block;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #663dff;
+  margin: 0 0 10px;
+}
+.unsub-input {
+  width: 100%;
+  height: 58px;
+  background: #f3f3f5;
+  border: 1.5px solid transparent;
+  outline: none;
+  border-radius: 50px;
+  padding: 0 24px;
+  font-size: 16px;
+  color: #0f0926;
+  margin-bottom: 24px;
+  transition: border-color 0.25s ease;
+}
+.unsub-input:focus { border-color: rgba(102, 61, 255, 0.5); }
+.unsub-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 24px;
+}
+.unsub-chip {
+  padding: 12px 20px;
+  background: #fff;
+  border: 1.5px solid #ece8fc;
+  border-radius: 40px;
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: #0f0926;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s ease, background 0.25s ease, color 0.25s ease;
+}
+.unsub-chip:hover {
+  transform: translateY(-2px);
+  border-color: rgba(102, 61, 255, 0.45);
+}
+.unsub-chip.is-selected {
+  background: var(--chy-gd-1);
+  border-color: transparent;
+  color: #fff;
+}
+.unsub-error {
+  display: block;
+  font-size: 13px;
+  color: #e74c3c;
+  font-weight: 500;
+  margin: -8px 0 16px;
+}
+.unsub-submit { border: none; margin-top: 4px; }
+.unsub-card--done { text-align: center; }
+.unsub-done-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--chy-gd-1);
+  color: #fff;
+  font-size: 28px;
+  margin-bottom: 22px;
+  box-shadow: 0 14px 36px rgba(102, 61, 255, 0.35);
+}
+.unsub-card--done .unsub-sub { margin-bottom: 0; }
+@media (max-width: 575px) {
+  .unsub-card { padding: 34px 26px 32px; }
+}
+
 /* ── Legal pages (terms, privacy) — shared layout ── */
 .wds-legal-hero {
   position: relative;
