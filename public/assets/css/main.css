@@ -59,7 +59,6 @@ CSS INDEX
 */
 :root {
   --urbanist: "Urbanist", sans-serif;
-  --galada: "Galada", cursive;
   --black-color: #000000;
   --white-color: #fff;
   --chy-pr-1: #A249ED;
@@ -2554,57 +2553,6 @@ input:focus::placeholder, textarea:focus::placeholder {
   border-radius: 3px;
 }
 
-.chy-subtitle-4 {
-  position: relative;
-  display: inline-block;
-  font-size: 16px;
-  letter-spacing: 0.32px;
-  line-height: 26px;
-  font-weight: 400;
-  font-family: var(--galada);
-  text-transform: uppercase;
-  background: linear-gradient(90deg, #FFA835 -3.85%, #FA3DCC 97.3%, #FA3AD0 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  padding-left: 90px;
-  margin-bottom: 12px;
-}
-.chy-subtitle-4::after {
-  width: 0px;
-  height: 1.5px;
-  content: "";
-  position: absolute;
-  top: 48%;
-  left: 0;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, #FFA835 -3.85%, #FA3DCC 97.3%, #FA3AD0 100%);
-  border-radius: 30px;
-  transition: 2000ms ease-in-out;
-  transition-delay: 1;
-}
-.chy-subtitle-4:is(.has-center) {
-  padding-right: 90px;
-}
-.chy-subtitle-4:is(.has-center)::before {
-  width: 0px;
-  height: 1.5px;
-  content: "";
-  position: absolute;
-  top: 48%;
-  right: 0;
-  transform: translateY(-50%);
-  background: linear-gradient(90deg, #FFA835 -3.85%, #FA3DCC 97.3%, #FA3AD0 100%);
-  border-radius: 30px;
-  transition: 2000ms ease-in-out;
-  transition-delay: 1;
-}
-.chy-subtitle-4:is(.active)::after {
-  width: 80px;
-}
-.chy-subtitle-4:is(.active):is(.has-center)::before {
-  width: 80px;
-}
 
 .chy-title-1 {
   font-size: 60px;
