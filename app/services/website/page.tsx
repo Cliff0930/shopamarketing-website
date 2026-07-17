@@ -224,7 +224,7 @@ export default function WebsiteDesignPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
-                  src="/assets/img/services/website-scrub.mp4"
+                  src="/assets/img/services/website-scrub-v3.mp4"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="Custom website design on desktop and mobile by Shopa Marketing, web design agency"
                   pinContainerId="website-intro-pin"
