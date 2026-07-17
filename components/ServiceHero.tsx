@@ -14,7 +14,7 @@ export default function ServiceHero({
       <HeroCounters />
       <section
         className={`service-hero${bgImage ? ' service-hero--photo' : ''}`}
-        style={bgImage ? { backgroundImage: `linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244,243,251,0) 58%), url('${bgImage}')` } : undefined}
+        style={bgImage ? { backgroundImage: `linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 35%, rgba(244,243,251,0.55) 58%, rgba(244,243,251,0) 78%), url('${bgImage}')` } : undefined}
       >
         <div className="container chy-container-1">
           <div className="service-hero__inner">

@@ -163,7 +163,7 @@ export default function SeoServicesPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
-                  src="/assets/img/services/seo-scrub.mp4"
+                  src="/assets/img/services/seo-scrub-v3.mp4"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="SEO agency dashboard showing Google rankings and AI search visibility for a small business"
                   pinContainerId="seo-intro-pin"
