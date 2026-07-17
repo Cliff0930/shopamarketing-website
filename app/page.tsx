@@ -1,5 +1,5 @@
 import TemplateScripts from '@/components/TemplateScripts';
-import { getPosts, featuredImage, formatDate, authorAvatar } from '@/lib/wordpress';
+import { getPosts, featuredImage, formatDate } from '@/lib/wordpress';
 import ServicesTicker from '@/components/ServicesTicker';
 import HeroVideoScrub from '@/components/HeroVideoScrub';
 import StarAnimationTrigger from '@/components/StarAnimationTrigger';
@@ -416,9 +416,6 @@ export default async function HomePage() {
                     dangerouslySetInnerHTML={{ __html: post.excerpt.rendered.replace(/<[^>]+>/g, '').slice(0, 120) + '…' }}
                   />
                   <div className="author">
-                    <div className="img img-cover">
-                      <img src={authorAvatar(post)} alt="" loading="lazy" />
-                    </div>
                     <span className="chy-heading-1 name">by {post._embedded?.author?.[0]?.name ?? 'Shopa Marketing'}</span>
                     <span className="line"></span>
                   </div>

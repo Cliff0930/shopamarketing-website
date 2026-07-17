@@ -189,7 +189,7 @@ export default function WebsiteDesignPage() {
       <ServiceHero
         headline="Web Design That Stops the Scroll and Starts the Sales"
         subtext="Why settle for a website that just sits there nodding politely? As the go-to web design agency for SMEs, we build fast, mobile-first websites that grab attention, hold it, and hand it back only after it's become a customer!"
-        bgImage="/assets/img/breadcrumb/website-hero.webp"
+        bgImage="/assets/img/breadcrumb/website-hero-v2.webp"
       />
 
       {/* ── INTRO — editorial split, home "Solutions" rhythm ── */}
