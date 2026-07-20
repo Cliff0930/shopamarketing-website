@@ -52,7 +52,7 @@ export default function AboutUsPage() {
           <div className="about-hero__inner">
 
             <h1 className="chy-title-1 about-hero__headline wow fadeInLeft" data-wow-duration="1.2s">
-              Meet the People Behind <br />the Marketing.
+              Meet the Pros Behind <br />the Marketing.
             </h1>
 
             <p className="about-hero__sub wow fadeInUp" data-wow-duration="2s">
@@ -93,6 +93,7 @@ export default function AboutUsPage() {
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
                   src="/assets/img/services/about-scrub.mp4"
+                  poster="/assets/img/services/about-scrub-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="The Shopa Marketing team of senior specialists working together for small businesses"
                   pinContainerId="about-intro-pin"

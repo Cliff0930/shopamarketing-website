@@ -130,6 +130,7 @@ export default function DoneForYouPage() {
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
                   src="/assets/img/services/dfy-scrub.mp4"
+                  poster="/assets/img/services/dfy-scrub-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="Done for you marketing: one team managing website, SEO, ads and social media for a small business"
                   pinContainerId="dfy-intro-pin"

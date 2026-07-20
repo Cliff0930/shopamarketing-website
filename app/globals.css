@@ -34,7 +34,13 @@ body {
   font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
+}
+/* Stop any stray-wide element from creating horizontal overflow / a white gap on
+   the right (esp. mobile). `clip` — not `hidden` — so it never turns into a scroll
+   container that would break the sticky hero or position:fixed on iOS. */
+html {
+  overflow-x: clip;
 }
 
 /* Custom scrollbar */
@@ -853,8 +859,15 @@ body {
 /* ── Homepage hero ───────────────────────────────────── */
 .chy-hero-1-content .title {
   font-size: 58px !important;
-  white-space: nowrap !important;
-  max-width: none !important;
+}
+/* Desktop only: keep each headline line intact (overflows its content box into
+   the empty space on the right). On mobile the headline must wrap normally,
+   otherwise it runs off-screen and creates horizontal overflow. */
+@media (min-width: 992px) {
+  .chy-hero-1-content .title {
+    white-space: nowrap !important;
+    max-width: none !important;
+  }
 }
 /* Slight left indent so the subtitle + body copy start inside the headline's left edge */
 .chy-hero-1-content .disc { padding-left: 8px; }
@@ -2857,6 +2870,13 @@ body {
   aspect-ratio: 760 / 640;
   object-fit: cover;
   border-radius: 20px;
+}
+/* Scrub sections: static poster <img> on mobile/tablet, scrubbable <video> on desktop */
+.scrub-poster { display: none; }
+@media (min-width: 992px) { .scrub-video { display: block; } }
+@media (max-width: 991px) {
+  .scrub-poster { display: block; }
+  .scrub-video { display: none; }
 }
 /* Pinned intro — tall wrapper pins the section while the video scrubs,
    then releases (home-hero mechanics for in-page sections) */

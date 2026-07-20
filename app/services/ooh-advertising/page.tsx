@@ -177,7 +177,8 @@ export default function OohAdvertisingPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
-                  src="/assets/img/services/ooh-scrub.mp4"
+                  src="/assets/img/services/ooh-scrub-v2.mp4"
+                  poster="/assets/img/services/ooh-scrub-v2-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="OOH advertising: digital billboard and grocery store screen campaign for a small business"
                   pinContainerId="ooh-intro-pin"

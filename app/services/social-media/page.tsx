@@ -99,7 +99,7 @@ export default function SocialMediaPage() {
       <ServiceHero
         headline="Social Media Advertising That Drives Real Growth."
         subtext="Social media advertising is about more than likes and impressions. It's about reaching the right people, generating quality leads and turning attention into customers."
-        bgImage="/assets/img/breadcrumb/social-hero.webp"
+        bgImage="/assets/img/breadcrumb/social-hero-v2.webp"
         stats={[
           { value: '1,500+', label: 'Businesses Supported' },
           { value: '5,000+', label: 'Campaigns Managed' },
@@ -137,7 +137,8 @@ export default function SocialMediaPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
-                  src="/assets/img/services/social-scrub.mp4"
+                  src="/assets/img/services/social-scrub-v2.mp4"
+                  poster="/assets/img/services/social-scrub-v2-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="Social media advertising: Facebook and Instagram ad campaign results for a small business"
                   pinContainerId="social-intro-pin"

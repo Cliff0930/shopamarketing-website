@@ -7,12 +7,16 @@ import { useEffect, useRef } from 'react';
 // encoded (-g 1) or seeking stalls between keyframes.
 const END_TRIM_SECONDS = 0.1;
 
-export default function ScrollScrubVideo({ src, className, ariaLabel, pinContainerId }: { src: string; className?: string; ariaLabel?: string; pinContainerId?: string }) {
+export default function ScrollScrubVideo({ src, poster, className, ariaLabel, pinContainerId }: { src: string; poster?: string; className?: string; ariaLabel?: string; pinContainerId?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+
+    // Mobile/tablet: never load the video — the poster stays as a static image,
+    // so there's no per-frame decode/seek and the scroll stays smooth.
+    if (window.innerWidth < 992) return;
 
     // Pinned mode: scrub follows a sticky wrapper's scroll progress
     // (same mechanics as the home hero) instead of the element's own
@@ -21,9 +25,6 @@ export default function ScrollScrubVideo({ src, className, ariaLabel, pinContain
 
     // Show the first frame immediately without downloading the whole file
     video.src = src;
-
-    // Mobile: no scroll-scrub — the first frame is all we need
-    if (window.innerWidth < 768) return;
 
     let objectUrl = '';
     let rafId = 0;
@@ -108,13 +109,26 @@ export default function ScrollScrubVideo({ src, className, ariaLabel, pinContain
   }, [src, pinContainerId]);
 
   return (
-    <video
-      ref={videoRef}
-      muted
-      playsInline
-      preload="metadata"
-      className={className}
-      aria-label={ariaLabel}
-    />
+    <>
+      {/* Mobile/tablet: a real <img> so it sizes itself (a src-less <video>
+          collapses to zero height); desktop uses the scrubbable <video>. */}
+      {poster && (
+        <img
+          src={poster}
+          alt={ariaLabel}
+          loading="lazy"
+          className={`${className ?? ''} scrub-poster`.trim()}
+        />
+      )}
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        preload="none"
+        poster={poster}
+        className={`${className ?? ''} scrub-video`.trim()}
+        aria-label={ariaLabel}
+      />
+    </>
   );
 }

@@ -149,6 +149,7 @@ export default function GraphicDesignPage() {
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
                   src="/assets/img/services/gfx-scrub-v2.mp4"
+                  poster="/assets/img/services/gfx-scrub-v2-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="Graphic design services: brand identity, logo and marketing collateral for a small business"
                   pinContainerId="gfx-intro-pin"

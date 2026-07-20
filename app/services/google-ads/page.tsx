@@ -98,7 +98,7 @@ export default function GoogleAdsPage() {
             We create and manage high-performing Google Ads campaigns that combine smart strategy, continuous optimisation and data-driven decisions to generate more enquiries, more sales and a stronger return on your advertising investment.
           </>
         }
-        bgImage="/assets/img/breadcrumb/gads-hero.webp"
+        bgImage="/assets/img/breadcrumb/gads-hero-v3.webp"
         stats={[
           { value: '1,500+', label: 'Businesses Supported' },
           { value: '5,000+', label: 'Campaigns Managed' },
@@ -136,7 +136,8 @@ export default function GoogleAdsPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
-                  src="/assets/img/services/gads-scrub.mp4"
+                  src="/assets/img/services/gads-scrub-v4.mp4"
+                  poster="/assets/img/services/gads-scrub-v4-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="Google Ads agency: search campaign dashboard showing lead growth for a small business"
                   pinContainerId="gads-intro-pin"
