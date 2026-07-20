@@ -88,8 +88,13 @@ export default function DoneForYouPage() {
 
       <ServiceHero
         headline="Your Entire Marketing Department. One Monthly Fee."
-        subtext="Why juggle five agencies, three freelancers and a nephew who's 'good with computers'? Our Done For You packages hand your whole marketing operation to one senior team: strategy, execution and reporting, end to end, without the cost of hiring in-house."
+        subtext={'Why manage five agencies, three freelancers and your cousin who “knows social media” when one experienced team can do it all? Strategy, creative, digital, websites, social media, out-of-home, reporting—we become your marketing department, without the overhead of building one.'}
         bgImage="/assets/img/breadcrumb/dfy-hero.webp"
+        stats={[
+          { value: '1,500+', label: 'Businesses Supported' },
+          { value: '5,000+', label: 'Campaigns Managed' },
+          { value: 'One Team.', label: 'Every Marketing Channel.' },
+        ]}
       />
 
       {/* ── INTRO — editorial split ── */}
@@ -105,13 +110,13 @@ export default function DoneForYouPage() {
                     Built for Businesses That Want Growth, Not More Marketing Homework
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Most marketing providers hand you a menu. SEO or social? Google Ads or content? It&apos;s like asking someone to assemble a car from the parts catalogue. We start with a better question: what are you actually trying to achieve? More enquiries? More customers? A name people recognise at the school gate and the footy club?
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Then we build backwards from the answer. Our Done For You packages combine the channels that make sense for YOUR business: website, SEO, Google Ads, social media, creative, content and AI search visibility, and run them as one coordinated strategy with one team and one report that actually makes sense.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    After 5,000+ campaigns, we can tell you the worst-kept secret in marketing: the best results never come from a single channel. They come from channels working together, keeping your brand visible, trusted and top of mind wherever your customers look. That&apos;s exactly what these packages deliver!
+                    Most marketing providers sell individual services. SEO. Google Ads. Social media. Websites. The problem is, your customers don&apos;t experience your business one channel at a time.
+                    <br /><br />
+                    We start somewhere different. We take the time to understand your business, your goals and what&apos;s actually going to move the needle. Then we build a marketing strategy that brings the right channels together, all managed by one dedicated team.
+                    <br /><br />
+                    From your website and SEO to Google Ads, social media, creative, content and out-of-home advertising, everything works together as one coordinated strategy. One team. One point of contact. One report that actually makes sense.
+                    <br /><br />
+                    Because after managing more than 5,000 campaigns, we&apos;ve learned that the best marketing doesn&apos;t happen in silos. It happens when every part of your marketing is pulling in the same direction.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -150,17 +155,15 @@ export default function DoneForYouPage() {
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 chy-split-in-right chy-split-text">No Lock-In Contracts. Just Results Worth Staying For.</h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    We don&apos;t do handcuffs. No lengthy contracts, no exit fees, no fine print that needs a lawyer and a strong coffee. Our clients stay because the strategy, execution and results make sense, not because a document says they must.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    But let&apos;s be upfront about one thing, because honesty is cheaper than disappointment: real marketing momentum takes time. Building brand awareness, gathering campaign data, optimising performance and climbing SEO rankings typically takes 3 to 4 months before the consistent traction kicks in. Anyone who promises otherwise is selling you a lottery ticket, not a strategy.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    So while you&apos;re free to leave any time, we recommend giving the machine time to warm up properly. And if you ever decide to take things in-house or in another direction, we&apos;ll hand everything over smoothly, with a smile and zero drama.
+                    We don&apos;t believe in locking clients into long contracts. No exit fees. No confusing fine print. Our clients stay because the strategy works, the service is great and the results keep coming.
+                    <br /><br />
+                    That said, great marketing isn&apos;t instant. Building awareness, collecting meaningful data, optimising campaigns and improving search rankings takes time. Most businesses start seeing consistent momentum after three to four months, not three to four weeks.
+                    <br /><br />
+                    You&apos;re free to leave whenever you like, but we&apos;d rather build a partnership that&apos;s worth staying for.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
-                  <span className="text">Get a Quote</span>
+                  <span className="text">Let&apos;s Talk</span>
                   <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                 </a>
               </div>
@@ -198,7 +201,9 @@ export default function DoneForYouPage() {
               <div className="mb-30">
                 <h2 className="chy-title-1" style={{ color: '#fff' }}>A Full Marketing Team, Minus the Payroll</h2>
                 <p className="chy-section-para-1 wow fadeInUp" style={{ marginTop: '18px', color: 'rgba(255,255,255,0.95)' }}>
-                  Hiring a strategist, designer, SEO specialist, ads expert and content creator would cost you several salaries, a bigger office and a small mountain of HR paperwork. Or you could have all of them tomorrow, for one monthly fee. From brand awareness and lead generation through to AI search visibility and live reporting dashboards, Shopa Marketing runs the entire process end to end while you run your business.
+                  Hiring a marketing strategist, designer, SEO specialist, Google Ads expert, content creator and account manager means multiple salaries, recruitment, training and overheads. Or you could have an experienced team ready to go for one monthly fee.
+                  <br /><br />
+                  From strategy and creative to websites, SEO, Google Ads, social media, content and out-of-home advertising, we manage your entire marketing operation from end to end—while you focus on running your business.
                 </p>
               </div>
             </div>

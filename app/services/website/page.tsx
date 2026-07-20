@@ -36,47 +36,47 @@ export default function WebsiteDesignPage() {
   ];
 
   const stats = [
-    { value: '94', unit: '%', label: 'of first impressions are shaped by your website\'s design and presentation. Your site speaks before you do!' },
-    { value: '3', unit: 'seconds', label: 'of loading is all it takes for visitors to start heading for the exits. Tough crowd, the internet.' },
-    { value: '75', unit: '%', label: 'of people size up your credibility from your website alone. Before the phone call. Before the quote. Before hello.' },
-    { value: '2x', unit: 'and more', label: 'High-performance websites turn the same traffic into double the enquiries, sometimes more. Identical visitors, very different results.' },
+    { value: '94', unit: '%', label: 'of first impressions are based on your website\'s design and overall presentation.' },
+    { value: '3', unit: 'seconds', label: 'is all it takes for visitors to decide whether to stay or leave if your website is slow to load.' },
+    { value: '75', unit: '%', label: 'of consumers judge a business\'s credibility based on its website.' },
+    { value: '2x', unit: 'or more', label: 'Well-designed, conversion-focused websites can generate significantly more enquiries from the same amount of traffic.' },
   ];
 
   const buildCards: { icon: string; title: string; body: React.ReactNode; image?: string }[] = [
     {
       icon: 'flaticon-web-designing',
       image: '/assets/img/website/console-custom.webp',
-      title: 'One-of-a-Kind Custom Website Design',
+      title: 'Custom Website Design',
       body: <>Templates are the fast fashion of the internet: everywhere, identical and instantly forgettable. We design from a blank canvas, shaping every page around your brand, your customers and your goals. If an element doesn&apos;t pull its weight, it doesn&apos;t make the cut!</>,
     },
     {
       icon: 'flaticon-shopping-cart',
       image: '/assets/img/website/console-ecommerce.webp',
-      title: 'Checkout Champions: eCommerce Website Design',
+      title: 'eCommerce Websites',
       body: <>Shopify and WooCommerce stores where browsing turns into buying. Product pages that sell the sizzle, a checkout smoother than a flat white, and payments locked up tight. Every abandoned cart is money strolling out the door, so we build stores that close the deal.</>,
     },
     {
       icon: 'flaticon-mobile-development',
       image: '/assets/img/website/console-responsive.webp',
-      title: 'Small-Screen Superstars: Responsive Web Design',
+      title: 'Mobile-Responsive Design',
       body: <>Phone, tablet, laptop, or the giant monitor in reception: your website shows up dressed for the occasion on all of them. We design mobile-first, because that&apos;s where your customers live, then polish the experience for every other screen size going.</>,
     },
     {
       icon: 'flaticon-seo',
       image: '/assets/img/website/console-seo.webp',
-      title: 'Born to Rank: SEO-Friendly Web Design',
+      title: 'SEO & AI-Ready Foundations',
       body: <>Plenty of agencies hand over a shiny new site, then charge extra to make Google notice it. We think that&apos;s backwards! Clean architecture, structured data and technical SEO go into the foundations of every build, so you launch ready to climb. Our <a href="/services/seo-services">SEO services</a> can then take you all the way to the summit.</>,
     },
     {
       icon: 'flaticon-statistics',
       image: '/assets/img/website/console-performance.webp',
-      title: 'Lightning Loaders: High-Performance Builds',
+      title: 'High-Performance Websites',
       body: <>In web terms, slow is invisible. Every site we build meets Google&apos;s Core Web Vitals standards, with lean code, optimised assets and clever hosting aimed at load times under two seconds. Your customers get answers before they remember they were waiting.</>,
     },
     {
       icon: 'flaticon-customer-service',
       image: '/assets/img/website/console-maintenance.webp',
-      title: 'Aftercare All-Stars: Maintenance and Support',
+      title: 'Ongoing Maintenance & Support',
       body: <>Some agencies treat launch day like a farewell party. We treat it like opening night! Every website design package includes a sweet bonus: 12 months of complimentary maintenance covering security, updates, backups and real support, plus a lifetime guarantee against technical glitches.</>,
     },
   ];
@@ -84,46 +84,46 @@ export default function WebsiteDesignPage() {
   const processSteps = [
     {
       step: '01',
-      title: 'Discovery and Strategy',
-      body: 'First, we get nosy, in the most professional way possible. Your business, your customers, your competitors, and what a single lead is really worth to you. All of it feeds the blueprint: site structure, messaging and design direction, sorted before a single pixel moves.',
+      title: 'Discovery & Strategy',
+      body: 'We start by understanding your business, your customers, your goals and your competitors. From there, we develop the website strategy, site structure, messaging and user journey before any design work begins.',
     },
     {
       step: '02',
-      title: 'Design and Experience',
-      body: 'Now the blueprint gets beautiful! We craft a design that captures your brand and gently ushers visitors towards the enquiry button, like a good waiter guiding you to the specials. You see it, you tweak it, you approve it before we build a thing.',
+      title: 'Design & User Experience',
+      body: 'Our designers create a custom website that reflects your brand while making it easy for visitors to find information, build trust and take action. You’ll have the opportunity to review and approve the design before development begins.',
     },
     {
       step: '03',
-      title: 'Build and Development',
-      body: 'Our developers roll up their sleeves and bring the design to life: clean code, rapid load times and security done properly, on platforms trusted by millions of businesses. Built right the first time, because nobody dreams of paying for the same website twice.',
+      title: 'Development & Optimisation',
+      body: 'Once approved, our developers bring your website to life with clean code, fast performance, mobile responsiveness, SEO best practices and a secure technical foundation built to grow with your business.',
     },
     {
       step: '04',
-      title: 'Test, Refine and Launch',
-      body: "Before your site meets the public, it survives our gauntlet: every device, every browser, every 'what if someone clicks this twice?' scenario we can dream up. Then we go live, the site is fully yours, and your 12 months of complimentary maintenance starts on the spot.",
+      title: 'Testing, Launch & Ongoing Support',
+      body: 'Before launch, every website is thoroughly tested across devices and browsers to ensure everything performs exactly as it should. Once your site goes live, you’ll receive 12 months of complimentary maintenance and our lifetime guarantee against technical glitches, giving you complete confidence long after launch.',
     },
   ];
 
   const diffCards = [
     {
       icon: 'flaticon-guarantee',
-      title: 'A Full Year of Maintenance, On the House',
-      body: <>Security monitoring, updates, backups and support for 12 months, plus a lifetime guarantee against technical glitches. Peace of mind shouldn&apos;t be sold separately, so we put it in every box.</>,
+      title: '12 Months of Complimentary Maintenance',
+      body: <>Every website includes 12 months of maintenance, security updates, backups and ongoing support, plus a lifetime guarantee against technical glitches. Your website stays secure, up to date and performing at its best.</>,
     },
     {
       icon: 'flaticon-digital-campaign',
-      title: 'Every Marketing Channel, One Crew',
-      body: <>Your website is the home ground. We also run your <a href="/services/seo-services">SEO</a>, <a href="/services/google-ads">Google Ads</a>, <a href="/services/social-media">social media advertising</a> and <a href="/services/graphic-design">graphic design</a> from the same playbook, so every channel is chasing the same goal instead of five agencies playing five different games.</>,
+      title: 'One Team. Every Marketing Channel.',
+      body: <>Your website is just the beginning. We also manage your <a href="/services/seo-services">SEO</a>, <a href="/services/google-ads">Google Ads</a>, <a href="/services/social-media">social media</a>, creative and out-of-home advertising, giving you one integrated marketing strategy instead of multiple disconnected suppliers.</>,
     },
     {
       icon: 'flaticon-team',
-      title: 'One Name, One Number, One Person Who Gets It',
-      body: <>Your dedicated account manager knows your business, your goals and your pet peeves. No call centres, no ticket numbers, no starting the story from scratch every time you call.</>,
+      title: 'A Dedicated Account Manager',
+      body: <>You&apos;ll work with one dedicated account manager who understands your business, your goals and your marketing strategy, giving you a single point of contact whenever you need support.</>,
     },
     {
       icon: 'flaticon-price-tag',
-      title: 'Pricing With No Fine-Print Surprises',
-      body: <>The quote we give you is the bill you get. No hidden fees, no creeping extras, no &apos;small additional cost&apos; emails in week five. All-inclusive rates to avoid any nasty surprises, agreed upfront and honoured to the end.</>,
+      title: 'Transparent, All-Inclusive Pricing',
+      body: <>The price we quote is the price you pay. No hidden fees, unexpected extras or surprise invoices—just clear, upfront pricing from day one.</>,
     },
   ];
 
@@ -187,9 +187,20 @@ export default function WebsiteDesignPage() {
       </div>
 
       <ServiceHero
-        headline="Web Design That Stops the Scroll and Starts the Sales"
-        subtext="Why settle for a website that just sits there nodding politely? As the go-to web design agency for SMEs, we build fast, mobile-first websites that grab attention, hold it, and hand it back only after it's become a customer!"
+        headline="Websites Built to Grow Your Business."
+        subtext={
+          <>
+            Your website should do more than look good. It should build trust, generate enquiries and turn visitors into customers.
+            <br /><br />
+            We design fast, mobile-friendly websites that combine great design, seamless user experience and clear conversion strategies, helping your business stand out and grow online.
+          </>
+        }
         bgImage="/assets/img/breadcrumb/website-hero-v2.webp"
+        stats={[
+          { value: '1,500+', label: 'Businesses Supported' },
+          { value: '5,000+', label: 'Campaigns Managed' },
+          { value: 'Fast. Modern.', label: 'Built to Convert.' },
+        ]}
       />
 
       {/* ── INTRO — editorial split, home "Solutions" rhythm ── */}
@@ -202,16 +213,18 @@ export default function WebsiteDesignPage() {
               <div className="wds-intro-content">
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                    Custom Website Design That Works Around the Clock
+                    Anyone Can Build a Website. Not Everyone Can Build One That Grows a Business.
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Picture your best salesperson. Now imagine they never sleep, never take holidays, and can chat with a thousand customers at once without breaking a sweat. That&apos;s what your website should be! For most businesses though, it&apos;s more like a mannequin in the window: nicely dressed, completely silent.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    We&apos;re here to change that. Our website design services turn quiet websites into your loudest revenue channel: answering questions, building trust and collecting enquiries while you&apos;re at dinner, at footy practice, or fast asleep.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Every custom website we build loads in a blink, looks brilliant on every screen, and is wired to be found by Google and the AI search tools your customers now use. And what&apos;s more? Every package includes a sweet bonus: 12 months of complimentary maintenance, plus a lifetime guarantee against technical glitches.
+                    AI can build a website in minutes. But a great business website takes much more than a few prompts.
+                    <br /><br />
+                    It needs the right strategy, messaging, user experience, SEO foundations, conversion pathways, mobile performance and clear calls to action—all working together to turn visitors into customers.
+                    <br /><br />
+                    That&apos;s exactly what we build.
+                    <br /><br />
+                    Every website is custom designed around your business, optimised for Google and AI search, built to load fast on every device and created with one goal in mind: helping your business grow.
+                    <br /><br />
+                    Every package also includes 12 months of complimentary maintenance and a lifetime guarantee against technical glitches, so your website continues performing long after it goes live.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -249,9 +262,13 @@ export default function WebsiteDesignPage() {
 
         <div className="container chy-container-1">
           <div className="wds-culprit-head">
-            <h2 className="chy-title-1">Why Many Business Websites Underperform</h2>
+            <h2 className="chy-title-1">Why Some Websites Generate Enquiries—and Others Don&apos;t.</h2>
             <p className="chy-section-para-1">
-              Ever wondered why some websites pull in customers like a bakery pulls in morning commuters, while others just gather dust? It&apos;s rarely bad luck. The culprits hide under the bonnet, quietly costing you enquiries every single day. Let&apos;s pop the hood.
+              A great-looking website doesn&apos;t always make a great business website.
+              <br /><br />
+              The difference usually comes down to the fundamentals: clear messaging, intuitive navigation, fast load times, mobile performance, trust signals, strong calls to action and a website that&apos;s built around how customers actually make buying decisions.
+              <br /><br />
+              That&apos;s where most websites fall short—and exactly where we focus.
             </p>
           </div>
 
@@ -282,10 +299,12 @@ export default function WebsiteDesignPage() {
 
           <div className="wds-ledger-head">
             <h2 className="chy-title-1" style={{ color: '#fff' }}>
-              Why Professional Website Design Is Make or Break for Business Growth
+              Why Your Website Is One of Your Most Valuable Business Assets.
             </h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)' }}>
-              Think of your website as prime real estate on the busiest street in the country. You can build a flagship store, or you can put up a shed. The numbers show exactly how much that choice matters.
+              Your website is often the first impression customers have of your business. It shapes credibility, influences buying decisions and can be the difference between someone getting in touch or moving on to a competitor.
+              <br /><br />
+              The numbers speak for themselves.
             </p>
           </div>
 
@@ -310,9 +329,11 @@ export default function WebsiteDesignPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">our website design services</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Website Design Services With Serious Firepower</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Everything You Need for a High-Performing Website.</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '720px', margin: '10px auto 0' }}>
-              New builds, bold redesigns and full-scale rescues. Whatever shape your project takes, it gets the same treatment: crafted to perform for years, quick off the mark, and ready to grow the moment your business does.
+              Whether you&apos;re launching a new website, redesigning an existing one or improving performance, our team builds websites that are fast, secure, easy to manage and designed to grow alongside your business.
+              <br /><br />
+              Every website is built with performance, user experience and long-term growth in mind.
             </p>
           </div>
 
@@ -344,9 +365,9 @@ export default function WebsiteDesignPage() {
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">our web design process</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Our Website Design Process, Minus the Mystery</h2>
+            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Our Website Design Process</h2>
             <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '680px', margin: '10px auto 0' }}>
-              No smoke, no mirrors, no invoices that arrive with plot twists. Just four clear stages between where you are now and a website that earns its keep.
+              A great website doesn&apos;t happen by chance. Every project follows a clear, collaborative process that keeps you informed from the first conversation through to launch.
             </p>
           </div>
 
@@ -371,10 +392,10 @@ export default function WebsiteDesignPage() {
           <div className="wds-deal-head">
             <div>
               <h5 className="chy-subtitle-1 wow fadeInDown">why choose us</h5>
-              <h2 className="chy-title-1">Why SMEs Pick Our Web Design Team</h2>
+              <h2 className="chy-title-1">Why Businesses Choose Shopa Marketing</h2>
             </div>
             <p className="chy-section-para-1 wow fadeInUp">
-              Because we bring the kind of marketing muscle usually reserved for companies with skyscrapers on their letterhead, and we bring it to SMEs at prices that don&apos;t require a board meeting.
+              A great website is only part of the equation. You also need the strategy, support and marketing expertise to help it deliver results long after launch.
             </p>
           </div>
 

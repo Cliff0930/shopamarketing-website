@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 
 // All-intra encode (every frame a keyframe) — scrubbing seeks to arbitrary
 // timestamps, and sparse keyframes make the scrub stall between them.
-const VIDEO_SRC = '/assets/img/hero/hero-scrub-v3.mp4';
+const VIDEO_SRC = '/assets/img/hero/hero-scrub-v5.mp4';
 // Safety margin so full scroll never lands on a dark tail frame.
 const END_TRIM_SECONDS = 0.1;
 

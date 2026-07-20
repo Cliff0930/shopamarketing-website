@@ -90,9 +90,20 @@ export default function GoogleAdsPage() {
       </div>
 
       <ServiceHero
-        headline="Google Ads That Catch Customers Mid-Search"
-        subtext="When someone Googles what you sell, it's a race with one winner. As the Google Ads agency SMEs trust, we run campaigns obsessed with cost per lead, not vanity clicks. No wasted spend, no set-and-forget, no excuses!"
+        headline="Google Ads That Turn Searches Into Customers."
+        subtext={
+          <>
+            When people search for your products or services, they&apos;re already looking for a solution. Our job is to make sure they find your business first.
+            <br /><br />
+            We create and manage high-performing Google Ads campaigns that combine smart strategy, continuous optimisation and data-driven decisions to generate more enquiries, more sales and a stronger return on your advertising investment.
+          </>
+        }
         bgImage="/assets/img/breadcrumb/gads-hero.webp"
+        stats={[
+          { value: '1,500+', label: 'Businesses Supported' },
+          { value: '5,000+', label: 'Campaigns Managed' },
+          { value: 'Google Ads', label: 'Managed by Experts' },
+        ]}
       />
 
       {/* ── INTRO — editorial split, pinned while the video scrubs ── */}
@@ -105,16 +116,14 @@ export default function GoogleAdsPage() {
               <div className="wds-intro-content">
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                    Google Ads Management for Customers Who Are Ready to Buy
+                    Reach Customers at the Exact Moment They&apos;re Ready to Buy.
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    There&apos;s no warmer lead on earth than someone typing exactly what you sell into Google. They&apos;re not browsing, they&apos;re not &apos;just looking&apos;, their hand is already up. Google Ads puts your business in front of them at that precise moment, and our job is making sure you win that moment more often, for less money.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    We manage Search, Shopping, Display, YouTube and Performance Max campaigns across Google&apos;s entire network, with every decision anchored to the numbers that actually pay your bills: leads, sales and return on ad spend. Impressions don&apos;t buy anything. Customers do.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Precision targeting, sharp creative and daily optimisation, all run by senior specialists who treat your budget like it&apos;s their own. Because honestly, we&apos;re a bit precious about wasted money.
+                    Google Ads puts your business in front of people actively searching for your products and services, making it one of the most effective ways to generate qualified leads and sales.
+                    <br /><br />
+                    Our team manages Search, Shopping, Display, YouTube and Performance Max campaigns, combining smart targeting, compelling ad creative and continuous optimisation to maximise your return on investment.
+                    <br /><br />
+                    Every decision is backed by data, with a focus on the metrics that matter most—more enquiries, more customers and sustainable business growth.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -152,9 +161,11 @@ export default function GoogleAdsPage() {
 
         <div className="container chy-container-1">
           <div className="wds-deal-head">
-            <h2 className="chy-title-1">Google Ads Services That Squeeze Every Cent</h2>
+            <h2 className="chy-title-1">Everything You Need for High-Performing Google Ads.</h2>
             <p className="chy-section-para-1 wow fadeInUp">
-              Account setup, keyword strategy, creative, bidding and reporting: every piece of your Google Ads managed under one roof, with one goal. Maximum return on every dollar you put in.
+              From account setup and keyword strategy to ad creative, bidding, optimisation and reporting, we manage every aspect of your Google Ads campaigns.
+              <br /><br />
+              Our team continuously monitors, tests and refines performance to help you generate more qualified leads, increase conversions and maximise the return on every advertising dollar.
             </p>
           </div>
 
@@ -179,13 +190,14 @@ export default function GoogleAdsPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="mb-30">
                 <h2 className="chy-title-1" style={{ color: '#fff' }}>
-                  Google Ads Got Complicated. Lucky for You, We Kept Up.
+                  Google Ads Never Stops Evolving. Neither Do We.
                 </h2>
                 <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
-                  Once upon a time, Google Ads was ten keywords and a prayer. These days it&apos;s smart bidding, Performance Max, consent mode and algorithm updates arriving faster than public holidays. The platform is brilliant, but it&apos;s also very happy to spend your entire budget on searches that have nothing to do with your business, and it won&apos;t apologise afterwards.
-                </p>
-                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                  Poor account structure and unwatched campaigns drain budgets quietly and quickly. Our specialists actively manage your account every day: tightening targeting, culling wasted spend and steering the machine so it works for you, not on you. The result? Consistent leads at a cost per lead that keeps making sense.
+                  Google Ads is constantly evolving. New campaign types, AI-powered bidding, Performance Max, privacy updates and changing search behaviour all influence how your campaigns perform.
+                  <br /><br />
+                  That&apos;s why successful Google Ads management isn&apos;t something you set up once and leave running. It requires continuous monitoring, optimisation and strategic decision-making to keep delivering strong results.
+                  <br /><br />
+                  Our specialists actively manage your campaigns every day, refining targeting, improving ad performance and reducing wasted spend to help you generate more qualified leads and maximise your return on investment.
                 </p>
               </div>
             </div>

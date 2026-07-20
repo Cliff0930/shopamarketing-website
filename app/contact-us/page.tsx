@@ -1,19 +1,19 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ContactForm from "@/components/contact/ContactForm";
 import StarAnimationTrigger from "@/components/StarAnimationTrigger";
-import HeroCounters from "@/components/HeroCounters";
+import { getGoogleRating } from "@/lib/googleReviews";
 
 export const metadata = {
   title: "Contact Us — Shopa Marketing",
   description: "Book a strategy session with Shopa Marketing. Speak directly with a senior marketing specialist — no junior accounts, no sales pitch.",
 };
 
-export default function ContactUsPage() {
+export default async function ContactUsPage() {
+  const googleRating = await getGoogleRating();
   return (
     <>
       <TemplateScripts />
       <StarAnimationTrigger />
-      <HeroCounters />
 
       {/* preloader */}
       <div id="preloader"><div className="loader_line"></div></div>
@@ -26,11 +26,11 @@ export default function ContactUsPage() {
           <div className="contact-hero__inner">
 
             <h1 className="chy-title-1 contact-hero__headline wow fadeInLeft" data-wow-duration="1.2s">
-              Let&apos;s Build Something <br />That Actually Works.
+              Let&apos;s Build Something <br />That&apos;s Hard to Ignore.
             </h1>
 
             <p className="contact-hero__sub wow fadeInUp" data-wow-duration="2s">
-              Book a strategy session and speak directly with a senior marketing specialist — no junior account managers, no generic sales pitch. Just an honest conversation about your business.
+              Book a 30-minute strategy session and speak directly with one of our senior marketing specialists. No generic sales pitch. No pressure. Just an honest conversation about your business, your goals and where the biggest opportunities for growth lie.
             </p>
 
             {/* Google rating */}
@@ -51,24 +51,24 @@ export default function ContactUsPage() {
                 <i className="fa-solid fa-star star-4"></i>
                 <i className="fa-solid fa-star star-5"></i>
               </div>
-              <span className="contact-hero__rating">4.7 · 319 Verified Reviews</span>
+              <span className="contact-hero__rating">{googleRating.rating}★ Google Rating</span>
             </div>
 
             {/* Stats strip */}
             <div className="contact-hero__stats contact-hero__stats--animate">
               <div className="contact-hero__stat">
-                <span className="contact-hero__stat-num"><span id="hero-counter-1">0</span>+</span>
-                <span className="contact-hero__stat-label">Years Experience</span>
+                <span className="contact-hero__stat-num">1,500+</span>
+                <span className="contact-hero__stat-label">Businesses Supported</span>
               </div>
               <div className="contact-hero__stat-divider" />
               <div className="contact-hero__stat">
-                <span className="contact-hero__stat-num"><span id="hero-counter-2">0</span>+</span>
-                <span className="contact-hero__stat-label">Campaigns Delivered</span>
+                <span className="contact-hero__stat-num">5,000+</span>
+                <span className="contact-hero__stat-label">Campaigns Managed</span>
               </div>
               <div className="contact-hero__stat-divider" />
               <div className="contact-hero__stat">
-                <span className="contact-hero__stat-num"><span id="hero-counter-3">0</span>+</span>
-                <span className="contact-hero__stat-label">Businesses Served</span>
+                <span className="contact-hero__stat-num">One Team.</span>
+                <span className="contact-hero__stat-label">Every Marketing Channel.</span>
               </div>
             </div>
 
@@ -102,6 +102,7 @@ export default function ContactUsPage() {
                   <div>
                     <h6>Australia</h6>
                     <p>3 Albert Coates Lane, Melbourne 3000</p>
+                    <a href="tel:1800247034" className="contact-info-card__phone"><i className="fas fa-phone"></i> 1800 247 034</a>
                   </div>
                 </div>
                 <div className="contact-info-card__office">
@@ -109,20 +110,14 @@ export default function ContactUsPage() {
                   <div>
                     <h6>New Zealand</h6>
                     <p>Level 4, 110 Carlton Gore, Auckland 1023</p>
+                    <a href="tel:0800200076" className="contact-info-card__phone"><i className="fas fa-phone"></i> 0800 200 076</a>
                   </div>
                 </div>
                 <div className="contact-info-card__office">
-                  <div className="contact-info-card__icon"><i className="fas fa-phone"></i></div>
+                  <div className="contact-info-card__icon"><i className="fas fa-map-marker-alt"></i></div>
                   <div>
-                    <h6>Call AU</h6>
-                    <a href="tel:1800247034">1800 247 034</a>
-                  </div>
-                </div>
-                <div className="contact-info-card__office">
-                  <div className="contact-info-card__icon"><i className="fas fa-phone"></i></div>
-                  <div>
-                    <h6>Call NZ</h6>
-                    <a href="tel:0800200076">0800 200 076</a>
+                    <h6>UAE</h6>
+                    <p>Shams Business Center, Sharjah, Media City Free Zone, Al Messaned</p>
                   </div>
                 </div>
               </div>

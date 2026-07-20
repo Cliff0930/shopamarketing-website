@@ -20,12 +20,10 @@ export default async function BlogPage({
     getCategories(),
   ]);
 
-  const totalArticles = categories.reduce((sum, c) => sum + c.count, 0);
-
   return (
     <>
       <TemplateScripts />
-      <BlogHeroCounters years={45} articles={totalArticles} categories={categories.length} />
+      <BlogHeroCounters businesses={1500} campaigns={5000} />
 
       {/* preloader */}
       <div id="preloader">
@@ -38,28 +36,28 @@ export default async function BlogPage({
           <div className="blog-hero__inner">
 
             <h1 className="chy-title-1 blog-hero__headline wow fadeInLeft" data-wow-duration="1.2s">
-              Marketing Insights <br />Worth Your Time.
+              Marketing That Makes <br />More Sense.
             </h1>
 
             <p className="blog-hero__sub wow fadeInUp" data-wow-duration="2s">
-              Straight-talking strategy, campaign breakdowns, and growth tactics from the specialists behind 1,000+ businesses. No fluff, no recycled advice.
+              Practical marketing insights, real campaign learnings and straightforward advice from the team behind more than 5,000 campaigns. No fluff. No buzzwords. Just ideas that help businesses grow.
             </p>
 
             {/* Stats strip */}
             <div className="blog-hero__stats blog-hero__stats--animate">
               <div className="blog-hero__stat">
                 <span className="blog-hero__stat-num"><span id="blog-hero-counter-1">0</span>+</span>
-                <span className="blog-hero__stat-label">Years Combined Experience</span>
+                <span className="blog-hero__stat-label">Businesses Supported</span>
               </div>
               <div className="blog-hero__stat-divider" />
               <div className="blog-hero__stat">
                 <span className="blog-hero__stat-num"><span id="blog-hero-counter-2">0</span>+</span>
-                <span className="blog-hero__stat-label">Articles Published</span>
+                <span className="blog-hero__stat-label">Campaigns Managed</span>
               </div>
               <div className="blog-hero__stat-divider" />
               <div className="blog-hero__stat">
-                <span className="blog-hero__stat-num"><span id="blog-hero-counter-3">0</span></span>
-                <span className="blog-hero__stat-label">Categories Covered</span>
+                <span className="blog-hero__stat-num">Real Marketing</span>
+                <span className="blog-hero__stat-label">Real Business Advice</span>
               </div>
             </div>
 

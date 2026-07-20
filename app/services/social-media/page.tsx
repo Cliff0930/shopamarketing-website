@@ -97,9 +97,14 @@ export default function SocialMediaPage() {
       </div>
 
       <ServiceHero
-        headline="Social Media Ads That Turn Scrollers Into Shoppers"
-        subtext="Boosting posts and hoping for the best? That's not a strategy, that's a raffle ticket. As the social media advertising agency SMEs trust, we build Meta, Instagram and TikTok campaigns on real audience data, and tie every dollar back to revenue."
+        headline="Social Media Advertising That Drives Real Growth."
+        subtext="Social media advertising is about more than likes and impressions. It's about reaching the right people, generating quality leads and turning attention into customers."
         bgImage="/assets/img/breadcrumb/social-hero.webp"
+        stats={[
+          { value: '1,500+', label: 'Businesses Supported' },
+          { value: '5,000+', label: 'Campaigns Managed' },
+          { value: 'Meta, TikTok & LinkedIn', label: 'Advertising Experts' },
+        ]}
       />
 
       {/* ── INTRO — editorial split ── */}
@@ -112,16 +117,14 @@ export default function SocialMediaPage() {
               <div className="wds-intro-content">
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                    Social Media Advertising That Pays Its Way
+                    Reach the Right People. Grow Your Business.
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Scrolling is the new strolling, and the feed is the new main street. Your customers wander through it for hours every day, past thousands of shopfronts fighting for a glance. The brands that win aren&apos;t the loudest. They&apos;re the ones who know exactly who&apos;s walking past, and exactly what makes them stop.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    That&apos;s our home turf. Our social media advertising gets businesses in front of precisely the right people on Facebook, Instagram, TikTok, LinkedIn and beyond, with creative they actually want to look at. Likes are lovely, but we&apos;re greedy about the things that matter: leads, sales and brand awareness you can measure.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Audience intelligence, creative strategy and relentless optimisation, all pulling in one direction: your bottom line.
+                    Your customers spend hours every day on social media, making it one of the most powerful places to build awareness, generate leads and drive sales.
+                    <br /><br />
+                    We create and manage high-performing advertising campaigns across Facebook, Instagram, TikTok and LinkedIn, combining audience targeting, compelling creative and ongoing optimisation to maximise your return on investment.
+                    <br /><br />
+                    Every campaign is built around your business goals, whether that&apos;s generating enquiries, increasing online sales, building brand awareness or driving more customers through your doors.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -159,9 +162,11 @@ export default function SocialMediaPage() {
 
         <div className="container chy-container-1">
           <div className="wds-deal-head">
-            <h2 className="chy-title-1">Social Media Ad Services That Sweat Every Dollar</h2>
+            <h2 className="chy-title-1">Everything You Need for High-Performing Social Media Advertising.</h2>
             <p className="chy-section-para-1 wow fadeInUp">
-              From strategy and audience building to creative production and daily fine-tuning, we run every element of your social media advertising, so your budget works harder than a barista on Monday morning.
+              From campaign strategy and audience targeting to creative development, campaign management and ongoing optimisation, we manage every aspect of your social media advertising.
+              <br /><br />
+              Our team continually tests, refines and improves your campaigns to maximise performance, helping you generate more leads, more sales and a stronger return on your advertising investment.
             </p>
           </div>
 
@@ -196,13 +201,14 @@ export default function SocialMediaPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="mb-30">
                 <h2 className="chy-title-1" style={{ color: '#fff' }}>
-                  The Algorithm Changed Again. Good Thing We Never Sleep.
+                  Social Media Never Stands Still. Neither Do We.
                 </h2>
                 <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
-                  Here&apos;s the uncomfortable truth about social media advertising: the platforms move the goalposts constantly. Algorithms shift, ad formats appear and vanish, targeting rules get rewritten overnight. What worked brilliantly in March can quietly burn money by June, and the platforms won&apos;t send you a memo about it.
-                </p>
-                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                  That&apos;s why DIY ads and set-and-forget agencies get expensive fast. Our team lives inside these platforms every day, spotting the changes early and adjusting your campaigns before performance dips. You stay profitable while everyone else is still reading the update notes!
+                  Social media advertising is constantly evolving. Platforms update their algorithms, introduce new ad formats and change how campaigns are delivered, making ongoing optimisation essential for long-term success.
+                  <br /><br />
+                  That&apos;s why we don&apos;t launch campaigns and hope for the best. We continuously monitor performance, test new creative, refine audience targeting and optimise every campaign to keep your advertising performing at its best.
+                  <br /><br />
+                  While others react to changes after they&apos;ve happened, we&apos;re already adapting your strategy to help you stay ahead.
                 </p>
               </div>
             </div>

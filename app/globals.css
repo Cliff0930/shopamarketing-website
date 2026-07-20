@@ -852,15 +852,20 @@ body {
 }
 /* ── Homepage hero ───────────────────────────────────── */
 .chy-hero-1-content .title {
-  font-size: 65px !important;
+  font-size: 58px !important;
+  white-space: nowrap !important;
+  max-width: none !important;
 }
+/* Slight left indent so the subtitle + body copy start inside the headline's left edge */
+.chy-hero-1-content .disc { padding-left: 8px; }
+.chy-hero-1-content .subtitle { padding-left: 10px !important; }
 @media (max-width: 1399px) { .chy-hero-1-content .title { font-size: 56px !important; } }
 @media (max-width: 1199px) { .chy-hero-1-content .title { font-size: 48px !important; } }
 @media (max-width: 991px)  { .chy-hero-1-content .title { font-size: 42px !important; } }
 @media (max-width: 767px)  { .chy-hero-1-content .title { font-size: 34px !important; } }
 /* Laptop band (MacBook Air etc.): the headline needs a size that wraps
    cleanly inside the half-width hero column */
-@media (min-width: 1200px) and (max-width: 1599px) { .chy-hero-1-content .title { font-size: 44px !important; } }
+@media (min-width: 1200px) and (max-width: 1599px) { .chy-hero-1-content .title { font-size: 40px !important; } }
 .chy-hero-1-content .btn-wrap { flex-wrap: nowrap !important; }
 
 /* ── Trusted section ─────────────────────────────────── */
@@ -946,6 +951,9 @@ body {
   from { transform: translateX(0); }
   to   { transform: translateX(-50%); }
 }
+/* Second row — scrolls the opposite direction */
+.clients-ticker-wrap--row2 { margin-top: 20px; }
+.clients-ticker-track--reverse { animation-direction: reverse; }
 .clients-logo-card {
   width: 220px;
   height: 110px;
@@ -975,6 +983,13 @@ body {
 }
 .clients-logo-card:hover img { transform: scale(1.06); }
 
+/* Full-colour partner logos: light card so colours stay true, less padding so they sit larger */
+.clients-logo-card--light {
+  background: #ffffff;
+  border-color: rgba(0, 0, 0, 0.08);
+  padding: 8px 14px;
+}
+
 /* ── As Featured In Strip ────────────────────────────── */
 .featured-in-strip {
   margin-top: 32px;
@@ -989,9 +1004,11 @@ body {
    push the featured-in strip past the 100vh panel's bottom edge — tighten
    the vertical rhythm so everything stays in view */
 @media (min-width: 992px) and (max-height: 980px) {
-  .chy-hero-1-content .title { margin-bottom: 10px !important; }
-  .chy-hero-1-content .disc { margin-bottom: 18px !important; }
-  .featured-in-strip { margin-top: 20px; padding-top: 16px; }
+  .chy-hero-1-content .title { margin-bottom: 8px !important; }
+  .chy-hero-1-content .subtitle { margin-bottom: 8px !important; }
+  .chy-hero-1-content .disc { margin-bottom: 12px !important; }
+  .chy-hero-1-content .btn-wrap { margin-top: 4px !important; }
+  .featured-in-strip { margin-top: 12px; padding-top: 12px; }
 }
 .featured-in-label {
   font-size: 11px;
@@ -1594,7 +1611,7 @@ body {
 .shopa-floating-card {
   --fc-pad: clamp(18px, 2.5vw, 26px);
   width: 230px;
-  height: 230px;
+  height: 270px;
   background: #ffffff;
   border: 1.5px solid rgba(102, 61, 255, 0.35);
   box-shadow: 0 8px 32px rgba(102, 61, 255, 0.14), 0 2px 8px rgba(102, 61, 255, 0.08);
@@ -1677,6 +1694,14 @@ body {
   color: #1a0a3e;
   line-height: 1.3;
   margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+.shopa-floating-card__subtitle {
+  font-size: 14px;
+  font-weight: 500;
+  color: #6b6484;
+  line-height: 1.45;
+  margin: 6px 0 0;
   font-family: 'Montserrat', sans-serif;
 }
 
@@ -2023,6 +2048,20 @@ body {
   opacity: 0;
 }
 
+/* Rating value blended into the gold star row */
+.chy-trusted-1-wrap .chy-trusted-1-reating .animated-stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.chy-trusted-1-wrap .chy-trusted-1-reating .rating-value {
+  color: #f6a623 !important;
+  font-size: 28px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.01em;
+}
+
 /* Animation only fires once the section is in view */
 .animated-stars.in-view i {
   animation: star-popin 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
@@ -2041,10 +2080,10 @@ body {
 .contact-hero {
   position: relative;
   overflow: hidden;
-  background-color: #f4f3fb;
+  background-color: #f6f6f6;
   /* photo at native scale, right-anchored (cover-stretch blurs on retina);
      gradient layer blends the hero colour into the photo's plain left side */
-  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/contact-hero-v2.webp');
+  background-image: linear-gradient(90deg, #f6f6f6 0%, #f6f6f6 28%, rgba(246, 246, 246, 0) 58%), url('/assets/img/breadcrumb/contact-hero-v2.webp');
   background-size: 100% 100%, auto 100%;
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
@@ -2260,6 +2299,13 @@ body {
   transition: color 0.2s ease;
 }
 .contact-info-card__office a:hover { color: #a78bfa; }
+.contact-info-card__phone {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  margin-top: 6px !important;
+}
+.contact-info-card__phone i { font-size: 11px; opacity: 0.85; }
 
 /* 24hr promise pill */
 .contact-info-card__promise {
@@ -2378,10 +2424,10 @@ body {
 .blog-hero {
   position: relative;
   overflow: hidden;
-  background-color: #f4f3fb;
+  background-color: #f6f6f6;
   /* photo at native scale, right-anchored (cover-stretch blurs on retina);
      gradient layer blends the hero colour into the photo's plain left side */
-  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/blog-hero-v2.webp');
+  background-image: linear-gradient(90deg, #f6f6f6 0%, #f6f6f6 28%, rgba(246, 246, 246, 0) 58%), url('/assets/img/breadcrumb/blog-hero-v2.webp');
   background-size: 100% 100%, auto 100%;
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
@@ -2512,10 +2558,10 @@ body {
 .about-hero {
   position: relative;
   overflow: hidden;
-  background-color: #f4f3fb;
+  background-color: #f6f6f6;
   /* photo at native scale, right-anchored (cover-stretch blurs on retina);
      gradient layer blends the hero colour into the photo's plain left side */
-  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 28%, rgba(244, 243, 251, 0) 58%), url('/assets/img/breadcrumb/about-hero-v3.webp');
+  background-image: linear-gradient(90deg, #f6f6f6 0%, #f6f6f6 28%, rgba(246, 246, 246, 0) 58%), url('/assets/img/breadcrumb/about-hero-v3.webp');
   background-size: 100% 100%, auto 100%;
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
@@ -2622,7 +2668,7 @@ body {
 .service-hero {
   position: relative;
   overflow: hidden;
-  background-color: #f4f3fb;
+  background-color: #f6f6f6;
   padding: 180px 0 160px;
 }
 /* photo variant — background image supplied per page via ServiceHero bgImage.
@@ -2725,6 +2771,12 @@ body {
   line-height: 1;
   font-family: 'Montserrat', sans-serif;
 }
+/* Text proof points (e.g. "Meta, TikTok & LinkedIn") sit smaller than figures so they don't blow out the row */
+.service-hero__stat-num--text {
+  font-size: clamp(15px, 1.5vw, 19px);
+  line-height: 1.2;
+  max-width: 260px;
+}
 .service-hero__stat-label {
   font-size: 12px;
   color: #555;
@@ -2753,6 +2805,10 @@ body {
   }
   .service-hero__stat-num {
     font-size: clamp(20px, 5.5vw, 26px);
+  }
+  .service-hero__stat-num--text {
+    font-size: clamp(11px, 3vw, 14px);
+    line-height: 1.15;
   }
   .service-hero__stat-label {
     font-size: 9px;
@@ -2870,7 +2926,7 @@ body {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 56px;
-  align-items: end;
+  align-items: center;
   margin-bottom: 48px;
   position: relative;
   z-index: 1;
@@ -3506,7 +3562,7 @@ p.wds-culprit__body {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 56px;
-  align-items: end;
+  align-items: center;
   margin-bottom: 48px;
 }
 .wds-deal-head .chy-section-para-1 { margin: 0 0 6px; }
@@ -5492,11 +5548,11 @@ p.wds-culprit__body {
 .post-hero {
   position: relative;
   overflow: hidden;
-  background-color: #f4f3fb;
+  background-color: #f6f6f6;
   /* photo at native scale, right-anchored (cover-stretch blurs on retina);
      wider blend than the other heroes so the photo's left edge dissolves
      invisibly into the background at every viewport width */
-  background-image: linear-gradient(90deg, #f4f3fb 0%, #f4f3fb 35%, rgba(244, 243, 251, 0.55) 58%, rgba(244, 243, 251, 0) 78%), url('/assets/img/breadcrumb/post-hero.webp');
+  background-image: linear-gradient(90deg, #f6f6f6 0%, #f6f6f6 35%, rgba(246, 246, 246, 0.55) 58%, rgba(246, 246, 246, 0) 78%), url('/assets/img/breadcrumb/post-hero.webp');
   background-size: 100% 100%, auto 100%;
   background-position: left top, right top;
   background-repeat: no-repeat, no-repeat;
@@ -5930,7 +5986,7 @@ p.wds-culprit__body {
 .wds-vm-panel:hover { transform: translateY(-6px); }
 .wds-vm-panel--vision {
   background: var(--chy-gd-1);
-  min-height: 420px;
+  min-height: 350px;
   box-shadow: 0 18px 50px rgba(102, 61, 255, 0.22);
 }
 .wds-vm-panel--vision::after {

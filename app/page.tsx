@@ -15,10 +15,10 @@ export default async function HomePage() {
   const [latestPosts, googleRating] = await Promise.all([getPosts(3), getGoogleRating()]);
 
   const whyItems = [
-    { icon: 'flaticon-digital-campaign', title: 'One Strategy Across Every Channel', body: "Digital and physical, online and offline, all working from the same playbook. Because five channels running five different strategies isn't marketing, it's an expensive argument." },
-    { icon: 'flaticon-team', title: 'A Real Person Who Knows Your Business', body: 'You work directly with a dedicated account manager who knows your goals, your market and your name. No call centres, no ticket queues, no retelling your story every time you ring.' },
-    { icon: 'flaticon-price-tag', title: 'Transparent, All-Inclusive Pricing', body: "Everything defined upfront, in writing. What's in your proposal is exactly what you pay. No hidden fees, no sneaky extras, no nasty surprises. Ever." },
-    { icon: 'flaticon-trophy', title: "Experience You Can't Fake", body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,000+ businesses. That track record shows up in every campaign we run for you.' },
+    { icon: 'flaticon-digital-campaign', title: 'One Strategy', subtitle: 'Every Channel.', body: "Digital and physical, online and offline, all working from the same playbook. Because five channels running five different strategies isn't marketing, it's an expensive argument." },
+    { icon: 'flaticon-team', title: 'Dedicated Account Manager', subtitle: 'One team that knows your business.', body: 'You work directly with a dedicated account manager who knows your goals, your market and your name. No call centres, no ticket queues, no retelling your story every time you ring.' },
+    { icon: 'flaticon-price-tag', title: 'Transparent Pricing', subtitle: 'No hidden costs. No surprises.', body: "Everything defined upfront, in writing. What's in your proposal is exactly what you pay. No hidden fees, no sneaky extras, no nasty surprises. Ever." },
+    { icon: 'flaticon-trophy', title: 'Built for SMEs', subtitle: 'Marketing that grows with your business.', body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,000+ businesses. That track record shows up in every campaign we run for you.' },
   ];
 
   const reviewSchema = {
@@ -34,19 +34,31 @@ export default async function HomePage() {
     })),
   };
 
-  const clientLogos = [
+  const clientLogos: { src: string; alt: string; light?: boolean }[] = [
     { src: '/assets/img/client/mcdonalds.webp',   alt: "McDonald's" },
-    { src: '/assets/img/client/nike.webp',         alt: 'Nike' },
     { src: '/assets/img/client/kfc.webp',          alt: 'KFC' },
-    { src: '/assets/img/client/bookingcom.webp',   alt: 'Booking.com' },
     { src: '/assets/img/client/raywhite.webp',     alt: 'Ray White' },
     { src: '/assets/img/client/pizzahut.webp',     alt: 'Pizza Hut' },
     { src: '/assets/img/client/redrooster.webp',   alt: 'Red Rooster' },
     { src: '/assets/img/client/adairs.webp',       alt: 'Adairs' },
-    { src: '/assets/img/client/bridgestone.webp',  alt: 'Bridgestone' },
     { src: '/assets/img/client/oroton.webp',       alt: 'Oroton' },
-    { src: '/assets/img/client/jbl.webp',          alt: 'JBL' },
     { src: '/assets/img/client/ops.webp',          alt: 'OPS' },
+  ];
+
+  const partnerLogos: { src: string; alt: string; light?: boolean }[] = [
+    { src: '/assets/img/client/asta-c.webp',            alt: 'ASTA Accommodation', light: true },
+    { src: '/assets/img/client/burdel-c.webp',          alt: 'Bur Del Co-Operative', light: true },
+    { src: '/assets/img/client/dreambig-c.webp',        alt: 'Dream Big Support Services', light: true },
+    { src: '/assets/img/client/infinity22-c.webp',      alt: 'Infinity22', light: true },
+    { src: '/assets/img/client/ics-c.webp',             alt: 'International Commercial Services', light: true },
+    { src: '/assets/img/client/learningblocks-c.webp',  alt: 'Learning Blocks Dural', light: true },
+    { src: '/assets/img/client/oasis-c.webp',           alt: 'Oasis Garden Village', light: true },
+    { src: '/assets/img/client/parkmore-c.webp',        alt: 'Parkmore Family Dental', light: true },
+    { src: '/assets/img/client/smileexcellence-c.webp', alt: 'Smile Excellence', light: true },
+    { src: '/assets/img/client/springvale-c.webp',      alt: 'Springvale & Richmond Dental Group', light: true },
+    { src: '/assets/img/client/sps-c.webp',             alt: 'SPS Energy', light: true },
+    { src: '/assets/img/client/sydneypodiatry-c.webp',  alt: 'Sydney Podiatry', light: true },
+    { src: '/assets/img/client/tkcommunity-c.webp',     alt: 'TK Community Care', light: true },
   ];
 
 
@@ -75,7 +87,7 @@ export default async function HomePage() {
             muted
             playsInline
             preload="none"
-            poster="/assets/img/hero/hero-poster-v2.webp"
+            poster="/assets/img/hero/hero-poster-v4.webp"
             style={{
               position: 'absolute',
               top: 0,
@@ -95,23 +107,25 @@ export default async function HomePage() {
             left: 0,
             width: '55%',
             height: '100%',
-            background: 'linear-gradient(to right, #faf8ff 55%, transparent 100%)',
+            background: 'linear-gradient(to right, #ffffff 55%, transparent 100%)',
             zIndex: 1,
           }} />
 
 
           <div className="container chy-container-1" style={{ position: 'relative', zIndex: 2 }}>
             <div className="row align-items-center">
-              <div className="col-lg-6">
+              <div className="col-lg-8">
                 <div className="chy-hero-1-content">
-                  <h5 className="chy-subtitle-1 subtitle wow fadeInLeft" data-wow-duration="3s">Your Go-To Marketing Agency</h5>
-                  <h1 className="chy-heading-1 title chy-split-in-hero-1 chy-split-text-2">You Run the Business. <br /> We&apos;ll Bring the&nbsp;Spotlight.</h1>
+                  <h5 className="chy-subtitle-1 subtitle wow fadeInLeft" data-wow-duration="3s">Marketing Without the Marketing Headaches.</h5>
+                  <h1 className="chy-heading-1 title chy-split-in-hero-1 chy-split-text-2">You Run the Business. <br /> We&apos;ll Bring the Spotlight.</h1>
                   <p className="chy-para-1 disc wow fadeInLeft" data-wow-duration="3s">
-                    Being brilliant is your job. Making you famous is ours. <br /> We take your business everywhere your customers look: search results, social feeds, grocery stores, medical centres and billboards nationwide. One dedicated team, one clear strategy, and a spotlight that stays on.
+                    Being brilliant at what you do is your job. Making sure people know about it is ours. Your customers don&apos;t discover businesses in just one place anymore. They search, scroll, drive past billboards, visit shopping centres, browse social media and ask Google for recommendations. That&apos;s why we don&apos;t think in channels.
+                    <br /><br />
+                    <span style={{ fontWeight: 700 }}>One team. One plan. Marketing that actually works together.</span>
                   </p>
                   <div className="btn-wrap">
                     <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft" data-wow-delay=".5s" data-wow-duration="3s">
-                      <span className="text">Get a Strategy Session</span>
+                      <span className="text">Book a Strategy Call</span>
                       <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                     </a>
                   </div>
@@ -161,7 +175,7 @@ export default async function HomePage() {
                 </div>
               </div>
               {/* Right col intentionally empty — character shows through video */}
-              <div className="col-lg-6" />
+              <div className="col-lg-4" />
             </div>
           </div>
         </div>
@@ -179,18 +193,15 @@ export default async function HomePage() {
 
               <div className="chy-trusted-1-item">
                 <h3 className="chy-trusted-1-title chy-heading-1">
-                  Trusted by 1,000+ Businesses
+                  The Numbers Behind the Marketing.
                 </h3>
               </div>
 
               <div className="chy-trusted-1-item">
                 <div className="chy-trusted-1-progress">
-                  <h4 className="chy-heading-1 title">Combined Experience</h4>
+                  <h4 className="chy-heading-1 title">Businesses Supported</h4>
                   <span className="line"></span>
-                  <h3 className="chy-heading-1 number">45+ yrs</h3>
-                  <div className="chy-trusted-1-progress-item chy-class-add active">
-                    <h5 className="chy-heading-1 title">In the Industry</h5>
-                  </div>
+                  <h3 className="chy-heading-1 number">1,500+</h3>
                 </div>
               </div>
 
@@ -204,10 +215,11 @@ export default async function HomePage() {
                       <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
                       <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
                     </svg>
-                    <span className="google-review-label">Google Reviews</span>
+                    <span className="google-review-label">Google Rating</span>
                   </div>
-                  {/* Animated stars */}
+                  {/* Rating value blended with animated stars */}
                   <div id="animated-stars" className="icon animated-stars">
+                    <span className="rating-value">{googleRating.rating}</span>
                     <i className="fa-solid fa-star star-1"></i>
                     <i className="fa-solid fa-star star-2"></i>
                     <i className="fa-solid fa-star star-3"></i>
@@ -215,7 +227,7 @@ export default async function HomePage() {
                     <i className="fa-solid fa-star star-5"></i>
                   </div>
                   <span className="line"></span>
-                  <h4 className="chy-heading-1 text">{googleRating.rating} · {googleRating.count} Verified Reviews</h4>
+                  <h4 className="chy-heading-1 text">{googleRating.count} Verified Reviews</h4>
                 </div>
               </div>
 
@@ -224,9 +236,6 @@ export default async function HomePage() {
                   <h4 className="chy-heading-1 title">Campaigns Managed</h4>
                   <span className="line"></span>
                   <h3 className="chy-heading-1 number">5,000+</h3>
-                  <div className="chy-trusted-1-progress-item chy-class-add active">
-                    <h5 className="chy-heading-1 title">Campaigns Per Year</h5>
-                  </div>
                 </div>
               </div>
 
@@ -258,10 +267,14 @@ export default async function HomePage() {
                   <div className="section-title-wrap mb-35">
                     <h5 className="chy-subtitle-1 wow fadeInLeft">why choose us</h5>
                     <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                      Marketing That Works as Hard as You Do
+                      Marketing That Works as Hard as You Do.
                     </h2>
                     <p className="chy-section-para-1 wow fadeInLeft">
-                      After 45 years of combined experience and 5,000+ campaigns, we&apos;ve learned what actually moves the needle for businesses, and what just burns budget while looking busy. You get that hard-won knowledge applied to your business from day one, not learned at your expense.
+                      Marketing isn&apos;t about doing more. It&apos;s about doing the right things, in the right places, consistently.
+                      <br /><br />
+                      That&apos;s why we don&apos;t sell disconnected marketing services. We build strategies that bring every channel together, so your website, social media, Google Ads, SEO and offline marketing all work towards the same goal: growing your business.
+                      <br /><br />
+                      Less guesswork. More momentum.
                     </p>
                   </div>
                   <a href="/about-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -274,7 +287,7 @@ export default async function HomePage() {
               <div className="col-xl-7 col-lg-6">
                 <div className="chy-solutions-1-img">
                   <div className="main-img rotatedscal">
-                    <img src="/assets/img/solutions/SM_HOME_Whatwedo.webp" alt="" loading="lazy" />
+                    <img src="/assets/img/solutions/SM_HOME2.webp" alt="" loading="lazy" />
                   </div>
                   <div className="chy-solutions-1-goals" style={{ left: '20px', bottom: '-60px' }}>
                     <h5 className="chy-heading-1 title">Results</h5>
@@ -321,9 +334,13 @@ export default async function HomePage() {
             {/* Left: sticky section title */}
             <div className="shopa-floating-sticky-col">
               <h5 className="chy-subtitle-1">why shopa marketing</h5>
-              <h2 className="chy-title-1" style={{ marginTop: '12px' }}>Built for Businesses That Are Serious About Growth</h2>
+              <h2 className="chy-title-1" style={{ marginTop: '12px' }}>Marketing Works Better When It Works Together.</h2>
               <p className="chy-section-para-1" style={{ marginTop: '16px' }}>
-                One dedicated team managing every channel your business needs, all pulling in the same direction. No fragmented agencies, no conflicting advice, no gaps where your leads quietly leak out.
+                Most businesses don&apos;t need more marketing. They need marketing that works together.
+                <br /><br />
+                At Shopa Marketing, one dedicated team manages your marketing under a single strategy. Your website, SEO, Google Ads, social media and offline campaigns all work towards the same goal instead of pulling in different directions.
+                <br /><br />
+                No fragmented agencies. No conflicting advice. Just marketing with a clear direction.
               </p>
             </div>
 
@@ -339,6 +356,7 @@ export default async function HomePage() {
                     {/* Title — sits at card bottom, slides up on hover */}
                     <div className="shopa-floating-card__heading">
                       <h4 className="shopa-floating-card__title">{item.title}</h4>
+                      <p className="shopa-floating-card__subtitle">{item.subtitle}</p>
                     </div>
                     {/* Body — slides in from below on hover */}
                     <div className="shopa-floating-card__body">
@@ -365,9 +383,9 @@ export default async function HomePage() {
           <div className="container chy-container-1">
             <div className="section-title-wrap text-center mb-50">
               <h5 className="chy-subtitle-1 wow fadeInDown">our clients</h5>
-              <h2 className="chy-title-1 chy-split-in-right chy-split-text">In Good Company</h2>
+              <h2 className="chy-title-1 chy-split-in-right chy-split-text">Trusted by Businesses Big and Small</h2>
               <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '560px', margin: '14px auto 0' }}>
-                From household names to ambitious local brands, they all chose Shopa. Your logo would look great in this line-up.
+                From local businesses to nationally recognised brands, we&apos;re proud to be part of their growth journey.
               </p>
             </div>
           </div>
@@ -375,7 +393,16 @@ export default async function HomePage() {
           <div className="clients-ticker-wrap">
             <div className="clients-ticker-track">
               {[...clientLogos, ...clientLogos].map((logo, i) => (
-                <div key={i} className="clients-logo-card">
+                <div key={i} className={`clients-logo-card${logo.light ? ' clients-logo-card--light' : ''}`}>
+                  <img src={logo.src} alt={logo.alt} loading="lazy" />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="clients-ticker-wrap clients-ticker-wrap--row2">
+            <div className="clients-ticker-track clients-ticker-track--reverse">
+              {[...partnerLogos, ...partnerLogos].map((logo, i) => (
+                <div key={i} className={`clients-logo-card${logo.light ? ' clients-logo-card--light' : ''}`}>
                   <img src={logo.src} alt={logo.alt} loading="lazy" />
                 </div>
               ))}

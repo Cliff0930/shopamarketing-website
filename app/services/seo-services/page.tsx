@@ -126,9 +126,20 @@ export default function SeoServicesPage() {
       </div>
 
       <ServiceHero
-        headline="SEO Services That Take You From Page Ten to Centre Stage"
-        subtext="Sick of being the internet's best-kept secret? As the SEO agency SMEs trust, we get you found everywhere your customers search: Google, AI Overviews, ChatGPT and whatever comes next. No fads, no shortcuts, just visibility that sticks!"
+        headline="Be Found Wherever Your Customers Search."
+        subtext={
+          <>
+            Search has changed. Your customers aren&apos;t just using Google anymore. They&apos;re searching through ChatGPT, Gemini, Perplexity, AI Overviews and whatever comes next.
+            <br /><br />
+            Our SEO strategies are built for today&apos;s search landscape, helping your business become more visible wherever people are looking. From technical SEO and content optimisation to local search and AI search visibility, we focus on sustainable growth—not shortcuts that disappear with the next algorithm update.
+          </>
+        }
         bgImage="/assets/img/breadcrumb/seo-hero.webp"
+        stats={[
+          { value: '1,500+', label: 'Businesses Supported' },
+          { value: '5,000+', label: 'Campaigns Managed' },
+          { value: 'Google & AI', label: 'Search Optimisation' },
+        ]}
       />
 
       {/* ── INTRO — editorial split ── */}
@@ -141,20 +152,18 @@ export default function SeoServicesPage() {
               <div className="wds-intro-content">
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                    Modern Search Engine Optimisation for How People Actually Search Now
+                    Search Has Changed. Your SEO Should Too.
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    Right now, someone nearby is looking for exactly what you sell. But here&apos;s the plot twist: they might not be typing it into Google at all. They could be asking ChatGPT for a recommendation, reading an AI Overview that answers before they ever click, or talking to their phone like it&apos;s an old mate. Search has changed more in the past two years than in the previous twenty.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Most SEO agencies are still playing the old game: ten blue links and a prayer. We play the whole board. Our SEO services get businesses ranking on Google AND cited by the AI tools your customers increasingly trust, combining technical excellence, magnetic content and quality links with genuine AI search optimisation.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Local suburb, capital city or the whole country: wherever and however your customers search, we make sure the answer they find is you.
+                    Search isn&apos;t what it used to be. Your customers aren&apos;t just searching on Google anymore. They&apos;re asking ChatGPT, reading AI Overviews, using voice search and discovering businesses through a growing number of AI-powered platforms.
+                    <br /><br />
+                    That&apos;s why our approach goes beyond traditional SEO. We combine technical optimisation, high-quality content, local SEO and authority building with strategies designed to improve your visibility across both Google and AI-powered search.
+                    <br /><br />
+                    Whether your customers are searching for a local service, comparing providers or asking AI for recommendations, we&apos;ll help make sure your business is the one they find.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
-                  <span className="text">Get Your Site Audit Report</span>
+                  <span className="text">Book an SEO Strategy Call</span>
                   <span className="icon"><i className="fa-solid fa-right-long"></i></span>
                 </a>
               </div>
@@ -188,9 +197,13 @@ export default function SeoServicesPage() {
 
         <div className="container chy-container-1">
           <div className="wds-culprit-head">
-            <h2 className="chy-title-1">SEO Services That Cover Every Angle, Old Game and New</h2>
+            <h2 className="chy-title-1">Everything Your Business Needs to Be Found Online.</h2>
             <p className="chy-section-para-1">
-              Great SEO isn&apos;t one lever, it&apos;s several pulled together. From the code under the bonnet to the words on the page, the links pointing your way and the AI engines deciding who gets mentioned, we handle every dimension of modern search, so nothing holds your visibility back.
+              Modern SEO is about much more than keywords. It&apos;s about building a strong online presence that helps your business get found across Google, AI search and every stage of the customer journey.
+              <br /><br />
+              From technical SEO and on-page optimisation to content, local SEO, authority building and AI search visibility, our team manages every part of your search strategy so nothing holds your business back.
+              <br /><br />
+              Every recommendation is designed to improve your visibility today while preparing your business for where search is heading tomorrow.
             </p>
           </div>
 
@@ -222,10 +235,14 @@ export default function SeoServicesPage() {
           <div className="wds-deal-head">
             <div>
               <h5 className="chy-subtitle-1 wow fadeInDown">ai seo</h5>
-              <h2 className="chy-title-1">AI SEO: Be the Answer, Not Just a Search Result</h2>
+              <h2 className="chy-title-1">AI Search Is Changing How Customers Find Businesses.</h2>
             </div>
             <p className="chy-section-para-1 wow fadeInUp">
-              Your customers have started asking ChatGPT, Gemini and Google&apos;s AI Overviews for recommendations, and those tools don&apos;t show ten options. They give one confident answer. If that answer isn&apos;t your business, it&apos;s somebody else&apos;s. Welcome to the new front line of search, where we&apos;ve already set up camp!
+              More people are asking ChatGPT, Gemini, Perplexity and Google&apos;s AI Overviews for recommendations instead of scrolling through pages of search results. That means your business needs to be visible wherever those answers are being generated.
+              <br /><br />
+              Our AI search optimisation strategies help improve your brand&apos;s visibility by strengthening the signals AI platforms rely on—high-quality content, website authority, structured information and trusted online mentions.
+              <br /><br />
+              As search continues to evolve, we&apos;ll help make sure your business is positioned to be part of the conversation, not left out of it.
             </p>
           </div>
 
@@ -241,7 +258,7 @@ export default function SeoServicesPage() {
           </div>
 
           <p className="chy-section-para-1 wow fadeInUp" style={{ textAlign: 'center', fontWeight: 700, maxWidth: '760px', margin: '46px auto 0' }}>
-            The businesses that adapted early to Google two decades ago owned their markets for years. AI search is that moment again. Get in early, and enjoy the view from the top!
+            The businesses that embraced Google early gained a lasting competitive advantage. AI search represents the next shift. The businesses that adapt now will be the ones customers find first tomorrow.
           </p>
 
         </div>
@@ -255,13 +272,14 @@ export default function SeoServicesPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="mb-30">
                 <h2 className="chy-title-1" style={{ color: '#fff' }}>
-                  SEO Isn&apos;t Set-and-Forget. It&apos;s Set-and-Soar.
+                  SEO Is Never Finished. Neither Are We.
                 </h2>
                 <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
-                  Here&apos;s the thing about search: it rewards expertise, authority and trust, and it never stops checking in on you. Google&apos;s algorithm changes more often than the weather in spring, AI engines are rewriting the rules as they go, and your competitors never stop investing. Businesses that treat SEO as a one-off project watch their rankings quietly slide back down the hill they just climbed.
-                </p>
-                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                  That&apos;s why our SEO service never sits still. We monitor every algorithm update, track how AI engines are answering questions in your industry, and adjust your strategy before problems become plummets. You stay ahead of the curve while your competitors wonder what just overtook them!
+                  Search is constantly evolving. Google updates its algorithms, AI platforms continue to reshape how people discover businesses, and your competitors are always looking for ways to get ahead. That&apos;s why successful SEO isn&apos;t a one-off project—it&apos;s an ongoing strategy.
+                  <br /><br />
+                  Our team continually monitors performance, adapts to algorithm changes, tracks emerging AI search trends and refines your strategy to keep your business visible where it matters most.
+                  <br /><br />
+                  While others react to changes after they&apos;ve happened, we&apos;re already helping your business stay one step ahead.
                 </p>
               </div>
             </div>

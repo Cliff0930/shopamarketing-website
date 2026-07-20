@@ -8,7 +8,7 @@ export default function ServiceTestimonials() {
           <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
           <h2 className="chy-title-1 chy-split-in-right chy-split-text">Results Business Owners Rave About</h2>
           <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-            We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
+            We could tell you why we&apos;re different. We&apos;d rather let our clients do it.
           </p>
         </div>
         <div className="wds-reviews-wall">

@@ -15,19 +15,16 @@ function animateCount(el: HTMLElement, target: number, duration: number) {
 }
 
 export default function BlogHeroCounters({
-  years,
-  articles,
-  categories,
+  businesses,
+  campaigns,
 }: {
-  years: number;
-  articles: number;
-  categories: number;
+  businesses: number;
+  campaigns: number;
 }) {
   useEffect(() => {
     const counters = [
-      { selector: '#blog-hero-counter-1', target: years },
-      { selector: '#blog-hero-counter-2', target: articles },
-      { selector: '#blog-hero-counter-3', target: categories },
+      { selector: '#blog-hero-counter-1', target: businesses },
+      { selector: '#blog-hero-counter-2', target: campaigns },
     ];
     // Wait for the stats strip CSS animation to finish (0.5s delay + 0.8s = 1.3s),
     // then count up so numbers are always visible before they change.
@@ -38,7 +35,7 @@ export default function BlogHeroCounters({
       });
     }, 1400);
     return () => clearTimeout(timer);
-  }, [years, articles, categories]);
+  }, [businesses, campaigns]);
 
   return null;
 }

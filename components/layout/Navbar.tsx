@@ -300,10 +300,10 @@ export default function Navbar() {
                 Our Services
               </p>
               <h3 style={{ fontSize: 26, fontWeight: 800, color: "#141515", lineHeight: 1.25, marginBottom: 12 }}>
-                Everything you need to grow
+                Everything Your Business Needs to Grow.
               </h3>
               <p style={{ fontSize: 13, color: "#666", lineHeight: 1.7, marginBottom: 24 }}>
-                Shopa Marketing helps SMEs across AU, NZ, USA &amp; UAE grow through smart, results-driven marketing.
+                Whether you&apos;re looking to attract more customers, strengthen your brand or bring your marketing together under one clear strategy, our team delivers the expertise to help you grow with confidence.
               </p>
               <Link href="/services"
                 className="inline-flex items-center gap-2 font-[700] text-primary hover:gap-3 transition-all duration-200"
@@ -343,12 +343,12 @@ export default function Navbar() {
                   Strategy Session
                 </p>
                 <p style={{ fontSize: 13, color: "rgba(255,255,255,0.7)", lineHeight: 1.65, marginBottom: 20 }}>
-                  Book a 30-min consultation with our marketing experts. No obligation.
+                  Book a 30-minute strategy call with one of our marketing specialists. We&apos;ll learn about your business, discuss your goals and explore where the biggest opportunities for growth lie. No obligation, just practical advice.
                 </p>
                 {[
-                  "700+ SME clients worldwide",
-                  "5,000+ campaigns delivered",
-                  "Offices in AU, NZ, USA & UAE",
+                  "1,500+ Businesses Supported",
+                  "5,000+ Campaigns Managed",
+                  "One Team. One Strategy. Every Channel.",
                 ].map(t => (
                   <div key={t} className="flex items-center gap-2 mb-2">
                     <span style={{ width: 16, height: 16, borderRadius: "50%", background: "rgba(255,255,255,0.25)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: 9, color: "#fff", fontWeight: 800, flexShrink: 0 }}>✓</span>
@@ -359,7 +359,7 @@ export default function Navbar() {
               <Link href="/contact-us"
                 className="mt-6 flex items-center justify-center gap-2 bg-white text-primary font-[700] rounded-[30px] py-3 hover:bg-white/90 transition-all duration-200"
                 style={{ fontSize: 13 }}>
-                Book a Consultation <ArrowRight size={13} />
+                Book a Strategy Call <ArrowRight size={13} />
               </Link>
             </div>
 

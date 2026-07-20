@@ -131,9 +131,20 @@ export default function OohAdvertisingPage() {
       </div>
 
       <ServiceHero
-        headline="OOH Advertising Your Customers Can't Scroll Past"
-        subtext="Ad blockers can't touch a billboard, and nobody skips a bus. As the OOH advertising specialists for SMEs, we put your brand where customers live, shop, wait and move, at rates that finally make outdoor affordable for the little guy!"
+        headline="Put Your Brand Where Your Customers Already Are."
+        subtext={
+          <>
+            Digital marketing matters. But some of the most powerful brand moments happen in the real world.
+            <br /><br />
+            We help businesses reach customers through shopping centres, medical centres, supermarkets, billboards, transit and retail locations across Australia, giving your brand visibility where people live, shop, work and travel.
+          </>
+        }
         bgImage="/assets/img/breadcrumb/ooh-hero.webp"
+        stats={[
+          { value: '1,500+', label: 'Businesses Supported' },
+          { value: '5,000+', label: 'Campaigns Managed' },
+          { value: 'Australia-Wide', label: 'OOH Network' },
+        ]}
       />
 
       {/* ── INTRO — editorial split ── */}
@@ -146,16 +157,14 @@ export default function OohAdvertisingPage() {
               <div className="wds-intro-content">
                 <div className="section-title-wrap mb-35">
                   <h2 className="chy-title-1 has-55 chy-split-in-right chy-split-text">
-                    Out-of-Home Advertising That Makes Your Brand a Local Landmark
+                    Big Brand Visibility. Built for Small Business.
                   </h2>
                   <p className="chy-section-para-1 wow fadeInUp">
-                    There&apos;s something the internet still can&apos;t do: stand on a street corner. Out-of-home advertising builds the kind of trust that only comes from being seen in the real world, again and again, right where your customers live, shop, wait and commute. See a brand online once, you scroll past. See it at your grocery store every week, and suddenly it&apos;s a household name.
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    Here&apos;s the part most SMEs don&apos;t know: outdoor advertising isn&apos;t just for the big end of town anymore. We&apos;ve partnered with OOH networks to unlock premium placements at rates built for small and medium businesses. Big-brand visibility, without the big-brand invoice!
-                  </p>
-                  <p className="chy-section-para-1 wow fadeInUp">
-                    And you won&apos;t lift a finger. From creative concept and production through to placement, scheduling and performance reporting, our team handles the entire campaign while you get on with running your business.
+                    Out-of-home advertising puts your business where your customers already are—shopping centres, medical centres, supermarkets, billboards, transit locations and other high-traffic environments where your brand is seen every day.
+                    <br /><br />
+                    What was once reserved for large national brands is now accessible to small and medium businesses. Through our network of trusted media partners, we secure premium advertising opportunities at rates designed to fit SME budgets.
+                    <br /><br />
+                    From campaign strategy and creative to artwork, bookings, production and reporting, our team manages the entire process, making outdoor advertising simple, effective and surprisingly affordable.
                   </p>
                 </div>
                 <a href="/contact-us" className="chy-pr-btn-1 wow fadeInLeft">
@@ -193,9 +202,11 @@ export default function OohAdvertisingPage() {
 
         <div className="container chy-container-1">
           <div className="wds-culprit-head">
-            <h2 className="chy-title-1">OOH Advertising Services From First Sketch to Final Report</h2>
+            <h2 className="chy-title-1">Everything You Need for a Successful OOH Campaign.</h2>
             <p className="chy-section-para-1">
-              Strategy, creative, media buying, production, installation and measurement: the full campaign lifecycle under one roof. No juggling suppliers, no chasing installers, no mystery about what your money did.
+              From strategy and creative through to media buying, production, installation and reporting, we manage every stage of your outdoor advertising campaign.
+              <br /><br />
+              You&apos;ll have one team, one point of contact and one clear strategy—making it easy to launch campaigns that build brand awareness and deliver measurable results.
             </p>
           </div>
 
@@ -249,13 +260,16 @@ export default function OohAdvertisingPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="mb-30">
                 <h2 className="chy-title-1" style={{ color: '#fff' }}>
-                  Real-World Attention Is Priceless. Wasted Placements Aren&apos;t.
+                  The Right Location Changes Everything.
                 </h2>
                 <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '18px' }}>
-                  In a world drowning in digital ads, physical advertising cuts through in ways screens simply can&apos;t. No ad blockers, no skip buttons, no doom-scrolling past your message. But here&apos;s the catch: OOH advertising is a specialist&apos;s game. Formats, audience data, network relationships, creative rules, timing windows. Get one wrong and your budget quietly evaporates on placements nobody sees.
-                </p>
-                <p className="chy-section-para-1 wow fadeInUp" style={{ color: 'rgba(255,255,255,0.95)', marginTop: '16px' }}>
-                  That&apos;s where we come in. With thousands of campaigns behind us and partnerships across our OOH networks, we know exactly which placements pull their weight and which ones just look good in a proposal. Every dollar works, or it doesn&apos;t go out the door.
+                  Outdoor advertising isn&apos;t just about being seen—it&apos;s about being seen by the right people, in the right place, at the right time.
+                  <br /><br />
+                  Choosing the right locations, formats, audience and campaign timing can make the difference between a campaign that builds your brand and one that goes unnoticed.
+                  <br /><br />
+                  With thousands of campaigns managed and strong relationships across Australia&apos;s leading out-of-home media networks, we know how to identify the placements that deliver the greatest impact for your budget.
+                  <br /><br />
+                  Every recommendation is backed by strategy, experience and a focus on helping your business get the strongest possible return from every campaign.
                 </p>
               </div>
             </div>
