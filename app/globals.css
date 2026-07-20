@@ -1156,8 +1156,11 @@ html {
   opacity: 0;
   z-index: 1;
 }
-.svc-ticker-card:hover .svc-ticker-img__static.has-video { opacity: 0; }
-.svc-ticker-card:hover .svc-ticker-img__video { opacity: 1; }
+/* Hover reveal only on real-hover (desktop) — touch devices stay a static image */
+@media (hover: hover) {
+  .svc-ticker-card:hover .svc-ticker-img__static.has-video { opacity: 0; }
+  .svc-ticker-card:hover .svc-ticker-img__video { opacity: 1; }
+}
 .svc-ticker-title {
   font-size: 24px !important;
   font-weight: 700 !important;
@@ -2872,11 +2875,11 @@ html {
   border-radius: 20px;
 }
 /* Scrub sections: static poster <img> on mobile/tablet, scrubbable <video> on desktop */
-.scrub-poster { display: none; }
-@media (min-width: 992px) { .scrub-video { display: block; } }
+.scrub-poster { display: none !important; }
+@media (min-width: 992px) { .scrub-video { display: block !important; } }
 @media (max-width: 991px) {
-  .scrub-poster { display: block; }
-  .scrub-video { display: none; }
+  .scrub-poster { display: block !important; }
+  .scrub-video { display: none !important; }
 }
 /* Pinned intro — tall wrapper pins the section while the video scrubs,
    then releases (home-hero mechanics for in-page sections) */
@@ -4962,8 +4965,11 @@ p.wds-culprit__body {
   transition: opacity 0.4s ease;
 }
 .wds-deck__video { opacity: 0; z-index: 1; }
-.wds-deck__card:hover .wds-deck__img.has-video { opacity: 0; }
-.wds-deck__card:hover .wds-deck__video { opacity: 1; }
+/* Hover reveal only on real-hover (desktop) — touch devices stay a static image */
+@media (hover: hover) {
+  .wds-deck__card:hover .wds-deck__img.has-video { opacity: 0; }
+  .wds-deck__card:hover .wds-deck__video { opacity: 1; }
+}
 .wds-deck__label {
   position: absolute;
   bottom: 18px;

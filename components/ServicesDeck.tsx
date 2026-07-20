@@ -45,7 +45,7 @@ export default function ServicesDeck({ services }: { services: Service[] }) {
                 muted
                 loop
                 playsInline
-                preload="metadata"
+                preload="none"
                 className="wds-deck__video"
               />
             )}

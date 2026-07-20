@@ -90,7 +90,7 @@ export default function ServicesTicker({ services }: { services: Service[] }) {
                   muted
                   loop
                   playsInline
-                  preload="metadata"
+                  preload="none"
                   className="svc-ticker-img__video"
                 />
               )}
