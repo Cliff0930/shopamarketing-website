@@ -51,6 +51,22 @@ html {
 /* Hide the template's per-page back-to-top (replaced by the global one above) */
 .scroll-top { display: none !important; }
 
+/* Mobile only: section utilities (pt-120, pb-110 …) keep their full desktop
+   values, leaving too much gap between sections on phones. Scale the large
+   ones down. Desktop (>=768px) is untouched. */
+@media (max-width: 767px) {
+  .pt-200, .pt-190, .pt-180, .pt-170, .pt-160, .pt-150, .pt-140, .pt-130,
+  .pt-120, .pt-115, .pt-110 { padding-top: 60px !important; }
+  .pt-105, .pt-100, .pt-95, .pt-90 { padding-top: 50px !important; }
+  .pt-85, .pt-80, .pt-75, .pt-70 { padding-top: 44px !important; }
+  .pt-65, .pt-60 { padding-top: 38px !important; }
+  .pb-200, .pb-190, .pb-180, .pb-170, .pb-160, .pb-150, .pb-140, .pb-130,
+  .pb-120, .pb-115, .pb-110 { padding-bottom: 60px !important; }
+  .pb-105, .pb-100, .pb-95, .pb-90 { padding-bottom: 50px !important; }
+  .pb-85, .pb-80, .pb-75, .pb-70 { padding-bottom: 44px !important; }
+  .pb-65, .pb-60 { padding-bottom: 38px !important; }
+}
+
 body {
   color: var(--foreground);
   /* Butter-smooth gradient — barely-there lavender that eases in and out */
@@ -903,6 +919,7 @@ html {
 /* Slight left indent so the subtitle + body copy start inside the headline's left edge */
 .chy-hero-1-content .disc { padding-left: 8px; }
 .chy-hero-1-content .subtitle { padding-left: 10px !important; }
+@media (max-width: 991px) { .chy-hero-1-content .subtitle { padding-left: 0 !important; } }
 @media (max-width: 1399px) { .chy-hero-1-content .title { font-size: 56px !important; } }
 @media (max-width: 1199px) { .chy-hero-1-content .title { font-size: 48px !important; } }
 @media (max-width: 991px)  { .chy-hero-1-content .title { font-size: 42px !important; } }
