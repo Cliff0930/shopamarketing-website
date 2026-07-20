@@ -4,7 +4,7 @@
 //   GOOGLE_PLACE_ID       — the Shopa Marketing profile's Place ID
 // Until they're set (or if the fetch fails), the last known values are shown.
 
-const FALLBACK = { rating: 4.7, count: 319 };
+const FALLBACK = { rating: 4.8, count: 370 };
 
 export async function getGoogleRating(): Promise<{ rating: number; count: number }> {
   const key = process.env.GOOGLE_PLACES_API_KEY;

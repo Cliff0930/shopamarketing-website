@@ -7,7 +7,7 @@ import { useEffect, useRef } from 'react';
 // source must be all-intra encoded (-g 1) or reverse stutters.
 const REWIND_RATE = 1.6; // rewind slightly faster than realtime
 
-export default function HoverRevealVideo({ src, className, ariaLabel }: { src: string; className?: string; ariaLabel?: string }) {
+export default function HoverRevealVideo({ src, poster, className, ariaLabel }: { src: string; poster?: string; className?: string; ariaLabel?: string }) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const rafRef = useRef(0);
 
@@ -17,6 +17,10 @@ export default function HoverRevealVideo({ src, className, ariaLabel }: { src: s
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
+    // Mobile/tablet: no hover — show the static poster only, never load the video
+    if (window.innerWidth < 992) return;
+    // Desktop: show the first frame immediately, then swap to the blob below
+    video.src = src;
     let objectUrl = '';
     const abortController = new AbortController();
     const io = new IntersectionObserver((entries) => {
@@ -76,16 +80,27 @@ export default function HoverRevealVideo({ src, className, ariaLabel }: { src: s
   };
 
   return (
-    <video
-      ref={videoRef}
-      src={src}
-      muted
-      playsInline
-      preload="metadata"
-      className={className}
-      aria-label={ariaLabel}
-      onMouseEnter={handleEnter}
-      onMouseLeave={handleLeave}
-    />
+    <>
+      {/* Mobile/tablet: static poster <img> (no hover, no video load) */}
+      {poster && (
+        <img
+          src={poster}
+          alt={ariaLabel}
+          loading="lazy"
+          className={`${className ?? ''} scrub-poster`.trim()}
+        />
+      )}
+      <video
+        ref={videoRef}
+        muted
+        playsInline
+        preload="none"
+        poster={poster}
+        className={`${className ?? ''} scrub-video`.trim()}
+        aria-label={ariaLabel}
+        onMouseEnter={handleEnter}
+        onMouseLeave={handleLeave}
+      />
+    </>
   );
 }

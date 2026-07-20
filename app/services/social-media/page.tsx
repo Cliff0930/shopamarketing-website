@@ -99,7 +99,7 @@ export default function SocialMediaPage() {
       <ServiceHero
         headline="Social Media Advertising That Drives Real Growth."
         subtext="Social media advertising is about more than likes and impressions. It's about reaching the right people, generating quality leads and turning attention into customers."
-        bgImage="/assets/img/breadcrumb/social-hero-v2.webp"
+        bgImage="/assets/img/breadcrumb/social-hero-v3.webp"
         stats={[
           { value: '1,500+', label: 'Businesses Supported' },
           { value: '5,000+', label: 'Campaigns Managed' },

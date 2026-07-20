@@ -92,8 +92,8 @@ export default function AboutUsPage() {
             <div className="col-xl-6 col-lg-6">
               <div className="wds-intro-media wow fadeInRight" data-wow-duration="1.2s">
                 <ScrollScrubVideo
-                  src="/assets/img/services/about-scrub.mp4"
-                  poster="/assets/img/services/about-scrub-poster.webp"
+                  src="/assets/img/services/about-scrub-v2.mp4"
+                  poster="/assets/img/services/about-scrub-v2-poster.webp"
                   className="wds-intro-video wds-intro-video--full"
                   ariaLabel="The Shopa Marketing team of senior specialists working together for small businesses"
                   pinContainerId="about-intro-pin"
@@ -163,6 +163,7 @@ export default function AboutUsPage() {
               <div className="wds-founder-card">
                 <HoverRevealVideo
                   src="/assets/img/team/preeti-hover-v3.mp4"
+                  poster="/assets/img/team/preeti-hover-v3-poster.webp"
                   className="wds-founder-video"
                   ariaLabel="Preeti Kennedy, founder of Shopa Marketing"
                 />
@@ -174,6 +175,7 @@ export default function AboutUsPage() {
               <div className="wds-founder-card wds-founder-card--offset">
                 <HoverRevealVideo
                   src="/assets/img/team/ben-hover-v2.mp4"
+                  poster="/assets/img/team/ben-hover-v2-poster.webp"
                   className="wds-founder-video"
                   ariaLabel="Benjamin Kennedy, co-founder of Shopa Marketing"
                 />

@@ -89,7 +89,7 @@ export default function DoneForYouPage() {
       <ServiceHero
         headline="Your Entire Marketing Department. One Monthly Fee."
         subtext={'Why manage five agencies, three freelancers and your cousin who “knows social media” when one experienced team can do it all? Strategy, creative, digital, websites, social media, out-of-home, reporting—we become your marketing department, without the overhead of building one.'}
-        bgImage="/assets/img/breadcrumb/dfy-hero.webp"
+        bgImage="/assets/img/breadcrumb/dfy-hero-v2.webp"
         stats={[
           { value: '1,500+', label: 'Businesses Supported' },
           { value: '5,000+', label: 'Campaigns Managed' },

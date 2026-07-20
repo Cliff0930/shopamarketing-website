@@ -285,7 +285,7 @@ export default function Navbar() {
         {/* ── MEGA MENU — lives at header level to escape pill transform ── */}
         <div
           className={clsx(
-            "absolute left-0 right-0 bg-white z-40 transition-all duration-300",
+            "absolute left-0 right-0 bg-white z-40 transition-all duration-300 hidden lg:block",
             servicesOpen ? "opacity-100 translate-y-0 pointer-events-auto" : "opacity-0 -translate-y-2 pointer-events-none"
           )}
           style={{ top: "100%", marginTop: "8px", borderTop: "3px solid #663dff", boxShadow: "0 24px 60px rgba(0,0,0,0.10)" }}
@@ -371,7 +371,7 @@ export default function Navbar() {
           FULL-PAGE MOBILE MENU (below lg)
       ════════════════════════════════════════════ */}
       <div className={clsx(
-        "fixed inset-0 z-[60] lg:hidden transition-opacity duration-400",
+        "fixed inset-0 z-[60] lg:hidden overflow-hidden transition-opacity duration-400",
         mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
       )}>
         {/* Backdrop — brand gradient atmosphere */}

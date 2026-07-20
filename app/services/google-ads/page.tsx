@@ -98,7 +98,7 @@ export default function GoogleAdsPage() {
             We create and manage high-performing Google Ads campaigns that combine smart strategy, continuous optimisation and data-driven decisions to generate more enquiries, more sales and a stronger return on your advertising investment.
           </>
         }
-        bgImage="/assets/img/breadcrumb/gads-hero-v3.webp"
+        bgImage="/assets/img/breadcrumb/gads-hero-v4.webp"
         stats={[
           { value: '1,500+', label: 'Businesses Supported' },
           { value: '5,000+', label: 'Campaigns Managed' },
