@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import DeferredStyles from "@/components/DeferredStyles";
+import ScrollToTop from "@/components/ScrollToTop";
 
 export const viewport: Viewport = {
   width: "device-width",
@@ -51,6 +52,7 @@ export default function RootLayout({
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <ScrollToTop />
       </body>
     </html>
   );

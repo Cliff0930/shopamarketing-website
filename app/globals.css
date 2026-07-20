@@ -20,6 +20,37 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Global scroll-to-top button — every page, all devices */
+.shopa-scrolltop {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 50;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 50%;
+  background: var(--chy-gd-1, linear-gradient(135deg, #663dff, #aa00ff));
+  color: #fff;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(102, 61, 255, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+}
+.shopa-scrolltop.is-visible { opacity: 1; visibility: visible; transform: translateY(0); }
+.shopa-scrolltop:hover { filter: brightness(1.08); box-shadow: 0 10px 28px rgba(102, 61, 255, 0.45); }
+@media (max-width: 767px) {
+  .shopa-scrolltop { right: 16px; bottom: 16px; width: 44px; height: 44px; font-size: 16px; }
+}
+/* Hide the template's per-page back-to-top (replaced by the global one above) */
+.scroll-top { display: none !important; }
+
 body {
   color: var(--foreground);
   /* Butter-smooth gradient — barely-there lavender that eases in and out */
