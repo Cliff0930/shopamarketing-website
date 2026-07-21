@@ -4,9 +4,11 @@ import nodemailer from 'nodemailer';
 // Requires "Authenticated SMTP" enabled on the mailbox and an app password.
 const host = process.env.SMTP_HOST || 'smtp.office365.com';
 const port = Number(process.env.SMTP_PORT || 587);
-const user = process.env.SMTP_USER;   // e.g. contact@shopamarketing.com.au
+const user = process.env.SMTP_USER;   // e.g. registration-web@shopamarketing.com
 const pass = process.env.SMTP_PASS;   // app password — set in Vercel only
-const from = process.env.SMTP_FROM || user;
+// Always send from the authenticated mailbox — sending "as" any other address
+// requires Exchange Send-As permission and otherwise fails (SendAsDenied).
+const from = user;
 
 export function smtpConfigured(): boolean {
   return Boolean(user && pass);
