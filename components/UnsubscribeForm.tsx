@@ -17,7 +17,7 @@ export default function UnsubscribeForm() {
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
-  function handleSubmit(e: FormEvent) {
+  async function handleSubmit(e: FormEvent) {
     e.preventDefault();
     if (!/.+@.+\..+/.test(email.trim())) {
       setError('Please enter a valid email address.');
@@ -28,9 +28,15 @@ export default function UnsubscribeForm() {
       return;
     }
     setError('');
-    // Delivery endpoint intentionally not wired yet — same as the contact
-    // form, it gets its key at domain cutover.
-    // const payload = { email, duration, reason };
+    try {
+      await fetch('/api/unsubscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email.trim(), duration, reason }),
+      });
+    } catch {
+      // Never block the user from unsubscribing on a delivery hiccup
+    }
     setSubmitted(true);
   }
 

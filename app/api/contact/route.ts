@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { sendMail, smtpConfigured, list } from '@/lib/email';
 
 interface ContactPayload {
   services: string[];
@@ -41,52 +42,57 @@ export async function POST(request: Request) {
   }
 
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
-  const web3formsKey = process.env.WEB3FORMS_ACCESS_KEY;
+  let emailOk = false;
+  let sheetOk = false;
 
-  try {
-    if (webhookUrl) {
+  // 1) Email notification via Microsoft 365 SMTP (from contact@shopamarketing.com.au)
+  if (smtpConfigured()) {
+    try {
+      await sendMail({
+        to: list(process.env.CONTACT_TO, 'pkennedy@shopamarketing.com.au'),
+        cc: list(process.env.CONTACT_CC, 'neil@shopamarketing.com'),
+        bcc: list(process.env.CONTACT_BCC, 'sami@shopamarketing.com'),
+        replyTo: payload.email, // replies go straight to the customer
+        subject: `New enquiry: ${payload.fullName}${payload.businessName ? ` (${payload.businessName})` : ''}`,
+        text: [
+          `Name: ${payload.fullName}`,
+          `Business: ${payload.businessName || '—'}`,
+          `Phone: ${payload.phone}`,
+          `Email: ${payload.email}`,
+          `Website: ${payload.website || '—'}`,
+          `Services: ${payload.services.join(', ')}`,
+          `Main Goal: ${payload.goal || '—'}`,
+          `Timeline: ${payload.timeline || '—'}`,
+          `Budget: ${payload.budget || '—'}`,
+          `Marketing SMS Consent: ${payload.consent1 ? 'Yes' : 'No'}`,
+          `Non-marketing SMS Consent: ${payload.consent2 ? 'Yes' : 'No'}`,
+          '',
+          'Message:',
+          payload.message || '—',
+        ].join('\n'),
+      });
+      emailOk = true;
+    } catch (err) {
+      console.error('[contact] email failed:', err);
+    }
+  }
+
+  // 2) Save to Google Sheet via the Apps Script webhook
+  if (webhookUrl) {
+    try {
       const res = await fetch(webhookUrl, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
-      if (!res.ok) throw new Error(`webhook responded ${res.status}`);
-      return NextResponse.json({ ok: true });
+      sheetOk = res.ok;
+    } catch (err) {
+      console.error('[contact] sheet webhook failed:', err);
     }
-
-    if (web3formsKey) {
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: web3formsKey,
-          subject: `New enquiry from ${payload.fullName}${payload.businessName ? ` (${payload.businessName})` : ''}`,
-          from_name: 'Shopa Marketing Website',
-          'Full Name': payload.fullName,
-          'Business Name': payload.businessName || '—',
-          'Phone': payload.phone,
-          'Email': payload.email,
-          'Website': payload.website || '—',
-          'Services': payload.services.join(', '),
-          'Main Goal': payload.goal || '—',
-          'Timeline': payload.timeline || '—',
-          'Budget': payload.budget || '—',
-          'Message': payload.message || '—',
-          'Marketing SMS Consent': payload.consent1 ? 'Yes' : 'No',
-          'Non-marketing SMS Consent': payload.consent2 ? 'Yes' : 'No',
-        }),
-      });
-      const data = await res.json().catch(() => null);
-      if (!res.ok || !data?.success) throw new Error('web3forms rejected submission');
-      return NextResponse.json({ ok: true });
-    }
-
-    // No delivery provider configured — surface it so the client can
-    // show a real fallback instead of a fake success.
-    console.error('[contact] No CONTACT_WEBHOOK_URL or WEB3FORMS_ACCESS_KEY configured — submission not delivered');
-    return NextResponse.json({ ok: false, reason: 'not-configured' }, { status: 503 });
-  } catch (err) {
-    console.error('[contact] delivery failed:', err);
-    return NextResponse.json({ ok: false }, { status: 502 });
   }
+
+  if (emailOk || sheetOk) return NextResponse.json({ ok: true });
+
+  console.error('[contact] not delivered — SMTP and CONTACT_WEBHOOK_URL both unset/failed');
+  return NextResponse.json({ ok: false, reason: 'not-configured' }, { status: 503 });
 }
