@@ -16,6 +16,8 @@ export default function UnsubscribeForm() {
   const [reason, setReason] = useState('');
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [honeypot, setHoneypot] = useState('');
+  const [renderedAt] = useState(() => Date.now());
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
@@ -32,7 +34,7 @@ export default function UnsubscribeForm() {
       await fetch('/api/unsubscribe', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: email.trim(), duration, reason }),
+        body: JSON.stringify({ email: email.trim(), duration, reason, company: honeypot, renderedAt }),
       });
     } catch {
       // Never block the user from unsubscribing on a delivery hiccup
@@ -63,6 +65,17 @@ export default function UnsubscribeForm() {
       </p>
 
       <form onSubmit={handleSubmit} noValidate>
+        {/* Honeypot — hidden from humans, bots fill it */}
+        <input
+          type="text"
+          name="company"
+          value={honeypot}
+          onChange={(e) => setHoneypot(e.target.value)}
+          tabIndex={-1}
+          autoComplete="off"
+          aria-hidden="true"
+          style={{ position: 'absolute', left: '-9999px', width: '1px', height: '1px', opacity: 0 }}
+        />
         <label className="unsub-label" htmlFor="unsub-email">Your email address</label>
         <input
           id="unsub-email"

@@ -36,7 +36,8 @@ interface ContactPayload {
   message: string;
   consent1: boolean;
   consent2: boolean;
-  company?: string; // honeypot — real users never fill this
+  company?: string;    // honeypot — real users never fill this
+  renderedAt?: number; // time-trap — ms timestamp of when the form mounted
 }
 
 function isValid(p: ContactPayload): boolean {
@@ -58,6 +59,12 @@ export async function POST(request: Request) {
 
   // Honeypot filled = bot. Report success so it moves on.
   if (payload.company) return NextResponse.json({ ok: true });
+
+  // Time-trap: a real person can't complete this multi-step form in under 3s.
+  // Report success (drop silently) so bots don't retry.
+  if (typeof payload.renderedAt === 'number' && Date.now() - payload.renderedAt < 3000) {
+    return NextResponse.json({ ok: true });
+  }
 
   if (!isValid(payload)) {
     return NextResponse.json({ ok: false }, { status: 400 });

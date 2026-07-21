@@ -58,6 +58,7 @@ export default function ContactForm() {
   const [sending, setSending]           = useState(false);
   const [sendError, setSendError]       = useState(false);
   const [honeypot, setHoneypot]         = useState('');
+  const [renderedAt] = useState(() => Date.now()); // time-trap: bots submit instantly
 
   function toggleService(label: string) {
     setStepError('');
@@ -109,6 +110,7 @@ export default function ContactForm() {
           email, website, message,
           consent1, consent2,
           company: honeypot,
+          renderedAt,
         }),
       });
       const data = await res.json().catch(() => null);

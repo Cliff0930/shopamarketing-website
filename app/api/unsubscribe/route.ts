@@ -5,7 +5,8 @@ interface UnsubPayload {
   email: string;
   duration: string;
   reason: string;
-  company?: string; // honeypot — real users never fill this
+  company?: string;    // honeypot — real users never fill this
+  renderedAt?: number; // time-trap — ms timestamp of when the form mounted
 }
 
 function isValid(p: UnsubPayload): boolean {
@@ -25,6 +26,11 @@ export async function POST(request: Request) {
 
   // Honeypot filled = bot. Report success so it moves on.
   if (payload.company) return NextResponse.json({ ok: true });
+
+  // Time-trap: real users take a few seconds; bots submit instantly.
+  if (typeof payload.renderedAt === 'number' && Date.now() - payload.renderedAt < 3000) {
+    return NextResponse.json({ ok: true });
+  }
 
   if (!isValid(payload)) {
     return NextResponse.json({ ok: false }, { status: 400 });
