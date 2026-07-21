@@ -3,6 +3,13 @@ const nextConfig = {
   compress: true,
   async redirects() {
     return [
+      // Temporary: /case-studies is a stub with no content. Point visitors to
+      // the homepage until the page is rebuilt. Keep as temporary (307) so the
+      // URL stays indexed for the rebuild — do NOT change to 301.
+      { source: '/case-studies', destination: '/', permanent: false },
+      // Old WordPress sitemap URL still referenced by Google/Search Console.
+      // Point it at the current Next.js sitemap so it stops returning a 404.
+      { source: '/sitemap_index.xml', destination: '/sitemap.xml', statusCode: 301 },
       { source: '/social-media', destination: '/services/social-media', statusCode: 301 },
       { source: '/google-ads', destination: '/services/google-ads', statusCode: 301 },
       { source: '/seo-services', destination: '/services/seo-services', statusCode: 301 },

@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import PricingSection from "@/components/PricingSection";
 import ServiceHero from "@/components/ServiceHero";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+
+export const metadata: Metadata = {
+  title: 'Done-For-You Marketing Australia | Your Whole Team | Shopa',
+  description: 'Full-service marketing for Australian SMEs. Strategy, ads, SEO, content and design handled by one senior team — so you run your business, not your marketing.',
+};
 
 export default function DoneForYouPage() {
   const focusItems = [

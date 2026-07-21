@@ -42,6 +42,16 @@ export function list(v: string | undefined, fallback = ''): string[] {
     .filter(Boolean);
 }
 
+// Case-insensitive de-dupe that preserves the first-seen casing of each address.
+function uniq(addrs: string[]): string[] {
+  const seen = new Map<string, string>();
+  for (const a of addrs) {
+    const key = a.trim().toLowerCase();
+    if (key && !seen.has(key)) seen.set(key, a.trim());
+  }
+  return Array.from(seen.values());
+}
+
 export async function sendMail(opts: {
   to: string[];
   cc?: string[];
@@ -50,11 +60,21 @@ export async function sendMail(opts: {
   subject: string;
   text: string;
 }) {
+  // Ensure no address receives more than one copy: dedupe within `to`, then drop
+  // any cc/bcc address that's already a recipient. Guards against duplicate or
+  // overlapping entries in the UNSUB_TO/UNSUB_CC (etc.) env vars.
+  const lc = (arr: string[]) => new Set(arr.map((a) => a.toLowerCase()));
+  const to = uniq(opts.to);
+  const toKeys = lc(to);
+  const cc = uniq(opts.cc ?? []).filter((a) => !toKeys.has(a.toLowerCase()));
+  const usedKeys = lc([...to, ...cc]);
+  const bcc = uniq(opts.bcc ?? []).filter((a) => !usedKeys.has(a.toLowerCase()));
+
   await transport().sendMail({
     from,
-    to: opts.to.join(','),
-    cc: opts.cc?.length ? opts.cc.join(',') : undefined,
-    bcc: opts.bcc?.length ? opts.bcc.join(',') : undefined,
+    to: to.join(','),
+    cc: cc.length ? cc.join(',') : undefined,
+    bcc: bcc.length ? bcc.join(',') : undefined,
     replyTo: opts.replyTo,
     subject: opts.subject,
     text: opts.text,

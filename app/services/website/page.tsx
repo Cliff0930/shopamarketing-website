@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { websitePageTestimonials as testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+
+export const metadata: Metadata = {
+  title: 'Website Design Australia | Fast Sites That Sell | Shopa',
+  description: 'Website design for Australian SMEs. Fast, mobile-first sites built to convert — engineered for speed, SEO and turning visitors into paying customers.',
+};
 
 export default function WebsiteDesignPage() {
   const underperformCards: { num: string; short: string; title: string; body: string; image?: string }[] = [

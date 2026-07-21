@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { seoPageTestimonials as testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+
+export const metadata: Metadata = {
+  title: 'SEO Services Australia | Get Found, Rank, Grow | Shopa',
+  description: 'SEO for Australian SMEs that moves rankings and revenue. Technical fixes, local SEO, content and links — built to get you found by ready-to-buy customers.',
+};
 
 export default function SeoServicesPage() {
   const pillars: { num: string; short: string; title: string; body: string; image?: string }[] = [

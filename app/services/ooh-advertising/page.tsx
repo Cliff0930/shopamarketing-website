@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { oohPageTestimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+
+export const metadata: Metadata = {
+  title: 'OOH Advertising Australia | Screens, Billboards & More | Shopa',
+  description: 'Out-of-home ads for Australian SMEs. Billboards, shopping-centre and grocery-store screens, and digital displays — big-brand visibility, small-business budget.',
+};
 
 export default function OohAdvertisingPage() {
   const stages: { num: string; short: string; title: string; body: string; image?: string }[] = [

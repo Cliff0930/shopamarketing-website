@@ -11,15 +11,36 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  // Resolves relative OG/Twitter image URLs (from app/opengraph-image.tsx and
+  // app/twitter-image.tsx) to absolute — social scrapers require absolute URLs.
+  metadataBase: new URL("https://shopamarketing.com.au"),
+  // Self-referencing canonical for every page. Next resolves the relative "./"
+  // against each page's own pathname, so /about-us gets .../about-us, etc.
+  // Pages with their own metadata inherit this unless they set their own.
+  alternates: {
+    canonical: "./",
+  },
   title: "Shopa Marketing — Your Go-To Marketing Company for SMEs",
   description:
     "Shopa Marketing is an award-winning digital marketing agency based in Melbourne, Australia, helping SMEs grow through SEO, Social Media, Google Ads, and more.",
-  keywords: "digital marketing, SEO, social media, Google Ads, done for you marketing, Melbourne, Australia",
   // app/icon.png and app/apple-icon.png are auto-detected by Next.js App Router.
   // The explicit entry below ensures the PNG favicon also loads for older browsers.
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",
+  },
+  // Site-wide Open Graph / Twitter defaults. title & description are intentionally
+  // omitted so each page's own title/description flow through (Next fills og:title /
+  // og:description from the page metadata). The default share image comes from
+  // app/opengraph-image.tsx & app/twitter-image.tsx; per-page pages (e.g. blog posts)
+  // can still override any of these.
+  openGraph: {
+    type: "website",
+    siteName: "Shopa Marketing",
+    locale: "en_AU",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

@@ -12,7 +12,7 @@ const services = [
     label: "Done For You",
     href: "/services/done-for-you",
     icon: Megaphone,
-    desc: "Fractional marketing leadership for SMEs",
+    desc: "Your entire marketing department for one monthly fee",
   },
   {
     label: "OOH Advertising",

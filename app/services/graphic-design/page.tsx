@@ -1,6 +1,12 @@
+import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+
+export const metadata: Metadata = {
+  title: 'Graphic Design Australia | Branding & Creative | Shopa',
+  description: 'Graphic design for Australian SMEs. Logos, branding, social creative and print — sharp work that does a job: more clicks, more leads, more sales.',
+};
 
 export default function GraphicDesignPage() {
 

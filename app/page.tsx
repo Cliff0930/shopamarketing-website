@@ -18,7 +18,7 @@ export default async function HomePage() {
     { icon: 'flaticon-digital-campaign', title: 'One Strategy', subtitle: 'Every Channel.', body: "Digital and physical, online and offline, all working from the same playbook. Because five channels running five different strategies isn't marketing, it's an expensive argument." },
     { icon: 'flaticon-team', title: 'Dedicated Account Manager', subtitle: 'One team that knows your business.', body: 'You work directly with a dedicated account manager who knows your goals, your market and your name. No call centres, no ticket queues, no retelling your story every time you ring.' },
     { icon: 'flaticon-price-tag', title: 'Transparent Pricing', subtitle: 'No hidden costs. No surprises.', body: "Everything defined upfront, in writing. What's in your proposal is exactly what you pay. No hidden fees, no sneaky extras, no nasty surprises. Ever." },
-    { icon: 'flaticon-trophy', title: 'Built for SMEs', subtitle: 'Marketing that grows with your business.', body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,000+ businesses. That track record shows up in every campaign we run for you.' },
+    { icon: 'flaticon-trophy', title: 'Built for SMEs', subtitle: 'Marketing that grows with your business.', body: '45+ years of combined experience, 5,000+ campaigns delivered, 1,500+ businesses. That track record shows up in every campaign we run for you.' },
   ];
 
   const reviewSchema = {

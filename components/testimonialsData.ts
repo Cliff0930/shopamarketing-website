@@ -71,6 +71,11 @@ export const testimonials: Testimonial[] = [
 // passed via the `extra` prop of ServiceTestimonials. Kept verbatim.
 export const homeExtraTestimonials: Testimonial[] = [
   {
+    quote: `Shopa Marketing has been a fantastic partner for our store Erskine Pets over the past few years. Their team really understands small retail and consistently provides marketing support that's practical, easy to use, and genuinely effective. They're responsive, adaptable, and always willing to tailor ideas to suit our brand and our customers. We've seen steady improvements in engagement and visibility thanks to their tools and campaigns. Highly recommend Shopa Marketing for any business wanting reliable, down-to-earth marketing support that actually works.`,
+    name: 'Michelle Newman',
+    bio: 'Erskine Pets',
+  },
+  {
     quote: `We started our campaign for Care Next Level (NDIS) in medical centres with Shopa Marketing in July and began seeing results by mid-October, with new calls from potential clients that successfully converted into clients. We've now signed up for three medical centres and love the exposure our business gets in local communities. This campaign has not only brought in direct inquiries but has also significantly increased word-of-mouth referrals. The Shopa Marketing team has been incredibly helpful, designing our artwork and accommodating any changes quickly and professionally. Highly recommend their services! Cheers Vik`,
     name: 'Vikas Thakur',
     bio: 'Care Next Level (NDIS)',

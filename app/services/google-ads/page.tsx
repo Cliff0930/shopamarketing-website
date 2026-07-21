@@ -1,7 +1,13 @@
+import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
 import { googleAdsPageTestimonials as testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
+
+export const metadata: Metadata = {
+  title: 'Google Ads Management Australia | Clicks to Customers | Shopa',
+  description: 'Google Ads for Australian SMEs. Search, Shopping and Performance Max campaigns tuned to real conversions — every dollar tracked to revenue, not vanity clicks.',
+};
 
 export default function GoogleAdsPage() {
   const provideCards = [

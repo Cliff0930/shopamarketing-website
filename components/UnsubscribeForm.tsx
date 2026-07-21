@@ -16,11 +16,15 @@ export default function UnsubscribeForm() {
   const [reason, setReason] = useState('');
   const [error, setError] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
   const [honeypot, setHoneypot] = useState('');
   const [renderedAt] = useState(() => Date.now());
 
   async function handleSubmit(e: FormEvent) {
     e.preventDefault();
+    // Guard against double/triple taps while the request is in flight — otherwise
+    // each extra tap fires another POST and another notification.
+    if (submitting) return;
     if (!/.+@.+\..+/.test(email.trim())) {
       setError('Please enter a valid email address.');
       return;
@@ -30,6 +34,7 @@ export default function UnsubscribeForm() {
       return;
     }
     setError('');
+    setSubmitting(true);
     try {
       await fetch('/api/unsubscribe', {
         method: 'POST',
@@ -39,6 +44,7 @@ export default function UnsubscribeForm() {
     } catch {
       // Never block the user from unsubscribing on a delivery hiccup
     }
+    setSubmitting(false);
     setSubmitted(true);
   }
 
@@ -118,8 +124,8 @@ export default function UnsubscribeForm() {
 
         {error && <span className="unsub-error">{error}</span>}
 
-        <button type="submit" className="chy-pr-btn-1 unsub-submit" aria-label="unsubscribe">
-          <span className="text">Unsubscribe</span>
+        <button type="submit" className="chy-pr-btn-1 unsub-submit" aria-label="unsubscribe" disabled={submitting}>
+          <span className="text">{submitting ? 'Unsubscribing…' : 'Unsubscribe'}</span>
           <span className="icon"><i className="fa-solid fa-right-long"></i></span>
         </button>
       </form>
