@@ -1,6 +1,22 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   compress: true,
+  async redirects() {
+    return [
+      { source: '/social-media', destination: '/services/social-media', statusCode: 301 },
+      { source: '/google-ads', destination: '/services/google-ads', statusCode: 301 },
+      { source: '/seo-services', destination: '/services/seo-services', statusCode: 301 },
+      { source: '/website', destination: '/services/website', statusCode: 301 },
+      { source: '/graphic-design', destination: '/services/graphic-design', statusCode: 301 },
+      { source: '/ooh-advertising', destination: '/services/ooh-advertising', statusCode: 301 },
+      { source: '/done-for-you', destination: '/services/done-for-you', statusCode: 301 },
+      { source: '/print-and-digital-screens', destination: '/services/ooh-advertising', statusCode: 301 },
+      { source: '/grocery-store-ads', destination: '/services/ooh-advertising', statusCode: 301 },
+      { source: '/cmo-for-hire', destination: '/services/done-for-you', statusCode: 301 },
+      { source: '/email-campaigns', destination: '/services/done-for-you', statusCode: 301 },
+      { source: '/privacy-policy-2', destination: '/privacy-policy', statusCode: 301 },
+    ];
+  },
   async headers() {
     return [
       {
