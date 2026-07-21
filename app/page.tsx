@@ -181,7 +181,16 @@ export default async function HomePage() {
                         rel="noopener noreferrer"
                         aria-label="Read the Shopa Marketing feature in The American Reporter"
                       >
-                        <img src="/assets/img/press/the-american-reporter.svg" alt="The American Reporter" />
+                        <img src="/assets/img/press/the-american-reporter-v2.svg" alt="The American Reporter" />
+                      </a>
+                      <a
+                        className="featured-in-logo-slot"
+                        href="https://usinsider.com/preeti-kennedy-is-redefining-what-modern-ambition-looks-like/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read the Preeti Kennedy feature in US Insider"
+                      >
+                        <img src="/assets/img/press/us-insider.svg" alt="US Insider" />
                       </a>
                     </div>
                   </div>
