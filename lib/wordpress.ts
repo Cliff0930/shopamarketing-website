@@ -1,4 +1,4 @@
-const WP_BASE = 'https://shopamarketing.com.au/wp-json/wp/v2';
+const WP_BASE = 'https://blog.shopamarketing.com.au/wp-json/wp/v2';
 
 export interface WPPost {
   id: number;

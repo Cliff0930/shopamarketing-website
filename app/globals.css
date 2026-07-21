@@ -3627,6 +3627,14 @@ p.wds-culprit__body {
   .wds-proc-card--2,
   .wds-proc-card--3 { margin-top: 0; }
 }
+/* Equal-height process cards (staircase layout unchanged) — the shorter cards
+   pad up to the tallest (card 4); min-height matched per band so nothing clips */
+@media (min-width: 1200px) {
+  .wds-proc-card { min-height: 450px; }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+  .wds-proc-card { min-height: 565px; }
+}
 
 /* ── Why Choose Us — the deal bento ── */
 .wds-deal-head {

@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-const WP_BASE = 'https://shopamarketing.com.au/wp-json/wp/v2';
+const WP_BASE = 'https://blog.shopamarketing.com.au/wp-json/wp/v2';
 
 export async function GET(req: NextRequest) {
   const q = req.nextUrl.searchParams.get('q')?.trim() ?? '';
