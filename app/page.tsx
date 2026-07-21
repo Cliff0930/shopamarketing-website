@@ -66,7 +66,7 @@ export default async function HomePage() {
     <>
       {/* Preload the hero poster (mobile LCP) so it's decoded and ready the
           instant the preloader overlay lifts — no effect on quality. */}
-      <link rel="preload" as="image" href="/assets/img/hero/hero-poster-v4.webp" />
+      <link rel="preload" as="image" href="/assets/img/hero/hero-poster-v5.webp" />
 
       <TemplateScripts />
 
@@ -91,7 +91,7 @@ export default async function HomePage() {
             muted
             playsInline
             preload="none"
-            poster="/assets/img/hero/hero-poster-v4.webp"
+            poster="/assets/img/hero/hero-poster-v5.webp"
             style={{
               position: 'absolute',
               top: 0,
