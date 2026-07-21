@@ -64,6 +64,10 @@ export default async function HomePage() {
 
   return (
     <>
+      {/* Preload the hero poster (mobile LCP) so it's decoded and ready the
+          instant the preloader overlay lifts — no effect on quality. */}
+      <link rel="preload" as="image" href="/assets/img/hero/hero-poster-v4.webp" />
+
       <TemplateScripts />
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewSchema) }} />
