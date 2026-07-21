@@ -1084,7 +1084,7 @@ html {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
 }
 /* shared card style for all logo slots */
 .featured-in-logo-slot {
@@ -1354,6 +1354,8 @@ html {
   }
   .featured-in-logo-slot img,
   .logo-pill img { max-height: 30px !important; }
+  /* Odd 5th logo: span both columns so it centres on its own row */
+  .featured-in-logos > *:nth-child(5):last-child { grid-column: 1 / -1 !important; }
 
   /* ── Section title wrappers — must be full width & visible ── */
   /* These containers have no xs Bootstrap column class, so they auto-size to

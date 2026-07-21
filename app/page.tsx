@@ -174,6 +174,15 @@ export default async function HomePage() {
                       >
                         <img src="/assets/img/press/ap.png" alt="Associated Press" />
                       </a>
+                      <a
+                        className="featured-in-logo-slot"
+                        href="https://www.theamericanreporter.com/2026/07/04/why-this-global-founder-thinks-modern-business-has-forgotten-its-people/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label="Read the Shopa Marketing feature in The American Reporter"
+                      >
+                        <img src="/assets/img/press/the-american-reporter.svg" alt="The American Reporter" />
+                      </a>
                     </div>
                   </div>
                 </div>
