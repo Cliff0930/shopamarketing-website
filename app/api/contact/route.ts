@@ -1,5 +1,27 @@
 import { NextResponse } from 'next/server';
-import { sendMail, smtpConfigured, list } from '@/lib/email';
+import { sendMail, smtpConfigured, list, verifySmtp } from '@/lib/email';
+
+// Temporary diagnostic: GET /api/contact?diag=shopa-smtp
+// Reports which delivery env vars are set + whether SMTP auth succeeds
+// (no secret values are returned). Remove once delivery is confirmed working.
+export async function GET(request: Request) {
+  const url = new URL(request.url);
+  if (url.searchParams.get('diag') !== 'shopa-smtp') {
+    return NextResponse.json({ ok: false }, { status: 404 });
+  }
+  const smtp = await verifySmtp();
+  return NextResponse.json({
+    env: {
+      SMTP_USER: Boolean(process.env.SMTP_USER),
+      SMTP_PASS: Boolean(process.env.SMTP_PASS),
+      SMTP_HOST: process.env.SMTP_HOST || '(default) smtp.office365.com',
+      SMTP_PORT: process.env.SMTP_PORT || '(default) 587',
+      CONTACT_WEBHOOK_URL: Boolean(process.env.CONTACT_WEBHOOK_URL),
+      UNSUBSCRIBE_WEBHOOK_URL: Boolean(process.env.UNSUBSCRIBE_WEBHOOK_URL),
+    },
+    smtpVerify: smtp,
+  });
+}
 
 interface ContactPayload {
   services: string[];
