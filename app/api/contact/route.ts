@@ -64,8 +64,11 @@ export async function POST(request: Request) {
   }
 
   const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
+  const diag = new URL(request.url).searchParams.get('diag') === 'shopa-smtp';
   let emailOk = false;
   let sheetOk = false;
+  let emailErr = '';
+  let sheetErr = '';
 
   // 1) Email notification via Microsoft 365 SMTP (from contact@shopamarketing.com.au)
   if (smtpConfigured()) {
@@ -95,6 +98,7 @@ export async function POST(request: Request) {
       });
       emailOk = true;
     } catch (err) {
+      emailErr = err instanceof Error ? err.message : String(err);
       console.error('[contact] email failed:', err);
     }
   }
@@ -108,13 +112,20 @@ export async function POST(request: Request) {
         body: JSON.stringify(payload),
       });
       sheetOk = res.ok;
+      if (!res.ok) sheetErr = `HTTP ${res.status}`;
     } catch (err) {
+      sheetErr = err instanceof Error ? err.message : String(err);
       console.error('[contact] sheet webhook failed:', err);
     }
   }
 
-  if (emailOk || sheetOk) return NextResponse.json({ ok: true });
+  const status = diag ? {
+    email: emailOk ? 'ok' : smtpConfigured() ? `failed: ${emailErr}` : 'not-set',
+    sheet: sheetOk ? 'ok' : webhookUrl ? `failed: ${sheetErr}` : 'not-set',
+  } : undefined;
+
+  if (emailOk || sheetOk) return NextResponse.json({ ok: true, status });
 
   console.error('[contact] not delivered — SMTP and CONTACT_WEBHOOK_URL both unset/failed');
-  return NextResponse.json({ ok: false, reason: 'not-configured' }, { status: 503 });
+  return NextResponse.json({ ok: false, reason: 'not-configured', status }, { status: 503 });
 }
