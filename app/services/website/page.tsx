@@ -1,6 +1,6 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
-import { testimonials } from "@/components/testimonialsData";
+import { websitePageTestimonials as testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function WebsiteDesignPage() {

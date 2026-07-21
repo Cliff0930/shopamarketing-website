@@ -1,6 +1,7 @@
-import { testimonials } from "@/components/testimonialsData";
+import { testimonials, type Testimonial } from "@/components/testimonialsData";
 
-export default function ServiceTestimonials() {
+export default function ServiceTestimonials({ extra = [] }: { extra?: Testimonial[] }) {
+  const all = extra.length ? [...testimonials, ...extra] : testimonials;
   return (
     <div className="wds-reviews-area pt-110 pb-110">
       <div className="container chy-container-1">
@@ -12,7 +13,7 @@ export default function ServiceTestimonials() {
           </p>
         </div>
         <div className="wds-reviews-wall">
-          {testimonials.map((t, i) => (
+          {all.map((t, i) => (
             <div key={i} className="wds-review-holder wow wds-unfold-in" data-wow-delay={`${i * 0.12}s`} data-wow-duration="0.8s">
               <figure className="wds-review-card">
                 <span className="wds-review-card__mark" aria-hidden="true">&ldquo;</span>

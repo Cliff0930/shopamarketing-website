@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
-import { testimonials } from "@/components/testimonialsData";
+import { socialMediaPageTestimonials as testimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export const metadata: Metadata = {

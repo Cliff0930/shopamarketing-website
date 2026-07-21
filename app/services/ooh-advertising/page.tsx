@@ -1,6 +1,6 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
-import { testimonials, type Testimonial } from "@/components/testimonialsData";
+import { oohPageTestimonials } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function OohAdvertisingPage() {
@@ -63,13 +63,7 @@ export default function OohAdvertisingPage() {
     },
   ];
 
-  const featuredNames = ['Bare', 'Coastal Skin & Beauty'];
-  const oohTestimonials = [
-    ...featuredNames
-      .map((n) => testimonials.find((t) => t.name === n))
-      .filter((t): t is Testimonial => !!t),
-    ...testimonials.filter((t) => !featuredNames.includes(t.name)),
-  ];
+  const oohTestimonials = oohPageTestimonials;
 
   const faqs = [
     {

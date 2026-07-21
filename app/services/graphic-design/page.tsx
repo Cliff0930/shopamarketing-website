@@ -1,17 +1,8 @@
 import TemplateScripts from "@/components/TemplateScripts";
 import ServiceHero from "@/components/ServiceHero";
-import { testimonials, Testimonial } from "@/components/testimonialsData";
 import ScrollScrubVideo from "@/components/ScrollScrubVideo";
 
 export default function GraphicDesignPage() {
-  // Artwork/print-specific testimonials lead on this page
-  const featuredNames = ['Fountain College', 'Hutt Dental Hub'];
-  const gfxTestimonials = [
-    ...featuredNames
-      .map((n) => testimonials.find((t) => t.name === n))
-      .filter((t): t is Testimonial => !!t),
-    ...testimonials.filter((t) => !featuredNames.includes(t.name)),
-  ];
 
   const provideItems: { title: string; body: string; icon: string; image?: string }[] = [
     {
@@ -80,11 +71,6 @@ export default function GraphicDesignPage() {
     serviceType: 'Graphic Design Services',
     provider: { '@type': 'Organization', name: 'Shopa Marketing' },
     areaServed: ['Australia', 'New Zealand'],
-    review: gfxTestimonials.map((t) => ({
-      '@type': 'Review',
-      reviewBody: t.quote,
-      author: { '@type': 'Organization', name: t.name },
-    })),
   };
 
   return (
@@ -243,40 +229,6 @@ export default function GraphicDesignPage() {
         </div>
       </div>
 
-      {/* ── TESTIMONIALS — masonry review wall (design stories first) ── */}
-      <div className="wds-reviews-area pt-110 pb-110">
-        <div className="container chy-container-1">
-          <div className="section-title-wrap text-center mb-50">
-            <h5 className="chy-subtitle-1 wow fadeInDown">testimonials</h5>
-            <h2 className="chy-title-1 chy-split-in-right chy-split-text">Design Work Business Owners Rave About</h2>
-            <p className="chy-section-para-1 wow fadeInUp" style={{ maxWidth: '640px', margin: '10px auto 0' }}>
-              We&apos;d happily brag all day, but our clients tell it better. Here&apos;s what business owners say about working with us.
-            </p>
-          </div>
-          <div className="wds-reviews-wall">
-            {gfxTestimonials.map((t, i) => (
-              <div key={i} className="wds-review-holder wow wds-unfold-in" data-wow-delay={`${i * 0.12}s`} data-wow-duration="0.8s">
-                <figure className="wds-review-card">
-                  <span className="wds-review-card__mark" aria-hidden="true">&ldquo;</span>
-                  <blockquote className="wds-review-card__quote">{t.quote}</blockquote>
-                  <figcaption className="wds-review-card__person">
-                    <span className="wds-review-card__avatar">
-                      {t.logo
-                        ? <img src={t.logo} alt={t.name} loading="lazy" />
-                        : <span className="wds-review-card__initials">{t.name.split(' ').slice(0, 2).map(w => w[0]).join('')}</span>
-                      }
-                    </span>
-                    <span className="wds-review-card__who">
-                      <span className="wds-review-card__name">{t.name}</span>
-                      <span className="wds-review-card__bio">{t.bio}</span>
-                    </span>
-                  </figcaption>
-                </figure>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
 
       {/* ── FAQ — sticky title + hover accordion rows ── */}
       <div className="wds-faq-area pt-110 pb-110 bg-default">

@@ -6,7 +6,7 @@ import StarAnimationTrigger from '@/components/StarAnimationTrigger';
 import FloatingCardsGSAP from '@/components/FloatingCardsGSAP';
 import ServiceTestimonials from '@/components/ServiceTestimonials';
 import { homeServices } from '@/components/homeServicesData';
-import { testimonials } from '@/components/testimonialsData';
+import { testimonials, homeExtraTestimonials } from '@/components/testimonialsData';
 import { getGoogleRating } from '@/lib/googleReviews';
 
 export const revalidate = 3600;
@@ -376,7 +376,7 @@ export default async function HomePage() {
       <div className="body-bg-2 bg-default">
 
         {/* ── TESTIMONIALS — masonry review wall ── */}
-        <ServiceTestimonials />
+        <ServiceTestimonials extra={homeExtraTestimonials} />
 
         {/* ── CLIENTS ── */}
         <div className="shopa-clients-area pt-60 pb-80 fix">
