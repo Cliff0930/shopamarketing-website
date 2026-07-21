@@ -15,7 +15,7 @@ export default function WebsiteDesignPage() {
     {
       num: '02',
       short: 'Seven Seconds',
-      image: '/assets/img/website/culprit-seconds.webp',
+      image: '/assets/img/website/culprit-seconds-v2.webp',
       title: 'Seven Seconds to Win or Lose',
       body: "That's roughly how long you have before a visitor decides whether you're the real deal. A tired layout or an obvious template can undo years of hard-earned reputation in a single glance. Your website should walk into the room the way your business does: sharp, confident and impossible to ignore.",
     },

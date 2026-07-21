@@ -140,7 +140,7 @@ export default function AboutUsPage() {
       </div>
 
       {/* ── MEET THE KENNEDY DUO ── */}
-      <div className="pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+      <div className="pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3-v2.webp')" }}>
         <div className="container chy-container-1">
           <div className="section-title-wrap text-center mb-50">
             <h5 className="chy-subtitle-1 wow fadeInDown">Meet the Founders</h5>

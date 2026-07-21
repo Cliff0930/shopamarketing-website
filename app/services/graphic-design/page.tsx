@@ -15,7 +15,7 @@ export default function GraphicDesignPage() {
       title: 'Marketing Collateral',
       body: 'From brochures and business cards to presentations, flyers and exhibition materials, we design professional marketing collateral that clearly communicates your message and leaves a lasting impression.',
       icon: 'flaticon-read',
-      image: '/assets/img/gfx/swatch-collateral.webp',
+      image: '/assets/img/gfx/swatch-collateral-v2.webp',
     },
     {
       title: 'Digital Marketing Assets',

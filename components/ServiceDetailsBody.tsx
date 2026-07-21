@@ -144,7 +144,7 @@ export default function ServiceDetailsBody({
       </div>
 
       {/* ── FAQ — sticky title + accordion split ── */}
-      <div className="wds-faq-area pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3.png')" }}>
+      <div className="wds-faq-area pt-110 pb-110 bg-default" style={{ backgroundImage: "url('/assets/img/bg/body-bg-3-v2.webp')" }}>
         <div className="container chy-container-1">
           <div className="row">
 
