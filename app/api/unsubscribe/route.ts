@@ -44,7 +44,7 @@ export async function POST(request: Request) {
   if (smtpConfigured()) {
     try {
       await sendMail({
-        to: list(process.env.UNSUB_TO, 'samvk@shopamarketing.com'),
+        to: list(process.env.UNSUB_TO, 'helpdesk@shopamarketing.com,customerservice@shopamarketing.com'),
         cc: list(process.env.UNSUB_CC, 'sami@shopamarketing.com'),
         subject: `Unsubscribe request: ${payload.email}`,
         text: [
